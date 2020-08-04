@@ -1,0 +1,9 @@
+.vs
+pm.app/bin
+pm.app/obj
+pm.be/bin
+pm.be/obj
+pm.da/bin
+pm.da/obj
+pm.bl/bin
+pm.bl/obj
