@@ -17,5 +17,6 @@ namespace pm.be
         public int CodigoArea { get; set; }
         public AreaBe Area { get; set; }
         public bool FlagActivo { get; set; }
+        public int Estado { get; set; }
     }
 }

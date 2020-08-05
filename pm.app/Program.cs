@@ -16,7 +16,8 @@ namespace pm.app
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            new FrmLogin().Show();
+            Application.Run();
         }
     }
 }
