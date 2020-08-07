@@ -10,5 +10,8 @@ namespace pm.be
     {
         public int CodigoTipoDocumentoIdentidad { get; set; }
         public string Descripcion { get; set; }
+        public int CantidadCaracteres { get; set; }
+
+        public override string ToString() => Descripcion;
     }
 }

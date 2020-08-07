@@ -122,7 +122,25 @@ namespace pm.app
             }
 
             ToolStripItem[] itemsMenu = ObtenerMenuCollection(listaMenuPadre);
-            if (itemsMenu != null) mnsMenu.Items.AddRange(itemsMenu);
+            if (MdiChildren.Length > 0)
+            {
+                DialogResult dr = MessageBox.Show("Antes de cambiar de perfil, se cerrarán todas las ventanas, ¿Deseas continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    foreach (Form f in MdiChildren)
+                    {
+                        f.Close();
+                    }
+
+                    mnsMenu.Items.Clear();
+                    if (itemsMenu != null) mnsMenu.Items.AddRange(itemsMenu);
+                }
+            }
+            else
+            {
+                mnsMenu.Items.Clear();
+                if (itemsMenu != null) mnsMenu.Items.AddRange(itemsMenu);
+            }
         }
 
         private void cbbPerfil_Item_Click(object sender, EventArgs e)
@@ -149,6 +167,11 @@ namespace pm.app
         private void frmMain_Load(object sender, EventArgs e)
         {
             CargarInformacionUsuario();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

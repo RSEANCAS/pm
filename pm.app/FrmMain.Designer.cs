@@ -38,9 +38,9 @@
             this.lblIP = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel7 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblPC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.mnsMenu = new System.Windows.Forms.MenuStrip();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.cbbPerfil = new System.Windows.Forms.ToolStripDropDownButton();
+            this.mnsMenu = new System.Windows.Forms.MenuStrip();
             this.stsInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,15 +116,6 @@
             this.lblPC.Size = new System.Drawing.Size(36, 17);
             this.lblPC.Text = "lblPC";
             // 
-            // mnsMenu
-            // 
-            this.mnsMenu.Font = new System.Drawing.Font("Roboto", 9F);
-            this.mnsMenu.Location = new System.Drawing.Point(0, 0);
-            this.mnsMenu.Name = "mnsMenu";
-            this.mnsMenu.Size = new System.Drawing.Size(907, 24);
-            this.mnsMenu.TabIndex = 1;
-            this.mnsMenu.Text = "menuStrip1";
-            // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
@@ -138,9 +129,17 @@
             this.cbbPerfil.Image = ((System.Drawing.Image)(resources.GetObject("cbbPerfil.Image")));
             this.cbbPerfil.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cbbPerfil.Name = "cbbPerfil";
-            this.cbbPerfil.ShowDropDownArrow = false;
-            this.cbbPerfil.Size = new System.Drawing.Size(39, 20);
+            this.cbbPerfil.Size = new System.Drawing.Size(48, 20);
             this.cbbPerfil.Text = "Perfil";
+            // 
+            // mnsMenu
+            // 
+            this.mnsMenu.Font = new System.Drawing.Font("Roboto", 9F);
+            this.mnsMenu.Location = new System.Drawing.Point(0, 0);
+            this.mnsMenu.Name = "mnsMenu";
+            this.mnsMenu.Size = new System.Drawing.Size(907, 24);
+            this.mnsMenu.TabIndex = 1;
+            this.mnsMenu.Text = "menuStrip1";
             // 
             // FrmMain
             // 
@@ -156,6 +155,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pronto Moda";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.stsInfo.ResumeLayout(false);
             this.stsInfo.PerformLayout();

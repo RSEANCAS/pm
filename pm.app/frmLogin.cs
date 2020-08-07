@@ -79,5 +79,21 @@ namespace pm.app
 
             return estaValidado;
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            bool autoLogin = AppSettings.Get<bool>("autoLogin");
+
+            if (autoLogin)
+            {
+                string usuario = AppSettings.Get<string>("login.usuario");
+                string contraseña = AppSettings.Get<string>("login.contraseña");
+
+                txtUsuario.Text = usuario;
+                txtContraseña.Text = contraseña;
+
+                btnIniciarSesion_Click(btnIniciarSesion, new EventArgs());
+            }
+        }
     }
 }

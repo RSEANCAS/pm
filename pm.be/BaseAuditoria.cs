@@ -8,6 +8,7 @@ namespace pm.be
 {
     public class BaseAuditoria
     {
+        public int Fila { get; set; }
         public string UsuarioGraba { get; set; }
         public DateTime FechaGraba { get; set; }
         public string UsuarioModi { get; set; }

@@ -123,7 +123,7 @@
             this.lblErrorContraseña.Size = new System.Drawing.Size(0, 13);
             this.lblErrorContraseña.TabIndex = 9;
             // 
-            // frmLogin
+            // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,9 +142,10 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(219, 300);
             this.MinimumSize = new System.Drawing.Size(219, 300);
-            this.Name = "frmLogin";
+            this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -11,5 +11,7 @@ namespace pm.be
         public int CodigoActividad { get; set; }
         public string Nombre { get; set; }
         public bool FlagActivo { get; set; }
+
+        public override string ToString() => Nombre;
     }
 }

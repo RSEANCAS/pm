@@ -18,5 +18,14 @@ namespace pm.util
 
             return value;
         }
+
+        public static object GetNullable<T>(this T obj)
+        {
+            object value = obj;
+
+            if (obj == null) value = DBNull.Value;
+
+            return value;
+        }
     }
 }

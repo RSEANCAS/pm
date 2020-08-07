@@ -18,7 +18,7 @@ namespace pm.be
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public int? CodigoActividadPrincipal { get; set; }
-        public ActividadBe Actividad { get; set; }
+        public ActividadBe ActividadPrincipal { get; set; }
         public string Contacto { get; set; }
         public string AreaContacto { get; set; }
         public bool FlagActivo { get; set; }
