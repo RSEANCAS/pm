@@ -44,8 +44,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
-            this.lblResultados = new System.Windows.Forms.Label();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados_CodigoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_TipoDocumentoIdentidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +56,8 @@
             this.dgvResultados_Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_AreaContacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblResultados = new System.Windows.Forms.Label();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
@@ -81,17 +81,17 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(430, 103);
+            this.groupBox1.Size = new System.Drawing.Size(701, 64);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros";
+            this.groupBox1.Text = "Filtros de búsqueda";
             // 
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Location = new System.Drawing.Point(218, 77);
+            this.chkActivo.Location = new System.Drawing.Point(642, 37);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(57, 17);
             this.chkActivo.TabIndex = 12;
@@ -100,7 +100,7 @@
             // 
             // txtFiltroAreaContacto
             // 
-            this.txtFiltroAreaContacto.Location = new System.Drawing.Point(112, 73);
+            this.txtFiltroAreaContacto.Location = new System.Drawing.Point(536, 33);
             this.txtFiltroAreaContacto.Name = "txtFiltroAreaContacto";
             this.txtFiltroAreaContacto.Size = new System.Drawing.Size(100, 21);
             this.txtFiltroAreaContacto.TabIndex = 11;
@@ -108,7 +108,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(112, 57);
+            this.label6.Location = new System.Drawing.Point(536, 17);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 13);
             this.label6.TabIndex = 10;
@@ -116,7 +116,7 @@
             // 
             // txtFiltroContacto
             // 
-            this.txtFiltroContacto.Location = new System.Drawing.Point(6, 73);
+            this.txtFiltroContacto.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroContacto.Name = "txtFiltroContacto";
             this.txtFiltroContacto.Size = new System.Drawing.Size(100, 21);
             this.txtFiltroContacto.TabIndex = 9;
@@ -124,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 57);
+            this.label5.Location = new System.Drawing.Point(430, 17);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 8;
@@ -197,7 +197,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(367, 121);
+            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -227,34 +227,15 @@
             this.dgvResultados_Contacto,
             this.dgvResultados_AreaContacto,
             this.dgvResultados_FlagActivo});
-            this.dgvResultados.Location = new System.Drawing.Point(12, 150);
+            this.dgvResultados.Location = new System.Drawing.Point(12, 111);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.RowHeadersVisible = false;
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultados.Size = new System.Drawing.Size(430, 288);
+            this.dgvResultados.Size = new System.Drawing.Size(701, 167);
             this.dgvResultados.TabIndex = 2;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
-            // 
-            // lblResultados
-            // 
-            this.lblResultados.AutoSize = true;
-            this.lblResultados.Location = new System.Drawing.Point(15, 126);
-            this.lblResultados.Name = "lblResultados";
-            this.lblResultados.Size = new System.Drawing.Size(0, 13);
-            this.lblResultados.TabIndex = 3;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevo.Location = new System.Drawing.Point(286, 121);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 4;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dgvResultados_CodigoCliente
             // 
@@ -352,12 +333,31 @@
             this.dgvResultados_FlagActivo.ReadOnly = true;
             this.dgvResultados_FlagActivo.Width = 80;
             // 
+            // lblResultados
+            // 
+            this.lblResultados.AutoSize = true;
+            this.lblResultados.Location = new System.Drawing.Point(15, 92);
+            this.lblResultados.Name = "lblResultados";
+            this.lblResultados.Size = new System.Drawing.Size(0, 13);
+            this.lblResultados.TabIndex = 3;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.Location = new System.Drawing.Point(557, 82);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 4;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(454, 450);
+            this.ClientSize = new System.Drawing.Size(725, 290);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.lblResultados);
             this.Controls.Add(this.dgvResultados);

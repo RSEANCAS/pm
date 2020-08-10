@@ -47,8 +47,10 @@
     <Compile Include="ActividadDa.cs" />
     <Compile Include="ClienteDa.cs" />
     <Compile Include="MenuDa.cs" />
+    <Compile Include="PaisDa.cs" />
     <Compile Include="PerfilDa.cs" />
     <Compile Include="PersonalDa.cs" />
+    <Compile Include="ProveedorDa.cs" />
     <Compile Include="TipoDocumentoIdentidadDa.cs" />
     <Compile Include="UsuarioDa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
