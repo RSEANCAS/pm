@@ -20,6 +20,16 @@ namespace pm.util
             return sb.ToString();
         }
 
+        public static byte[] MD5Byte(string word)
+        {
+            MD5 md5 = MD5CryptoServiceProvider.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = md5.ComputeHash(encoding.GetBytes(word));
+            return stream;
+        }
+
         public static bool CompareMD5(string word, byte[] wordCompare)
         {
             bool valueCompare = false;

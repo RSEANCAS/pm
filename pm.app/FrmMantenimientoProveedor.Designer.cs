@@ -199,7 +199,7 @@
             this.txtContacto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContacto.Location = new System.Drawing.Point(183, 245);
             this.txtContacto.Name = "txtContacto";
-            this.txtContacto.Size = new System.Drawing.Size(168, 20);
+            this.txtContacto.Size = new System.Drawing.Size(168, 21);
             this.txtContacto.TabIndex = 15;
             // 
             // label7
@@ -207,7 +207,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(180, 229);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 13);
+            this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Contacto";
             // 
@@ -215,7 +215,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(9, 245);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(168, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(168, 21);
             this.txtTelefono.TabIndex = 13;
             // 
             // label8
@@ -223,7 +223,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 229);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 12;
             this.label8.Text = "Teléfono";
             // 
@@ -232,7 +232,7 @@
             this.txtCorreoElectronico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreoElectronico.Location = new System.Drawing.Point(183, 192);
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
-            this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 20);
+            this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 21);
             this.txtCorreoElectronico.TabIndex = 11;
             // 
             // label6
@@ -240,7 +240,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(180, 176);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 13);
+            this.label6.Size = new System.Drawing.Size(99, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Correo Electrónico";
             // 
@@ -259,7 +259,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccion.Location = new System.Drawing.Point(9, 139);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(342, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(342, 21);
             this.txtDireccion.TabIndex = 7;
             // 
             // label4
@@ -267,7 +267,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Dirección";
             // 
@@ -277,7 +277,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombresCompletos.Location = new System.Drawing.Point(9, 86);
             this.txtNombresCompletos.Name = "txtNombresCompletos";
-            this.txtNombresCompletos.Size = new System.Drawing.Size(342, 20);
+            this.txtNombresCompletos.Size = new System.Drawing.Size(342, 21);
             this.txtNombresCompletos.TabIndex = 5;
             // 
             // label3
@@ -285,7 +285,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 13);
+            this.label3.Size = new System.Drawing.Size(109, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Nombres completos";
             // 
@@ -294,7 +294,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 13);
+            this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo documento identidad";
             // 
@@ -303,7 +303,7 @@
             this.txtNroDocumentoIdentidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNroDocumentoIdentidad.Location = new System.Drawing.Point(183, 33);
             this.txtNroDocumentoIdentidad.Name = "txtNroDocumentoIdentidad";
-            this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 20);
+            this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 21);
             this.txtNroDocumentoIdentidad.TabIndex = 3;
             // 
             // cbbCodigoTipoDocumentoIdentidad
@@ -322,7 +322,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(180, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 13);
+            this.label2.Size = new System.Drawing.Size(127, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "N° documento identidad";
             // 
@@ -333,7 +333,9 @@
             this.ClientSize = new System.Drawing.Size(384, 340);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmMantenimientoProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoProveedor";
             this.Load += new System.EventHandler(this.FrmMantenimientoProveedor_Load);
             this.groupBox1.ResumeLayout(false);

@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActividadBl.cs" />
+    <Compile Include="AreaBl.cs" />
     <Compile Include="ClienteBl.cs" />
+    <Compile Include="CommonBl.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="MenuBl.cs" />
     <Compile Include="PaisBl.cs" />
     <Compile Include="PerfilBl.cs" />
     <Compile Include="PersonalBl.cs" />
+    <Compile Include="ProductoBl.cs" />
+    <Compile Include="ProductoIndividualBl.cs" />
     <Compile Include="ProveedorBl.cs" />
     <Compile Include="TipoDocumentoIdentidadBl.cs" />
+    <Compile Include="UnidadMedidaBl.cs" />
     <Compile Include="UsuarioBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

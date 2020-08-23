@@ -38,6 +38,10 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="SkinSoft.OSSkin, Version=3.2.0.0, Culture=neutral, PublicKeyToken=669afa176ca71378, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActividad.Designer.cs">
+      <DependentUpon>FrmActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArea.Designer.cs">
+      <DependentUpon>FrmArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBusquedaSeleccionarRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusquedaSeleccionarRegistro.Designer.cs">
+      <DependentUpon>FrmBusquedaSeleccionarRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,11 +91,53 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoActividad.Designer.cs">
+      <DependentUpon>FrmMantenimientoActividad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoArea.Designer.cs">
+      <DependentUpon>FrmMantenimientoArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMantenimientoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMantenimientoCliente.Designer.cs">
       <DependentUpon>FrmMantenimientoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoMenu.Designer.cs">
+      <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoPerfil.Designer.cs">
+      <DependentUpon>FrmMantenimientoPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoPersonal.Designer.cs">
+      <DependentUpon>FrmMantenimientoPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoProducto.Designer.cs">
+      <DependentUpon>FrmMantenimientoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoProductoIndividual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoProductoIndividual.Designer.cs">
+      <DependentUpon>FrmMantenimientoProductoIndividual.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMantenimientoProveedor.cs">
       <SubType>Form</SubType>
@@ -81,11 +145,47 @@
     <Compile Include="FrmMantenimientoProveedor.Designer.cs">
       <DependentUpon>FrmMantenimientoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoUnidadMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoUnidadMedida.Designer.cs">
+      <DependentUpon>FrmMantenimientoUnidadMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoUsuario.Designer.cs">
+      <DependentUpon>FrmMantenimientoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPerfil.Designer.cs">
+      <DependentUpon>FrmPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPersonal.Designer.cs">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductoIndividual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductoIndividual.Designer.cs">
+      <DependentUpon>FrmProductoIndividual.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProveedor.cs">
       <SubType>Form</SubType>
@@ -93,8 +193,29 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUnidadMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUnidadMedida.Designer.cs">
+      <DependentUpon>FrmUnidadMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmActividad.resx">
+      <DependentUpon>FrmActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArea.resx">
+      <DependentUpon>FrmArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBusquedaSeleccionarRegistro.resx">
+      <DependentUpon>FrmBusquedaSeleccionarRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,14 +225,62 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoActividad.resx">
+      <DependentUpon>FrmMantenimientoActividad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoArea.resx">
+      <DependentUpon>FrmMantenimientoArea.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoCliente.resx">
       <DependentUpon>FrmMantenimientoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoMenu.resx">
+      <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoPerfil.resx">
+      <DependentUpon>FrmMantenimientoPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoPersonal.resx">
+      <DependentUpon>FrmMantenimientoPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoProducto.resx">
+      <DependentUpon>FrmMantenimientoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoProductoIndividual.resx">
+      <DependentUpon>FrmMantenimientoProductoIndividual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoProveedor.resx">
       <DependentUpon>FrmMantenimientoProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoUnidadMedida.resx">
+      <DependentUpon>FrmMantenimientoUnidadMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoUsuario.resx">
+      <DependentUpon>FrmMantenimientoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPerfil.resx">
+      <DependentUpon>FrmPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPersonal.resx">
+      <DependentUpon>FrmPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductoIndividual.resx">
+      <DependentUpon>FrmProductoIndividual.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUnidadMedida.resx">
+      <DependentUpon>FrmUnidadMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,6 +318,10 @@
     <ProjectReference Include="..\pm.bl\pm.bl.csproj">
       <Project>{11b7b87e-08f5-4f40-a2cc-69ae622152de}</Project>
       <Name>pm.bl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pm.enums\pm.enums.csproj">
+      <Project>{3B52A220-EDF9-4DE9-85C2-17FD9DD90EB2}</Project>
+      <Name>pm.enums</Name>
     </ProjectReference>
     <ProjectReference Include="..\pm.util\pm.util.csproj">
       <Project>{52A204CE-AB91-41BF-BE67-F6BC05D6F7AD}</Project>

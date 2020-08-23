@@ -31,6 +31,17 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblResultados = new System.Windows.Forms.Label();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.dgvResultados_CodigoProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TipoDocumentoIdentidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroDocumentoIdentidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbPais = new System.Windows.Forms.ComboBox();
@@ -46,17 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtFiltroNroDocIdentidad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvResultados_CodigoProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_TipoDocumentoIdentidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NroDocumentoIdentidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -110,153 +110,6 @@
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
             this.dgvResultados.TabIndex = 7;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 6;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbbPais);
-            this.groupBox1.Controls.Add(this.chkActivo);
-            this.groupBox1.Controls.Add(this.txtFiltroContacto);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtFiltroCorreo);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtFiltroDireccion);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtFiltroNombres);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidad);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // cbbPais
-            // 
-            this.cbbPais.DisplayMember = "Nombre";
-            this.cbbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPais.FormattingEnabled = true;
-            this.cbbPais.Location = new System.Drawing.Point(324, 32);
-            this.cbbPais.Name = "cbbPais";
-            this.cbbPais.Size = new System.Drawing.Size(100, 21);
-            this.cbbPais.TabIndex = 13;
-            this.cbbPais.ValueMember = "CodigoPais";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Location = new System.Drawing.Point(642, 37);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 12;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
-            // 
-            // txtFiltroContacto
-            // 
-            this.txtFiltroContacto.Location = new System.Drawing.Point(536, 33);
-            this.txtFiltroContacto.Name = "txtFiltroContacto";
-            this.txtFiltroContacto.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroContacto.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(324, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "País";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(536, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Contacto";
-            // 
-            // txtFiltroCorreo
-            // 
-            this.txtFiltroCorreo.Location = new System.Drawing.Point(430, 33);
-            this.txtFiltroCorreo.Name = "txtFiltroCorreo";
-            this.txtFiltroCorreo.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroCorreo.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(430, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Correo";
-            // 
-            // txtFiltroDireccion
-            // 
-            this.txtFiltroDireccion.Location = new System.Drawing.Point(218, 33);
-            this.txtFiltroDireccion.Name = "txtFiltroDireccion";
-            this.txtFiltroDireccion.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroDireccion.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(218, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Dirección";
-            // 
-            // txtFiltroNombres
-            // 
-            this.txtFiltroNombres.Location = new System.Drawing.Point(112, 33);
-            this.txtFiltroNombres.Name = "txtFiltroNombres";
-            this.txtFiltroNombres.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombres.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Nombres";
-            // 
-            // txtFiltroNroDocIdentidad
-            // 
-            this.txtFiltroNroDocIdentidad.Location = new System.Drawing.Point(6, 33);
-            this.txtFiltroNroDocIdentidad.Name = "txtFiltroNroDocIdentidad";
-            this.txtFiltroNroDocIdentidad.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroDocIdentidad.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "N° Doc. Identidad";
             // 
             // dgvResultados_CodigoProveedor
             // 
@@ -345,6 +198,153 @@
             this.dgvResultados_FlagActivo.ReadOnly = true;
             this.dgvResultados_FlagActivo.Width = 80;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbbPais);
+            this.groupBox1.Controls.Add(this.chkActivo);
+            this.groupBox1.Controls.Add(this.txtFiltroContacto);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtFiltroCorreo);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtFiltroDireccion);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtFiltroNombres);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidad);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(701, 64);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // cbbPais
+            // 
+            this.cbbPais.DisplayMember = "Nombre";
+            this.cbbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPais.FormattingEnabled = true;
+            this.cbbPais.Location = new System.Drawing.Point(324, 32);
+            this.cbbPais.Name = "cbbPais";
+            this.cbbPais.Size = new System.Drawing.Size(100, 21);
+            this.cbbPais.TabIndex = 13;
+            this.cbbPais.ValueMember = "CodigoPais";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Location = new System.Drawing.Point(642, 37);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(57, 17);
+            this.chkActivo.TabIndex = 12;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // txtFiltroContacto
+            // 
+            this.txtFiltroContacto.Location = new System.Drawing.Point(536, 33);
+            this.txtFiltroContacto.Name = "txtFiltroContacto";
+            this.txtFiltroContacto.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroContacto.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(324, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "País";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(536, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Contacto";
+            // 
+            // txtFiltroCorreo
+            // 
+            this.txtFiltroCorreo.Location = new System.Drawing.Point(430, 33);
+            this.txtFiltroCorreo.Name = "txtFiltroCorreo";
+            this.txtFiltroCorreo.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroCorreo.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(430, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Correo";
+            // 
+            // txtFiltroDireccion
+            // 
+            this.txtFiltroDireccion.Location = new System.Drawing.Point(218, 33);
+            this.txtFiltroDireccion.Name = "txtFiltroDireccion";
+            this.txtFiltroDireccion.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroDireccion.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(218, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Dirección";
+            // 
+            // txtFiltroNombres
+            // 
+            this.txtFiltroNombres.Location = new System.Drawing.Point(112, 33);
+            this.txtFiltroNombres.Name = "txtFiltroNombres";
+            this.txtFiltroNombres.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNombres.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(112, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nombres";
+            // 
+            // txtFiltroNroDocIdentidad
+            // 
+            this.txtFiltroNroDocIdentidad.Location = new System.Drawing.Point(6, 33);
+            this.txtFiltroNroDocIdentidad.Name = "txtFiltroNroDocIdentidad";
+            this.txtFiltroNroDocIdentidad.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNroDocIdentidad.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "N° Doc. Identidad";
+            // 
             // FrmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,6 +355,7 @@
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmProveedor";
             this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.FrmProveedor_Load);

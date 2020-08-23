@@ -1,5 +1,7 @@
-﻿using System;
+﻿using pm.enums;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +20,19 @@ namespace pm.be
         public AreaBe Area { get; set; }
         public bool FlagActivo { get; set; }
         public int Estado { get; set; }
+        public string EstadoStr
+        {
+            get
+            {
+                Enums.EstadoPersonal value = (Enums.EstadoPersonal)Estado;
+
+                bool isValid = value == (Enums.EstadoPersonal)Estado;
+
+                string text = !isValid ? null : value.GetAttributeOfType<DescriptionAttribute>().Description;
+
+                return text;
+            }
+        }
+        public override string ToString() => Nombres;
     }
 }

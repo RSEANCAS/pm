@@ -13,6 +13,10 @@ namespace pm.be
         public string Formulario { get; set; }
         public int? CodigoMenuPadre { get; set; }
         public MenuBe MenuPadre { get; set; }
+        public bool FlagActivo { get; set; }
+        public bool Check { get; set; }
         public List<MenuBe> ListaMenu { get; set; }
+
+        public override string ToString() => Nombre;
     }
 }

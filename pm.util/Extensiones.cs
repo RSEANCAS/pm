@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ namespace pm.util
         {
             T value = default(T);
 
-            if(!DBNull.Value.Equals(dr[field])) value = (T)dr[field];
+            if (!DBNull.Value.Equals(dr[field])) value = (T)dr[field];
 
             return value;
         }

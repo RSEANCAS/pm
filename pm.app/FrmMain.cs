@@ -27,14 +27,14 @@ namespace pm.app
             InitializeComponent();
             if (usuario == null) Close();
             usuario.Personal = personalBl.ObtenerPersonal(usuario.CodigoPersonal);
-            usuario.ListaPefil = perfilBl.ListarPerfilPorUsuario(usuario.CodigoUsuario);
-            usuario.PerfilActual = usuario.ListaPefil.FirstOrDefault();
+            usuario.ListaPerfil = perfilBl.ListarPerfilPorUsuario(usuario.CodigoUsuario);
+            usuario.PerfilActual = usuario.ListaPerfil.FirstOrDefault();
             usuarioSession = usuario;
         }
 
         void CargarComboPerfiles()
         {
-            if (usuarioSession.ListaPefil == null) return;
+            if (usuarioSession.ListaPerfil == null) return;
 
             if (usuarioSession.PerfilActual != null)
             {
@@ -43,7 +43,7 @@ namespace pm.app
                 CargarMenuPorPerfil();
             }
 
-            foreach (PerfilBe item in usuarioSession.ListaPefil)
+            foreach (PerfilBe item in usuarioSession.ListaPerfil)
             {
                 ToolStripItem toolStripButton = new ToolStripButton(item.Nombre);
                 toolStripButton.Tag = item.CodigoPerfil;

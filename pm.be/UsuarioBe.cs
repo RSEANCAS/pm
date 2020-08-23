@@ -13,7 +13,9 @@ namespace pm.be
         public byte[] Contraseña { get; set; }
         public int CodigoPersonal { get; set; }
         public PersonalBe Personal { get; set; }
-        public List<PerfilBe> ListaPefil { get; set; }
+        public bool FlagCambiarContraseña { get; set; }
+        public bool FlagActivo { get; set; }
+        public List<PerfilBe> ListaPerfil { get; set; }
         public PerfilBe PerfilActual { get; set; }
     }
 }

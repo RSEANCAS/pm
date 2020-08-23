@@ -232,7 +232,7 @@
             this.cbbCodigoActividadPrincipal.FormattingEnabled = true;
             this.cbbCodigoActividadPrincipal.Location = new System.Drawing.Point(9, 298);
             this.cbbCodigoActividadPrincipal.Name = "cbbCodigoActividadPrincipal";
-            this.cbbCodigoActividadPrincipal.Size = new System.Drawing.Size(198, 21);
+            this.cbbCodigoActividadPrincipal.Size = new System.Drawing.Size(168, 21);
             this.cbbCodigoActividadPrincipal.TabIndex = 17;
             this.cbbCodigoActividadPrincipal.ValueMember = "CodigoActividad";
             // 
@@ -360,7 +360,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMantenimientoCliente";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoCliente";
             this.Load += new System.EventHandler(this.FrmMantenimientoCliente_Load);
             this.groupBox1.ResumeLayout(false);

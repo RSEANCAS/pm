@@ -27,7 +27,7 @@ namespace pm.app
             this.codigoCliente = codigoCliente;
         }
 
-        private void FrmMantenimientoCliente_Load(object sender, EventArgs e)
+        private void FrmMantenimientoCliente_Load(object sender, EventArgs e)   
         {
             Text = !codigoCliente.HasValue ? "Nuevo Cliente" : "Modificar Cliente";
             ListarCombos();
@@ -103,19 +103,6 @@ namespace pm.app
                 Close();
             }
             else MessageBox.Show("¡Ocurrió un error! Contáctese con el administrador del sistema", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        void LimpiarFormulario()
-        {
-            cbbCodigoTipoDocumentoIdentidad.SelectedIndex = 0;
-            txtNroDocumentoIdentidad.Text = "";
-            txtNombresCompletos.Text = "";
-            txtDireccion.Text = "";
-            txtCorreoElectronico.Text = "";
-            txtTelefono.Text = "";
-            txtContacto.Text = "";
-            txtAreaContacto.Text = "";
-            cbbCodigoActividadPrincipal.SelectedIndex = 0;
         }
 
         void LimpiarErrores()

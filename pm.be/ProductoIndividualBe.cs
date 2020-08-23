@@ -26,7 +26,7 @@ namespace pm.be
         public string CodigoBarraProveedor { get; set; }
         public DateTime FechaEntrada { get; set; }
         public int CodigoPersonalInspeccion { get; set; }
-        public PersonalBe Personal { get; set; }
+        public PersonalBe PersonalInspeccion { get; set; }
 
     }
 }

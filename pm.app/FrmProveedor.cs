@@ -32,7 +32,7 @@ namespace pm.app
         {
             List<PaisBe> listaCombo = paisBl.ListarComboPais();
             listaCombo = listaCombo ?? new List<PaisBe>();
-            listaCombo.Insert(0, new PaisBe { CodigoPais = -1, Nombre = "[Seleccione...]" });
+            listaCombo.Insert(0, new PaisBe { CodigoPais = -1, Nombre = "[Todos...]" });
 
             cbbPais.DataSource = null;
             cbbPais.DataSource = listaCombo;

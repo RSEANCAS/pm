@@ -11,5 +11,6 @@ namespace pm.be
         public int CodigoUnidadMedida { get; set; }
         public string Descripcion { get; set; }
         public bool FlagActivo { get; set; }
+        public override string ToString() => Descripcion;
     }
 }

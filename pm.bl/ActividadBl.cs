@@ -13,7 +13,82 @@ namespace pm.bl
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        ActividadDa tipoDocumentoIdentidadDa = new ActividadDa();
+        ActividadDa actividadDa = new ActividadDa();
+
+        public List<ActividadBe> BuscarActividad(string nombre, bool flagActivo)
+        {
+            List<ActividadBe> resultados = null;
+
+            try
+            {
+                cn.Open();
+                resultados = actividadDa.BuscarActividad(nombre, flagActivo, cn);
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return resultados;
+        }
+
+        public ActividadBe ObtenerActividad(int codigoActividad)
+        {
+            ActividadBe item = null;
+
+            try
+            {
+                cn.Open();
+                item = actividadDa.ObtenerActividad(codigoActividad, cn);
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return item;
+        }
+
+        public bool ExisteActividad(string nombre, int? codigoActividad)
+        {
+            bool existe = false;
+
+            try
+            {
+                cn.Open();
+                existe = actividadDa.ExisteActividad(nombre, codigoActividad, cn);
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return existe;
+        }
+
+        public bool GuardarActividad(ActividadBe registro)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                cn.Open();
+                seGuardo = actividadDa.GuardarActividad(registro, cn);
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return seGuardo;
+        }
+
+        public bool CambiarFlagActivoActividad(ActividadBe registro)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                cn.Open();
+                seGuardo = actividadDa.CambiarFlagActivoActividad(registro, cn);
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return seGuardo;
+        }
 
         public List<ActividadBe> ListarComboActividad()
         {
@@ -22,7 +97,7 @@ namespace pm.bl
             try
             {
                 cn.Open();
-                lista = tipoDocumentoIdentidadDa.ListarComboActividad(cn);
+                lista = actividadDa.ListarComboActividad(cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

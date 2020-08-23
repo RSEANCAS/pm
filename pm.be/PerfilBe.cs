@@ -11,5 +11,7 @@ namespace pm.be
         public int CodigoPerfil { get; set; }
         public string Nombre { get; set; }
         public bool FlagActivo { get; set; }
+        public List<MenuBe> ListaMenu { get; set; }
+        public bool Check { get; set; }
     }
 }

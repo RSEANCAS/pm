@@ -20,5 +20,7 @@ namespace pm.be
         public string Telefono { get; set; }
         public string Contacto { get; set; }
         public bool FlagActivo { get; set; }
+
+        public override string ToString() => Nombres;
     }
 }
