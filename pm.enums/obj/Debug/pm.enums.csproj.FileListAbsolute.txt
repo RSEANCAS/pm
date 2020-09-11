@@ -1,6 +1,6 @@
 D:\FREELANCE\ProntoModa\pm\pm.enums\bin\Debug\pm.enums.dll
 D:\FREELANCE\ProntoModa\pm\pm.enums\bin\Debug\pm.enums.pdb
-D:\FREELANCE\ProntoModa\pm\pm.enums\obj\Debug\pm.enums.csprojAssemblyReference.cache
 D:\FREELANCE\ProntoModa\pm\pm.enums\obj\Debug\pm.enums.csproj.CoreCompileInputs.cache
 D:\FREELANCE\ProntoModa\pm\pm.enums\obj\Debug\pm.enums.dll
 D:\FREELANCE\ProntoModa\pm\pm.enums\obj\Debug\pm.enums.pdb
+D:\FREELANCE\ProntoModa\pm\pm.enums\obj\Debug\pm.enums.csprojAssemblyReference.cache

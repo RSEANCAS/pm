@@ -45,14 +45,16 @@ namespace pm.bl
             return item;
         }
 
-        public bool ExisteProductoIndividual(string nombre, int? codigoProductoIndividual)
+        public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, out bool flagCodigoBarraExiste, out bool flagNombreExiste)
         {
+            flagCodigoBarraExiste = false;
+            flagNombreExiste = false;
             bool existe = false;
 
             try
             {
                 cn.Open();
-                existe = productoIndividualDa.ExisteProductoIndividual(nombre, codigoProductoIndividual, cn);
+                existe = productoIndividualDa.ExisteProductoIndividual(codigoBarra, nombre, codigoProductoIndividual, cn, out flagCodigoBarraExiste , out flagNombreExiste);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

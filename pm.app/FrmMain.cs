@@ -84,6 +84,8 @@ namespace pm.app
             Assembly asm = Assembly.GetEntryAssembly();
             Type formtype = asm.GetType(itemMenu.Tag.ToString());
 
+            if (formtype == null) return;
+
             Form f = (Form)Activator.CreateInstance(formtype);
             f.MdiParent = this;
             f.WindowState = FormWindowState.Maximized;

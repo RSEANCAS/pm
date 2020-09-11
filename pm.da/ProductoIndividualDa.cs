@@ -57,7 +57,7 @@ namespace pm.da
                                 item.UnidadMedida.FlagActivo = dr.GetData<bool>("FlagActivoUnidadMedida");
                                 item.Metraje = dr.GetData<decimal>("Metraje");
                                 item.Peso = dr.GetData<decimal>("Peso");
-                                item.CodigoInicial = dr.GetData<string>("CodigoInicial");
+                                item.CodigoInicial = dr.GetData<int?>("CodigoInicial");
                                 item.Rollo = dr.GetData<decimal>("Rollo");
                                 item.Bulto = dr.GetData<decimal>("Bulto");
                                 item.Color = dr.GetData<string>("Color");
@@ -123,7 +123,7 @@ namespace pm.da
                                 item.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedida");
                                 item.Metraje = dr.GetData<decimal>("Metraje");
                                 item.Peso = dr.GetData<decimal>("Peso");
-                                item.CodigoInicial = dr.GetData<string>("CodigoInicial");
+                                item.CodigoInicial = dr.GetData<int?>("CodigoInicial");
                                 item.Rollo = dr.GetData<decimal>("Rollo");
                                 item.Bulto = dr.GetData<decimal>("Bulto");
                                 item.Color = dr.GetData<string>("Color");
@@ -141,8 +141,10 @@ namespace pm.da
             return item;
         }
 
-        public bool ExisteProductoIndividual(string nombre, int? codigoProductoIndividual, SqlConnection cn)
+        public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, SqlConnection cn, out bool flagCodigoBarraExiste, out bool flagNombreExiste)
         {
+            flagCodigoBarraExiste = false;
+            flagNombreExiste = false;
             bool existe = false;
 
             try
@@ -150,10 +152,20 @@ namespace pm.da
                 using (SqlCommand cmd = new SqlCommand("dbo.usp_productoindividual_existe", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@nombre", nombre.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoProductoIndividual", codigoProductoIndividual.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoBarra", codigoBarra.GetNullable());
+                    cmd.Parameters.AddWithValue("@nombre", nombre.GetNullable());
+
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@flagCodigoBarraExiste", Value = false, Direction = ParameterDirection.Output });
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@flagNombreExiste", Value = false, Direction = ParameterDirection.Output });
 
                     existe = (bool)cmd.ExecuteScalar();
+
+                    if (existe)
+                    {
+                        flagCodigoBarraExiste = (bool)cmd.Parameters["@flagCodigoBarraExiste"].Value;
+                        flagNombreExiste = (bool)cmd.Parameters["@flagNombreExiste"].Value;
+                    }
                 }
             }
             catch (Exception ex) { log.Error(ex.Message); }

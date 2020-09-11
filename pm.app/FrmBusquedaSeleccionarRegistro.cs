@@ -29,7 +29,7 @@ namespace pm.app
             this.table = table;
             this.columns = string.Join($",{Environment.NewLine}", columns.Select(x => x.DataPropertyName).ToArray());
             this.columnsFilter = string.Join($" or{Environment.NewLine}", columnsFilter.Select(x => $"{x} like '%{{0}}%'").ToArray());
-            txtFiltroBusqueda.Text = filtroBusqueda.Trim();
+            txtFiltroBusqueda.Text = (filtroBusqueda ?? "").Trim();
             this.type = type;
             dgvResultados.AutoGenerateColumns = false;
             dgvResultados.Columns.AddRange(columns);

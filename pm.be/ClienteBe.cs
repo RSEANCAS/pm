@@ -16,11 +16,15 @@ namespace pm.be
         public string Nombres { get; set; }
         public string Direccion { get; set; }
         public string Correo { get; set; }
+        public int CodigoDistrito { get; set; }
+        public DistritoBe Distrito { get; set; }
         public string Telefono { get; set; }
         public int? CodigoActividadPrincipal { get; set; }
         public ActividadBe ActividadPrincipal { get; set; }
         public string Contacto { get; set; }
         public string AreaContacto { get; set; }
         public bool FlagActivo { get; set; }
+
+        public override string ToString() => Nombres;
     }
 }

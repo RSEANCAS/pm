@@ -48,9 +48,13 @@
   <ItemGroup>
     <Compile Include="ActividadBl.cs" />
     <Compile Include="AreaBl.cs" />
+    <Compile Include="BoletaVentaBl.cs" />
     <Compile Include="ClienteBl.cs" />
     <Compile Include="CommonBl.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DepartamentoBl.cs" />
+    <Compile Include="DistritoBl.cs" />
+    <Compile Include="FacturaVentaBl.cs" />
     <Compile Include="MenuBl.cs" />
     <Compile Include="PaisBl.cs" />
     <Compile Include="PerfilBl.cs" />
@@ -58,6 +62,9 @@
     <Compile Include="ProductoBl.cs" />
     <Compile Include="ProductoIndividualBl.cs" />
     <Compile Include="ProveedorBl.cs" />
+    <Compile Include="ProvinciaBl.cs" />
+    <Compile Include="SerieBl.cs" />
+    <Compile Include="TipoComprobanteBl.cs" />
     <Compile Include="TipoDocumentoIdentidadBl.cs" />
     <Compile Include="UnidadMedidaBl.cs" />
     <Compile Include="UsuarioBl.cs" />

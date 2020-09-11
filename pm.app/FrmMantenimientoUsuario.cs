@@ -41,42 +41,6 @@ namespace pm.app
             {
                 CargarListaPerfil();
             }
-            txtNroDocIdentidadPersonal.LostFocus += TxtNroDocIdentidadPersonal_LostFocus;
-        }
-
-        private void TxtNroDocIdentidadPersonal_LostFocus(object sender, EventArgs e)
-        {
-            btnBuscarPersonal_Click(btnBuscarPersonal, new EventArgs());
-            //if (nroDocumentoIdentidad == txtNroDocIdentidadPersonal.Text.Trim()) return;
-            //List<dynamic> listaColumnas = new List<dynamic>();
-            //listaColumnas.Add(new { Campo = "CodigoPersonal", NombreColumna = "CodigoPersonal", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            //listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            //listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            //listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            //string table = "dbo.Personal";
-            //DataGridViewColumn[] columns = listaColumnas.Select(x =>
-            //{
-            //    DataGridViewColumn column = x.TipoColumna;
-            //    column.Name = $"dgvResultados_{x.Campo}";
-            //    column.DataPropertyName = x.Campo;
-            //    column.HeaderText = x.NombreColumna;
-            //    column.Visible = x.EsVisible;
-            //    //column.CellTemplate = x.TipoColumna;
-            //    return column;
-            //}).ToArray();
-            //string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            //FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Personal", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(PersonalBe));
-            //frm.ShowInTaskbar = false;
-            //frm.BringToFront();
-            //DialogResult dr = frm.ShowDialog();
-            //CargarPersonal(null);
-            //if (dr == DialogResult.OK)
-            //{
-            //    dynamic resultado = frm.Resultado;
-            //    CargarPersonal(resultado.CodigoPersonal);
-            //}
         }
 
         void CargarUsuario()

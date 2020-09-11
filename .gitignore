@@ -7,5 +7,7 @@ pm.da/bin
 pm.da/obj
 pm.bl/bin
 pm.bl/obj
+pm.enums/bin
+pm.enums/obj
 pm.util/bin
 pm.util/obj

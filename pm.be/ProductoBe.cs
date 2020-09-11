@@ -35,5 +35,6 @@ namespace pm.be
                 return text;
             }
         }
+        public override string ToString() => Nombre;
     }
 }

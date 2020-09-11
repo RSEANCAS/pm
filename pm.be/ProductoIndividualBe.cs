@@ -17,7 +17,8 @@ namespace pm.be
         public UnidadMedidaBe UnidadMedida { get; set; }
         public decimal Metraje { get; set; }
         public decimal Peso { get; set; }
-        public string CodigoInicial { get; set; }
+        public int? CodigoInicial { get; set; }
+        public ProductoIndividualBe Inicial { get; set; }
         public decimal Rollo { get; set; }
         public decimal Bulto { get; set; }
         public string Color { get; set; }
@@ -27,6 +28,6 @@ namespace pm.be
         public DateTime FechaEntrada { get; set; }
         public int CodigoPersonalInspeccion { get; set; }
         public PersonalBe PersonalInspeccion { get; set; }
-
+        public override string ToString() => Nombre;
     }
 }

@@ -9,6 +9,14 @@ namespace pm.enums
 {
     public class Enums
     {
+        public enum EstadoPersonal
+        {
+            [Description("Activo")]
+            Activo = 1,
+            [Description("Inactivo")]
+            Inactivo = 2
+        }
+
         public enum EstadoProducto
         {
             [Description("Activo")]
@@ -18,12 +26,44 @@ namespace pm.enums
 
         }
 
-        public enum EstadoPersonal
+        public enum Moneda
         {
-            [Description("Activo")]
-            Activo = 1,
-            [Description("Inactivo")]
-            Inactivo = 2
+            [Description("Soles")]
+            [DefaultValue("S/")]
+            Soles = 1,
+            [Description("Dólares")]
+            [DefaultValue("$")]
+            Dolares = 2
+        }
+
+        public enum TipoComprobante
+        {
+            [Description("Boleta")]
+            Boleta = 1,
+            [Description("Factura")]
+            Factura = 2,
+            [Description("Nota de crédito")]
+            NotaCredito = 3,
+            [Description("Nota de débito")]
+            NotaDebito = 4,
+        }
+
+        public enum TipoCalculo
+        {
+            [Description("Valor Unitario")]
+            ValorUnitario = 1,
+            [Description("Precio Unitario")]
+            PrecioUnitario = 2,
+            [Description("Importe Total")]
+            TotalImporte = 3
+        }
+
+        public enum TipoDescuento
+        {
+            [Description("Porcentaje Descuento")]
+            Porcentaje = 1,
+            [Description("Descuento")]
+            Descuento = 2
         }
     }
 }

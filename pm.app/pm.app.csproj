@@ -38,9 +38,6 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
-    </Reference>
     <Reference Include="SkinSoft.OSSkin, Version=3.2.0.0, Culture=neutral, PublicKeyToken=669afa176ca71378, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,6 +64,12 @@
     <Compile Include="FrmArea.Designer.cs">
       <DependentUpon>FrmArea.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBoletaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBoletaVenta.Designer.cs">
+      <DependentUpon>FrmBoletaVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBusquedaSeleccionarRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +81,12 @@
     </Compile>
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFacturaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFacturaVenta.Designer.cs">
+      <DependentUpon>FrmFacturaVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -103,11 +112,35 @@
     <Compile Include="FrmMantenimientoArea.Designer.cs">
       <DependentUpon>FrmMantenimientoArea.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoBoletaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoBoletaVenta.Designer.cs">
+      <DependentUpon>FrmMantenimientoBoletaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoBoletaVentaDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoBoletaVentaDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoBoletaVentaDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMantenimientoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMantenimientoCliente.Designer.cs">
       <DependentUpon>FrmMantenimientoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoFacturaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoFacturaVenta.Designer.cs">
+      <DependentUpon>FrmMantenimientoFacturaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoFacturaVentaDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoFacturaVentaDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoFacturaVentaDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMantenimientoMenu.cs">
       <SubType>Form</SubType>
@@ -145,6 +178,12 @@
     <Compile Include="FrmMantenimientoProveedor.Designer.cs">
       <DependentUpon>FrmMantenimientoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoSerie.Designer.cs">
+      <DependentUpon>FrmMantenimientoSerie.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMantenimientoUnidadMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +201,18 @@
     </Compile>
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNotaCreditoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotaCreditoVenta.Designer.cs">
+      <DependentUpon>FrmNotaCreditoVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNotaDebitoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotaDebitoVenta.Designer.cs">
+      <DependentUpon>FrmNotaDebitoVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPerfil.cs">
       <SubType>Form</SubType>
@@ -193,6 +244,12 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSerie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSerie.Designer.cs">
+      <DependentUpon>FrmSerie.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUnidadMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,11 +270,17 @@
     <EmbeddedResource Include="FrmArea.resx">
       <DependentUpon>FrmArea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBoletaVenta.resx">
+      <DependentUpon>FrmBoletaVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaSeleccionarRegistro.resx">
       <DependentUpon>FrmBusquedaSeleccionarRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFacturaVenta.resx">
+      <DependentUpon>FrmFacturaVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -231,8 +294,20 @@
     <EmbeddedResource Include="FrmMantenimientoArea.resx">
       <DependentUpon>FrmMantenimientoArea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoBoletaVenta.resx">
+      <DependentUpon>FrmMantenimientoBoletaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoBoletaVentaDetalle.resx">
+      <DependentUpon>FrmMantenimientoBoletaVentaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoCliente.resx">
       <DependentUpon>FrmMantenimientoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoFacturaVenta.resx">
+      <DependentUpon>FrmMantenimientoFacturaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoFacturaVentaDetalle.resx">
+      <DependentUpon>FrmMantenimientoFacturaVentaDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoMenu.resx">
       <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
@@ -251,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoProveedor.resx">
       <DependentUpon>FrmMantenimientoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoSerie.resx">
+      <DependentUpon>FrmMantenimientoSerie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoUnidadMedida.resx">
       <DependentUpon>FrmMantenimientoUnidadMedida.cs</DependentUpon>
@@ -275,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSerie.resx">
+      <DependentUpon>FrmSerie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUnidadMedida.resx">
       <DependentUpon>FrmUnidadMedida.cs</DependentUpon>
