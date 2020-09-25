@@ -46,6 +46,16 @@ namespace pm.enums
             NotaCredito = 3,
             [Description("Nota de débito")]
             NotaDebito = 4,
+            [Description("Guía Remisión Remitente")]
+            GuiaRemisionRemitente = 5,
+            [Description("Guía Remisión Transportista")]
+            GuiaRemisionTransportista = 6
+        }
+
+        public enum TipoDocumento
+        {
+            [Description("Letra")]
+            Letra = 1
         }
 
         public enum TipoCalculo
@@ -64,6 +74,14 @@ namespace pm.enums
             Porcentaje = 1,
             [Description("Descuento")]
             Descuento = 2
+        }
+
+        public enum MetodoPago
+        {
+            [Description("Contado")]
+            Contado = 1,
+            [Description("Crédito")]
+            Credito = 2
         }
     }
 }

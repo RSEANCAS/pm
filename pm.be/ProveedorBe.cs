@@ -14,8 +14,8 @@ namespace pm.be
         public string NroDocumentoIdentidad { get; set; }
         public string Nombres { get; set; }
         public string Direccion { get; set; }
-        public int CodigoPais { get; set; }
-        public PaisBe Pais { get; set; }
+        public int CodigoDistrito { get; set; }
+        public DistritoBe Distrito { get; set; }
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public string Contacto { get; set; }

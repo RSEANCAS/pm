@@ -109,6 +109,8 @@ namespace pm.da
                                 item.NombreDistritoCliente = dr.GetData<string>("NombreDistritoCliente");
                                 item.CodigoDistritoCliente = dr.GetData<int>("CodigoDistritoCliente");
                                 item.CodigoMoneda = dr.GetData<int>("CodigoMoneda");
+                                item.CodigoMetodoPago = dr.GetData<int>("CodigoMetodoPago");
+                                item.CantidadLetrasCredito = dr.GetData<int>("CantidadLetrasCredito");
                                 item.TotalOperacionGravada = dr.GetData<decimal>("TotalOperacionGravada");
                                 item.TotalOperacionInafecta = dr.GetData<decimal>("TotalOperacionInafecta");
                                 item.TotalOperacionExonerada = dr.GetData<decimal>("TotalOperacionExonerada");
@@ -150,7 +152,7 @@ namespace pm.da
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter { ParameterName = "@codigoFacturaVenta", Value = registro.CodigoFacturaVenta.GetNullable(), Direction = ParameterDirection.InputOutput });
                     cmd.Parameters.AddWithValue("@codigoSerie", registro.CodigoSerie.GetNullable());
-                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@nroComprobante", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output });
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@nroComprobante", Value = registro.NroComprobante.GetNullable(), SqlDbType = SqlDbType.Int, Direction = ParameterDirection.InputOutput });
                     cmd.Parameters.AddWithValue("@fechaHoraEmision", registro.FechaHoraEmision.GetNullable());
                     cmd.Parameters.AddWithValue("@fechaHoraVencimiento", registro.FechaHoraVencimiento.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoCliente", registro.CodigoCliente.GetNullable());
@@ -161,6 +163,8 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@nombreDistritoCliente", registro.NombreDistritoCliente.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoDistritoCliente", registro.CodigoDistritoCliente.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoMoneda", registro.CodigoMoneda.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoMetodoPago", registro.CodigoMetodoPago.GetNullable());
+                    cmd.Parameters.AddWithValue("@cantidadLetrasCredito", registro.CantidadLetrasCredito.GetNullable());
                     cmd.Parameters.AddWithValue("@totalOperacionGravada", registro.TotalOperacionGravada.GetNullable());
                     cmd.Parameters.AddWithValue("@totalOperacionInafecta", registro.TotalOperacionInafecta.GetNullable());
                     cmd.Parameters.AddWithValue("@totalOperacionExonerada", registro.TotalOperacionExonerada.GetNullable());

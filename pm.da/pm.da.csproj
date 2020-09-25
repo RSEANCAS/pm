@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ActividadDa.cs" />
     <Compile Include="AreaDa.cs" />
+    <Compile Include="BancoDa.cs" />
     <Compile Include="BoletaVentaDa.cs" />
     <Compile Include="BoletaVentaDetalleDa.cs" />
     <Compile Include="ClienteDa.cs" />
@@ -54,7 +55,11 @@
     <Compile Include="DistritoDa.cs" />
     <Compile Include="FacturaVentaDa.cs" />
     <Compile Include="FacturaVentaDetalleDa.cs" />
+    <Compile Include="GuiaRemisionDa.cs" />
+    <Compile Include="GuiaRemisionDetalleDa.cs" />
+    <Compile Include="LetraDa.cs" />
     <Compile Include="MenuDa.cs" />
+    <Compile Include="MotivoTrasladoDa.cs" />
     <Compile Include="PaisDa.cs" />
     <Compile Include="PerfilDa.cs" />
     <Compile Include="PerfilMenuDa.cs" />

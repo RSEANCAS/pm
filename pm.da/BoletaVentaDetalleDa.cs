@@ -113,5 +113,26 @@ namespace pm.da
 
             return resultados;
         }
+
+        public bool EliminarBoletaVentaDetalle(int codigoBoletaVentaDetalle, string usuarioModi, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_boletaventadetalle_eliminar", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoBoletaVentaDetalle", codigoBoletaVentaDetalle.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", usuarioModi.GetNullable());
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
     }
 }

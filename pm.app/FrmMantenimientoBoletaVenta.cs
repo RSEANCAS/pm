@@ -37,6 +37,7 @@ namespace pm.app
         private void FrmMantenimientoBoletaVenta_Load(object sender, EventArgs e)
         {
             Text = !codigoBoletaVenta.HasValue ? "Nueva Boleta de Venta" : "Modificar Boleta de Venta";
+            dtpFechaHoraEmision_ValueChanged(dtpFechaHoraEmision, new EventArgs());
             ListarCombos();
             dgvDetalle.AutoGenerateColumns = false;
             if (codigoBoletaVenta.HasValue)
@@ -262,6 +263,7 @@ namespace pm.app
             registro.NombreDistritoCliente = nombreDistritoCliente;
             registro.CodigoDistritoCliente = codigoDistritoCliente.Value;
             registro.ListaBoletaVentaDetalle = listaDetalle;
+            registro.ListaBoletaVentaDetalleEliminar = listaDetalleInicial == null ? null : listaDetalleInicial.Where(x => listaDetalle.Count(y => y.CodigoBoletaVentaDetalle == x.CodigoBoletaVentaDetalle) == 0).Select(x => x.CodigoBoletaVentaDetalle).ToArray();
             registro.TotalValorVenta = listaDetalle.Sum(x => x.ValorVenta);
             registro.TotalPrecioVenta = listaDetalle.Sum(x => x.PrecioVenta);
             registro.TotalPorcentajeDescuentoGlobal = 0;

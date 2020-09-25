@@ -42,7 +42,7 @@ namespace pm.da
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand("dbo.usp_usuarioperfil_eliminar_x_perfil", cn))
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_usuarioperfil_eliminar_x_usuario", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@codigoUsuario", codigoUsuario.GetNullable());

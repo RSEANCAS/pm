@@ -71,6 +71,16 @@ namespace pm.bl
                             if (!seGuardo) break;
                         }
                     }
+
+                    if(registro.ListaBoletaVentaDetalleEliminar != null && seGuardo)
+                    {
+                        foreach(int codigoBoletaVentaDetalle in registro.ListaBoletaVentaDetalleEliminar)
+                        {
+                            seGuardo = boletaVentaDetalleDa.EliminarBoletaVentaDetalle(codigoBoletaVentaDetalle, registro.UsuarioModi, cn);
+                            if (!seGuardo) break;
+                        }
+                    }
+
                     if (seGuardo) scope.Complete();
                 }
             }

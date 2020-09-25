@@ -34,6 +34,8 @@ namespace pm.be
         public string DescripcionTipoDocumentoIdentidadCliente { get; set; }
         public int CodigoMoneda { get; set; }
         public string StrMoneda { get { return Enum<Moneda>.GetCollection().Count(x => x.Value == CodigoMoneda.ToString()) == 0 ? "" : ((Moneda)CodigoMoneda).GetAttributeOfType<DescriptionAttribute>().Description; } }
+        public int CodigoMetodoPago { get; set; }
+        public int CantidadLetrasCredito { get; set; }
         public decimal TotalOperacionGravada { get; set; }
         public decimal TotalOperacionInafecta { get; set; }
         public decimal TotalOperacionExonerada { get; set; }
@@ -57,5 +59,8 @@ namespace pm.be
         public bool FlagActivo { get; set; }
 
         public List<FacturaVentaDetalleBe> ListaFacturaVentaDetalle { get; set; }
+        public int[] ListaFacturaVentaDetalleEliminar { get; set; }
+
+        public List<LetraBe> ListaLetra { get; set; }
     }
 }

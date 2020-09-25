@@ -68,7 +68,7 @@ namespace pm.da
                                 item.Proveedor.NroDocumentoIdentidad = dr.GetData<string>("NroDocumentoIdentidadProveedor");
                                 item.Proveedor.Nombres = dr.GetData<string>("NombresProveedor");
                                 item.Proveedor.Direccion = dr.GetData<string>("DireccionProveedor");
-                                item.Proveedor.CodigoPais = dr.GetData<int>("CodigoPaisProveedor");
+                                item.Proveedor.CodigoDistrito = dr.GetData<int>("CodigoDistritoProveedor");
                                 item.Proveedor.Correo = dr.GetData<string>("CorreoProveedor");
                                 item.Proveedor.Telefono = dr.GetData<string>("TelefonoProveedor");
                                 item.Proveedor.Contacto = dr.GetData<string>("ContactoProveedor");

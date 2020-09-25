@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ActividadBl.cs" />
     <Compile Include="AreaBl.cs" />
+    <Compile Include="BancoBl.cs" />
     <Compile Include="BoletaVentaBl.cs" />
     <Compile Include="ClienteBl.cs" />
     <Compile Include="CommonBl.cs" />
@@ -55,7 +56,9 @@
     <Compile Include="DepartamentoBl.cs" />
     <Compile Include="DistritoBl.cs" />
     <Compile Include="FacturaVentaBl.cs" />
+    <Compile Include="GuiaRemisionBl.cs" />
     <Compile Include="MenuBl.cs" />
+    <Compile Include="MotivoTrasladoBl.cs" />
     <Compile Include="PaisBl.cs" />
     <Compile Include="PerfilBl.cs" />
     <Compile Include="PersonalBl.cs" />
@@ -81,6 +84,10 @@
     <ProjectReference Include="..\pm.da\pm.da.csproj">
       <Project>{4F2442E9-8C30-41B6-9D10-D561B93EC089}</Project>
       <Name>pm.da</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pm.enums\pm.enums.csproj">
+      <Project>{3b52a220-edf9-4de9-85c2-17fd9dd90eb2}</Project>
+      <Name>pm.enums</Name>
     </ProjectReference>
     <ProjectReference Include="..\pm.util\pm.util.csproj">
       <Project>{52A204CE-AB91-41BF-BE67-F6BC05D6F7AD}</Project>

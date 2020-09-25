@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ActividadBe.cs" />
     <Compile Include="AreaBe.cs" />
+    <Compile Include="BancoBe.cs" />
     <Compile Include="BaseAuditoria.cs" />
     <Compile Include="BaseComprobante.cs" />
     <Compile Include="BoletaVentaBe.cs" />
@@ -52,9 +53,11 @@
     <Compile Include="DistritoBe.cs" />
     <Compile Include="FacturaVentaBe.cs" />
     <Compile Include="FacturaVentaDetalleBe.cs" />
-    <Compile Include="GuiaRemisionTransportistaVentaBe.cs" />
-    <Compile Include="GuiaRemisionTransportistaVentaDetalleBe.cs" />
+    <Compile Include="GuiaRemisionBe.cs" />
+    <Compile Include="GuiaRemisionDetalleBe.cs" />
+    <Compile Include="LetraBe.cs" />
     <Compile Include="MenuBe.cs" />
+    <Compile Include="MotivoTrasladoBe.cs" />
     <Compile Include="NotaCreditoVentaBe.cs" />
     <Compile Include="NotaCreditoVentaDetalleBe.cs" />
     <Compile Include="NotaDebitoVentaBe.cs" />

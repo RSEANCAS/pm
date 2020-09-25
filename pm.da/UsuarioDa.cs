@@ -129,7 +129,7 @@ namespace pm.da
                 using (SqlCommand cmd = new SqlCommand("dbo.usp_usuario_guardar", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@codigoUsuario", Value = registro.CodigoUsuario.GetNullable(), Direction = ParameterDirection.Output });
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@codigoUsuario", Value = registro.CodigoUsuario.GetNullable(), Direction = ParameterDirection.InputOutput });
                     cmd.Parameters.AddWithValue("@nombre", registro.Nombre.GetNullable());
                     cmd.Parameters.AddWithValue("@contraseña", registro.Contraseña.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoPersonal", registro.CodigoPersonal.GetNullable());

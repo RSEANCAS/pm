@@ -95,10 +95,13 @@ namespace pm.app
             ProductoIndividualBe productoIndividual = codigoProductoIndividual == null ? null : productoIndividualBl.ObtenerProductoIndividual(codigoProductoIndividual.Value);
             if (productoIndividual != null)
             {
+                if (productoIndividual.CodigoProducto != codigoProducto) CargarProducto(productoIndividual.CodigoProducto);
                 this.codigoProductoIndividual = productoIndividual.CodigoProductoIndividual;
                 this.codigoBarraProductoIndividual = productoIndividual.CodigoBarra;
                 txtCodigoBarraProductoIndividual.Text = productoIndividual.CodigoBarra;
                 txtNombreProductoIndividual.Text = productoIndividual.Nombre;
+                cbbCodigoUnidadMedida.SelectedValue = productoIndividual.CodigoUnidadMedida;
+                txtCantidad.Text = productoIndividual.Metraje.ToString("0.00");
             }
             else
             {
@@ -106,6 +109,8 @@ namespace pm.app
                 this.codigoBarraProductoIndividual = null;
                 txtCodigoBarraProductoIndividual.Text = "";
                 txtNombreProductoIndividual.Text = "";
+                cbbCodigoUnidadMedida.SelectedIndex = 0;
+                txtCantidad.Text = "0.00";
             }
         }
 

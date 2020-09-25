@@ -24,18 +24,7 @@ namespace pm.app
 
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
-            ListarComboPais();
             BuscarProveedores();
-        }
-
-        void ListarComboPais()
-        {
-            List<PaisBe> listaCombo = paisBl.ListarComboPais();
-            listaCombo = listaCombo ?? new List<PaisBe>();
-            listaCombo.Insert(0, new PaisBe { CodigoPais = -1, Nombre = "[Todos...]" });
-
-            cbbPais.DataSource = null;
-            cbbPais.DataSource = listaCombo;
         }
 
         void BuscarProveedores()
@@ -43,12 +32,11 @@ namespace pm.app
             string nroDocumentoIdentidad = txtFiltroNroDocIdentidad.Text.Trim();
             string nombres = txtFiltroNombres.Text.Trim();
             string direccion = txtFiltroDireccion.Text.Trim();
-            int? codigoPais = ((int)cbbPais.SelectedValue == -1) ? null : (int?)cbbPais.SelectedValue;
             string correo = txtFiltroCorreo.Text.Trim();
             string contacto = txtFiltroContacto.Text.Trim();
             bool flagActivo = chkActivo.Checked;
 
-            List<ProveedorBe> resultados = proveedorBl.BuscarProveedor(nroDocumentoIdentidad, nombres, direccion, codigoPais, correo, contacto, flagActivo);
+            List<ProveedorBe> resultados = proveedorBl.BuscarProveedor(nroDocumentoIdentidad, nombres, direccion, correo, contacto, flagActivo);
 
             dgvResultados.AutoGenerateColumns = false;
             dgvResultados.DataSource = null;

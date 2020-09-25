@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbbPais = new System.Windows.Forms.ComboBox();
-            this.lblErrorAreaContacto = new System.Windows.Forms.Label();
-            this.lblErrorTelefono = new System.Windows.Forms.Label();
+            this.cbbCodigoPais = new System.Windows.Forms.ComboBox();
             this.lblErrorContacto = new System.Windows.Forms.Label();
             this.lblErrorCorreoElectronico = new System.Windows.Forms.Label();
+            this.lblErrorTelefono = new System.Windows.Forms.Label();
+            this.lblErrorCodigoPais = new System.Windows.Forms.Label();
             this.lblErrorDireccion = new System.Windows.Forms.Label();
             this.lblErrorNombresCompletos = new System.Windows.Forms.Label();
             this.lblErrorNroDocumentoIdentidad = new System.Windows.Forms.Label();
@@ -56,12 +56,21 @@
             this.cbbCodigoTipoDocumentoIdentidad = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tltProveedor = new System.Windows.Forms.ToolTip(this.components);
+            this.cbbCodigoDepartamento = new System.Windows.Forms.ComboBox();
+            this.lblErrorCodigoDepartamento = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbbCodigoProvincia = new System.Windows.Forms.ComboBox();
+            this.cbbCodigoDistrito = new System.Windows.Forms.ComboBox();
+            this.lblErrorCodigoDistrito = new System.Windows.Forms.Label();
+            this.lblErrorCodigoProvincia = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(297, 306);
+            this.btnGuardar.Location = new System.Drawing.Point(297, 407);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 7;
@@ -73,11 +82,20 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbbPais);
-            this.groupBox1.Controls.Add(this.lblErrorAreaContacto);
-            this.groupBox1.Controls.Add(this.lblErrorTelefono);
+            this.groupBox1.Controls.Add(this.cbbCodigoProvincia);
+            this.groupBox1.Controls.Add(this.cbbCodigoDistrito);
+            this.groupBox1.Controls.Add(this.lblErrorCodigoDistrito);
+            this.groupBox1.Controls.Add(this.lblErrorCodigoProvincia);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.cbbCodigoDepartamento);
+            this.groupBox1.Controls.Add(this.lblErrorCodigoDepartamento);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.cbbCodigoPais);
             this.groupBox1.Controls.Add(this.lblErrorContacto);
             this.groupBox1.Controls.Add(this.lblErrorCorreoElectronico);
+            this.groupBox1.Controls.Add(this.lblErrorTelefono);
+            this.groupBox1.Controls.Add(this.lblErrorCodigoPais);
             this.groupBox1.Controls.Add(this.lblErrorDireccion);
             this.groupBox1.Controls.Add(this.lblErrorNombresCompletos);
             this.groupBox1.Controls.Add(this.lblErrorNroDocumentoIdentidad);
@@ -99,59 +117,60 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 289);
+            this.groupBox1.Size = new System.Drawing.Size(360, 391);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
-            // cbbPais
+            // cbbCodigoPais
             // 
-            this.cbbPais.DisplayMember = "Nombre";
-            this.cbbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPais.FormattingEnabled = true;
-            this.cbbPais.Location = new System.Drawing.Point(9, 192);
-            this.cbbPais.Name = "cbbPais";
-            this.cbbPais.Size = new System.Drawing.Size(168, 21);
-            this.cbbPais.TabIndex = 27;
-            this.cbbPais.ValueMember = "CodigoPais";
-            // 
-            // lblErrorAreaContacto
-            // 
-            this.lblErrorAreaContacto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorAreaContacto.AutoSize = true;
-            this.lblErrorAreaContacto.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorAreaContacto.Location = new System.Drawing.Point(180, 269);
-            this.lblErrorAreaContacto.Name = "lblErrorAreaContacto";
-            this.lblErrorAreaContacto.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorAreaContacto.TabIndex = 26;
-            // 
-            // lblErrorTelefono
-            // 
-            this.lblErrorTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorTelefono.AutoSize = true;
-            this.lblErrorTelefono.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTelefono.Location = new System.Drawing.Point(180, 216);
-            this.lblErrorTelefono.Name = "lblErrorTelefono";
-            this.lblErrorTelefono.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorTelefono.TabIndex = 25;
+            this.cbbCodigoPais.DisplayMember = "Nombre";
+            this.cbbCodigoPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoPais.FormattingEnabled = true;
+            this.cbbCodigoPais.Location = new System.Drawing.Point(9, 192);
+            this.cbbCodigoPais.Name = "cbbCodigoPais";
+            this.cbbCodigoPais.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoPais.TabIndex = 27;
+            this.cbbCodigoPais.ValueMember = "CodigoPais";
+            this.cbbCodigoPais.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoPais_SelectedIndexChanged);
             // 
             // lblErrorContacto
             // 
+            this.lblErrorContacto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblErrorContacto.AutoSize = true;
             this.lblErrorContacto.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorContacto.Location = new System.Drawing.Point(6, 269);
+            this.lblErrorContacto.Location = new System.Drawing.Point(6, 375);
             this.lblErrorContacto.Name = "lblErrorContacto";
             this.lblErrorContacto.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorContacto.TabIndex = 23;
+            this.lblErrorContacto.TabIndex = 26;
             // 
             // lblErrorCorreoElectronico
             // 
+            this.lblErrorCorreoElectronico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblErrorCorreoElectronico.AutoSize = true;
             this.lblErrorCorreoElectronico.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCorreoElectronico.Location = new System.Drawing.Point(6, 216);
+            this.lblErrorCorreoElectronico.Location = new System.Drawing.Point(6, 322);
             this.lblErrorCorreoElectronico.Name = "lblErrorCorreoElectronico";
             this.lblErrorCorreoElectronico.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCorreoElectronico.TabIndex = 22;
+            this.lblErrorCorreoElectronico.TabIndex = 25;
+            // 
+            // lblErrorTelefono
+            // 
+            this.lblErrorTelefono.AutoSize = true;
+            this.lblErrorTelefono.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTelefono.Location = new System.Drawing.Point(180, 322);
+            this.lblErrorTelefono.Name = "lblErrorTelefono";
+            this.lblErrorTelefono.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorTelefono.TabIndex = 23;
+            // 
+            // lblErrorCodigoPais
+            // 
+            this.lblErrorCodigoPais.AutoSize = true;
+            this.lblErrorCodigoPais.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoPais.Location = new System.Drawing.Point(6, 216);
+            this.lblErrorCodigoPais.Name = "lblErrorCodigoPais";
+            this.lblErrorCodigoPais.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoPais.TabIndex = 22;
             // 
             // lblErrorDireccion
             // 
@@ -197,7 +216,7 @@
             // txtContacto
             // 
             this.txtContacto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContacto.Location = new System.Drawing.Point(183, 245);
+            this.txtContacto.Location = new System.Drawing.Point(9, 351);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(168, 21);
             this.txtContacto.TabIndex = 15;
@@ -205,7 +224,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(180, 229);
+            this.label7.Location = new System.Drawing.Point(6, 335);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 14;
@@ -213,7 +232,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(9, 245);
+            this.txtTelefono.Location = new System.Drawing.Point(183, 298);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(168, 21);
             this.txtTelefono.TabIndex = 13;
@@ -221,7 +240,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 229);
+            this.label8.Location = new System.Drawing.Point(180, 282);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 12;
@@ -230,7 +249,7 @@
             // txtCorreoElectronico
             // 
             this.txtCorreoElectronico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCorreoElectronico.Location = new System.Drawing.Point(183, 192);
+            this.txtCorreoElectronico.Location = new System.Drawing.Point(9, 298);
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 21);
             this.txtCorreoElectronico.TabIndex = 11;
@@ -238,7 +257,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(180, 176);
+            this.label6.Location = new System.Drawing.Point(6, 282);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 13);
             this.label6.TabIndex = 10;
@@ -326,11 +345,108 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "N° documento identidad";
             // 
+            // cbbCodigoDepartamento
+            // 
+            this.cbbCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbCodigoDepartamento.DisplayMember = "Nombre";
+            this.cbbCodigoDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoDepartamento.FormattingEnabled = true;
+            this.cbbCodigoDepartamento.Location = new System.Drawing.Point(183, 192);
+            this.cbbCodigoDepartamento.Name = "cbbCodigoDepartamento";
+            this.cbbCodigoDepartamento.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoDepartamento.TabIndex = 45;
+            this.cbbCodigoDepartamento.ValueMember = "CodigoDepartamento";
+            this.cbbCodigoDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoDepartamento_SelectedIndexChanged);
+            // 
+            // lblErrorCodigoDepartamento
+            // 
+            this.lblErrorCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoDepartamento.AutoSize = true;
+            this.lblErrorCodigoDepartamento.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoDepartamento.Location = new System.Drawing.Point(180, 216);
+            this.lblErrorCodigoDepartamento.Name = "lblErrorCodigoDepartamento";
+            this.lblErrorCodigoDepartamento.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoDepartamento.TabIndex = 44;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(180, 176);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(78, 13);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Departamento";
+            // 
+            // cbbCodigoProvincia
+            // 
+            this.cbbCodigoProvincia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbCodigoProvincia.DisplayMember = "Nombre";
+            this.cbbCodigoProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoProvincia.FormattingEnabled = true;
+            this.cbbCodigoProvincia.Location = new System.Drawing.Point(9, 245);
+            this.cbbCodigoProvincia.Name = "cbbCodigoProvincia";
+            this.cbbCodigoProvincia.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoProvincia.TabIndex = 51;
+            this.cbbCodigoProvincia.ValueMember = "CodigoProvincia";
+            this.cbbCodigoProvincia.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoProvincia_SelectedIndexChanged);
+            // 
+            // cbbCodigoDistrito
+            // 
+            this.cbbCodigoDistrito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbCodigoDistrito.DisplayMember = "Nombre";
+            this.cbbCodigoDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoDistrito.FormattingEnabled = true;
+            this.cbbCodigoDistrito.Location = new System.Drawing.Point(183, 245);
+            this.cbbCodigoDistrito.Name = "cbbCodigoDistrito";
+            this.cbbCodigoDistrito.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoDistrito.TabIndex = 50;
+            this.cbbCodigoDistrito.ValueMember = "CodigoDistrito";
+            // 
+            // lblErrorCodigoDistrito
+            // 
+            this.lblErrorCodigoDistrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoDistrito.AutoSize = true;
+            this.lblErrorCodigoDistrito.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoDistrito.Location = new System.Drawing.Point(180, 269);
+            this.lblErrorCodigoDistrito.Name = "lblErrorCodigoDistrito";
+            this.lblErrorCodigoDistrito.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoDistrito.TabIndex = 49;
+            // 
+            // lblErrorCodigoProvincia
+            // 
+            this.lblErrorCodigoProvincia.AutoSize = true;
+            this.lblErrorCodigoProvincia.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoProvincia.Location = new System.Drawing.Point(6, 269);
+            this.lblErrorCodigoProvincia.Name = "lblErrorCodigoProvincia";
+            this.lblErrorCodigoProvincia.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoProvincia.TabIndex = 48;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(180, 229);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.TabIndex = 47;
+            this.label16.Text = "Distrito";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 229);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Provincia";
+            // 
             // FrmMantenimientoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 340);
+            this.ClientSize = new System.Drawing.Size(384, 442);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
@@ -348,10 +464,10 @@
 
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblErrorAreaContacto;
-        private System.Windows.Forms.Label lblErrorTelefono;
         private System.Windows.Forms.Label lblErrorContacto;
         private System.Windows.Forms.Label lblErrorCorreoElectronico;
+        private System.Windows.Forms.Label lblErrorTelefono;
+        private System.Windows.Forms.Label lblErrorCodigoPais;
         private System.Windows.Forms.Label lblErrorDireccion;
         private System.Windows.Forms.Label lblErrorNombresCompletos;
         private System.Windows.Forms.Label lblErrorNroDocumentoIdentidad;
@@ -371,7 +487,16 @@
         private System.Windows.Forms.TextBox txtNroDocumentoIdentidad;
         private System.Windows.Forms.ComboBox cbbCodigoTipoDocumentoIdentidad;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbbPais;
+        private System.Windows.Forms.ComboBox cbbCodigoPais;
         private System.Windows.Forms.ToolTip tltProveedor;
+        private System.Windows.Forms.ComboBox cbbCodigoDepartamento;
+        private System.Windows.Forms.Label lblErrorCodigoDepartamento;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbbCodigoProvincia;
+        private System.Windows.Forms.ComboBox cbbCodigoDistrito;
+        private System.Windows.Forms.Label lblErrorCodigoDistrito;
+        private System.Windows.Forms.Label lblErrorCodigoProvincia;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }

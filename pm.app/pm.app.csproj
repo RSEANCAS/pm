@@ -64,6 +64,12 @@
     <Compile Include="FrmArea.Designer.cs">
       <DependentUpon>FrmArea.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBanco.Designer.cs">
+      <DependentUpon>FrmBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBoletaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     <Compile Include="FrmBusquedaSeleccionarRegistro.Designer.cs">
       <DependentUpon>FrmBusquedaSeleccionarRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCalculoCronogramaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCalculoCronogramaPago.Designer.cs">
+      <DependentUpon>FrmCalculoCronogramaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +99,12 @@
     </Compile>
     <Compile Include="FrmFacturaVenta.Designer.cs">
       <DependentUpon>FrmFacturaVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGuiaRemision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGuiaRemision.Designer.cs">
+      <DependentUpon>FrmGuiaRemision.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -111,6 +129,12 @@
     </Compile>
     <Compile Include="FrmMantenimientoArea.Designer.cs">
       <DependentUpon>FrmMantenimientoArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoBanco.Designer.cs">
+      <DependentUpon>FrmMantenimientoBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMantenimientoBoletaVenta.cs">
       <SubType>Form</SubType>
@@ -142,11 +166,29 @@
     <Compile Include="FrmMantenimientoFacturaVentaDetalle.Designer.cs">
       <DependentUpon>FrmMantenimientoFacturaVentaDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoGuiaRemision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoGuiaRemision.Designer.cs">
+      <DependentUpon>FrmMantenimientoGuiaRemision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoGuiaRemisionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoGuiaRemisionDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoGuiaRemisionDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMantenimientoMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMantenimientoMenu.Designer.cs">
       <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoMotivoTraslado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoMotivoTraslado.Designer.cs">
+      <DependentUpon>FrmMantenimientoMotivoTraslado.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMantenimientoPerfil.cs">
       <SubType>Form</SubType>
@@ -201,6 +243,12 @@
     </Compile>
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMotivoTraslado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMotivoTraslado.Designer.cs">
+      <DependentUpon>FrmMotivoTraslado.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNotaCreditoVenta.cs">
       <SubType>Form</SubType>
@@ -270,17 +318,26 @@
     <EmbeddedResource Include="FrmArea.resx">
       <DependentUpon>FrmArea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBanco.resx">
+      <DependentUpon>FrmBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBoletaVenta.resx">
       <DependentUpon>FrmBoletaVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaSeleccionarRegistro.resx">
       <DependentUpon>FrmBusquedaSeleccionarRegistro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCalculoCronogramaPago.resx">
+      <DependentUpon>FrmCalculoCronogramaPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturaVenta.resx">
       <DependentUpon>FrmFacturaVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGuiaRemision.resx">
+      <DependentUpon>FrmGuiaRemision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -293,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoArea.resx">
       <DependentUpon>FrmMantenimientoArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoBanco.resx">
+      <DependentUpon>FrmMantenimientoBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoBoletaVenta.resx">
       <DependentUpon>FrmMantenimientoBoletaVenta.cs</DependentUpon>
@@ -309,8 +369,17 @@
     <EmbeddedResource Include="FrmMantenimientoFacturaVentaDetalle.resx">
       <DependentUpon>FrmMantenimientoFacturaVentaDetalle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoGuiaRemision.resx">
+      <DependentUpon>FrmMantenimientoGuiaRemision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoGuiaRemisionDetalle.resx">
+      <DependentUpon>FrmMantenimientoGuiaRemisionDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoMenu.resx">
       <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoMotivoTraslado.resx">
+      <DependentUpon>FrmMantenimientoMotivoTraslado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoPerfil.resx">
       <DependentUpon>FrmMantenimientoPerfil.cs</DependentUpon>
@@ -338,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMotivoTraslado.resx">
+      <DependentUpon>FrmMotivoTraslado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>

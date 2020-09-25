@@ -57,5 +57,6 @@ namespace pm.be
         public bool FlagActivo { get; set; }
 
         public List<BoletaVentaDetalleBe> ListaBoletaVentaDetalle { get; set; }
+        public int[] ListaBoletaVentaDetalleEliminar { get; set; }
     }
 }

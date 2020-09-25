@@ -15,14 +15,14 @@ namespace pm.bl
 
         ProveedorDa proveedorDa = new ProveedorDa();
 
-        public List<ProveedorBe> BuscarProveedor(string nroDocumentoIdentidad, string nombres, string direccion, int? codigoPais, string correo, string contacto, bool flagActivo)
+        public List<ProveedorBe> BuscarProveedor(string nroDocumentoIdentidad, string nombres, string direccion, string correo, string contacto, bool flagActivo)
         {
             List<ProveedorBe> resultados = null;
 
             try
             {
                 cn.Open();
-                resultados = proveedorDa.BuscarProveedor(nroDocumentoIdentidad, nombres, direccion, codigoPais, correo, contacto, flagActivo, cn);
+                resultados = proveedorDa.BuscarProveedor(nroDocumentoIdentidad, nombres, direccion, correo, contacto, flagActivo, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

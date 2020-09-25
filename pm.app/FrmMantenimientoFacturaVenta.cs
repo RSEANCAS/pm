@@ -20,8 +20,11 @@ namespace pm.app
         int? codigoCliente, codigoDistritoCliente;
         string nombrePaisCliente, nombreDepartamentoCliente, nombreProvinciaCliente, nombreDistritoCliente;
         string nroDocumentoIdentidadCliente;
+        MetodoPago metodoPago = MetodoPago.Contado;
+        int codigoMetodoPago = (int)MetodoPago.Contado;
         List<FacturaVentaDetalleBe> listaDetalleInicial = new List<FacturaVentaDetalleBe>();
         List<FacturaVentaDetalleBe> listaDetalle = new List<FacturaVentaDetalleBe>();
+        List<LetraBe> listaLetra = new List<LetraBe>();
 
         FacturaVentaBl facturaVentaBl = new FacturaVentaBl();
         SerieBl serieBl = new SerieBl();
@@ -37,18 +40,20 @@ namespace pm.app
         private void FrmMantenimientoFacturaVenta_Load(object sender, EventArgs e)
         {
             Text = !codigoFacturaVenta.HasValue ? "Nueva Factura de Venta" : "Modificar Factura de Venta";
+            dtpFechaHoraEmision_ValueChanged(dtpFechaHoraEmision, new EventArgs());
             ListarCombos();
             dgvDetalle.AutoGenerateColumns = false;
             if (codigoFacturaVenta.HasValue)
             {
                 CargarFacturaVenta();
             }
+            else CalcularTotales();
             HabilitarModificarYEliminar();
         }
 
         void CargarFacturaVenta()
         {
-            FacturaVentaBe item = facturaVentaBl.ObtenerFacturaVenta(codigoFacturaVenta.Value, true);
+            FacturaVentaBe item = facturaVentaBl.ObtenerFacturaVenta(codigoFacturaVenta.Value, true, true);
 
             dtpFechaHoraEmision.Value = item.FechaHoraEmision;
             cbbCodigoSerie.SelectedValue = item.CodigoSerie;
@@ -56,12 +61,19 @@ namespace pm.app
             dtpFechaHoraVencimiento.MinDate = new DateTime(item.FechaHoraEmision.Year, item.FechaHoraEmision.Month, item.FechaHoraEmision.Day);
             dtpFechaHoraVencimiento.Value = item.FechaHoraVencimiento;
             cbbCodigoMoneda.SelectedValue = item.CodigoMoneda.ToString();
+            if (item.CodigoMetodoPago == (int)MetodoPago.Contado) rdbContado.Checked = true;
+            else if (item.CodigoMetodoPago == (int)MetodoPago.Credito)
+            {
+                rdbCredito.Checked = true;
+                txtCantidadLetrasCredito.Text = item.CantidadLetrasCredito.ToString();
+            }
 
             codigoCliente = item.CodigoCliente;
             CargarCliente(codigoCliente);
 
             listaDetalleInicial = item.ListaFacturaVentaDetalle;
             listaDetalle = item.ListaFacturaVentaDetalle;
+            listaLetra = item.ListaLetra;
             ListarFacturaVentaDetalle();
         }
 
@@ -246,6 +258,24 @@ namespace pm.app
 
             if (!estaValidado) return;
 
+            int cantidadLetrasCredito = 0;
+            List<LetraBe> listaLetra = null;
+            if (metodoPago == MetodoPago.Credito)
+            {
+                DateTime fechaHoraEmision = dtpFechaHoraEmision.Value;
+                cantidadLetrasCredito = int.Parse(txtCantidadLetrasCredito.Text.Trim());
+                decimal totalImporte = decimal.Parse(txtTotalImporte.Text.Trim());
+
+                FrmCalculoCronogramaPago frm = new FrmCalculoCronogramaPago(fechaHoraEmision, cantidadLetrasCredito, totalImporte, this.listaLetra);
+                frm.ShowInTaskbar = false;
+                frm.BringToFront();
+                DialogResult dr = frm.ShowDialog();
+
+                if (dr != DialogResult.Yes) return;
+
+                listaLetra = frm.Lista;
+            }
+
             FacturaVentaBe registro = new FacturaVentaBe();
 
             if (codigoFacturaVenta.HasValue) registro.CodigoFacturaVenta = codigoFacturaVenta.Value;
@@ -261,7 +291,10 @@ namespace pm.app
             registro.NombreProvinciaCliente = nombreProvinciaCliente;
             registro.NombreDistritoCliente = nombreDistritoCliente;
             registro.CodigoDistritoCliente = codigoDistritoCliente.Value;
+            registro.CodigoMetodoPago = codigoMetodoPago;
+            registro.CantidadLetrasCredito = cantidadLetrasCredito;
             registro.ListaFacturaVentaDetalle = listaDetalle;
+            registro.ListaFacturaVentaDetalleEliminar = listaDetalleInicial == null ? null : listaDetalleInicial.Where(x => listaDetalle.Count(y => y.CodigoFacturaVentaDetalle == x.CodigoFacturaVentaDetalle) == 0).Select(x => x.CodigoFacturaVentaDetalle).ToArray();
             registro.TotalValorVenta = listaDetalle.Sum(x => x.ValorVenta);
             registro.TotalPrecioVenta = listaDetalle.Sum(x => x.PrecioVenta);
             registro.TotalPorcentajeDescuentoGlobal = 0;
@@ -270,6 +303,7 @@ namespace pm.app
             registro.TotalIgv = listaDetalle.Sum(x => x.Igv);
             registro.TotalBaseImponible = listaDetalle.Sum(x => x.BaseImponible);
             registro.TotalImporte = listaDetalle.Sum(x => x.Importe);
+            registro.ListaLetra = listaLetra;
 
             bool seGuardoRegistro = facturaVentaBl.GuardarFacturaVenta(registro);
 
@@ -333,6 +367,20 @@ namespace pm.app
             }
 
             return estaValidado;
+        }
+
+        private void rdbContado_CheckedChanged(object sender, EventArgs e)
+        {
+            metodoPago = MetodoPago.Contado;
+            codigoMetodoPago = (int)MetodoPago.Contado;
+            txtCantidadLetrasCredito.ReadOnly = true;
+        }
+
+        private void rdbCredito_CheckedChanged(object sender, EventArgs e)
+        {
+            metodoPago = MetodoPago.Credito;
+            codigoMetodoPago = (int)MetodoPago.Credito;
+            txtCantidadLetrasCredito.ReadOnly = false;
         }
 
         void SetToolTipError(Label label)

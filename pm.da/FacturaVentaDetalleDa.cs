@@ -113,5 +113,26 @@ namespace pm.da
 
             return resultados;
         }
+
+        public bool EliminarFacturaVentaDetalle(int codigoFacturaVentaDetalle, string usuarioModi, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_facturaventadetalle_eliminar", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoFacturaVentaDetalle", codigoFacturaVentaDetalle.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", usuarioModi.GetNullable());
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
     }
 }

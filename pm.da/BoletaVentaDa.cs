@@ -150,7 +150,7 @@ namespace pm.da
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add(new SqlParameter { ParameterName = "@codigoBoletaVenta", Value = registro.CodigoBoletaVenta.GetNullable(), Direction = ParameterDirection.InputOutput });
                     cmd.Parameters.AddWithValue("@codigoSerie", registro.CodigoSerie.GetNullable());
-                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@nroComprobante", SqlDbType = SqlDbType.Int, Direction = ParameterDirection.Output });
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@nroComprobante", Value = registro.NroComprobante.GetNullable(), SqlDbType = SqlDbType.Int, Direction = ParameterDirection.InputOutput });
                     cmd.Parameters.AddWithValue("@fechaHoraEmision", registro.FechaHoraEmision.GetNullable());
                     cmd.Parameters.AddWithValue("@fechaHoraVencimiento", registro.FechaHoraVencimiento.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoCliente", registro.CodigoCliente.GetNullable());
