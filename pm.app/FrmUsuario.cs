@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmUsuario : Form
+    public partial class FrmUsuario : RadForm
     {
         UsuarioBl usuarioBl = new UsuarioBl();
 

@@ -10,10 +10,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmCliente : Form
+    public partial class FrmCliente : RadForm
     {
         ClienteBl clienteBl = new ClienteBl();
 

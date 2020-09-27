@@ -9,11 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 using static pm.enums.Enums;
 
 namespace pm.app
 {
-    public partial class FrmMantenimientoBoletaVentaDetalle : Form
+    public partial class FrmMantenimientoBoletaVentaDetalle : RadForm
     {
         public List<BoletaVentaDetalleBe> ListaDetalleInicial { get; set; }
         public List<BoletaVentaDetalleBe> ListaDetalleActual { get; set; }

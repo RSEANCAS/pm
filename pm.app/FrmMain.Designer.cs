@@ -42,6 +42,7 @@
             this.cbbPerfil = new System.Windows.Forms.ToolStripDropDownButton();
             this.mnsMenu = new System.Windows.Forms.MenuStrip();
             this.stsInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // stsInfo
@@ -153,12 +154,17 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnsMenu;
             this.Name = "FrmMain";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pronto Moda";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.stsInfo.ResumeLayout(false);
             this.stsInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

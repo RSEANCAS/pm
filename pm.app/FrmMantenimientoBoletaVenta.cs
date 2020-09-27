@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 using static pm.enums.Enums;
 
 namespace pm.app
 {
-    public partial class FrmMantenimientoBoletaVenta : Form
+    public partial class FrmMantenimientoBoletaVenta : RadForm
     {
         int? codigoBoletaVenta;
         int? codigoCliente, codigoDistritoCliente;

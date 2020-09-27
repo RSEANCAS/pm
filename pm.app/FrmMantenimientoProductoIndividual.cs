@@ -10,10 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmMantenimientoProductoIndividual : Form
+    public partial class FrmMantenimientoProductoIndividual : RadForm
     {
         int? codigoProductoIndividual;
         int? codigoProducto;

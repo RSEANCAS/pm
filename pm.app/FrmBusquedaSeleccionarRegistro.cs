@@ -10,10 +10,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmBusquedaSeleccionarRegistro : Form
+    public partial class FrmBusquedaSeleccionarRegistro : RadForm
     {
         dynamic _Resultado;
         public dynamic Resultado { get { return _Resultado; } }

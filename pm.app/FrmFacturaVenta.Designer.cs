@@ -35,6 +35,19 @@
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.dgvResultados_CodigoFacturaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TotalImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FlagEmitido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbFiltroCodigoSerie = new System.Windows.Forms.ComboBox();
@@ -50,21 +63,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvResultados_CodigoFacturaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_TotalImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FlagEmitido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -118,155 +121,6 @@
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
             this.dgvResultados.TabIndex = 21;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 20;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbbFiltroCodigoSerie);
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaEmisionHasta);
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaEmisionDesde);
-            this.groupBox1.Controls.Add(this.txtFiltroNombresCliente);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidadCliente);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtFiltroNroComprobante);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.chkActivo);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // cbbFiltroCodigoSerie
-            // 
-            this.cbbFiltroCodigoSerie.DisplayMember = "Serial";
-            this.cbbFiltroCodigoSerie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbFiltroCodigoSerie.FormattingEnabled = true;
-            this.cbbFiltroCodigoSerie.Location = new System.Drawing.Point(218, 33);
-            this.cbbFiltroCodigoSerie.Name = "cbbFiltroCodigoSerie";
-            this.cbbFiltroCodigoSerie.Size = new System.Drawing.Size(100, 21);
-            this.cbbFiltroCodigoSerie.TabIndex = 25;
-            this.cbbFiltroCodigoSerie.ValueMember = "CodigoSerie";
-            // 
-            // dtpFiltroFechaEmisionHasta
-            // 
-            this.dtpFiltroFechaEmisionHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaEmisionHasta.Location = new System.Drawing.Point(112, 33);
-            this.dtpFiltroFechaEmisionHasta.Name = "dtpFiltroFechaEmisionHasta";
-            this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 21);
-            this.dtpFiltroFechaEmisionHasta.TabIndex = 24;
-            // 
-            // dtpFiltroFechaEmisionDesde
-            // 
-            this.dtpFiltroFechaEmisionDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaEmisionDesde.Location = new System.Drawing.Point(6, 33);
-            this.dtpFiltroFechaEmisionDesde.Name = "dtpFiltroFechaEmisionDesde";
-            this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 21);
-            this.dtpFiltroFechaEmisionDesde.TabIndex = 23;
-            // 
-            // txtFiltroNombresCliente
-            // 
-            this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
-            this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
-            this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNombresCliente.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(536, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Nombres";
-            // 
-            // txtFiltroNroDocIdentidadCliente
-            // 
-            this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
-            this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
-            this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(430, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "N° Doc. Identidad";
-            // 
-            // txtFiltroNroComprobante
-            // 
-            this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
-            this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
-            this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNroComprobante.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(324, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Número";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(218, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Serie";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Fec. Emisión Hasta";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Location = new System.Drawing.Point(642, 37);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fec. Emisión Desde";
             // 
             // dgvResultados_CodigoFacturaVenta
             // 
@@ -378,6 +232,171 @@
             this.dgvResultados_FlagActivo.ReadOnly = true;
             this.dgvResultados_FlagActivo.Width = 80;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbbFiltroCodigoSerie);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaEmisionHasta);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaEmisionDesde);
+            this.groupBox1.Controls.Add(this.txtFiltroNombresCliente);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidadCliente);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtFiltroNroComprobante);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.chkActivo);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(701, 64);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // cbbFiltroCodigoSerie
+            // 
+            this.cbbFiltroCodigoSerie.DisplayMember = "Serial";
+            this.cbbFiltroCodigoSerie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFiltroCodigoSerie.FormattingEnabled = true;
+            this.cbbFiltroCodigoSerie.Location = new System.Drawing.Point(218, 33);
+            this.cbbFiltroCodigoSerie.Name = "cbbFiltroCodigoSerie";
+            this.cbbFiltroCodigoSerie.Size = new System.Drawing.Size(100, 21);
+            this.cbbFiltroCodigoSerie.TabIndex = 25;
+            this.cbbFiltroCodigoSerie.ValueMember = "CodigoSerie";
+            // 
+            // dtpFiltroFechaEmisionHasta
+            // 
+            this.dtpFiltroFechaEmisionHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaEmisionHasta.Location = new System.Drawing.Point(112, 33);
+            this.dtpFiltroFechaEmisionHasta.Name = "dtpFiltroFechaEmisionHasta";
+            this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaEmisionHasta.TabIndex = 24;
+            // 
+            // dtpFiltroFechaEmisionDesde
+            // 
+            this.dtpFiltroFechaEmisionDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaEmisionDesde.Location = new System.Drawing.Point(6, 33);
+            this.dtpFiltroFechaEmisionDesde.Name = "dtpFiltroFechaEmisionDesde";
+            this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaEmisionDesde.TabIndex = 23;
+            // 
+            // txtFiltroNombresCliente
+            // 
+            this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
+            this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
+            this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNombresCliente.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(536, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Nombres";
+            // 
+            // txtFiltroNroDocIdentidadCliente
+            // 
+            this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
+            this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
+            this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(430, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "N° Doc. Identidad";
+            // 
+            // txtFiltroNroComprobante
+            // 
+            this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
+            this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
+            this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNroComprobante.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(324, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Número";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(218, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Serie";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Fec. Emisión Hasta";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Location = new System.Drawing.Point(642, 37);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(57, 17);
+            this.chkActivo.TabIndex = 12;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Fec. Emisión Desde";
+            // 
+            // radRibbonBar1
+            // 
+            // 
+            // 
+            // 
+            this.radRibbonBar1.ExitButton.Text = "Exit";
+            this.radRibbonBar1.Location = new System.Drawing.Point(0, 0);
+            this.radRibbonBar1.Name = "radRibbonBar1";
+            // 
+            // 
+            // 
+            this.radRibbonBar1.OptionsButton.Text = "Options";
+            this.radRibbonBar1.Size = new System.Drawing.Size(725, 148);
+            this.radRibbonBar1.TabIndex = 24;
+            this.radRibbonBar1.Text = "Facturas de venta";
+            // 
             // FrmFacturaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,13 +407,19 @@
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
+            //this.Controls.Add(this.radRibbonBar1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmFacturaVenta";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Facturas de venta";
             this.Load += new System.EventHandler(this.FrmFacturaVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,5 +458,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TotalImporte;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagEmitido;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagActivo;
+        private Telerik.WinControls.UI.RadRibbonBar radRibbonBar1;
     }
 }

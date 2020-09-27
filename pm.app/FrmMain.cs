@@ -11,10 +11,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmMain : Form
+    public partial class FrmMain : RadForm
     {
         UsuarioBe usuarioSession { get; set; }
 

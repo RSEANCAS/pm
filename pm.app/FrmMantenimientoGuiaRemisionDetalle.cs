@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmMantenimientoGuiaRemisionDetalle : Form
+    public partial class FrmMantenimientoGuiaRemisionDetalle : RadForm
     {
         public List<GuiaRemisionDetalleBe> ListaDetalleInicial { get; set; }
         public List<GuiaRemisionDetalleBe> ListaDetalleActual { get; set; }

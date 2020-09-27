@@ -10,10 +10,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmMantenimientoCliente : Form
+    public partial class FrmMantenimientoCliente : RadForm
     {
         int? codigoCliente;
 
