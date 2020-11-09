@@ -18,6 +18,8 @@ namespace pm.app
     public partial class FrmMantenimientoBoletaVenta : RadForm
     {
         int? codigoBoletaVenta;
+        GuiaRemisionBe guiaRemision;
+
         int? codigoCliente, codigoDistritoCliente;
         string nombrePaisCliente, nombreDepartamentoCliente, nombreProvinciaCliente, nombreDistritoCliente;
         string nroDocumentoIdentidadCliente;
@@ -28,16 +30,21 @@ namespace pm.app
         SerieBl serieBl = new SerieBl();
         TipoDocumentoIdentidadBl tipoDocumentoIdentidadBl = new TipoDocumentoIdentidadBl();
         ClienteBl clienteBl = new ClienteBl();
+        ProductoBl productoBl = new ProductoBl();
+        ProductoIndividualBl productoIndividualBl = new ProductoIndividualBl();
+        UnidadMedidaBl unidadMedidaBl = new UnidadMedidaBl();
+        ControlBusquedaBl controlBusquedaBl = new ControlBusquedaBl();
 
-        public FrmMantenimientoBoletaVenta(int? codigoBoletaVenta = null)
+        public FrmMantenimientoBoletaVenta(int? codigoBoletaVenta = null, GuiaRemisionBe guiaRemision = null)
         {
             InitializeComponent();
             this.codigoBoletaVenta = codigoBoletaVenta;
+            this.guiaRemision = guiaRemision;
         }
 
         private void FrmMantenimientoBoletaVenta_Load(object sender, EventArgs e)
         {
-            Text = !codigoBoletaVenta.HasValue ? "Nueva Boleta de Venta" : "Modificar Boleta de Venta";
+            Text = !codigoBoletaVenta.HasValue ? "Nueva Boleta de Venta" + (guiaRemision == null ? "" : $" - Guía de Remisión {((TipoComprobante)guiaRemision.CodigoTipoComprobante).GetAttributeOfType<DescriptionAttribute>().Description} {guiaRemision.Serie.Serial} - {guiaRemision.NroComprobante.ToString("00000000")}") : "Modificar Boleta de Venta";
             dtpFechaHoraEmision_ValueChanged(dtpFechaHoraEmision, new EventArgs());
             ListarCombos();
             dgvDetalle.AutoGenerateColumns = false;
@@ -45,6 +52,8 @@ namespace pm.app
             {
                 CargarBoletaVenta();
             }
+            else CalcularTotales();
+            CargarGuiaRemision();
             HabilitarModificarYEliminar();
         }
 
@@ -65,6 +74,94 @@ namespace pm.app
             listaDetalleInicial = item.ListaBoletaVentaDetalle;
             listaDetalle = item.ListaBoletaVentaDetalle;
             ListarBoletaVentaDetalle();
+        }
+
+        void CargarGuiaRemision()
+        {
+            if (guiaRemision != null)
+            {
+                var cotizacion = guiaRemision.Cotizacion;
+                if (cotizacion != null)
+                {
+                    dtpFechaHoraEmision.Value = DateTime.Now;
+                    dtpFechaHoraVencimiento.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                    dtpFechaHoraVencimiento.Value = dtpFechaHoraEmision.Value;
+
+                    codigoCliente = cotizacion.CodigoCliente;
+                    btnBuscarCliente.Enabled = false;
+                    txtNroDocumentoIdentidadCliente.ReadOnly = true;
+                    CargarCliente(codigoCliente);
+
+                    ReCalcularDetalleGuiaRemision();
+                    ListarBoletaVentaDetalle();
+                }
+            }
+        }
+
+        void ReCalcularDetalleGuiaRemision()
+        {
+            void Calculo(BoletaVentaDetalleBe item)
+            {
+                decimal cantidad = item.Cantidad, valorUnitario = 0, precioUnitario = item.PrecioUnitario, porcentajeDescuento = 0, valorPorcentajeDescuento = 0, descuento = 0, valorVenta = 0, precioVenta = 0, igv = 0, baseImponible = 0, totalImporte = 0;
+
+                decimal porcentajeIgv = 18M;
+                decimal valorPorcentajeIgv = porcentajeIgv / 100;
+
+                valorUnitario = precioUnitario / (1 + valorPorcentajeIgv);
+                valorVenta = valorUnitario * cantidad;
+                precioVenta = precioUnitario * cantidad;
+                totalImporte = precioVenta - descuento;
+                baseImponible = totalImporte / (1 + valorPorcentajeIgv);
+                igv = totalImporte - baseImponible;
+
+                item.ValorUnitario = valorUnitario;
+                item.ValorVenta = valorVenta;
+                item.PrecioVenta = precioVenta;
+                item.PorcentajeDescuento = porcentajeDescuento;
+                item.Descuento = descuento;
+                item.Igv = igv;
+                item.BaseImponible = baseImponible;
+                item.Importe = totalImporte;
+            }
+
+            if (guiaRemision != null)
+            {
+                var cotizacion = guiaRemision.Cotizacion;
+                if (cotizacion != null)
+                {
+                    List<GuiaRemisionDetalleBe> lista = guiaRemision.ListaGuiaRemisionDetalle;
+                    lista = lista.Select(x =>
+                    {
+                        x.CotizacionDetalle = cotizacion.ListaCotizacionDetalle.Where(y => y.CodigoCotizacionDetalle == x.CodigoCotizacionDetalle).FirstOrDefault();
+                        return x;
+                    }).ToList();
+                    foreach (GuiaRemisionDetalleBe item in lista)
+                    {
+                        BoletaVentaDetalleBe itemBoleta = new BoletaVentaDetalleBe();
+                        itemBoleta.CodigoGuiaRemision = item.CodigoGuiaRemision;
+                        itemBoleta.CodigoGuiaRemisionDetalle = item.CodigoGuiaRemisionDetalle;
+                        itemBoleta.CodigoCotizacion = cotizacion.CodigoCotizacion;
+                        itemBoleta.CodigoCotizacionDetalle = item.CodigoCotizacionDetalle;
+                        itemBoleta.CodigoProducto = item.CodigoProducto;
+                        itemBoleta.Producto = productoBl.ObtenerProducto(item.CodigoProducto);
+                        itemBoleta.CodigoProductoIndividual = item.CodigoProductoIndividual;
+                        itemBoleta.ProductoIndividual = productoIndividualBl.ObtenerProductoIndividual(item.CodigoProductoIndividual);
+                        itemBoleta.CodigoUnidadMedida = itemBoleta.ProductoIndividual.CodigoUnidadMedida;
+                        itemBoleta.UnidadMedida = unidadMedidaBl.ObtenerUnidadMedida(itemBoleta.CodigoUnidadMedida);
+                        itemBoleta.Detalle = item.Detalle;
+                        itemBoleta.Cantidad = item.Cantidad;
+                        itemBoleta.PrecioUnitario = item.CotizacionDetalle.PrecioUnitario;
+                        itemBoleta.TipoCalculo = (int)TipoCalculo.PrecioUnitario;
+                        itemBoleta.TipoDescuento = (int)TipoDescuento.Descuento;
+                        Calculo(itemBoleta);
+
+                        listaDetalle.Add(itemBoleta);
+                    }
+
+                    listaDetalleInicial = listaDetalle.Select((x, i) => { x.Fila = i + 1; return x; }).ToList();
+                    listaDetalle = listaDetalle.Select((x, i) => { x.Fila = i + 1; return x; }).ToList();
+                }
+            }
         }
 
         void ListarCombos()
@@ -113,24 +210,11 @@ namespace pm.app
         {
             if (nroDocumentoIdentidadCliente == txtNroDocumentoIdentidadCliente.Text.Trim()) return;
             if (txtNroDocumentoIdentidadCliente.Text.Trim() == "") CargarCliente(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoCliente", NombreColumna = "CodigoCliente", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Cliente";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Cliente", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ClienteBe), txtNroDocumentoIdentidadCliente.Text.Trim());
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocumentoIdentidadCliente.Text.Trim());
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -251,6 +335,11 @@ namespace pm.app
             BoletaVentaBe registro = new BoletaVentaBe();
 
             if (codigoBoletaVenta.HasValue) registro.CodigoBoletaVenta = codigoBoletaVenta.Value;
+            if (guiaRemision != null)
+            {
+                registro.CodigoGuiaRemision = guiaRemision.CodigoGuiaRemision;
+                registro.CodigoCotizacion = guiaRemision.CodigoCotizacion;
+            }
             registro.FechaHoraEmision = dtpFechaHoraEmision.Value;
             registro.CodigoSerie = (int)cbbCodigoSerie.SelectedValue;
             registro.NroComprobante = int.Parse(string.IsNullOrEmpty(txtNroComprobante.Text.Trim()) ? "0" : txtNroComprobante.Text.Trim());

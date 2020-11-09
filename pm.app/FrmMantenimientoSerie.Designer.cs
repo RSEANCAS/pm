@@ -31,23 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblErrorSerial = new System.Windows.Forms.Label();
-            this.txtSerial = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblErrorValorActual = new System.Windows.Forms.Label();
+            this.txtValorActual = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbbCodigoTipoComprobante = new System.Windows.Forms.ComboBox();
+            this.lblErrorCodigoTipoComprobante = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblErrorValorFinal = new System.Windows.Forms.Label();
             this.lblErrorValorInicial = new System.Windows.Forms.Label();
             this.txtValorFinal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtValorInicial = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblErrorCodigoTipoComprobante = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbbCodigoTipoComprobante = new System.Windows.Forms.ComboBox();
-            this.lblErrorValorActual = new System.Windows.Forms.Label();
-            this.txtValorActual = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblErrorSerial = new System.Windows.Forms.Label();
+            this.txtSerial = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tltSerie = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -86,34 +87,61 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
-            // lblErrorSerial
+            // lblErrorValorActual
             // 
-            this.lblErrorSerial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblErrorValorActual.AutoSize = true;
+            this.lblErrorValorActual.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorValorActual.Location = new System.Drawing.Point(6, 162);
+            this.lblErrorValorActual.Name = "lblErrorValorActual";
+            this.lblErrorValorActual.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorValorActual.TabIndex = 38;
+            // 
+            // txtValorActual
+            // 
+            this.txtValorActual.Location = new System.Drawing.Point(9, 138);
+            this.txtValorActual.Name = "txtValorActual";
+            this.txtValorActual.Size = new System.Drawing.Size(168, 20);
+            this.txtValorActual.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 122);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Valor Actual";
+            // 
+            // cbbCodigoTipoComprobante
+            // 
+            this.cbbCodigoTipoComprobante.DisplayMember = "Nombre";
+            this.cbbCodigoTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoTipoComprobante.FormattingEnabled = true;
+            this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(9, 32);
+            this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
+            this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoTipoComprobante.TabIndex = 35;
+            this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
+            // 
+            // lblErrorCodigoTipoComprobante
+            // 
+            this.lblErrorCodigoTipoComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorSerial.AutoSize = true;
-            this.lblErrorSerial.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorSerial.Location = new System.Drawing.Point(180, 56);
-            this.lblErrorSerial.Name = "lblErrorSerial";
-            this.lblErrorSerial.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorSerial.TabIndex = 20;
+            this.lblErrorCodigoTipoComprobante.AutoSize = true;
+            this.lblErrorCodigoTipoComprobante.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoTipoComprobante.Location = new System.Drawing.Point(6, 56);
+            this.lblErrorCodigoTipoComprobante.Name = "lblErrorCodigoTipoComprobante";
+            this.lblErrorCodigoTipoComprobante.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoTipoComprobante.TabIndex = 34;
             // 
-            // txtSerial
+            // label2
             // 
-            this.txtSerial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSerial.Location = new System.Drawing.Point(183, 32);
-            this.txtSerial.Name = "txtSerial";
-            this.txtSerial.Size = new System.Drawing.Size(168, 20);
-            this.txtSerial.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(180, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Serial";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Tipo Comprobante";
             // 
             // lblErrorValorFinal
             // 
@@ -147,7 +175,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(180, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 28;
             this.label6.Text = "Valor Final";
             // 
@@ -163,65 +191,38 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 26;
             this.label5.Text = "Valor Inicial";
             // 
-            // lblErrorCodigoTipoComprobante
+            // lblErrorSerial
             // 
-            this.lblErrorCodigoTipoComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblErrorSerial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorCodigoTipoComprobante.AutoSize = true;
-            this.lblErrorCodigoTipoComprobante.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoTipoComprobante.Location = new System.Drawing.Point(6, 56);
-            this.lblErrorCodigoTipoComprobante.Name = "lblErrorCodigoTipoComprobante";
-            this.lblErrorCodigoTipoComprobante.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCodigoTipoComprobante.TabIndex = 34;
+            this.lblErrorSerial.AutoSize = true;
+            this.lblErrorSerial.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorSerial.Location = new System.Drawing.Point(180, 56);
+            this.lblErrorSerial.Name = "lblErrorSerial";
+            this.lblErrorSerial.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorSerial.TabIndex = 20;
             // 
-            // label2
+            // txtSerial
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "Tipo Comprobante";
+            this.txtSerial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSerial.Location = new System.Drawing.Point(183, 32);
+            this.txtSerial.Name = "txtSerial";
+            this.txtSerial.Size = new System.Drawing.Size(168, 20);
+            this.txtSerial.TabIndex = 5;
             // 
-            // cbbCodigoTipoComprobante
+            // label3
             // 
-            this.cbbCodigoTipoComprobante.DisplayMember = "Nombre";
-            this.cbbCodigoTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigoTipoComprobante.FormattingEnabled = true;
-            this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(9, 32);
-            this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
-            this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoComprobante.TabIndex = 35;
-            this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
-            // 
-            // lblErrorValorActual
-            // 
-            this.lblErrorValorActual.AutoSize = true;
-            this.lblErrorValorActual.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorValorActual.Location = new System.Drawing.Point(6, 162);
-            this.lblErrorValorActual.Name = "lblErrorValorActual";
-            this.lblErrorValorActual.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorValorActual.TabIndex = 38;
-            // 
-            // txtValorActual
-            // 
-            this.txtValorActual.Location = new System.Drawing.Point(9, 138);
-            this.txtValorActual.Name = "txtValorActual";
-            this.txtValorActual.Size = new System.Drawing.Size(168, 20);
-            this.txtValorActual.TabIndex = 37;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 122);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Valor Actual";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(180, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Serial";
             // 
             // FrmMantenimientoSerie
             // 
@@ -230,11 +231,19 @@
             this.ClientSize = new System.Drawing.Size(384, 234);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoSerie";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoSerie";
             this.Load += new System.EventHandler(this.FrmMantenimientoSerie_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

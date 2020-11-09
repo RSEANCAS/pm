@@ -31,6 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
@@ -50,6 +52,7 @@
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvResultados_CodigoGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoCotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_TipoComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,10 +66,14 @@
             this.dgvResultados_NroDocIdentidadTransportista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_NombresTransportista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_MotivoTraslado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroComprobanteCotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroPedidoCotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaHoraEmisionCotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_FlagEmitido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -99,6 +106,7 @@
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvResultados_CodigoGuiaRemision,
+            this.dgvResultados_CodigoCotizacion,
             this.dgvResultados_Nro,
             this.dgvResultados_TipoComprobante,
             this.dgvResultados_Serie,
@@ -112,6 +120,9 @@
             this.dgvResultados_NroDocIdentidadTransportista,
             this.dgvResultados_NombresTransportista,
             this.dgvResultados_MotivoTraslado,
+            this.dgvResultados_NroComprobanteCotizacion,
+            this.dgvResultados_NroPedidoCotizacion,
+            this.dgvResultados_FechaHoraEmisionCotizacion,
             this.dgvResultados_FlagEmitido,
             this.dgvResultados_FlagActivo});
             this.dgvResultados.Location = new System.Drawing.Point(12, 111);
@@ -198,7 +209,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(536, 17);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Nombres";
             // 
@@ -214,7 +225,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(430, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "N° Doc. Identidad";
             // 
@@ -230,7 +241,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(324, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Número";
             // 
@@ -239,7 +250,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(218, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Serie";
             // 
@@ -248,7 +259,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(112, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Fec. Emisión Hasta";
             // 
@@ -259,7 +270,7 @@
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Location = new System.Drawing.Point(642, 37);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
+            this.chkActivo.Size = new System.Drawing.Size(57, 17);
             this.chkActivo.TabIndex = 12;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
@@ -269,7 +280,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fec. Emisión Desde";
             // 
@@ -280,6 +291,14 @@
             this.dgvResultados_CodigoGuiaRemision.Name = "dgvResultados_CodigoGuiaRemision";
             this.dgvResultados_CodigoGuiaRemision.ReadOnly = true;
             this.dgvResultados_CodigoGuiaRemision.Visible = false;
+            // 
+            // dgvResultados_CodigoCotizacion
+            // 
+            this.dgvResultados_CodigoCotizacion.DataPropertyName = "CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.HeaderText = "CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.Name = "dgvResultados_CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.ReadOnly = true;
+            this.dgvResultados_CodigoCotizacion.Visible = false;
             // 
             // dgvResultados_Nro
             // 
@@ -391,6 +410,33 @@
             this.dgvResultados_MotivoTraslado.ReadOnly = true;
             this.dgvResultados_MotivoTraslado.Width = 200;
             // 
+            // dgvResultados_NroComprobanteCotizacion
+            // 
+            this.dgvResultados_NroComprobanteCotizacion.DataPropertyName = "NroComprobanteCotizacion";
+            dataGridViewCellStyle4.Format = "00000000";
+            this.dgvResultados_NroComprobanteCotizacion.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvResultados_NroComprobanteCotizacion.HeaderText = "N° Cot.";
+            this.dgvResultados_NroComprobanteCotizacion.Name = "dgvResultados_NroComprobanteCotizacion";
+            this.dgvResultados_NroComprobanteCotizacion.ReadOnly = true;
+            // 
+            // dgvResultados_NroPedidoCotizacion
+            // 
+            this.dgvResultados_NroPedidoCotizacion.DataPropertyName = "NroPedidoCotizacion";
+            this.dgvResultados_NroPedidoCotizacion.HeaderText = "N° Pedido Cot.";
+            this.dgvResultados_NroPedidoCotizacion.Name = "dgvResultados_NroPedidoCotizacion";
+            this.dgvResultados_NroPedidoCotizacion.ReadOnly = true;
+            this.dgvResultados_NroPedidoCotizacion.Width = 120;
+            // 
+            // dgvResultados_FechaHoraEmisionCotizacion
+            // 
+            this.dgvResultados_FechaHoraEmisionCotizacion.DataPropertyName = "FechaHoraEmisionCotizacion";
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.dgvResultados_FechaHoraEmisionCotizacion.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvResultados_FechaHoraEmisionCotizacion.HeaderText = "Fecha Emisión Cot.";
+            this.dgvResultados_FechaHoraEmisionCotizacion.Name = "dgvResultados_FechaHoraEmisionCotizacion";
+            this.dgvResultados_FechaHoraEmisionCotizacion.ReadOnly = true;
+            this.dgvResultados_FechaHoraEmisionCotizacion.Width = 140;
+            // 
             // dgvResultados_FlagEmitido
             // 
             this.dgvResultados_FlagEmitido.DataPropertyName = "FlagEmitido";
@@ -416,12 +462,18 @@
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmGuiaRemision";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Guías de Remisión";
             this.Load += new System.EventHandler(this.FrmGuiaRemision_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,6 +500,7 @@
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoGuiaRemision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoCotizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TipoComprobante;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Serie;
@@ -461,6 +514,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroDocIdentidadTransportista;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombresTransportista;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_MotivoTraslado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroComprobanteCotizacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroPedidoCotizacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_FechaHoraEmisionCotizacion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagEmitido;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagActivo;
     }

@@ -83,11 +83,11 @@ namespace pm.app
                 if (currentMouseOverRow == -1) return;
 
                 //int estado = (int)dgvResultados.Rows[currentMouseOverRow].Cells["dgvResultados_Estado"].Value;
-                int codigoProducto = (int)dgvResultados.Rows[currentMouseOverRow].Cells["dgvResultados_CodigoProducto"].Value;
+                int codigoProductoIndividual = (int)dgvResultados.Rows[currentMouseOverRow].Cells["dgvResultados_CodigoProductoIndividual"].Value;
 
                 ContextMenu m = new ContextMenu();
                 MenuItem mitEditar = new MenuItem("Editar", mitEditar_Click);
-                mitEditar.Tag = codigoProducto;
+                mitEditar.Tag = codigoProductoIndividual;
 
                 //if (estado == 0) 
                 m.MenuItems.Add(mitEditar);

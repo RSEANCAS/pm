@@ -14,14 +14,14 @@ namespace pm.bl
 
         CommonDa commonDa = new CommonDa();
 
-        public List<dynamic> BuscarQuery(string table, string columns, string columnsFilter)
+        public List<dynamic> BuscarQuery(string table, string columns, string columnsFilter, string where)
         {
             List<dynamic> resultados = null;
 
             try
             {
                 cn.Open();
-                resultados = commonDa.BuscarQuery(table, columns, columnsFilter, cn);
+                resultados = commonDa.BuscarQuery(table, columns, columnsFilter, where, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

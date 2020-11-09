@@ -60,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tltProducto = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -153,7 +154,7 @@
             // 
             this.txtMetrajeTotal.Location = new System.Drawing.Point(9, 245);
             this.txtMetrajeTotal.Name = "txtMetrajeTotal";
-            this.txtMetrajeTotal.Size = new System.Drawing.Size(168, 21);
+            this.txtMetrajeTotal.Size = new System.Drawing.Size(168, 20);
             this.txtMetrajeTotal.TabIndex = 34;
             // 
             // label12
@@ -167,10 +168,9 @@
             // 
             // txtValorCompra
             // 
-            this.txtValorCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtValorCompra.Location = new System.Drawing.Point(9, 139);
             this.txtValorCompra.Name = "txtValorCompra";
-            this.txtValorCompra.Size = new System.Drawing.Size(168, 21);
+            this.txtValorCompra.Size = new System.Drawing.Size(168, 20);
             this.txtValorCompra.TabIndex = 32;
             // 
             // cbbCodigoUnidadMedida
@@ -269,7 +269,7 @@
             this.txtColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtColor.Location = new System.Drawing.Point(183, 192);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(168, 21);
+            this.txtColor.Size = new System.Drawing.Size(168, 20);
             this.txtColor.TabIndex = 15;
             // 
             // label7
@@ -285,7 +285,7 @@
             // 
             this.txtDescuentoMaximo.Location = new System.Drawing.Point(9, 192);
             this.txtDescuentoMaximo.Name = "txtDescuentoMaximo";
-            this.txtDescuentoMaximo.Size = new System.Drawing.Size(168, 21);
+            this.txtDescuentoMaximo.Size = new System.Drawing.Size(168, 20);
             this.txtDescuentoMaximo.TabIndex = 13;
             // 
             // label8
@@ -302,7 +302,7 @@
             this.txtValorVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtValorVenta.Location = new System.Drawing.Point(183, 139);
             this.txtValorVenta.Name = "txtValorVenta";
-            this.txtValorVenta.Size = new System.Drawing.Size(168, 21);
+            this.txtValorVenta.Size = new System.Drawing.Size(168, 20);
             this.txtValorVenta.TabIndex = 11;
             // 
             // label6
@@ -329,7 +329,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidad.Location = new System.Drawing.Point(183, 86);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(168, 21);
+            this.txtCantidad.Size = new System.Drawing.Size(168, 20);
             this.txtCantidad.TabIndex = 7;
             // 
             // label4
@@ -347,7 +347,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(9, 33);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(342, 21);
+            this.txtNombre.Size = new System.Drawing.Size(342, 20);
             this.txtNombre.TabIndex = 5;
             // 
             // label3
@@ -369,11 +369,16 @@
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoProducto";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoProducto";
             this.Load += new System.EventHandler(this.FrmMantenimientoProducto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

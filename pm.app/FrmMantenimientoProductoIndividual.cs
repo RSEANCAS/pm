@@ -11,12 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using static pm.enums.Enums;
 
 namespace pm.app
 {
     public partial class FrmMantenimientoProductoIndividual : RadForm
     {
-        int? codigoProductoIndividual;
+        public int? codigoProductoIndividual { get; set; }
         int? codigoProducto;
         int? codigoProductoIndividualInicial;
         string codigoBarraProductoIndividualInicial;
@@ -25,42 +26,67 @@ namespace pm.app
         int? codigoPersonalInspeccion;
         string nroDocumentoIdentidadPersonalInspeccion;
 
+        ComprobanteCompraDetalleBe comprobanteCompraDetalle;
+
         UnidadMedidaBl unidadMedidaBl = new UnidadMedidaBl();
         ProductoIndividualBl productoIndividualBl = new ProductoIndividualBl();
         ProductoBl productoBl = new ProductoBl();
         ProveedorBl proveedorBl = new ProveedorBl();
         PersonalBl personalBl = new PersonalBl();
+        ControlBusquedaBl controlBusquedaBl = new ControlBusquedaBl();
 
-        public FrmMantenimientoProductoIndividual(int? codigoProductoIndividual = null)
+        ProductoIndividualBe _ProductoIndividual;
+        public ProductoIndividualBe ProductoIndividual { get { return _ProductoIndividual; } }
+
+        public FrmMantenimientoProductoIndividual(int? codigoProductoIndividual = null, ComprobanteCompraDetalleBe comprobanteCompraDetalle = null, ProductoIndividualBe productoIndividual = null)
         {
             InitializeComponent();
             this.codigoProductoIndividual = codigoProductoIndividual;
+            this.comprobanteCompraDetalle = comprobanteCompraDetalle;
+            _ProductoIndividual = productoIndividual;
         }
 
         private void FrmMantenimientoProductoIndividual_Load(object sender, EventArgs e)
         {
             Text = !codigoProductoIndividual.HasValue ? "Nuevo Producto Individual" : "Modificar Producto Individual";
             ListarCombos();
+            CargarComprobanteCompraDetalle();
             if (codigoProductoIndividual.HasValue)
             {
                 CargarProductoIndividual();
             }
         }
 
+        void CargarComprobanteCompraDetalle()
+        {
+            if(comprobanteCompraDetalle != null)
+            {
+                txtPrecioCompra.ReadOnly = true;
+                txtPrecioCompra.Text = comprobanteCompraDetalle.PrecioUnitario.ToString("0.00");
+                txtPrecioVenta.Text = comprobanteCompraDetalle.PrecioUnitario.ToString("0.00");
+            }
+        }
+
         void CargarProductoIndividual()
         {
-            ProductoIndividualBe item = productoIndividualBl.ObtenerProductoIndividual(codigoProductoIndividual.Value);
+            ProductoIndividualBe item = _ProductoIndividual != null ? _ProductoIndividual : productoIndividualBl.ObtenerProductoIndividual(codigoProductoIndividual.Value);
             txtCodigoBarra.Text = item.CodigoBarra;
             txtNombre.Text = item.Nombre;
             CargarProducto(item.CodigoProducto);
-            cbbCodigoUnidadMedida.SelectedValue = item.CodigoUnidadMedida;
-
             CargarProductoIndividualInicial(item.CodigoInicial);
+
+            cbbCodigoUnidadMedida.SelectedValue = item.CodigoUnidadMedida;
+            txtMetraje.Text = item.Metraje.ToString("0.00");
+            cbbCodigoUnidadMedidaPeso.SelectedValue = item.CodigoUnidadMedidaPeso;
             txtPeso.Text = item.Peso.ToString("0.00");
             txtRollo.Text = item.Rollo.ToString("0.00");
             txtBulto.Text = item.Bulto.ToString("0.00");
             txtColor.Text = item.Color;
             dtpFechaEntrada.Value = item.FechaEntrada;
+            txtPrecioCompra.ReadOnly = true;
+            txtPrecioCompra.Text = !item.PrecioCompra.HasValue ? "0.00" : item.PrecioCompra.Value.ToString("0.00");
+            txtPrecioVenta.Text = item.PrecioVenta.ToString("0.00");
+            txtCodigoBarraProveedor.Text = item.CodigoBarraProveedor;
             CargarProveedor(item.CodigoProveedor);
             CargarPersonalInspeccion(item.CodigoPersonalInspeccion);
         }
@@ -149,29 +175,19 @@ namespace pm.app
             listaCombo.Insert(0, new UnidadMedidaBe { CodigoUnidadMedida = -1, Descripcion = "[Seleccione...]" });
 
             cbbCodigoUnidadMedida.DataSource = null;
-            cbbCodigoUnidadMedida.DataSource = listaCombo;
+            cbbCodigoUnidadMedida.DataSource = listaCombo.Select(x => x).ToList();
+
+            cbbCodigoUnidadMedidaPeso.DataSource = null;
+            cbbCodigoUnidadMedidaPeso.DataSource = listaCombo.Select(x => x).ToList();
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoProducto", NombreColumna = "CodigoProducto", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "Nombre", NombreColumna = "Nombre", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Cantidad", NombreColumna = "Cantidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Color", NombreColumna = "Color", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Producto";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Producto", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ProductoBe));
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -187,25 +203,11 @@ namespace pm.app
         {
             if ((codigoBarraProductoIndividualInicial ?? "") == txtCodigoBarraProductoIndividualInicial.Text.Trim() && codigoBarraProductoIndividualInicial != null) return;
             if (txtCodigoBarraProductoIndividualInicial.Text.Trim() == "") CargarProductoIndividualInicial(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoProductoIndividual", NombreColumna = "CodigoProductoIndividual", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "CodigoBarra", NombreColumna = "Código Barra", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombre", NombreColumna = "Nombre", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            //listaColumnas.Add(new { Campo = "Cantidad", NombreColumna = "Cantidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Color", NombreColumna = "Color", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.ProductoIndividual";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Producto Individual", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ProductoIndividualBe));
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -222,24 +224,11 @@ namespace pm.app
             if (Application.OpenForms.Cast<Form>().Count(x => x.Name == "FrmBusquedaSeleccionarRegistro") > 0) return;
             if ((nroDocumentoIdentidadProveedor ?? "") == txtNroDocIdentidadProveedor.Text.Trim() && nroDocumentoIdentidadProveedor != null) return;
             if (txtNroDocIdentidadProveedor.Text.Trim() == "") CargarProveedor(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoProveedor", NombreColumna = "CodigoProveedor", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Proveedor";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Proveedor", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ProveedorBe), txtNroDocIdentidadProveedor.Text.Trim());
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocIdentidadProveedor.Text.Trim());
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -256,25 +245,11 @@ namespace pm.app
             if (Application.OpenForms.Cast<Form>().Count(x => x.Name == "FrmBusquedaSeleccionarRegistro") > 0) return;
             if ((nroDocumentoIdentidadPersonalInspeccion ?? "") == txtNroDocIdentidadPersonalInspeccion.Text.Trim() && nroDocumentoIdentidadPersonalInspeccion != null) return;
             if (txtNroDocIdentidadPersonalInspeccion.Text.Trim() == "") CargarPersonalInspeccion(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoPersonal", NombreColumna = "CodigoPersonal", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Personal";
-            DataGridViewColumn[] columns = listaColumnas.Select(x =>
-            {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Personal", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(PersonalBe), txtNroDocIdentidadPersonalInspeccion.Text.Trim());
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocIdentidadPersonalInspeccion.Text.Trim());
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -294,23 +269,49 @@ namespace pm.app
             if (!estaValidado) return;
 
             ProductoIndividualBe registro = new ProductoIndividualBe();
-            if (codigoProductoIndividual.HasValue) registro.CodigoProductoIndividual = codigoProductoIndividual.Value;
+            if (this.codigoProductoIndividual.HasValue) registro.CodigoProductoIndividual = this.codigoProductoIndividual.Value;
             registro.CodigoBarra = txtCodigoBarra.Text.Trim();
             registro.Nombre = txtNombre.Text.Trim();
             registro.CodigoProducto = codigoProducto.Value;
             registro.CodigoUnidadMedida = (int)cbbCodigoUnidadMedida.SelectedValue;
+            registro.UnidadMedida = new UnidadMedidaBe();
+            registro.UnidadMedida.CodigoUnidadMedida = (int)cbbCodigoUnidadMedida.SelectedValue;
+            registro.UnidadMedida.Descripcion = cbbCodigoUnidadMedida.Text;
             registro.CodigoInicial = codigoProductoIndividualInicial;
             registro.Metraje = decimal.Parse(txtMetraje.Text.Trim());
+            registro.CodigoUnidadMedidaPeso = (int)cbbCodigoUnidadMedidaPeso.SelectedValue;
+            registro.UnidadMedidaPeso = new UnidadMedidaBe();
+            registro.UnidadMedidaPeso.CodigoUnidadMedida = (int)cbbCodigoUnidadMedidaPeso.SelectedValue;
+            registro.UnidadMedidaPeso.Descripcion = cbbCodigoUnidadMedidaPeso.Text;
             registro.Peso = decimal.Parse(txtPeso.Text.Trim());
             registro.Rollo = decimal.Parse(txtRollo.Text.Trim());
             registro.Bulto = decimal.Parse(txtBulto.Text.Trim());
             registro.Color = txtColor.Text.Trim();
             registro.FechaEntrada = dtpFechaEntrada.Value;
+            registro.PrecioCompra = decimal.Parse(txtPrecioCompra.Text.Trim());
+            registro.PrecioVenta = decimal.Parse(txtPrecioVenta.Text.Trim());
             registro.CodigoBarraProveedor = txtCodigoBarraProveedor.Text.Trim();
             registro.CodigoProveedor = codigoProveedor.Value;
+            registro.Proveedor = new ProveedorBe();
+            registro.Proveedor.CodigoProveedor = codigoProveedor.Value;
+            registro.Proveedor.Nombres = txtNombresProveedor.Text;
             registro.CodigoPersonalInspeccion = codigoPersonalInspeccion.Value;
+            registro.PersonalInspeccion = new PersonalBe();
+            registro.PersonalInspeccion.CodigoPersonal = codigoPersonalInspeccion.Value;
+            registro.PersonalInspeccion.Nombres = txtNombresPersonalInspeccion.Text;
+            registro.CodigoComprobanteCompra = comprobanteCompraDetalle == null ? null : (int?)comprobanteCompraDetalle.CodigoComprobanteCompra;
+            registro.CodigoComprobanteCompraDetalle = comprobanteCompraDetalle == null ? null : (int?)comprobanteCompraDetalle.CodigoComprobanteCompraDetalle;
 
-            bool seGuardoRegistro = productoIndividualBl.GuardarProductoIndividual(registro);
+            int codigoProductoIndividual = registro.CodigoProductoIndividual;
+
+            bool seGuardoRegistro = false;
+
+            if (comprobanteCompraDetalle == null) seGuardoRegistro = productoIndividualBl.GuardarProductoIndividual(registro, out codigoProductoIndividual);
+            else
+            {
+                _ProductoIndividual = registro;
+                seGuardoRegistro = true;
+            }
 
             if (seGuardoRegistro)
             {
@@ -328,10 +329,13 @@ namespace pm.app
             lblErrorCodigoUnidadMedida.Text = "";
             lblErrorProductoIndividualInicial.Text = "";
             lblErrorMetraje.Text = "";
+            lblErrorCodigoUnidadMedidaPeso.Text = "";
             lblErrorPeso.Text = "";
             lblErrorRollo.Text = "";
             lblErrorBulto.Text = "";
             lblErrorColor.Text = "";
+            lblErrorPrecioCompra.Text = "";
+            lblErrorPrecioVenta.Text = "";
             lblErrorFechaEntrada.Text = "";
             lblErrorCodigoBarraProveedor.Text = "";
             lblErrorProveedor.Text = "";
@@ -344,54 +348,35 @@ namespace pm.app
 
             LimpiarErrores();
 
-            if(txtCodigoBarra.Text.Trim() == "" || txtNombre.Text.Trim() == "")
+            if (txtCodigoBarra.Text.Trim() == "")
             {
-                if (txtCodigoBarra.Text.Trim() == "")
-                {
-                    estaValidado = false;
-                    lblErrorCodigoBarra.Text = "Debe ingresar codigo barra";
-                    SetToolTipError(lblErrorCodigoBarra);
-                }
-
-                if (txtNombre.Text.Trim() == "")
-                {
-                    estaValidado = false;
-                    lblErrorNombre.Text = "Debe ingresar nombre";
-                    SetToolTipError(lblErrorNombre);
-                }
+                estaValidado = false;
+                lblErrorCodigoBarra.Text = "Debe ingresar codigo barra";
+                SetToolTipError(lblErrorCodigoBarra);
             }
             else
             {
-                bool existeCodigoBarra = false, existeNombre = false;
+                //bool existeCodigoBarra = false, existeNombre = false;
 
-                bool existeProductoIndividual = productoIndividualBl.ExisteProductoIndividual(txtCodigoBarra.Text.Trim(), txtNombre.Text.Trim(), codigoProductoIndividual, out existeCodigoBarra, out existeNombre);
+                //bool existeProductoIndividual = productoIndividualBl.ExisteProductoIndividual(txtCodigoBarra.Text.Trim(), txtNombre.Text.Trim(), codigoProductoIndividual, out existeCodigoBarra, out existeNombre);
+                bool existeProductoIndividual = productoIndividualBl.ExisteProductoIndividual(txtCodigoBarra.Text.Trim(), txtNombre.Text.Trim(), codigoProductoIndividual);
 
                 if (existeProductoIndividual)
                 {
-                    if (existeCodigoBarra)
-                    {
-                        estaValidado = false;
-                        lblErrorCodigoBarra.Text = $"El código ya existe";
-                        SetToolTipError(lblErrorCodigoBarra);
-                    }
-
-                    if (existeNombre)
-                    {
-                        estaValidado = false;
-                        lblErrorNombre.Text = $"El nombre ya existe";
-                        SetToolTipError(lblErrorNombre);
-                    }
+                    estaValidado = false;
+                    lblErrorCodigoBarra.Text = $"El código ya existe";
+                    SetToolTipError(lblErrorCodigoBarra);
                 }
             }
 
-            //if (txtNombre.Text.Trim() == "")
-            //{
-            //    estaValidado = false;
-            //    lblErrorNombre.Text = "Debe ingresar nombre";
-            //    SetToolTipError(lblErrorNombre);
-            //}
+            if (txtNombre.Text.Trim() == "")
+            {
+                estaValidado = false;
+                lblErrorNombre.Text = "Debe ingresar nombre";
+                SetToolTipError(lblErrorNombre);
+            }
 
-            if(codigoProducto == null)
+            if (codigoProducto == null)
             {
                 estaValidado = false;
                 lblErrorProducto.Text = "Debe seleccionar producto";
@@ -405,11 +390,14 @@ namespace pm.app
                 SetToolTipError(lblErrorCodigoUnidadMedida);
             }
 
-            if (txtCodigoBarraProductoIndividualInicial.Text.Trim() == "")
+            if (txtCodigoBarraProductoIndividualInicial.Text.Trim() != "")
             {
-                estaValidado = false;
-                lblErrorProductoIndividualInicial.Text = "Debe ingresar código inicial";
-                SetToolTipError(lblErrorProductoIndividualInicial);
+                if (codigoProductoIndividualInicial == null)
+                {
+                    estaValidado = false;
+                    lblErrorProductoIndividualInicial.Text = "Debe ingresar código inicial";
+                    SetToolTipError(lblErrorProductoIndividualInicial);
+                }
             }
 
             if (txtMetraje.Text.Trim() == "")
@@ -428,6 +416,13 @@ namespace pm.app
                     lblErrorMetraje.Text = "Debe ingresar un valor numérico";
                     SetToolTipError(lblErrorMetraje);
                 }
+            }
+
+            if (cbbCodigoUnidadMedidaPeso.SelectedIndex == 0)
+            {
+                estaValidado = false;
+                lblErrorCodigoUnidadMedidaPeso.Text = "Debe seleccionar unidad medida peso";
+                SetToolTipError(lblErrorCodigoUnidadMedidaPeso);
             }
 
             if (txtPeso.Text.Trim() == "")
@@ -489,6 +484,42 @@ namespace pm.app
                 estaValidado = false;
                 lblErrorColor.Text = "Debe ingresar color";
                 SetToolTipError(lblErrorColor);
+            }
+
+            //if (txtPrecioCompra.Text.Trim() == "")
+            //{
+            //    estaValidado = false;
+            //    lblErrorPrecioCompra.Text = "Debe ingresar precio compra";
+            //    SetToolTipError(lblErrorPrecioCompra);
+            //}
+            //else
+            //{
+            //    decimal precioCompra = 0;
+
+            //    if (!decimal.TryParse(txtPrecioCompra.Text.Trim(), out precioCompra))
+            //    {
+            //        estaValidado = false;
+            //        lblErrorPrecioCompra.Text = "Debe ingresar un valor numérico";
+            //        SetToolTipError(lblErrorPrecioCompra);
+            //    }
+            //}
+
+            if (txtPrecioVenta.Text.Trim() == "")
+            {
+                estaValidado = false;
+                lblErrorPrecioVenta.Text = "Debe ingresar precio venta";
+                SetToolTipError(lblErrorPrecioVenta);
+            }
+            else
+            {
+                decimal precioVenta = 0;
+
+                if (!decimal.TryParse(txtPrecioVenta.Text.Trim(), out precioVenta))
+                {
+                    estaValidado = false;
+                    lblErrorPrecioVenta.Text = "Debe ingresar un valor numérico";
+                    SetToolTipError(lblErrorPrecioVenta);
+                }
             }
 
             if (txtCodigoBarraProveedor.Text.Trim() == "")

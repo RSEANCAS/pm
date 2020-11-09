@@ -13,7 +13,7 @@ namespace pm.da
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public List<dynamic> BuscarQuery(string table, string columns, string columnsFilter, SqlConnection cn)
+        public List<dynamic> BuscarQuery(string table, string columns, string columnsFilter, string where, SqlConnection cn)
         {
             List<dynamic> resultados = null;
 
@@ -25,6 +25,7 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@table", table);
                     cmd.Parameters.AddWithValue("@columns", columns);
                     cmd.Parameters.AddWithValue("@columnsFilter", columnsFilter);
+                    cmd.Parameters.AddWithValue("@where", where);
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {

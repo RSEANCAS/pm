@@ -71,6 +71,7 @@
             this.tltBoletaVentaDetalle = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,7 +123,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoBarraProductoIndividual.Location = new System.Drawing.Point(11, 86);
             this.txtCodigoBarraProductoIndividual.Name = "txtCodigoBarraProductoIndividual";
-            this.txtCodigoBarraProductoIndividual.Size = new System.Drawing.Size(55, 21);
+            this.txtCodigoBarraProductoIndividual.Size = new System.Drawing.Size(55, 20);
             this.txtCodigoBarraProductoIndividual.TabIndex = 85;
             // 
             // rdbDescuento
@@ -165,7 +166,7 @@
             this.txtIgv.Location = new System.Drawing.Point(11, 350);
             this.txtIgv.Name = "txtIgv";
             this.txtIgv.ReadOnly = true;
-            this.txtIgv.Size = new System.Drawing.Size(168, 21);
+            this.txtIgv.Size = new System.Drawing.Size(168, 20);
             this.txtIgv.TabIndex = 78;
             // 
             // label15
@@ -192,7 +193,7 @@
             this.txtImporteTotal.Location = new System.Drawing.Point(185, 350);
             this.txtImporteTotal.Name = "txtImporteTotal";
             this.txtImporteTotal.ReadOnly = true;
-            this.txtImporteTotal.Size = new System.Drawing.Size(168, 21);
+            this.txtImporteTotal.Size = new System.Drawing.Size(168, 20);
             this.txtImporteTotal.TabIndex = 79;
             this.txtImporteTotal.Validated += new System.EventHandler(this.txtImporteTotal_Validated);
             // 
@@ -219,7 +220,7 @@
             this.txtPorcentajeDescuento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPorcentajeDescuento.Location = new System.Drawing.Point(11, 297);
             this.txtPorcentajeDescuento.Name = "txtPorcentajeDescuento";
-            this.txtPorcentajeDescuento.Size = new System.Drawing.Size(168, 21);
+            this.txtPorcentajeDescuento.Size = new System.Drawing.Size(168, 20);
             this.txtPorcentajeDescuento.TabIndex = 72;
             this.txtPorcentajeDescuento.Validated += new System.EventHandler(this.txtPorcentajeDescuento_Validated);
             // 
@@ -238,7 +239,7 @@
             this.txtDescuento.Location = new System.Drawing.Point(185, 297);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.ReadOnly = true;
-            this.txtDescuento.Size = new System.Drawing.Size(168, 21);
+            this.txtDescuento.Size = new System.Drawing.Size(168, 20);
             this.txtDescuento.TabIndex = 73;
             this.txtDescuento.Validated += new System.EventHandler(this.txtDescuento_Validated);
             // 
@@ -256,7 +257,7 @@
             this.txtValorUnitario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtValorUnitario.Location = new System.Drawing.Point(11, 244);
             this.txtValorUnitario.Name = "txtValorUnitario";
-            this.txtValorUnitario.Size = new System.Drawing.Size(168, 21);
+            this.txtValorUnitario.Size = new System.Drawing.Size(168, 20);
             this.txtValorUnitario.TabIndex = 66;
             this.txtValorUnitario.Validated += new System.EventHandler(this.txtValorUnitario_Validated);
             // 
@@ -284,7 +285,7 @@
             this.txtPrecioUnitario.Location = new System.Drawing.Point(185, 244);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.ReadOnly = true;
-            this.txtPrecioUnitario.Size = new System.Drawing.Size(168, 21);
+            this.txtPrecioUnitario.Size = new System.Drawing.Size(168, 20);
             this.txtPrecioUnitario.TabIndex = 67;
             this.txtPrecioUnitario.Validated += new System.EventHandler(this.txtPrecioUnitario_Validated);
             // 
@@ -349,6 +350,7 @@
             // 
             this.cbbCodigoUnidadMedida.DisplayMember = "Descripcion";
             this.cbbCodigoUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoUnidadMedida.Enabled = false;
             this.cbbCodigoUnidadMedida.FormattingEnabled = true;
             this.cbbCodigoUnidadMedida.Location = new System.Drawing.Point(9, 139);
             this.cbbCodigoUnidadMedida.Name = "cbbCodigoUnidadMedida";
@@ -388,7 +390,7 @@
             this.txtCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCantidad.Location = new System.Drawing.Point(183, 139);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(168, 21);
+            this.txtCantidad.Size = new System.Drawing.Size(168, 20);
             this.txtCantidad.TabIndex = 59;
             this.txtCantidad.Validated += new System.EventHandler(this.txtCantidad_Validated);
             // 
@@ -429,7 +431,7 @@
             this.txtNombreProductoIndividual.Location = new System.Drawing.Point(70, 86);
             this.txtNombreProductoIndividual.Name = "txtNombreProductoIndividual";
             this.txtNombreProductoIndividual.ReadOnly = true;
-            this.txtNombreProductoIndividual.Size = new System.Drawing.Size(221, 21);
+            this.txtNombreProductoIndividual.Size = new System.Drawing.Size(221, 20);
             this.txtNombreProductoIndividual.TabIndex = 47;
             // 
             // label3
@@ -469,7 +471,7 @@
             this.txtNombreProducto.Location = new System.Drawing.Point(11, 33);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.ReadOnly = true;
-            this.txtNombreProducto.Size = new System.Drawing.Size(280, 21);
+            this.txtNombreProducto.Size = new System.Drawing.Size(280, 20);
             this.txtNombreProducto.TabIndex = 43;
             // 
             // label1
@@ -499,8 +501,13 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmMantenimientoBoletaVentaDetalle";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoBoletaVentaDetalle";
             this.Load += new System.EventHandler(this.FrmMantenimientoBoletaVentaDetalle_Load);
@@ -508,6 +515,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

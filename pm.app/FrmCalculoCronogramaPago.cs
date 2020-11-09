@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
+using static pm.enums.Enums;
 
 namespace pm.app
 {
@@ -21,9 +22,15 @@ namespace pm.app
         int cantidadDiasXDefecto = 30;
         decimal totalImporte;
         List<LetraBe> _Lista = new List<LetraBe>();
-        public List<LetraBe> Lista { get { return _Lista; } }
 
-        BancoBl bancoBl = new BancoBl();
+        int? codigoAval, codigoDistritoAval;
+        string nombrePaisAval, nombreDepartamentoAval, nombreProvinciaAval, nombreDistritoAval;
+        string nroDocumentoIdentidadAval;
+
+        ClienteBl clienteBl = new ClienteBl();
+        ControlBusquedaBl controlBusquedaBl = new ControlBusquedaBl();
+
+        public List<LetraBe> Lista { get { return _Lista; } }
 
         public FrmCalculoCronogramaPago(DateTime fechaHoraEmision, int cantidadLetrasCredito, decimal totalImporte, List<LetraBe> listaLetra)
         {
@@ -36,6 +43,7 @@ namespace pm.app
 
         private void FrmCalculoCronogramaPago_Load(object sender, EventArgs e)
         {
+            txtImporteFactura.Text = totalImporte.ToString("0.00");
             dgvResultados.AutoGenerateColumns = false;
 
             if (_Lista == null)
@@ -51,7 +59,8 @@ namespace pm.app
                         Dias = cantidadDiasXDefecto,
                         FechaHoraEmision = fechaHoraEmision,
                         FechaVencimiento = fechaPagoActual,
-                        Monto = cuota
+                        Monto = cuota,
+                        Estado = (int)EstadoLetra.PorAsignarBanco
                     };
 
                     fechaPagoActual = fechaPagoActual.AddDays(cantidadDiasXDefecto);
@@ -64,30 +73,23 @@ namespace pm.app
             ListarCronograma();
         }
 
-        void ListarCombos()
-        {
-            ListarComboBanco();
-        }
-
-        void ListarComboBanco()
-        {
-            List<BancoBe> listaCombo = bancoBl.ListarComboBanco();
-            listaCombo = listaCombo ?? new List<BancoBe>();
-            listaCombo.Insert(0, new BancoBe { CodigoBanco = -1, Nombre = "[Seleccione...]" });
-
-            cbbCodigoBanco.DataSource = null;
-            cbbCodigoBanco.DataSource = listaCombo;
-        }
-
         void ListarCronograma()
         {
             dgvResultados.DataSource = null;
             dgvResultados.DataSource = _Lista;
 
-            for (int i = 0; i < dgvResultados.RowCount; i++)
-            {
-                dgvResultados["dgvResultados_Dias", i].ReadOnly = false;
-            }
+            //for (int i = 0; i < dgvResultados.RowCount; i++)
+            //{
+            //    dgvResultados["dgvResultados_Dias", i].ReadOnly = false;
+            //    dgvResultados["dgvResultados_Monto", i].ReadOnly = false;
+            //}
+            CalcularTotalLetras();
+        }
+
+        void CalcularTotalLetras()
+        {
+            decimal total = _Lista.Sum(x => x.Monto);
+            txtImporteTotalLetras.Text = total.ToString("0.00");
         }
 
         private void dgvResultados_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -97,25 +99,41 @@ namespace pm.app
 
             var item = (LetraBe)dgvResultados.Rows[e.RowIndex].DataBoundItem;
             int indexItem = _Lista.IndexOf(item);
-
             string valorEditado = dgvResultados[e.ColumnIndex, e.RowIndex].EditedFormattedValue.ToString();
-            int cantidadDias = 0;
 
-            if (!int.TryParse(valorEditado, out cantidadDias))
+            string columnName = dgvResultados.Columns[e.ColumnIndex].Name;
+            if (columnName == "dgvResultados_Dias")
             {
-                MessageBox.Show("Debe ingresar un valor numérico entero", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                int cantidadDias = 0;
+
+                if (!int.TryParse(valorEditado, out cantidadDias))
+                {
+                    MessageBox.Show("Debe ingresar un valor numérico entero", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _Lista[indexItem].Dias = cantidadDias;
+
+                DateTime ultimaFecha = fechaHoraEmision;
+
+                for (int i = indexItem; i < _Lista.Count; i++)
+                {
+                    if (i > 0) ultimaFecha = (DateTime)(dgvResultados["dgvResultados_FechaVencimiento", i - 1].Value);
+                    ultimaFecha = ultimaFecha.AddDays(_Lista[i].Dias);
+                    _Lista[i].FechaVencimiento = ultimaFecha;
+                }
             }
-
-            _Lista[indexItem].Dias = cantidadDias;
-
-            DateTime ultimaFecha = fechaHoraEmision;
-
-            for (int i = indexItem; i < _Lista.Count; i++)
+            else if (columnName == "dgvResultados_Monto")
             {
-                if (i > 0) ultimaFecha = (DateTime)(dgvResultados["dgvResultados_FechaVencimiento", i - 1].Value);
-                ultimaFecha = ultimaFecha.AddDays(_Lista[i].Dias);
-                _Lista[i].FechaVencimiento = ultimaFecha;
+                decimal monto = 0;
+
+                if (!decimal.TryParse(valorEditado, out monto))
+                {
+                    MessageBox.Show("Debe ingresar un valor numérico entero", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _Lista[indexItem].Monto = monto;
             }
 
             ListarCronograma();
@@ -123,38 +141,92 @@ namespace pm.app
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            bool estaValidado = ValidarFormulario();
+            decimal sumaMonto = _Lista.Sum(x => x.Monto);
 
-            if (!estaValidado) return;
+            if(sumaMonto != totalImporte)
+            {
+                MessageBox.Show($"La suma de los montos es ({sumaMonto}) y debe ser igual a {totalImporte}", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _Lista = _Lista.Select(x =>
+            {
+                x.FlagAval = chkTieneAval.Checked;
+                if (x.FlagAval)
+                {
+                    x.CodigoAval = codigoAval;
+                    x.DireccionAval = txtDireccionAval.Text.Trim();
+                    x.NombrePaisAval = nombrePaisAval;
+                    x.NombreDepartamentoAval = nombreDepartamentoAval;
+                    x.NombreProvinciaAval = nombreProvinciaAval;
+                    x.NombreDistritoAval = nombreDistritoAval;
+                    x.CodigoDistritoAval = codigoDistritoAval.Value;
+                }
+                return x;
+            }).ToList();
 
             DialogResult = DialogResult.Yes;
         }
 
-        void LimpiarErrores()
+        private void chkTieneAval_CheckedChanged(object sender, EventArgs e)
         {
-            lblErrorCodigoBanco.Text = "";
+            gpbAval.Enabled = chkTieneAval.Checked;
+            if (!chkTieneAval.Checked) CargarAval(null);
         }
 
-        bool ValidarFormulario()
+        private void btnBuscarAval_Click(object sender, EventArgs e)
         {
-            bool estaValidado = true;
-
-            LimpiarErrores();
-
-
-            if (cbbCodigoBanco.SelectedIndex == 0)
+            if (nroDocumentoIdentidadAval == txtNroDocumentoIdentidadAval.Text.Trim()) return;
+            if (txtNroDocumentoIdentidadAval.Text.Trim() == "") CargarAval(null);
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocumentoIdentidadAval.Text.Trim());
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            DialogResult dr = frm.ShowDialog();
+            CargarAval(null);
+            if (dr == DialogResult.OK)
             {
-                estaValidado = false;
-                lblErrorCodigoBanco.Text = "Debe seleccionar un banco";
-                SetToolTipError(lblErrorCodigoBanco);
+                dynamic resultado = frm.Resultado;
+                CargarAval(resultado.CodigoCliente);
             }
-
-            return estaValidado;
         }
 
-        void SetToolTipError(Label label)
+        void CargarAval(int? codigoAval)
         {
-            tltCalculoCronogramaPago.SetToolTip(label, label.Text);
+            ClienteBe aval = codigoAval == null ? null : clienteBl.ObtenerCliente(codigoAval.Value);
+            if (aval != null)
+            {
+                this.codigoAval = aval.CodigoCliente;
+                this.nroDocumentoIdentidadAval = aval.NroDocumentoIdentidad;
+                cbbCodigoTipoDocumentoIdentidadAval.SelectedValue = aval.CodigoTipoDocumentoIdentidad;
+                txtNroDocumentoIdentidadAval.Text = aval.NroDocumentoIdentidad;
+                txtNombresAval.Text = aval.Nombres;
+                txtCorreoAval.Text = aval.Correo;
+                txtDireccionAval.Text = aval.Direccion;
+                if (aval.Distrito != null)
+                {
+                    codigoDistritoAval = aval.CodigoDistrito;
+                    nombrePaisAval = aval.Distrito.Provincia.Departamento.Pais.ToString();
+                    nombreDepartamentoAval = aval.Distrito.Provincia.Departamento.ToString();
+                    nombreProvinciaAval = aval.Distrito.Provincia.ToString();
+                    nombreDistritoAval = aval.Distrito.ToString();
+                    txtUbicacionAval.Text = $"{aval.Distrito.Provincia.Departamento.Pais} - {aval.Distrito.Provincia.Departamento} - {aval.Distrito.Provincia} - {aval.Distrito}";
+                }
+            }
+            else
+            {
+                this.codigoAval = null;
+                this.nroDocumentoIdentidadAval = null;
+                if (cbbCodigoTipoDocumentoIdentidadAval.Items.Count > 0)cbbCodigoTipoDocumentoIdentidadAval.SelectedIndex = 0;
+                txtNroDocumentoIdentidadAval.Text = "";
+                txtNombresAval.Text = "";
+                txtCorreoAval.Text = "";
+                txtDireccionAval.Text = "";
+                txtUbicacionAval.Text = "";
+            }
         }
     }
 }

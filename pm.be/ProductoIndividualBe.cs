@@ -16,6 +16,8 @@ namespace pm.be
         public int CodigoUnidadMedida { get; set; }
         public UnidadMedidaBe UnidadMedida { get; set; }
         public decimal Metraje { get; set; }
+        public int CodigoUnidadMedidaPeso { get; set; }
+        public UnidadMedidaBe UnidadMedidaPeso { get; set; }
         public decimal Peso { get; set; }
         public int? CodigoInicial { get; set; }
         public ProductoIndividualBe Inicial { get; set; }
@@ -26,8 +28,15 @@ namespace pm.be
         public ProveedorBe Proveedor { get; set; }
         public string CodigoBarraProveedor { get; set; }
         public DateTime FechaEntrada { get; set; }
+        public decimal PrecioVenta { get; set; }
+        public decimal? PrecioCompra { get; set; }
         public int CodigoPersonalInspeccion { get; set; }
         public PersonalBe PersonalInspeccion { get; set; }
+        public int? CodigoComprobanteCompra { get; set; }
+        public ComprobanteCompraBe ComprobanteCompra { get; set; }
+        public int? CodigoComprobanteCompraDetalle { get; set; }
+        public ComprobanteCompraDetalleBe ComprobanteCompraDetalle { get; set; }
+        public bool FlagActivo { get; set; }
         public override string ToString() => Nombre;
     }
 }

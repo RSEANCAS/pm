@@ -38,6 +38,24 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.337.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,17 +114,65 @@
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmComprobanteCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComprobanteCompra.Designer.cs">
+      <DependentUpon>FrmComprobanteCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmComprobanteCompraDetalleProductoIndividual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComprobanteCompraDetalleProductoIndividual.Designer.cs">
+      <DependentUpon>FrmComprobanteCompraDetalleProductoIndividual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmComprobantePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComprobantePago.Designer.cs">
+      <DependentUpon>FrmComprobantePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfiguracionValor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfiguracionValor.Designer.cs">
+      <DependentUpon>FrmConfiguracionValor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCotizacion.Designer.cs">
+      <DependentUpon>FrmCotizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmFacturaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmFacturaVenta.Designer.cs">
       <DependentUpon>FrmFacturaVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFormatoLetra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormatoLetra.Designer.cs">
+      <DependentUpon>FrmFormatoLetra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGuiaRemision.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGuiaRemision.Designer.cs">
       <DependentUpon>FrmGuiaRemision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLetra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLetra.Designer.cs">
+      <DependentUpon>FrmLetra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLetraAsignarBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLetraAsignarBanco.Designer.cs">
+      <DependentUpon>FrmLetraAsignarBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -156,6 +222,30 @@
     <Compile Include="FrmMantenimientoCliente.Designer.cs">
       <DependentUpon>FrmMantenimientoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoComprobanteCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoComprobanteCompra.Designer.cs">
+      <DependentUpon>FrmMantenimientoComprobanteCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoComprobanteCompraDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoComprobanteCompraDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoComprobanteCompraDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoCotizacion.Designer.cs">
+      <DependentUpon>FrmMantenimientoCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoCotizacionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoCotizacionDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoCotizacionDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMantenimientoFacturaVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,11 +276,41 @@
     <Compile Include="FrmMantenimientoMenu.Designer.cs">
       <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMantenimientoMotivoNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoMotivoNota.Designer.cs">
+      <DependentUpon>FrmMantenimientoMotivoNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMantenimientoMotivoTraslado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMantenimientoMotivoTraslado.Designer.cs">
       <DependentUpon>FrmMantenimientoMotivoTraslado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaCredito.Designer.cs">
+      <DependentUpon>FrmMantenimientoNotaCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaCreditoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaCreditoDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoNotaCreditoDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaDebito.Designer.cs">
+      <DependentUpon>FrmMantenimientoNotaDebito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaDebitoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMantenimientoNotaDebitoDetalle.Designer.cs">
+      <DependentUpon>FrmMantenimientoNotaDebitoDetalle.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMantenimientoPerfil.cs">
       <SubType>Form</SubType>
@@ -246,23 +366,29 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMotivoNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMotivoNota.Designer.cs">
+      <DependentUpon>FrmMotivoNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMotivoTraslado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMotivoTraslado.Designer.cs">
       <DependentUpon>FrmMotivoTraslado.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNotaCreditoVenta.cs">
+    <Compile Include="FrmNotaCredito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNotaCreditoVenta.Designer.cs">
-      <DependentUpon>FrmNotaCreditoVenta.cs</DependentUpon>
+    <Compile Include="FrmNotaCredito.Designer.cs">
+      <DependentUpon>FrmNotaCredito.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNotaDebitoVenta.cs">
+    <Compile Include="FrmNotaDebito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNotaDebitoVenta.Designer.cs">
-      <DependentUpon>FrmNotaDebitoVenta.cs</DependentUpon>
+    <Compile Include="FrmNotaDebito.Designer.cs">
+      <DependentUpon>FrmNotaDebito.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPerfil.cs">
       <SubType>Form</SubType>
@@ -314,6 +440,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="App_Data\rdlc\rptFormatoLetra.rdlc" />
     <EmbeddedResource Include="FrmActividad.resx">
       <DependentUpon>FrmActividad.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,11 +463,35 @@
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmComprobanteCompra.resx">
+      <DependentUpon>FrmComprobanteCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComprobanteCompraDetalleProductoIndividual.resx">
+      <DependentUpon>FrmComprobanteCompraDetalleProductoIndividual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComprobantePago.resx">
+      <DependentUpon>FrmComprobantePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfiguracionValor.resx">
+      <DependentUpon>FrmConfiguracionValor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCotizacion.resx">
+      <DependentUpon>FrmCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturaVenta.resx">
       <DependentUpon>FrmFacturaVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormatoLetra.resx">
+      <DependentUpon>FrmFormatoLetra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGuiaRemision.resx">
       <DependentUpon>FrmGuiaRemision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLetra.resx">
+      <DependentUpon>FrmLetra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLetraAsignarBanco.resx">
+      <DependentUpon>FrmLetraAsignarBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -365,6 +517,18 @@
     <EmbeddedResource Include="FrmMantenimientoCliente.resx">
       <DependentUpon>FrmMantenimientoCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoComprobanteCompra.resx">
+      <DependentUpon>FrmMantenimientoComprobanteCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoComprobanteCompraDetalle.resx">
+      <DependentUpon>FrmMantenimientoComprobanteCompraDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoCotizacion.resx">
+      <DependentUpon>FrmMantenimientoCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoCotizacionDetalle.resx">
+      <DependentUpon>FrmMantenimientoCotizacionDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoFacturaVenta.resx">
       <DependentUpon>FrmMantenimientoFacturaVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,8 +544,23 @@
     <EmbeddedResource Include="FrmMantenimientoMenu.resx">
       <DependentUpon>FrmMantenimientoMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoMotivoNota.resx">
+      <DependentUpon>FrmMantenimientoMotivoNota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoMotivoTraslado.resx">
       <DependentUpon>FrmMantenimientoMotivoTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoNotaCredito.resx">
+      <DependentUpon>FrmMantenimientoNotaCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoNotaCreditoDetalle.resx">
+      <DependentUpon>FrmMantenimientoNotaCreditoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoNotaDebito.resx">
+      <DependentUpon>FrmMantenimientoNotaDebito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMantenimientoNotaDebitoDetalle.resx">
+      <DependentUpon>FrmMantenimientoNotaDebitoDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMantenimientoPerfil.resx">
       <DependentUpon>FrmMantenimientoPerfil.cs</DependentUpon>
@@ -410,8 +589,17 @@
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMotivoNota.resx">
+      <DependentUpon>FrmMotivoNota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMotivoTraslado.resx">
       <DependentUpon>FrmMotivoTraslado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotaCredito.resx">
+      <DependentUpon>FrmNotaCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotaDebito.resx">
+      <DependentUpon>FrmNotaDebito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>
@@ -450,6 +638,41 @@
     </Compile>
     <None Include="Log4Net.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\pm.be.FormatoBe+Letra.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ActividadBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.AreaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.BancoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.BoletaVentaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ClienteBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.CommonBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ComprobanteCompraBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.Conexion.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ConfiguracionValorBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ControlBusquedaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.CotizacionBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.DepartamentoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.DistritoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.FacturaVentaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.FormatoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.GuiaRemisionBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.LetraBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.MenuBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.MotivoNotaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.MotivoTrasladoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.NotaCreditoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.NotaDebitoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.PaisBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.PerfilBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.PersonalBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ProductoBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ProductoIndividualBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ProveedorBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.ProvinciaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.SerieBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.TipoComprobanteBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.TipoDocumentoIdentidadBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.UnidadMedidaBl.datasource" />
+    <None Include="Properties\DataSources\pm.bl.UsuarioBl.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -486,6 +709,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon-pm.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

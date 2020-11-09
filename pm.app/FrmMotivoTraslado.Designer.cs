@@ -31,17 +31,18 @@
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.dgvResultados_CodigoMotivoTraslado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.txtFiltroDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvResultados_CodigoMotivoTraslado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -87,59 +88,6 @@
             this.dgvResultados.TabIndex = 21;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 20;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.chkActivo);
-            this.groupBox1.Controls.Add(this.txtFiltroDescripcion);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Location = new System.Drawing.Point(112, 37);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 12;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
-            // 
-            // txtFiltroDescripcion
-            // 
-            this.txtFiltroDescripcion.Location = new System.Drawing.Point(6, 33);
-            this.txtFiltroDescripcion.Name = "txtFiltroDescripcion";
-            this.txtFiltroDescripcion.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroDescripcion.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Descripción";
-            // 
             // dgvResultados_CodigoMotivoTraslado
             // 
             this.dgvResultados_CodigoMotivoTraslado.DataPropertyName = "CodigoMotivoTraslado";
@@ -172,6 +120,59 @@
             this.dgvResultados_FlagActivo.ReadOnly = true;
             this.dgvResultados_FlagActivo.Width = 80;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.chkActivo);
+            this.groupBox1.Controls.Add(this.txtFiltroDescripcion);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(701, 64);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Location = new System.Drawing.Point(112, 37);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(57, 17);
+            this.chkActivo.TabIndex = 12;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // txtFiltroDescripcion
+            // 
+            this.txtFiltroDescripcion.Location = new System.Drawing.Point(6, 33);
+            this.txtFiltroDescripcion.Name = "txtFiltroDescripcion";
+            this.txtFiltroDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroDescripcion.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Descripción";
+            // 
             // FrmMotivoTraslado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,12 +183,18 @@
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmMotivoTraslado";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Motivos de Traslado";
             this.Load += new System.EventHandler(this.FrmMotivoTraslado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

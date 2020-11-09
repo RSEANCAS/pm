@@ -51,15 +51,28 @@
     <Compile Include="BoletaVentaDetalleDa.cs" />
     <Compile Include="ClienteDa.cs" />
     <Compile Include="CommonDa.cs" />
+    <Compile Include="ComprobanteCompraDa.cs" />
+    <Compile Include="ComprobanteCompraDetalleDa.cs" />
+    <Compile Include="ConfiguracionValorDa.cs" />
+    <Compile Include="ControlBusquedaColumnaDa.cs" />
+    <Compile Include="ControlBusquedaDa.cs" />
+    <Compile Include="CotizacionDa.cs" />
+    <Compile Include="CotizacionDetalleDa.cs" />
     <Compile Include="DepartamentoDa.cs" />
     <Compile Include="DistritoDa.cs" />
     <Compile Include="FacturaVentaDa.cs" />
     <Compile Include="FacturaVentaDetalleDa.cs" />
+    <Compile Include="FormatoDa.cs" />
     <Compile Include="GuiaRemisionDa.cs" />
     <Compile Include="GuiaRemisionDetalleDa.cs" />
     <Compile Include="LetraDa.cs" />
     <Compile Include="MenuDa.cs" />
+    <Compile Include="MotivoNotaDa.cs" />
     <Compile Include="MotivoTrasladoDa.cs" />
+    <Compile Include="NotaCreditoDa.cs" />
+    <Compile Include="NotaCreditoDetalleDa.cs" />
+    <Compile Include="NotaDebitoDa.cs" />
+    <Compile Include="NotaDebitoDetalleDa.cs" />
     <Compile Include="PaisDa.cs" />
     <Compile Include="PerfilDa.cs" />
     <Compile Include="PerfilMenuDa.cs" />
@@ -80,6 +93,10 @@
     <ProjectReference Include="..\pm.be\pm.be.csproj">
       <Project>{C4F9314F-5341-4F14-8533-1591E7E36296}</Project>
       <Name>pm.be</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pm.enums\pm.enums.csproj">
+      <Project>{3B52A220-EDF9-4DE9-85C2-17FD9DD90EB2}</Project>
+      <Name>pm.enums</Name>
     </ProjectReference>
     <ProjectReference Include="..\pm.util\pm.util.csproj">
       <Project>{52a204ce-ab91-41bf-be67-f6bc05d6f7ad}</Project>

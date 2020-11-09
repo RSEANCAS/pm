@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
@@ -51,6 +52,8 @@
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvResultados_CodigoBoletaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoCotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,10 +64,15 @@
             this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_TotalImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_FlagEmitido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -97,6 +105,8 @@
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvResultados_CodigoBoletaVenta,
+            this.dgvResultados_CodigoGuiaRemision,
+            this.dgvResultados_CodigoCotizacion,
             this.dgvResultados_Nro,
             this.dgvResultados_Serie,
             this.dgvResultados_Numero,
@@ -107,6 +117,10 @@
             this.dgvResultados_NombresCliente,
             this.dgvResultados_StrMoneda,
             this.dgvResultados_TotalImporte,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
             this.dgvResultados_FlagEmitido,
             this.dgvResultados_FlagActivo});
             this.dgvResultados.Location = new System.Drawing.Point(12, 111);
@@ -170,7 +184,7 @@
             this.dtpFiltroFechaEmisionHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFiltroFechaEmisionHasta.Location = new System.Drawing.Point(112, 33);
             this.dtpFiltroFechaEmisionHasta.Name = "dtpFiltroFechaEmisionHasta";
-            this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 21);
+            this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 20);
             this.dtpFiltroFechaEmisionHasta.TabIndex = 24;
             // 
             // dtpFiltroFechaEmisionDesde
@@ -178,14 +192,14 @@
             this.dtpFiltroFechaEmisionDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFiltroFechaEmisionDesde.Location = new System.Drawing.Point(6, 33);
             this.dtpFiltroFechaEmisionDesde.Name = "dtpFiltroFechaEmisionDesde";
-            this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 21);
+            this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 20);
             this.dtpFiltroFechaEmisionDesde.TabIndex = 23;
             // 
             // txtFiltroNombresCliente
             // 
             this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
             this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
-            this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNombresCliente.TabIndex = 22;
             // 
             // label6
@@ -201,7 +215,7 @@
             // 
             this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
-            this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
             // 
             // label5
@@ -217,7 +231,7 @@
             // 
             this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
-            this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNroComprobante.TabIndex = 18;
             // 
             // label4
@@ -275,6 +289,22 @@
             this.dgvResultados_CodigoBoletaVenta.Name = "dgvResultados_CodigoBoletaVenta";
             this.dgvResultados_CodigoBoletaVenta.ReadOnly = true;
             this.dgvResultados_CodigoBoletaVenta.Visible = false;
+            // 
+            // dgvResultados_CodigoGuiaRemision
+            // 
+            this.dgvResultados_CodigoGuiaRemision.DataPropertyName = "CodigoGuiaRemision";
+            this.dgvResultados_CodigoGuiaRemision.HeaderText = "CodigoGuiaRemision";
+            this.dgvResultados_CodigoGuiaRemision.Name = "dgvResultados_CodigoGuiaRemision";
+            this.dgvResultados_CodigoGuiaRemision.ReadOnly = true;
+            this.dgvResultados_CodigoGuiaRemision.Visible = false;
+            // 
+            // dgvResultados_CodigoCotizacion
+            // 
+            this.dgvResultados_CodigoCotizacion.DataPropertyName = "CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.HeaderText = "CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.Name = "dgvResultados_CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.ReadOnly = true;
+            this.dgvResultados_CodigoCotizacion.Visible = false;
             // 
             // dgvResultados_Nro
             // 
@@ -363,6 +393,40 @@
             this.dgvResultados_TotalImporte.Name = "dgvResultados_TotalImporte";
             this.dgvResultados_TotalImporte.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "NombreTipoComprobanteGuiaRemision";
+            this.Column1.HeaderText = "Tipo Guía Remisión";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 140;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "SerialSerieGuiaRemision";
+            this.Column2.HeaderText = "Serie Guía Remisión";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 140;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "NroComprobanteGuiaRemision";
+            dataGridViewCellStyle5.Format = "00000000";
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column3.HeaderText = "N° Guía Remisión";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 140;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "FechaHoraEmisionGuiaRemision";
+            this.Column4.HeaderText = "Fecha Emisión Guía Remisión";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 180;
+            // 
             // dgvResultados_FlagEmitido
             // 
             this.dgvResultados_FlagEmitido.DataPropertyName = "FlagEmitido";
@@ -390,11 +454,16 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmBoletaVenta";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Boletas de venta";
             this.Load += new System.EventHandler(this.FrmBoletaVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,6 +490,8 @@
         private System.Windows.Forms.DateTimePicker dtpFiltroFechaEmisionHasta;
         private System.Windows.Forms.DateTimePicker dtpFiltroFechaEmisionDesde;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoBoletaVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoGuiaRemision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoCotizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Serie;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Numero;
@@ -431,6 +502,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombresCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_StrMoneda;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TotalImporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagEmitido;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagActivo;
     }

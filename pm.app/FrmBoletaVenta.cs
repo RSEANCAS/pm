@@ -55,13 +55,13 @@ namespace pm.app
             List<BoletaVentaBe> resultados = boletaVentaBl.BuscarBoletaVenta(fechaEmisionDesde, fechaEmisionHasta, codigoSerie, nroComprobante, nroDocIdentidadCliente, nombresCliente, flagActivo);
 
             List<dynamic> resultadosDynamic = resultados == null ? null : resultados.Select(x => {
-                dynamic row = new { x.Fila, x.Serie, x.FechaHoraEmision, FechaEmision = x.FechaHoraEmision.ToString("dd/MM/yyyy"), x.FechaHoraVencimiento, FechaVencimiento = x.FechaHoraVencimiento.ToString("dd/MM/yyyy"), DescripcionTipoDocumentoIdentidadCliente = x.Cliente.TipoDocumentoIdentidad.Descripcion, NroDocumentoIdentidadCliente = x.Cliente.NroDocumentoIdentidad, NombresCliente = x.Cliente.Nombres, x.TotalImporte, x.FlagEmitido, x.FlagActivo };
+                dynamic row = new { x.Fila, x.CodigoBoletaVenta, x.CodigoGuiaRemision, x.CodigoCotizacion, x.Serie, x.NroComprobante, x.FechaHoraEmision, FechaEmision = x.FechaHoraEmision.ToString("dd/MM/yyyy"), x.FechaHoraVencimiento, FechaVencimiento = x.FechaHoraVencimiento.ToString("dd/MM/yyyy"), DescripcionTipoDocumentoIdentidadCliente = x.Cliente.TipoDocumentoIdentidad.Descripcion, NroDocumentoIdentidadCliente = x.Cliente.NroDocumentoIdentidad, NombresCliente = x.Cliente.Nombres, x.Cliente, x.CodigoMoneda, x.StrMoneda, x.TotalImporte, NombreTipoComprobanteGuiaRemision = x.GuiaRemision == null ? null : x.GuiaRemision.TipoComprobante.Nombre, SerialSerieGuiaRemision = x.GuiaRemision == null ? null : x.GuiaRemision.Serie.Serial, NroComprobanteGuiaRemision = x.GuiaRemision == null ? null : (int?)x.GuiaRemision.NroComprobante, FechaHoraEmisionGuiaRemision = x.GuiaRemision == null ? null : (DateTime?)x.GuiaRemision.FechaHoraEmision, x.FlagEmitido, x.FlagActivo };
                 return row;
             }).ToList();
 
             dgvResultados.AutoGenerateColumns = false;
             dgvResultados.DataSource = null;
-            dgvResultados.DataSource = resultados;
+            dgvResultados.DataSource = resultadosDynamic;
 
             lblResultados.Text = (resultados == null) ? "No se encontraron resultados" : $"Se {(resultados.Count == 1 ? "encontró" : "encontraron")} {resultados.Count} {(resultados.Count == 1 ? "resultado" : "resultados")}";
         }

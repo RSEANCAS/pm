@@ -44,6 +44,10 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@otrosTributos", registro.OtrosTributos.GetNullable());
                     cmd.Parameters.AddWithValue("@baseImponible", registro.BaseImponible.GetNullable());
                     cmd.Parameters.AddWithValue("@importe", registro.Importe.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoGuiaRemision", registro.CodigoGuiaRemision.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoGuiaRemisionDetalle", registro.CodigoGuiaRemisionDetalle.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoCotizacion", registro.CodigoCotizacion.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoCotizacionDetalle", registro.CodigoCotizacionDetalle.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
                     int filasAfectadas = cmd.ExecuteNonQuery();
 

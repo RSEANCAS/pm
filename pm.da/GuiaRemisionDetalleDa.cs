@@ -32,6 +32,8 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@cantidad", registro.Cantidad.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoUnidadMedidaPeso", registro.CodigoUnidadMedidaPeso.GetNullable());
                     cmd.Parameters.AddWithValue("@peso", registro.Peso.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoCotizacion", registro.CodigoCotizacion.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoCotizacionDetalle", registro.CodigoCotizacionDetalle.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
                     int filasAfectadas = cmd.ExecuteNonQuery();
 
@@ -79,6 +81,8 @@ namespace pm.da
                                 item.Cantidad = dr.GetData<decimal>("Cantidad");
                                 item.CodigoUnidadMedidaPeso = dr.GetData<int>("CodigoUnidadMedidaPeso");
                                 item.Peso = dr.GetData<decimal>("Peso");
+                                item.CodigoCotizacion = dr.GetData<int>("CodigoCotizacion");
+                                item.CodigoCotizacionDetalle = dr.GetData<int>("CodigoCotizacionDetalle");
                                 item.FlagEliminado = dr.GetData<bool>("FlagEliminado");
 
                                 resultados.Add(item);

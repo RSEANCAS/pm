@@ -13,27 +13,10 @@ namespace pm.be
     {
         public int CodigoFacturaVenta { get; set; }
         public DateTime FechaHoraVencimiento { get; set; }
-        public int CodigoCliente { get; set; }
-        public ClienteBe Cliente { get; set; }
-        // NO MAPEADO EN BD
-        public string NroDocumentoIdentidadCliente { get; set; }
-        // NO MAPEADO EN BD
-        public string NombresCliente { get; set; }
-        public string DireccionCliente { get; set; }
-        public string NombrePaisCliente { get; set; }
-        public string NombreDepartamentoCliente { get; set; }
-        public string NombreProvinciaCliente { get; set; }
-        public int CodigoDistritoCliente { get; set; }
-        public string NombreDistritoCliente { get; set; }
-        public DistritoBe DistritoCliente { get; set; }
-        // NO MAPEADO EN BD
-        public int CodigoTipoDocumentoIdentidadCliente { get; set; }
-        // NO MAPEADO EN BD
-        public TipoDocumentoIdentidadBe TipoDocumentoIdentidadCliente { get; set; }
-        // NO MAPEADO EN BD
-        public string DescripcionTipoDocumentoIdentidadCliente { get; set; }
         public int CodigoMoneda { get; set; }
         public string StrMoneda { get { return Enum<Moneda>.GetCollection().Count(x => x.Value == CodigoMoneda.ToString()) == 0 ? "" : ((Moneda)CodigoMoneda).GetAttributeOfType<DescriptionAttribute>().Description; } }
+        public int? CodigoGuiaRemision { get; set; }
+        public GuiaRemisionBe GuiaRemision { get; set; }
         public int CodigoMetodoPago { get; set; }
         public int CantidadLetrasCredito { get; set; }
         public decimal TotalOperacionGravada { get; set; }
@@ -55,6 +38,8 @@ namespace pm.be
         public decimal TotalImporte { get; set; }
         public decimal TotalPercepcion { get; set; }
         public decimal TotalPagar { get; set; }
+        public int? CodigoCotizacion { get; set; }
+        public CotizacionBe Cotizacion { get; set; }
         public bool FlagEmitido { get; set; }
         public bool FlagActivo { get; set; }
 

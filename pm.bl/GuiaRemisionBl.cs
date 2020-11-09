@@ -18,8 +18,8 @@ namespace pm.bl
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         GuiaRemisionDa guiaRemisionDa = new GuiaRemisionDa();
+        SerieDa serieDa = new SerieDa();
         GuiaRemisionDetalleDa guiaRemisionDetalleDa = new GuiaRemisionDetalleDa();
-        LetraDa letraDa = new LetraDa();
 
         public List<GuiaRemisionBe> BuscarGuiaRemision(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -36,7 +36,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public GuiaRemisionBe ObtenerGuiaRemision(int codigoGuiaRemision, bool withDetalle = false)
+        public GuiaRemisionBe ObtenerGuiaRemision(int codigoGuiaRemision, bool withDetalle = false, bool withSerie = false)
         {
             GuiaRemisionBe item = null;
 
@@ -44,6 +44,7 @@ namespace pm.bl
             {
                 cn.Open();
                 item = guiaRemisionDa.ObtenerGuiaRemision(codigoGuiaRemision, cn);
+                if (withSerie) item.Serie = serieDa.ObtenerSerie(item.CodigoSerie, cn);
                 if (withDetalle) item.ListaGuiaRemisionDetalle = guiaRemisionDetalleDa.ListarGuiaRemisionDetalle(codigoGuiaRemision, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }

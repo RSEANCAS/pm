@@ -18,7 +18,9 @@ namespace pm.bl
 
         FacturaVentaDa facturaVentaDa = new FacturaVentaDa();
         FacturaVentaDetalleDa facturaVentaDetalleDa = new FacturaVentaDetalleDa();
+        SerieDa serieDa = new SerieDa();
         LetraDa letraDa = new LetraDa();
+        ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
 
         public List<FacturaVentaBe> BuscarFacturaVenta(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -35,7 +37,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public FacturaVentaBe ObtenerFacturaVenta(int codigoFacturaVenta, bool withDetalle = false, bool withLetra = false)
+        public FacturaVentaBe ObtenerFacturaVenta(int codigoFacturaVenta, bool withDetalle = false, bool withLetra = false, bool withSerie = false)
         {
             FacturaVentaBe item = null;
 
@@ -43,6 +45,7 @@ namespace pm.bl
             {
                 cn.Open();
                 item = facturaVentaDa.ObtenerFacturaVenta(codigoFacturaVenta, cn);
+                if (withSerie) item.Serie = serieDa.ObtenerSerie(item.CodigoSerie, cn);
                 if (withDetalle) item.ListaFacturaVentaDetalle = facturaVentaDetalleDa.ListarFacturaVentaDetalle(codigoFacturaVenta, cn);
                 if (withLetra) item.ListaLetra = letraDa.ListarLetraPorRef((int)TipoComprobante.Factura, item.CodigoSerie, item.NroComprobante, cn);
             }
@@ -70,6 +73,7 @@ namespace pm.bl
                             if (item.CodigoFacturaVenta == 0) item.CodigoFacturaVenta = codigoFacturaVenta;
                             seGuardo = facturaVentaDetalleDa.GuardarFacturaVentaDetalle(item, cn);
                             if (!seGuardo) break;
+                            else seGuardo = productoIndividualDa.RegenerarProductoIndividual(item.CodigoProductoIndividual, item.Cantidad, registro.UsuarioModi, cn);
                         }
                     }
 
@@ -91,8 +95,8 @@ namespace pm.bl
                         foreach (LetraBe item in registro.ListaLetra)
                         {
                             item.CodigoTipoComprobanteRef = codigoTipoComprobanteRef;
-                            item.CodigoSerieRef = registro.CodigoSerie;
-                            item.NumeroRef = nroComprobante;
+                            item.CodigoComprobanteRef = codigoFacturaVenta;
+                            item.CodigoGuiaRemision = registro.CodigoGuiaRemision;
                             item.CodigoCliente = registro.CodigoCliente;
                             item.CodigoMoneda = registro.CodigoMoneda;
 

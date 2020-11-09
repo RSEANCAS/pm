@@ -15,7 +15,7 @@ namespace pm.bl
 
         ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
 
-        public List<ProductoIndividualBe> BuscarProductoIndividual(int? codigoProductoIndividual, string codigoBarra, int? codigoProducto, string nombre, string codigoInicial, string color, string nroDocumentoIdentidadProveedor, string nombresProveedor, DateTime fechaEntradaDesde, DateTime fechaEntradaHasta, string nroDocumentoIdentidadPersonalInspeccion, string nombresPersonalInspeccion)
+        public List<ProductoIndividualBe> BuscarProductoIndividual(int? codigoProductoIndividual, string codigoBarra, int? codigoProducto, string nombre, string codigoInicial, string color, string nroDocumentoIdentidadProveedor, string nombresProveedor, DateTime? fechaEntradaDesde, DateTime? fechaEntradaHasta, string nroDocumentoIdentidadPersonalInspeccion, string nombresPersonalInspeccion)
         {
             List<ProductoIndividualBe> resultados = null;
 
@@ -45,16 +45,18 @@ namespace pm.bl
             return item;
         }
 
-        public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, out bool flagCodigoBarraExiste, out bool flagNombreExiste)
+        //public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, out bool flagCodigoBarraExiste, out bool flagNombreExiste)
+        public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual)
         {
-            flagCodigoBarraExiste = false;
-            flagNombreExiste = false;
+            //flagCodigoBarraExiste = false;
+            //flagNombreExiste = false;
             bool existe = false;
 
             try
             {
                 cn.Open();
-                existe = productoIndividualDa.ExisteProductoIndividual(codigoBarra, nombre, codigoProductoIndividual, cn, out flagCodigoBarraExiste , out flagNombreExiste);
+                //existe = productoIndividualDa.ExisteProductoIndividual(codigoBarra, nombre, codigoProductoIndividual, cn, out flagCodigoBarraExiste , out flagNombreExiste);
+                existe = productoIndividualDa.ExisteProductoIndividual(codigoBarra, nombre, codigoProductoIndividual, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
@@ -62,14 +64,15 @@ namespace pm.bl
             return existe;
         }
 
-        public bool GuardarProductoIndividual(ProductoIndividualBe registro)
+        public bool GuardarProductoIndividual(ProductoIndividualBe registro, out int codigoProductoIndividual)
         {
+            codigoProductoIndividual = registro.CodigoProductoIndividual;
             bool seGuardo = false;
 
             try
             {
                 cn.Open();
-                seGuardo = productoIndividualDa.GuardarProductoIndividual(registro, cn);
+                seGuardo = productoIndividualDa.GuardarProductoIndividual(registro, out codigoProductoIndividual, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

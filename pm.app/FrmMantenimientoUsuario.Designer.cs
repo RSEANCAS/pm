@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tltUsuario = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -102,7 +103,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(183, 32);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(168, 21);
+            this.txtContraseña.Size = new System.Drawing.Size(168, 20);
             this.txtContraseña.TabIndex = 31;
             // 
             // label5
@@ -131,7 +132,7 @@
             this.txtNombresPersonal.Location = new System.Drawing.Point(70, 85);
             this.txtNombresPersonal.Name = "txtNombresPersonal";
             this.txtNombresPersonal.ReadOnly = true;
-            this.txtNombresPersonal.Size = new System.Drawing.Size(217, 21);
+            this.txtNombresPersonal.Size = new System.Drawing.Size(217, 20);
             this.txtNombresPersonal.TabIndex = 28;
             // 
             // lblErrorPersonal
@@ -151,7 +152,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNroDocIdentidadPersonal.Location = new System.Drawing.Point(9, 85);
             this.txtNroDocIdentidadPersonal.Name = "txtNroDocIdentidadPersonal";
-            this.txtNroDocIdentidadPersonal.Size = new System.Drawing.Size(55, 21);
+            this.txtNroDocIdentidadPersonal.Size = new System.Drawing.Size(55, 20);
             this.txtNroDocIdentidadPersonal.TabIndex = 26;
             // 
             // label4
@@ -208,7 +209,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(9, 32);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(168, 21);
+            this.txtNombre.Size = new System.Drawing.Size(168, 20);
             this.txtNombre.TabIndex = 5;
             // 
             // label3
@@ -228,12 +229,18 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoUsuario";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoUsuario";
             this.Load += new System.EventHandler(this.FrmMantenimientoUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -1,4 +1,5 @@
-﻿using pm.bl;
+﻿using pm.be;
+using pm.bl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,22 +19,58 @@ namespace pm.app
     {
         dynamic _Resultado;
         public dynamic Resultado { get { return _Resultado; } }
-        string table, columns, columnsFilter;
+        string table, columns, columnsFilter, where;
         Type type;
+        ControlBusquedaBe controlBusqueda = null;
 
         CommonBl commonBl = new CommonBl();
 
-        public FrmBusquedaSeleccionarRegistro(string title, string table, DataGridViewColumn[] columns, string[] columnsFilter, Type type, string filtroBusqueda = "")
+        //public FrmBusquedaSeleccionarRegistro(string title, string table, DataGridViewColumn[] columns, string[] columnsFilter, string where, Type type, string filtroBusqueda = "")
+        //{
+        //    InitializeComponent();
+        //    Text = title;
+        //    this.table = table;
+        //    this.columns = string.Join($",{Environment.NewLine}", columns.Select(x => $"{x.Tag.ToString()} [{x.DataPropertyName}]").ToArray());
+        //    this.columnsFilter = string.Join($" or{Environment.NewLine}", columnsFilter.Select(x => $"{x} like '%{{0}}%'").ToArray());
+        //    this.where = where;
+        //    txtFiltroBusqueda.Text = (filtroBusqueda ?? "").Trim();
+        //    this.type = type;
+        //    dgvResultados.AutoGenerateColumns = false;
+        //    dgvResultados.Columns.AddRange(columns);
+        //}
+
+        public FrmBusquedaSeleccionarRegistro(ControlBusquedaBe item, string filtroBusqueda = "")
         {
             InitializeComponent();
-            Text = title;
-            this.table = table;
-            this.columns = string.Join($",{Environment.NewLine}", columns.Select(x => x.DataPropertyName).ToArray());
+
+            Assembly asm = typeof(BaseAuditoria).Assembly;
+            DataGridViewColumn[] columns = item.ListaControlBusquedaColumna.Select(x =>
+            {
+                Assembly asmForms = typeof(DataGridViewColumn).Assembly;
+                Type t = asmForms.GetType(x.TipoColumna);
+                dynamic typeColumn = Activator.CreateInstance(t);
+
+                DataGridViewColumn column = typeColumn;
+                column.Width = x.Ancho;
+                column.Name = $"dgvResultados_{x.NombreAtributo}";
+                column.DataPropertyName = x.NombreAtributo;
+                column.HeaderText = x.Titulo;
+                column.Visible = x.EsVisible;
+                column.Tag = x.CampoBD;
+                if (x.Formato != null) column.DefaultCellStyle.Format = x.Formato;
+                return column;
+            }).ToArray();
+            string[] columnsFilter = item.ListaControlBusquedaColumna.Where(x => x.EsFiltro).Select(x => (string)x.NombreAtributo).ToArray();
+
+            Text = item.TituloFormulario;
+            this.table = item.FromTables;
+            this.columns = string.Join($",{Environment.NewLine}", columns.Select(x => $"{x.Tag.ToString()} [{x.DataPropertyName}]").ToArray());
             this.columnsFilter = string.Join($" or{Environment.NewLine}", columnsFilter.Select(x => $"{x} like '%{{0}}%'").ToArray());
+            this.where = item.WhereMain;
             txtFiltroBusqueda.Text = (filtroBusqueda ?? "").Trim();
-            this.type = type;
+            this.type = asm.GetType(item.TipoObjeto);
             dgvResultados.AutoGenerateColumns = false;
-            dgvResultados.Columns.AddRange(columns);
+            dgvResultados.Columns.AddRange(columns.Cast<DataGridViewColumn>().ToArray());
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -60,9 +97,9 @@ namespace pm.app
         {
             string busqueda = txtFiltroBusqueda.Text.Trim();
 
-            string where = string.Format(columnsFilter, busqueda);
+            string whereColumnsFilter = string.Format(columnsFilter, busqueda);
 
-            List<dynamic> lista = commonBl.BuscarQuery(table, columns, where);
+            List<dynamic> lista = commonBl.BuscarQuery(table, columns, whereColumnsFilter, where);
 
             if (lista != null)
             {
@@ -73,7 +110,7 @@ namespace pm.app
                     foreach(var item in x.ToList())
                     {
                         PropertyInfo[] props = type.GetProperties();
-                        props.Where(y => y.Name == item.Key).First().SetValue(obj, item.Value);
+                        props.Where(y => y.Name == item.Key).First().SetValue(obj, DBNull.Value.Equals(item.Value) ? null : item.Value);
                     }
 
                     return obj;

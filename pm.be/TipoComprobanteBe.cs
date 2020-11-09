@@ -10,6 +10,7 @@ namespace pm.be
     {
         public int CodigoTipoComprobante { get; set; }
         public string Nombre { get; set; }
+        public string CodigoSunat { get; set; }
         public override string ToString() => Nombre;
     }
 }

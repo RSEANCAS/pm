@@ -16,6 +16,7 @@ namespace pm.bl
 
         BoletaVentaDa boletaVentaDa = new BoletaVentaDa();
         BoletaVentaDetalleDa boletaVentaDetalleDa = new BoletaVentaDetalleDa();
+        ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
 
         public List<BoletaVentaBe> BuscarBoletaVenta(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -69,6 +70,7 @@ namespace pm.bl
                             if (item.CodigoBoletaVenta == 0) item.CodigoBoletaVenta = codigoBoletaVenta;
                             seGuardo = boletaVentaDetalleDa.GuardarBoletaVentaDetalle(item, cn);
                             if (!seGuardo) break;
+                            else seGuardo = productoIndividualDa.RegenerarProductoIndividual(item.CodigoProductoIndividual, item.Cantidad, registro.UsuarioModi, cn);
                         }
                     }
 

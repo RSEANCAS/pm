@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tltMenu = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -109,7 +110,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFormulario.Location = new System.Drawing.Point(9, 85);
             this.txtFormulario.Name = "txtFormulario";
-            this.txtFormulario.Size = new System.Drawing.Size(342, 21);
+            this.txtFormulario.Size = new System.Drawing.Size(342, 20);
             this.txtFormulario.TabIndex = 22;
             // 
             // label2
@@ -138,7 +139,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(9, 32);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(342, 21);
+            this.txtNombre.Size = new System.Drawing.Size(342, 20);
             this.txtNombre.TabIndex = 5;
             // 
             // label3
@@ -158,12 +159,18 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoMenu";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoMenu";
             this.Load += new System.EventHandler(this.FrmMantenimientoMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

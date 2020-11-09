@@ -14,7 +14,7 @@ namespace pm.da
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public List<ProductoIndividualBe> BuscarProductoIndividual(int? codigoProductoIndividual, string codigoBarra, int? codigoProducto, string nombre, string codigoInicial, string color, string nroDocumentoIdentidadProveedor, string nombresProveedor, DateTime fechaEntradaDesde, DateTime fechaEntradaHasta, string nroDocumentoIdentidadPersonalInspeccion, string nombresPersonalInspeccion, SqlConnection cn)
+        public List<ProductoIndividualBe> BuscarProductoIndividual(int? codigoProductoIndividual, string codigoBarra, int? codigoProducto, string nombre, string codigoInicial, string color, string nroDocumentoIdentidadProveedor, string nombresProveedor, DateTime? fechaEntradaDesde, DateTime? fechaEntradaHasta, string nroDocumentoIdentidadPersonalInspeccion, string nombresPersonalInspeccion, SqlConnection cn)
         {
             List<ProductoIndividualBe> resultados = null;
 
@@ -56,6 +56,11 @@ namespace pm.da
                                 item.UnidadMedida.Descripcion = dr.GetData<string>("DescripcionUnidadMedida");
                                 item.UnidadMedida.FlagActivo = dr.GetData<bool>("FlagActivoUnidadMedida");
                                 item.Metraje = dr.GetData<decimal>("Metraje");
+                                item.CodigoUnidadMedidaPeso = dr.GetData<int>("CodigoUnidadMedidaPeso");
+                                item.UnidadMedidaPeso = new UnidadMedidaBe();
+                                item.UnidadMedidaPeso.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedidaPeso");
+                                item.UnidadMedidaPeso.Descripcion = dr.GetData<string>("DescripcionUnidadMedidaPeso");
+                                item.UnidadMedidaPeso.FlagActivo = dr.GetData<bool>("FlagActivoUnidadMedidaPeso");
                                 item.Peso = dr.GetData<decimal>("Peso");
                                 item.CodigoInicial = dr.GetData<int?>("CodigoInicial");
                                 item.Rollo = dr.GetData<decimal>("Rollo");
@@ -97,6 +102,87 @@ namespace pm.da
             return resultados;
         }
 
+        public List<ProductoIndividualBe> ListarProductoIndividualPorComprobanteCompra(int codigoComprobanteCompra, SqlConnection cn)
+        {
+            List<ProductoIndividualBe> resultados = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_productoindividual_listar_x_comprobantecompra", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoComprobanteCompra", codigoComprobanteCompra.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            resultados = new List<ProductoIndividualBe>();
+
+                            while (dr.Read())
+                            {
+                                ProductoIndividualBe item = new ProductoIndividualBe();
+                                item.Fila = dr.GetData<int>("Fila");
+                                item.CodigoProductoIndividual = dr.GetData<int>("CodigoProductoIndividual");
+                                item.CodigoBarra = dr.GetData<string>("CodigoBarra");
+                                item.CodigoProducto = dr.GetData<int>("CodigoProducto");
+                                item.Nombre = dr.GetData<string>("Nombre");
+                                item.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedida");
+                                item.UnidadMedida = new UnidadMedidaBe();
+                                item.UnidadMedida.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedida");
+                                item.UnidadMedida.Descripcion = dr.GetData<string>("DescripcionUnidadMedida");
+                                item.UnidadMedida.FlagActivo = dr.GetData<bool>("FlagActivoUnidadMedida");
+                                item.Metraje = dr.GetData<decimal>("Metraje");
+                                item.CodigoUnidadMedidaPeso = dr.GetData<int>("CodigoUnidadMedidaPeso");
+                                item.UnidadMedidaPeso = new UnidadMedidaBe();
+                                item.UnidadMedidaPeso.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedidaPeso");
+                                item.UnidadMedidaPeso.Descripcion = dr.GetData<string>("DescripcionUnidadMedidaPeso");
+                                item.UnidadMedidaPeso.FlagActivo = dr.GetData<bool>("FlagActivoUnidadMedidaPeso");
+                                item.Peso = dr.GetData<decimal>("Peso");
+                                item.CodigoInicial = dr.GetData<int?>("CodigoInicial");
+                                item.Rollo = dr.GetData<decimal>("Rollo");
+                                item.Bulto = dr.GetData<decimal>("Bulto");
+                                item.Color = dr.GetData<string>("Color");
+                                item.CodigoProveedor = dr.GetData<int>("CodigoProveedor");
+                                item.Proveedor = new ProveedorBe();
+                                item.Proveedor.CodigoProveedor = dr.GetData<int>("CodigoProveedor");
+                                item.Proveedor.CodigoTipoDocumentoIdentidad = dr.GetData<int>("CodigoTipoDocumentoIdentidadProveedor");
+                                item.Proveedor.NroDocumentoIdentidad = dr.GetData<string>("NroDocumentoIdentidadProveedor");
+                                item.Proveedor.Nombres = dr.GetData<string>("NombresProveedor");
+                                item.Proveedor.Direccion = dr.GetData<string>("DireccionProveedor");
+                                item.Proveedor.CodigoDistrito = dr.GetData<int>("CodigoDistritoProveedor");
+                                item.Proveedor.Correo = dr.GetData<string>("CorreoProveedor");
+                                item.Proveedor.Telefono = dr.GetData<string>("TelefonoProveedor");
+                                item.Proveedor.Contacto = dr.GetData<string>("ContactoProveedor");
+                                item.Proveedor.FlagActivo = dr.GetData<bool>("FlagActivoProveedor");
+                                item.CodigoBarraProveedor = dr.GetData<string>("CodigoBarraProveedor");
+                                item.FechaEntrada = dr.GetData<DateTime>("FechaEntrada");
+                                item.PrecioCompra = dr.GetData<decimal?>("PrecioCompra");
+                                item.PrecioVenta = dr.GetData<decimal>("PrecioVenta");
+                                item.CodigoPersonalInspeccion = dr.GetData<int>("CodigoPersonalInspeccion");
+                                item.PersonalInspeccion = new PersonalBe();
+                                item.PersonalInspeccion.CodigoPersonal = dr.GetData<int>("CodigoPersonalInspeccion");
+                                item.PersonalInspeccion.CodigoTipoDocumentoIdentidad = dr.GetData<int>("CodigoTipoDocumentoIdentidadPersonalInspeccion");
+                                item.PersonalInspeccion.NroDocumentoIdentidad = dr.GetData<string>("NroDocumentoIdentidadPersonalInspeccion");
+                                item.PersonalInspeccion.Nombres = dr.GetData<string>("NombresPersonalInspeccion");
+                                item.PersonalInspeccion.Correo = dr.GetData<string>("CorreoPersonalInspeccion");
+                                item.PersonalInspeccion.CodigoArea = dr.GetData<int>("CodigoAreaPersonalInspeccion");
+                                item.PersonalInspeccion.FlagActivo = dr.GetData<bool>("FlagActivoPersonalInspeccion");
+                                item.PersonalInspeccion.Estado = dr.GetData<int>("EstadoPersonalInspeccion");
+                                item.CodigoComprobanteCompra = dr.GetData<int?>("CodigoComprobanteCompra");
+                                item.CodigoComprobanteCompraDetalle = dr.GetData<int?>("CodigoComprobanteCompraDetalle");
+
+                                resultados.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return resultados;
+        }
+
         public ProductoIndividualBe ObtenerProductoIndividual(int codigoProductoIndividual, SqlConnection cn)
         {
             ProductoIndividualBe item = null;
@@ -122,6 +208,7 @@ namespace pm.da
                                 item.Nombre = dr.GetData<string>("Nombre");
                                 item.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedida");
                                 item.Metraje = dr.GetData<decimal>("Metraje");
+                                item.CodigoUnidadMedidaPeso = dr.GetData<int>("CodigoUnidadMedidaPeso");
                                 item.Peso = dr.GetData<decimal>("Peso");
                                 item.CodigoInicial = dr.GetData<int?>("CodigoInicial");
                                 item.Rollo = dr.GetData<decimal>("Rollo");
@@ -130,7 +217,11 @@ namespace pm.da
                                 item.CodigoProveedor = dr.GetData<int>("CodigoProveedor");
                                 item.CodigoBarraProveedor = dr.GetData<string>("CodigoBarraProveedor");
                                 item.FechaEntrada = dr.GetData<DateTime>("FechaEntrada");
+                                item.PrecioCompra = dr.GetData<decimal?>("PrecioCompra");
+                                item.PrecioVenta = dr.GetData<decimal>("PrecioVenta");
                                 item.CodigoPersonalInspeccion = dr.GetData<int>("CodigoPersonalInspeccion");
+                                item.CodigoComprobanteCompra = dr.GetData<int?>("CodigoComprobanteCompra");
+                                item.CodigoComprobanteCompraDetalle = dr.GetData<int?>("CodigoComprobanteCompraDetalle");
                             }
                         }
                     }
@@ -141,10 +232,11 @@ namespace pm.da
             return item;
         }
 
-        public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, SqlConnection cn, out bool flagCodigoBarraExiste, out bool flagNombreExiste)
+        //public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, SqlConnection cn, out bool flagCodigoBarraExiste, out bool flagNombreExiste)
+        public bool ExisteProductoIndividual(string codigoBarra, string nombre, int? codigoProductoIndividual, SqlConnection cn)
         {
-            flagCodigoBarraExiste = false;
-            flagNombreExiste = false;
+            //flagCodigoBarraExiste = false;
+            //flagNombreExiste = false;
             bool existe = false;
 
             try
@@ -161,11 +253,11 @@ namespace pm.da
 
                     existe = (bool)cmd.ExecuteScalar();
 
-                    if (existe)
-                    {
-                        flagCodigoBarraExiste = (bool)cmd.Parameters["@flagCodigoBarraExiste"].Value;
-                        flagNombreExiste = (bool)cmd.Parameters["@flagNombreExiste"].Value;
-                    }
+                    //if (existe)
+                    //{
+                    //    flagCodigoBarraExiste = (bool)cmd.Parameters["@flagCodigoBarraExiste"].Value;
+                    //    flagNombreExiste = (bool)cmd.Parameters["@flagNombreExiste"].Value;
+                    //}
                 }
             }
             catch (Exception ex) { log.Error(ex.Message); }
@@ -173,8 +265,9 @@ namespace pm.da
             return existe;
         }
 
-        public bool GuardarProductoIndividual(ProductoIndividualBe registro, SqlConnection cn)
+        public bool GuardarProductoIndividual(ProductoIndividualBe registro, out int codigoProductoIndividual, SqlConnection cn)
         {
+            codigoProductoIndividual = 0;
             bool seGuardo = false;
 
             try
@@ -182,12 +275,14 @@ namespace pm.da
                 using (SqlCommand cmd = new SqlCommand("dbo.usp_productoindividual_guardar", cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@codigoProductoIndividual", registro.CodigoProductoIndividual.GetNullable());
+                    //cmd.Parameters.AddWithValue("@codigoProductoIndividual", registro.CodigoProductoIndividual.GetNullable());
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@codigoProductoIndividual", Value = registro.CodigoProductoIndividual.GetNullable(), Direction = ParameterDirection.InputOutput });
                     cmd.Parameters.AddWithValue("@codigoBarra", registro.CodigoBarra.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoProducto", registro.CodigoProducto.GetNullable());
                     cmd.Parameters.AddWithValue("@nombre", registro.Nombre.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoUnidadMedida", registro.CodigoUnidadMedida.GetNullable());
                     cmd.Parameters.AddWithValue("@metraje", registro.Metraje.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoUnidadMedidaPeso", registro.CodigoUnidadMedidaPeso.GetNullable());
                     cmd.Parameters.AddWithValue("@peso", registro.Peso.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoInicial", registro.CodigoInicial.GetNullable());
                     cmd.Parameters.AddWithValue("@rollo", registro.Rollo.GetNullable());
@@ -196,7 +291,59 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@codigoProveedor", registro.CodigoProveedor.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoBarraProveedor", registro.CodigoBarraProveedor.GetNullable());
                     cmd.Parameters.AddWithValue("@fechaEntrada", registro.FechaEntrada.GetNullable());
+                    cmd.Parameters.AddWithValue("@precioCompra", registro.PrecioCompra.GetNullable());
+                    cmd.Parameters.AddWithValue("@precioVenta", registro.PrecioVenta.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoPersonalInspeccion", registro.CodigoPersonalInspeccion.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoComprobanteCompra", registro.CodigoComprobanteCompra.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoComprobanteCompraDetalle", registro.CodigoComprobanteCompraDetalle.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas > 0;
+
+                    if (seGuardo) codigoProductoIndividual = (int)cmd.Parameters["@codigoProductoIndividual"].Value;
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
+
+        public bool RegenerarProductoIndividual(int codigoProductoIndividual, decimal cantidad, string usuarioModi, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_productoindividual_regenerar", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoProductoIndividual", codigoProductoIndividual.GetNullable());
+                    cmd.Parameters.AddWithValue("@cantidad", cantidad.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", usuarioModi.GetNullable());
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas >= 0;
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
+
+        public bool CambiarEstadoProductoIndividual(ProductoIndividualBe registro, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_productoindividual_cambiar_flagactivo", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoProductoIndividual", registro.CodigoProductoIndividual.GetNullable());
+                    cmd.Parameters.AddWithValue("@flagActivo", registro.FlagActivo.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
 
                     int filasAfectadas = cmd.ExecuteNonQuery();
@@ -208,28 +355,5 @@ namespace pm.da
 
             return seGuardo;
         }
-
-        //public bool CambiarEstadoProductoIndividual(ProductoIndividualBe registro, SqlConnection cn)
-        //{
-        //    bool seGuardo = false;
-
-        //    try
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand("dbo.usp_productoindividual_cambiar_estado", cn))
-        //        {
-        //            cmd.CommandType = CommandType.StoredProcedure;
-        //            cmd.Parameters.AddWithValue("@codigoProductoIndividual", registro.CodigoProductoIndividual.GetNullable());
-        //            cmd.Parameters.AddWithValue("@flagActivo", registro.Estado.GetNullable());
-        //            cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
-
-        //            int filasAfectadas = cmd.ExecuteNonQuery();
-
-        //            seGuardo = filasAfectadas > 0;
-        //        }
-        //    }
-        //    catch (Exception ex) { log.Error(ex.Message); }
-
-        //    return seGuardo;
-        //}
     }
 }

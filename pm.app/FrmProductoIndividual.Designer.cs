@@ -57,7 +57,7 @@
             this.txtFiltroCodigoProductoIndividual = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvResultados_CodigoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoProductoIndividual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_CodigoBarra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +72,7 @@
             this.dgvResultados_PersonalInspeccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -103,7 +104,7 @@
             this.dgvResultados.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvResultados_CodigoProducto,
+            this.dgvResultados_CodigoProductoIndividual,
             this.dgvResultados_Nro,
             this.dgvResultados_CodigoBarra,
             this.dgvResultados_Nombre,
@@ -177,7 +178,7 @@
             this.dtpFechaEntradaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaEntradaHasta.Location = new System.Drawing.Point(112, 73);
             this.dtpFechaEntradaHasta.Name = "dtpFechaEntradaHasta";
-            this.dtpFechaEntradaHasta.Size = new System.Drawing.Size(100, 21);
+            this.dtpFechaEntradaHasta.Size = new System.Drawing.Size(100, 20);
             this.dtpFechaEntradaHasta.TabIndex = 33;
             // 
             // dtpFechaEntradaDesde
@@ -185,21 +186,21 @@
             this.dtpFechaEntradaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaEntradaDesde.Location = new System.Drawing.Point(6, 73);
             this.dtpFechaEntradaDesde.Name = "dtpFechaEntradaDesde";
-            this.dtpFechaEntradaDesde.Size = new System.Drawing.Size(100, 21);
+            this.dtpFechaEntradaDesde.Size = new System.Drawing.Size(100, 20);
             this.dtpFechaEntradaDesde.TabIndex = 32;
             // 
             // txtFiltroNombresPersonal
             // 
             this.txtFiltroNombresPersonal.Location = new System.Drawing.Point(536, 73);
             this.txtFiltroNombresPersonal.Name = "txtFiltroNombresPersonal";
-            this.txtFiltroNombresPersonal.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNombresPersonal.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNombresPersonal.TabIndex = 31;
             // 
             // txtFiltroColor
             // 
             this.txtFiltroColor.Location = new System.Drawing.Point(536, 33);
             this.txtFiltroColor.Name = "txtFiltroColor";
-            this.txtFiltroColor.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroColor.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroColor.TabIndex = 11;
             // 
             // label7
@@ -224,14 +225,14 @@
             // 
             this.txtFiltroNroDocIdentidadPersonal.Location = new System.Drawing.Point(430, 73);
             this.txtFiltroNroDocIdentidadPersonal.Name = "txtFiltroNroDocIdentidadPersonal";
-            this.txtFiltroNroDocIdentidadPersonal.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNroDocIdentidadPersonal.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNroDocIdentidadPersonal.TabIndex = 29;
             // 
             // txtFiltroCodigoInicial
             // 
             this.txtFiltroCodigoInicial.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroCodigoInicial.Name = "txtFiltroCodigoInicial";
-            this.txtFiltroCodigoInicial.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroCodigoInicial.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroCodigoInicial.TabIndex = 9;
             // 
             // label8
@@ -256,14 +257,14 @@
             // 
             this.txtFiltroNombresProveedor.Location = new System.Drawing.Point(324, 73);
             this.txtFiltroNombresProveedor.Name = "txtFiltroNombresProveedor";
-            this.txtFiltroNombresProveedor.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNombresProveedor.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNombresProveedor.TabIndex = 27;
             // 
             // txtFiltroNombre
             // 
             this.txtFiltroNombre.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNombre.Name = "txtFiltroNombre";
-            this.txtFiltroNombre.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNombre.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNombre.TabIndex = 7;
             // 
             // label9
@@ -288,14 +289,14 @@
             // 
             this.txtFiltroNroDocIdentidadProveedor.Location = new System.Drawing.Point(218, 73);
             this.txtFiltroNroDocIdentidadProveedor.Name = "txtFiltroNroDocIdentidadProveedor";
-            this.txtFiltroNroDocIdentidadProveedor.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroNroDocIdentidadProveedor.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNroDocIdentidadProveedor.TabIndex = 25;
             // 
             // txtFiltroCodigoProducto
             // 
             this.txtFiltroCodigoProducto.Location = new System.Drawing.Point(218, 33);
             this.txtFiltroCodigoProducto.Name = "txtFiltroCodigoProducto";
-            this.txtFiltroCodigoProducto.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroCodigoProducto.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroCodigoProducto.TabIndex = 5;
             // 
             // label10
@@ -320,7 +321,7 @@
             // 
             this.txtFiltroCodigoBarra.Location = new System.Drawing.Point(112, 33);
             this.txtFiltroCodigoBarra.Name = "txtFiltroCodigoBarra";
-            this.txtFiltroCodigoBarra.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroCodigoBarra.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroCodigoBarra.TabIndex = 3;
             // 
             // label11
@@ -345,7 +346,7 @@
             // 
             this.txtFiltroCodigoProductoIndividual.Location = new System.Drawing.Point(6, 33);
             this.txtFiltroCodigoProductoIndividual.Name = "txtFiltroCodigoProductoIndividual";
-            this.txtFiltroCodigoProductoIndividual.Size = new System.Drawing.Size(100, 21);
+            this.txtFiltroCodigoProductoIndividual.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroCodigoProductoIndividual.TabIndex = 1;
             // 
             // label12
@@ -366,13 +367,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // dgvResultados_CodigoProducto
+            // dgvResultados_CodigoProductoIndividual
             // 
-            this.dgvResultados_CodigoProducto.DataPropertyName = "CodigoProducto";
-            this.dgvResultados_CodigoProducto.HeaderText = "CodigoProducto";
-            this.dgvResultados_CodigoProducto.Name = "dgvResultados_CodigoProducto";
-            this.dgvResultados_CodigoProducto.ReadOnly = true;
-            this.dgvResultados_CodigoProducto.Visible = false;
+            this.dgvResultados_CodigoProductoIndividual.DataPropertyName = "CodigoProductoIndividual";
+            this.dgvResultados_CodigoProductoIndividual.HeaderText = "CodigoProductoIndividual";
+            this.dgvResultados_CodigoProductoIndividual.Name = "dgvResultados_CodigoProductoIndividual";
+            this.dgvResultados_CodigoProductoIndividual.ReadOnly = true;
+            this.dgvResultados_CodigoProductoIndividual.Visible = false;
             // 
             // dgvResultados_Nro
             // 
@@ -476,11 +477,16 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmProductoIndividual";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Productos Individuales";
             this.Load += new System.EventHandler(this.FrmProductoIndividual_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,7 +523,7 @@
         private System.Windows.Forms.TextBox txtFiltroCodigoProductoIndividual;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoProductoIndividual;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoBarra;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Nombre;

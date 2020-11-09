@@ -17,6 +17,7 @@ namespace pm.app
     public partial class FrmMantenimientoGuiaRemision : RadForm
     {
         int? codigoGuiaRemision;
+        CotizacionBe cotizacion;
 
         int? codigoCliente, codigoDistritoCliente;
         string nombrePaisCliente, nombreDepartamentoCliente, nombreProvinciaCliente, nombreDistritoCliente;
@@ -35,26 +36,43 @@ namespace pm.app
         TipoDocumentoIdentidadBl tipoDocumentoIdentidadBl = new TipoDocumentoIdentidadBl();
         MotivoTrasladoBl motivoTrasladoBl = new MotivoTrasladoBl();
         ClienteBl clienteBl = new ClienteBl();
-
         ProveedorBl proveedorBl = new ProveedorBl();
+        ProductoBl productoBl = new ProductoBl();
+        ProductoIndividualBl productoIndividualBl = new ProductoIndividualBl();
+        UnidadMedidaBl unidadMedidaBl = new UnidadMedidaBl();
+        ControlBusquedaBl controlBusquedaBl = new ControlBusquedaBl();
+        ConfiguracionValorBl configuracionValorBl = new ConfiguracionValorBl();
 
-        public FrmMantenimientoGuiaRemision(int? codigoGuiaRemision = null)
+        public FrmMantenimientoGuiaRemision(int? codigoGuiaRemision = null, CotizacionBe cotizacion = null)
         {
             InitializeComponent();
             this.codigoGuiaRemision = codigoGuiaRemision;
+            this.cotizacion = cotizacion;
         }
 
         private void FrmMantenimientoGuiaRemision_Load(object sender, EventArgs e)
         {
-            Text = !codigoGuiaRemision.HasValue ? "Nueva Guía de Remisión" : "Modificar Guía de Remisión";
+            Text = !codigoGuiaRemision.HasValue ? "Nueva Guía de Remisión" + (cotizacion == null ? "" : $" - Cotización {cotizacion.NroComprobante.ToString("00000000")}") : "Modificar Guía de Remisión";
             dtpFechaHoraEmision_ValueChanged(dtpFechaHoraEmision, new EventArgs());
             ListarCombos();
+            CargarValoresXDefecto();
             dgvDetalle.AutoGenerateColumns = false;
             if (codigoGuiaRemision.HasValue)
             {
                 CargarGuiaRemision();
             }
+            else
+            {
+                CargarCotizacion();
+            }
             HabilitarModificarYEliminar();
+        }
+
+        void CargarValoresXDefecto()
+        {
+            var item = configuracionValorBl.ObtenerConfiguracionValor();
+            cbbCodigoTipoComprobante.SelectedValue = item.CodigoTipoComprobanteGuiaRemision;
+            CargarTransportista(item.CodigoTransportistaGuiaRemision);
         }
 
         void CargarGuiaRemision()
@@ -82,6 +100,53 @@ namespace pm.app
             listaDetalleInicial = item.ListaGuiaRemisionDetalle;
             listaDetalle = item.ListaGuiaRemisionDetalle;
             ListarGuiaRemisionDetalle();
+        }
+
+        void CargarCotizacion()
+        {
+            if(cotizacion != null)
+            {
+                dtpFechaHoraEmision.Value = DateTime.Now;
+                dtpFechaHoraTraslado.MinDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                dtpFechaHoraTraslado.Value = dtpFechaHoraEmision.Value;
+
+                codigoCliente = cotizacion.CodigoCliente;
+                btnBuscarCliente.Enabled = false;
+                txtNroDocumentoIdentidadCliente.ReadOnly = true;
+                CargarCliente(codigoCliente);
+
+                ReCalcularDetalleCotizacion();
+                ListarGuiaRemisionDetalle();
+            }
+        }
+
+        void ReCalcularDetalleCotizacion()
+        {
+            if(cotizacion != null)
+            {
+                foreach(CotizacionDetalleBe item in cotizacion.ListaCotizacionDetalle)
+                {
+                    GuiaRemisionDetalleBe itemGuia = new GuiaRemisionDetalleBe();
+                    itemGuia.CodigoCotizacion = cotizacion.CodigoCotizacion;
+                    itemGuia.CodigoCotizacionDetalle = item.CodigoCotizacionDetalle;
+                    itemGuia.CodigoProducto = item.CodigoProducto;
+                    itemGuia.Producto = productoBl.ObtenerProducto(item.CodigoProducto);
+                    itemGuia.CodigoProductoIndividual = item.CodigoProductoIndividual;
+                    itemGuia.ProductoIndividual = productoIndividualBl.ObtenerProductoIndividual(item.CodigoProductoIndividual);
+                    itemGuia.CodigoUnidadMedida = item.CodigoUnidadMedida;
+                    itemGuia.UnidadMedida = unidadMedidaBl.ObtenerUnidadMedida(item.CodigoUnidadMedida);
+                    itemGuia.Cantidad = item.Cantidad;
+                    itemGuia.CodigoUnidadMedidaPeso = itemGuia.ProductoIndividual.CodigoUnidadMedidaPeso;
+                    itemGuia.UnidadMedidaPeso = unidadMedidaBl.ObtenerUnidadMedida(itemGuia.CodigoUnidadMedidaPeso);
+                    itemGuia.Peso = itemGuia.ProductoIndividual.Peso;
+                    itemGuia.Detalle = item.Detalle;
+
+                    listaDetalle.Add(itemGuia);
+                }
+
+                listaDetalleInicial = listaDetalle.Select((x, i) => { x.Fila = i + 1; return x; }).ToList();
+                listaDetalle = listaDetalle.Select((x, i) => { x.Fila = i + 1; return x; }).ToList();
+            }
         }
 
         void ListarCombos()
@@ -151,24 +216,11 @@ namespace pm.app
         {
             if (nroDocumentoIdentidadCliente == txtNroDocumentoIdentidadCliente.Text.Trim()) return;
             if (txtNroDocumentoIdentidadCliente.Text.Trim() == "") CargarCliente(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoCliente", NombreColumna = "CodigoCliente", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Cliente";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Cliente", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ClienteBe), txtNroDocumentoIdentidadCliente.Text.Trim());
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocumentoIdentidadCliente.Text.Trim());
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -184,24 +236,11 @@ namespace pm.app
         {
             if (nroDocumentoIdentidadTransportista == txtNroDocumentoIdentidadTransportista.Text.Trim()) return;
             if (txtNroDocumentoIdentidadTransportista.Text.Trim() == "") CargarTransportista(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoProveedor", NombreColumna = "CodigoTransportista", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Proveedor";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Transportista", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ProveedorBe), txtNroDocumentoIdentidadTransportista.Text.Trim());
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocumentoIdentidadTransportista.Text.Trim());
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -344,6 +383,7 @@ namespace pm.app
             GuiaRemisionBe registro = new GuiaRemisionBe();
 
             if (codigoGuiaRemision.HasValue) registro.CodigoGuiaRemision = codigoGuiaRemision.Value;
+            if (cotizacion != null) registro.CodigoCotizacion = cotizacion.CodigoCotizacion;
             registro.FechaHoraEmision = dtpFechaHoraEmision.Value;
             registro.CodigoTipoComprobante = (int)cbbCodigoTipoComprobante.SelectedValue;
             registro.CodigoSerie = (int)cbbCodigoSerie.SelectedValue;

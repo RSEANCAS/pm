@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbCodigoProvincia = new System.Windows.Forms.ComboBox();
+            this.cbbCodigoDistrito = new System.Windows.Forms.ComboBox();
+            this.lblErrorCodigoDistrito = new System.Windows.Forms.Label();
+            this.lblErrorCodigoProvincia = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cbbCodigoDepartamento = new System.Windows.Forms.ComboBox();
+            this.lblErrorCodigoDepartamento = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.cbbCodigoPais = new System.Windows.Forms.ComboBox();
             this.lblErrorContacto = new System.Windows.Forms.Label();
             this.lblErrorCorreoElectronico = new System.Windows.Forms.Label();
@@ -56,16 +65,8 @@
             this.cbbCodigoTipoDocumentoIdentidad = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tltProveedor = new System.Windows.Forms.ToolTip(this.components);
-            this.cbbCodigoDepartamento = new System.Windows.Forms.ComboBox();
-            this.lblErrorCodigoDepartamento = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbbCodigoProvincia = new System.Windows.Forms.ComboBox();
-            this.cbbCodigoDistrito = new System.Windows.Forms.ComboBox();
-            this.lblErrorCodigoDistrito = new System.Windows.Forms.Label();
-            this.lblErrorCodigoProvincia = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -121,6 +122,103 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // cbbCodigoProvincia
+            // 
+            this.cbbCodigoProvincia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbCodigoProvincia.DisplayMember = "Nombre";
+            this.cbbCodigoProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoProvincia.FormattingEnabled = true;
+            this.cbbCodigoProvincia.Location = new System.Drawing.Point(9, 245);
+            this.cbbCodigoProvincia.Name = "cbbCodigoProvincia";
+            this.cbbCodigoProvincia.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoProvincia.TabIndex = 51;
+            this.cbbCodigoProvincia.ValueMember = "CodigoProvincia";
+            this.cbbCodigoProvincia.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoProvincia_SelectedIndexChanged);
+            // 
+            // cbbCodigoDistrito
+            // 
+            this.cbbCodigoDistrito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbCodigoDistrito.DisplayMember = "Nombre";
+            this.cbbCodigoDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoDistrito.FormattingEnabled = true;
+            this.cbbCodigoDistrito.Location = new System.Drawing.Point(183, 245);
+            this.cbbCodigoDistrito.Name = "cbbCodigoDistrito";
+            this.cbbCodigoDistrito.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoDistrito.TabIndex = 50;
+            this.cbbCodigoDistrito.ValueMember = "CodigoDistrito";
+            // 
+            // lblErrorCodigoDistrito
+            // 
+            this.lblErrorCodigoDistrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoDistrito.AutoSize = true;
+            this.lblErrorCodigoDistrito.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoDistrito.Location = new System.Drawing.Point(180, 269);
+            this.lblErrorCodigoDistrito.Name = "lblErrorCodigoDistrito";
+            this.lblErrorCodigoDistrito.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoDistrito.TabIndex = 49;
+            // 
+            // lblErrorCodigoProvincia
+            // 
+            this.lblErrorCodigoProvincia.AutoSize = true;
+            this.lblErrorCodigoProvincia.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoProvincia.Location = new System.Drawing.Point(6, 269);
+            this.lblErrorCodigoProvincia.Name = "lblErrorCodigoProvincia";
+            this.lblErrorCodigoProvincia.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoProvincia.TabIndex = 48;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(180, 229);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.TabIndex = 47;
+            this.label16.Text = "Distrito";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 229);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 13);
+            this.label17.TabIndex = 46;
+            this.label17.Text = "Provincia";
+            // 
+            // cbbCodigoDepartamento
+            // 
+            this.cbbCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbbCodigoDepartamento.DisplayMember = "Nombre";
+            this.cbbCodigoDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoDepartamento.FormattingEnabled = true;
+            this.cbbCodigoDepartamento.Location = new System.Drawing.Point(183, 192);
+            this.cbbCodigoDepartamento.Name = "cbbCodigoDepartamento";
+            this.cbbCodigoDepartamento.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoDepartamento.TabIndex = 45;
+            this.cbbCodigoDepartamento.ValueMember = "CodigoDepartamento";
+            this.cbbCodigoDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoDepartamento_SelectedIndexChanged);
+            // 
+            // lblErrorCodigoDepartamento
+            // 
+            this.lblErrorCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoDepartamento.AutoSize = true;
+            this.lblErrorCodigoDepartamento.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoDepartamento.Location = new System.Drawing.Point(180, 216);
+            this.lblErrorCodigoDepartamento.Name = "lblErrorCodigoDepartamento";
+            this.lblErrorCodigoDepartamento.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoDepartamento.TabIndex = 44;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(180, 176);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(78, 13);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Departamento";
             // 
             // cbbCodigoPais
             // 
@@ -218,7 +316,7 @@
             this.txtContacto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContacto.Location = new System.Drawing.Point(9, 351);
             this.txtContacto.Name = "txtContacto";
-            this.txtContacto.Size = new System.Drawing.Size(168, 21);
+            this.txtContacto.Size = new System.Drawing.Size(168, 20);
             this.txtContacto.TabIndex = 15;
             // 
             // label7
@@ -234,7 +332,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(183, 298);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(168, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(168, 20);
             this.txtTelefono.TabIndex = 13;
             // 
             // label8
@@ -251,7 +349,7 @@
             this.txtCorreoElectronico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreoElectronico.Location = new System.Drawing.Point(9, 298);
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
-            this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 21);
+            this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 20);
             this.txtCorreoElectronico.TabIndex = 11;
             // 
             // label6
@@ -278,7 +376,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccion.Location = new System.Drawing.Point(9, 139);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(342, 21);
+            this.txtDireccion.Size = new System.Drawing.Size(342, 20);
             this.txtDireccion.TabIndex = 7;
             // 
             // label4
@@ -296,7 +394,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombresCompletos.Location = new System.Drawing.Point(9, 86);
             this.txtNombresCompletos.Name = "txtNombresCompletos";
-            this.txtNombresCompletos.Size = new System.Drawing.Size(342, 21);
+            this.txtNombresCompletos.Size = new System.Drawing.Size(342, 20);
             this.txtNombresCompletos.TabIndex = 5;
             // 
             // label3
@@ -322,7 +420,7 @@
             this.txtNroDocumentoIdentidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNroDocumentoIdentidad.Location = new System.Drawing.Point(183, 33);
             this.txtNroDocumentoIdentidad.Name = "txtNroDocumentoIdentidad";
-            this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 21);
+            this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 20);
             this.txtNroDocumentoIdentidad.TabIndex = 3;
             // 
             // cbbCodigoTipoDocumentoIdentidad
@@ -345,103 +443,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "N° documento identidad";
             // 
-            // cbbCodigoDepartamento
-            // 
-            this.cbbCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbCodigoDepartamento.DisplayMember = "Nombre";
-            this.cbbCodigoDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigoDepartamento.FormattingEnabled = true;
-            this.cbbCodigoDepartamento.Location = new System.Drawing.Point(183, 192);
-            this.cbbCodigoDepartamento.Name = "cbbCodigoDepartamento";
-            this.cbbCodigoDepartamento.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoDepartamento.TabIndex = 45;
-            this.cbbCodigoDepartamento.ValueMember = "CodigoDepartamento";
-            this.cbbCodigoDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoDepartamento_SelectedIndexChanged);
-            // 
-            // lblErrorCodigoDepartamento
-            // 
-            this.lblErrorCodigoDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorCodigoDepartamento.AutoSize = true;
-            this.lblErrorCodigoDepartamento.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoDepartamento.Location = new System.Drawing.Point(180, 216);
-            this.lblErrorCodigoDepartamento.Name = "lblErrorCodigoDepartamento";
-            this.lblErrorCodigoDepartamento.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCodigoDepartamento.TabIndex = 44;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(180, 176);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 13);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Departamento";
-            // 
-            // cbbCodigoProvincia
-            // 
-            this.cbbCodigoProvincia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbCodigoProvincia.DisplayMember = "Nombre";
-            this.cbbCodigoProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigoProvincia.FormattingEnabled = true;
-            this.cbbCodigoProvincia.Location = new System.Drawing.Point(9, 245);
-            this.cbbCodigoProvincia.Name = "cbbCodigoProvincia";
-            this.cbbCodigoProvincia.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoProvincia.TabIndex = 51;
-            this.cbbCodigoProvincia.ValueMember = "CodigoProvincia";
-            this.cbbCodigoProvincia.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoProvincia_SelectedIndexChanged);
-            // 
-            // cbbCodigoDistrito
-            // 
-            this.cbbCodigoDistrito.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbbCodigoDistrito.DisplayMember = "Nombre";
-            this.cbbCodigoDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigoDistrito.FormattingEnabled = true;
-            this.cbbCodigoDistrito.Location = new System.Drawing.Point(183, 245);
-            this.cbbCodigoDistrito.Name = "cbbCodigoDistrito";
-            this.cbbCodigoDistrito.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoDistrito.TabIndex = 50;
-            this.cbbCodigoDistrito.ValueMember = "CodigoDistrito";
-            // 
-            // lblErrorCodigoDistrito
-            // 
-            this.lblErrorCodigoDistrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorCodigoDistrito.AutoSize = true;
-            this.lblErrorCodigoDistrito.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoDistrito.Location = new System.Drawing.Point(180, 269);
-            this.lblErrorCodigoDistrito.Name = "lblErrorCodigoDistrito";
-            this.lblErrorCodigoDistrito.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCodigoDistrito.TabIndex = 49;
-            // 
-            // lblErrorCodigoProvincia
-            // 
-            this.lblErrorCodigoProvincia.AutoSize = true;
-            this.lblErrorCodigoProvincia.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoProvincia.Location = new System.Drawing.Point(6, 269);
-            this.lblErrorCodigoProvincia.Name = "lblErrorCodigoProvincia";
-            this.lblErrorCodigoProvincia.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCodigoProvincia.TabIndex = 48;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(180, 229);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 13);
-            this.label16.TabIndex = 47;
-            this.label16.Text = "Distrito";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 229);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 13);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Provincia";
-            // 
             // FrmMantenimientoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,12 +451,18 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoProveedor";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoProveedor";
             this.Load += new System.EventHandler(this.FrmMantenimientoProveedor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

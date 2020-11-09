@@ -11,6 +11,7 @@ namespace pm.be
         public int CodigoProveedor { get; set; }
         public int CodigoTipoDocumentoIdentidad { get; set; }
         public TipoDocumentoIdentidadBe TipoDocumentoIdentidad { get; set; }
+        public string StrTipoDocumentoIdentidad { get; set; }
         public string NroDocumentoIdentidad { get; set; }
         public string Nombres { get; set; }
         public string Direccion { get; set; }

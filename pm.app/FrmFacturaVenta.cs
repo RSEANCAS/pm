@@ -55,13 +55,13 @@ namespace pm.app
             List<FacturaVentaBe> resultados = facturaVentaBl.BuscarFacturaVenta(fechaEmisionDesde, fechaEmisionHasta, codigoSerie, nroComprobante, nroDocIdentidadCliente, nombresCliente, flagActivo);
 
             List<dynamic> resultadosDynamic = resultados == null ? null : resultados.Select(x => {
-                dynamic row = new { x.Fila, x.Serie, x.FechaHoraEmision, FechaEmision = x.FechaHoraEmision.ToString("dd/MM/yyyy"), x.FechaHoraVencimiento, FechaVencimiento = x.FechaHoraVencimiento.ToString("dd/MM/yyyy"), DescripcionTipoDocumentoIdentidadCliente = x.Cliente.TipoDocumentoIdentidad.Descripcion, NroDocumentoIdentidadCliente = x.Cliente.NroDocumentoIdentidad, NombresCliente = x.Cliente.Nombres, x.TotalImporte, x.FlagEmitido, x.FlagActivo };
+                dynamic row = new { x.Fila, x.CodigoFacturaVenta, x.CodigoGuiaRemision, x.CodigoCotizacion, x.Serie, x.NroComprobante, x.FechaHoraEmision, FechaEmision = x.FechaHoraEmision.ToString("dd/MM/yyyy"), x.FechaHoraVencimiento, FechaVencimiento = x.FechaHoraVencimiento.ToString("dd/MM/yyyy"), DescripcionTipoDocumentoIdentidadCliente = x.Cliente.TipoDocumentoIdentidad.Descripcion, NroDocumentoIdentidadCliente = x.Cliente.NroDocumentoIdentidad, NombresCliente = x.Cliente.Nombres, x.Cliente, x.CodigoMoneda, x.StrMoneda, x.TotalImporte, NombreTipoComprobanteGuiaRemision = x.GuiaRemision == null ? null : x.GuiaRemision.TipoComprobante.Nombre, SerialSerieGuiaRemision = x.GuiaRemision == null ? null : x.GuiaRemision.Serie.Serial, NroComprobanteGuiaRemision = x.GuiaRemision == null ? null : (int?)x.GuiaRemision.NroComprobante, FechaHoraEmisionGuiaRemision = x.GuiaRemision == null ? null : (DateTime?)x.GuiaRemision.FechaHoraEmision, x.FlagEmitido, x.FlagActivo };
                 return row;
             }).ToList();
 
             dgvResultados.AutoGenerateColumns = false;
             dgvResultados.DataSource = null;
-            dgvResultados.DataSource = resultados;
+            dgvResultados.DataSource = resultadosDynamic;
 
             lblResultados.Text = (resultados == null) ? "No se encontraron resultados" : $"Se {(resultados.Count == 1 ? "encontró" : "encontraron")} {resultados.Count} {(resultados.Count == 1 ? "resultado" : "resultados")}";
         }
@@ -99,7 +99,22 @@ namespace pm.app
                 //MenuItem mitToggleActivar = new MenuItem(flagActivo ? "Inactivar" : "Activar", mitToggleActivar_Click);
                 //mitToggleActivar.Tag = new { CodigoCliente = codigoCliente, FlagActivo = flagActivo };
 
-                if (flagActivo && !flagEmitido) m.MenuItems.Add(mitEditar);
+                if (flagActivo && !flagEmitido)
+                {
+                    m.MenuItems.Add(mitEditar);
+
+                    MenuItem mitGenerarNota = new MenuItem("Generar Nota");
+
+                    MenuItem mitGenerarNotaCredito = new MenuItem("Nota de Crédito", mitGenerarNotaCredito_Click);
+                    mitGenerarNotaCredito.Tag = codigoFacturaVenta;
+
+                    MenuItem mitGenerarNotaDebito = new MenuItem("Nota de Débito", mitGenerarNotaDebito_Click);
+                    mitGenerarNotaDebito.Tag = codigoFacturaVenta;
+
+                    mitGenerarNota.MenuItems.Add(mitGenerarNotaCredito);
+                    mitGenerarNota.MenuItems.Add(mitGenerarNotaDebito);
+                    m.MenuItems.Add(mitGenerarNota);
+                }
                 //m.MenuItems.Add(mitToggleActivar);
 
                 m.Show(dgvResultados, new Point(e.X, e.Y));
@@ -113,6 +128,36 @@ namespace pm.app
             int codigoFacturaVenta = (int)mitControl.Tag;
 
             FrmMantenimientoFacturaVenta frm = new FrmMantenimientoFacturaVenta(codigoFacturaVenta);
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            DialogResult dr = frm.ShowDialog();
+            if (dr == DialogResult.OK) BuscarFacturasVenta();
+        }
+
+        private void mitGenerarNotaCredito_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
+
+            int codigoGuiaRemision = (int)mitControl.Tag;
+
+            FacturaVentaBe facturaVenta = facturaVentaBl.ObtenerFacturaVenta(codigoGuiaRemision, true, withSerie: true);
+
+            FrmMantenimientoNotaCredito frm = new FrmMantenimientoNotaCredito(null, facturaVenta, TipoComprobante.Factura);
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            DialogResult dr = frm.ShowDialog();
+            if (dr == DialogResult.OK) BuscarFacturasVenta();
+        }
+
+        private void mitGenerarNotaDebito_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
+
+            int codigoGuiaRemision = (int)mitControl.Tag;
+
+            FacturaVentaBe facturaVenta = facturaVentaBl.ObtenerFacturaVenta(codigoGuiaRemision, true, withSerie: true);
+
+            FrmMantenimientoNotaDebito frm = new FrmMantenimientoNotaDebito(null, facturaVenta, TipoComprobante.Factura);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();

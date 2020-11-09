@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActividadBe.cs" />
+    <Compile Include="AfectacionIgvBe.cs" />
     <Compile Include="AreaBe.cs" />
     <Compile Include="BancoBe.cs" />
     <Compile Include="BaseAuditoria.cs" />
@@ -49,19 +50,28 @@
     <Compile Include="BoletaVentaBe.cs" />
     <Compile Include="BoletaVentaDetalleBe.cs" />
     <Compile Include="ClienteBe.cs" />
+    <Compile Include="ComprobanteCompraBe.cs" />
+    <Compile Include="ComprobanteCompraDetalleBe.cs" />
+    <Compile Include="ConfiguracionValorBe.cs" />
+    <Compile Include="ControlBusquedaBe.cs" />
+    <Compile Include="ControlBusquedaColumnaBe.cs" />
+    <Compile Include="CotizacionBe.cs" />
+    <Compile Include="CotizacionDetalleBe.cs" />
     <Compile Include="DepartamentoBe.cs" />
     <Compile Include="DistritoBe.cs" />
     <Compile Include="FacturaVentaBe.cs" />
     <Compile Include="FacturaVentaDetalleBe.cs" />
+    <Compile Include="FormatoBe.cs" />
     <Compile Include="GuiaRemisionBe.cs" />
     <Compile Include="GuiaRemisionDetalleBe.cs" />
     <Compile Include="LetraBe.cs" />
     <Compile Include="MenuBe.cs" />
+    <Compile Include="MotivoNotaBe.cs" />
     <Compile Include="MotivoTrasladoBe.cs" />
-    <Compile Include="NotaCreditoVentaBe.cs" />
-    <Compile Include="NotaCreditoVentaDetalleBe.cs" />
-    <Compile Include="NotaDebitoVentaBe.cs" />
-    <Compile Include="NotaDebitoVentaDetalleBe.cs" />
+    <Compile Include="NotaCreditoBe.cs" />
+    <Compile Include="NotaCreditoDetalleBe.cs" />
+    <Compile Include="NotaDebitoBe.cs" />
+    <Compile Include="NotaDebitoDetalleBe.cs" />
     <Compile Include="PaisBe.cs" />
     <Compile Include="PerfilBe.cs" />
     <Compile Include="PerfilMenuBe.cs" />

@@ -71,6 +71,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -141,7 +142,7 @@
             this.rdbDescuento.Enabled = false;
             this.rdbDescuento.Location = new System.Drawing.Point(185, 279);
             this.rdbDescuento.Name = "rdbDescuento";
-            this.rdbDescuento.Size = new System.Drawing.Size(77, 17);
+            this.rdbDescuento.Size = new System.Drawing.Size(78, 17);
             this.rdbDescuento.TabIndex = 84;
             this.rdbDescuento.Text = "Descuento";
             this.rdbDescuento.UseVisualStyleBackColor = true;
@@ -153,7 +154,7 @@
             this.rdbPorcentajeDescuento.Checked = true;
             this.rdbPorcentajeDescuento.Location = new System.Drawing.Point(12, 279);
             this.rdbPorcentajeDescuento.Name = "rdbPorcentajeDescuento";
-            this.rdbPorcentajeDescuento.Size = new System.Drawing.Size(131, 17);
+            this.rdbPorcentajeDescuento.Size = new System.Drawing.Size(135, 17);
             this.rdbPorcentajeDescuento.TabIndex = 3;
             this.rdbPorcentajeDescuento.TabStop = true;
             this.rdbPorcentajeDescuento.Text = "Porcentaje Descuento";
@@ -183,7 +184,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(8, 334);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(22, 13);
+            this.label15.Size = new System.Drawing.Size(21, 13);
             this.label15.TabIndex = 82;
             this.label15.Text = "Igv";
             // 
@@ -211,7 +212,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(182, 334);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 13);
+            this.label17.Size = new System.Drawing.Size(74, 13);
             this.label17.TabIndex = 80;
             this.label17.Text = "Importe Total";
             // 
@@ -275,7 +276,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(8, 228);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 70;
             this.label6.Text = "Valor Unitario";
             // 
@@ -303,7 +304,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(182, 228);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.Size = new System.Drawing.Size(81, 13);
             this.label8.TabIndex = 68;
             this.label8.Text = "Precio Unitario";
             // 
@@ -325,7 +326,7 @@
             this.rdbTipoCalculoTotalImporte.Enabled = false;
             this.rdbTipoCalculoTotalImporte.Location = new System.Drawing.Point(210, 20);
             this.rdbTipoCalculoTotalImporte.Name = "rdbTipoCalculoTotalImporte";
-            this.rdbTipoCalculoTotalImporte.Size = new System.Drawing.Size(87, 17);
+            this.rdbTipoCalculoTotalImporte.Size = new System.Drawing.Size(92, 17);
             this.rdbTipoCalculoTotalImporte.TabIndex = 2;
             this.rdbTipoCalculoTotalImporte.Text = "Importe Total";
             this.rdbTipoCalculoTotalImporte.UseVisualStyleBackColor = true;
@@ -336,7 +337,7 @@
             this.rdbTipoCalculoPrecioUnitario.AutoSize = true;
             this.rdbTipoCalculoPrecioUnitario.Location = new System.Drawing.Point(105, 20);
             this.rdbTipoCalculoPrecioUnitario.Name = "rdbTipoCalculoPrecioUnitario";
-            this.rdbTipoCalculoPrecioUnitario.Size = new System.Drawing.Size(94, 17);
+            this.rdbTipoCalculoPrecioUnitario.Size = new System.Drawing.Size(99, 17);
             this.rdbTipoCalculoPrecioUnitario.TabIndex = 1;
             this.rdbTipoCalculoPrecioUnitario.Text = "Precio Unitario";
             this.rdbTipoCalculoPrecioUnitario.UseVisualStyleBackColor = true;
@@ -348,7 +349,7 @@
             this.rdbTipoCalculoValoUnitario.Checked = true;
             this.rdbTipoCalculoValoUnitario.Location = new System.Drawing.Point(6, 20);
             this.rdbTipoCalculoValoUnitario.Name = "rdbTipoCalculoValoUnitario";
-            this.rdbTipoCalculoValoUnitario.Size = new System.Drawing.Size(88, 17);
+            this.rdbTipoCalculoValoUnitario.Size = new System.Drawing.Size(93, 17);
             this.rdbTipoCalculoValoUnitario.TabIndex = 0;
             this.rdbTipoCalculoValoUnitario.TabStop = true;
             this.rdbTipoCalculoValoUnitario.Text = "Valor Unitario";
@@ -359,6 +360,7 @@
             // 
             this.cbbCodigoUnidadMedida.DisplayMember = "Descripcion";
             this.cbbCodigoUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoUnidadMedida.Enabled = false;
             this.cbbCodigoUnidadMedida.FormattingEnabled = true;
             this.cbbCodigoUnidadMedida.Location = new System.Drawing.Point(9, 139);
             this.cbbCodigoUnidadMedida.Name = "cbbCodigoUnidadMedida";
@@ -380,7 +382,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 123);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(79, 13);
+            this.label13.Size = new System.Drawing.Size(81, 13);
             this.label13.TabIndex = 62;
             this.label13.Text = "Unidad Medida";
             // 
@@ -407,7 +409,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(180, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 60;
             this.label5.Text = "Cantidad";
             // 
@@ -447,7 +449,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 49;
             this.label3.Text = "Producto Individual";
             // 
@@ -487,7 +489,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 45;
             this.label1.Text = "Producto";
             // 
@@ -498,13 +500,21 @@
             this.ClientSize = new System.Drawing.Size(384, 448);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoFacturaVentaDetalle";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoFacturaVentaDetalle";
             this.Load += new System.EventHandler(this.FrmMantenimientoFacturaVentaDetalle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

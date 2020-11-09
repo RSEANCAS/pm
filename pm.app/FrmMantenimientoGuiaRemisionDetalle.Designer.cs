@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tltGuiaRemisionDetalle = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -121,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 176);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.Size = new System.Drawing.Size(109, 13);
             this.label4.TabIndex = 89;
             this.label4.Text = "Unidad Medida Peso";
             // 
@@ -147,7 +148,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(180, 176);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.Size = new System.Drawing.Size(32, 13);
             this.label7.TabIndex = 87;
             this.label7.Text = "Peso";
             // 
@@ -185,7 +186,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 123);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(79, 13);
+            this.label13.Size = new System.Drawing.Size(81, 13);
             this.label13.TabIndex = 62;
             this.label13.Text = "Unidad Medida";
             // 
@@ -211,7 +212,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(180, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 60;
             this.label5.Text = "Cantidad";
             // 
@@ -251,7 +252,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 49;
             this.label3.Text = "Producto Individual";
             // 
@@ -291,7 +292,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 45;
             this.label1.Text = "Producto";
             // 
@@ -302,12 +303,19 @@
             this.ClientSize = new System.Drawing.Size(384, 284);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoGuiaRemisionDetalle";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoGuiaRemisionDetalle";
             this.Load += new System.EventHandler(this.FrmMantenimientoGuiaRemisionDetalle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

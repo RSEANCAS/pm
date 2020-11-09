@@ -26,6 +26,20 @@ namespace pm.enums
 
         }
 
+        public enum EstadoLetra
+        {
+            [Description("Por Asignar Banco")]
+            PorAsignarBanco = 1,
+            [Description("Pendiente")]
+            Pendiente = 2,
+            [Description("Renovada")]
+            Renovada = 3,
+            [Description("Retirada")]
+            Retirada = 4,
+            [Description("Protestada")]
+            Protestada = 5
+        }
+
         public enum Moneda
         {
             [Description("Soles")]

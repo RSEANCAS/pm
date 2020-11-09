@@ -63,6 +63,29 @@ namespace pm.da
                                 item.DescripcionTipoDocumentoIdentidadCliente = dr.GetData<string>("DescripcionTipoDocumentoIdentidadCliente");
                                 item.CodigoMoneda = dr.GetData<int>("CodigoMoneda");
                                 item.TotalImporte = dr.GetData<decimal>("TotalImporte");
+                                item.CodigoGuiaRemision = dr.GetData<int?>("CodigoGuiaRemision");
+                                if (item.CodigoGuiaRemision.HasValue)
+                                {
+                                    item.GuiaRemision = new GuiaRemisionBe();
+                                    item.GuiaRemision.CodigoTipoComprobante = dr.GetData<int>("CodigoTipoComprobanteGuiaRemision");
+                                    item.GuiaRemision.TipoComprobante = new TipoComprobanteBe();
+                                    item.GuiaRemision.TipoComprobante.CodigoTipoComprobante = dr.GetData<int>("CodigoTipoComprobanteGuiaRemision");
+                                    item.GuiaRemision.TipoComprobante.Nombre = dr.GetData<string>("NombreTipoComprobanteGuiaRemision");
+                                    item.GuiaRemision.CodigoSerie = dr.GetData<int>("CodigoSerieGuiaRemision");
+                                    item.GuiaRemision.Serie = new SerieBe();
+                                    item.GuiaRemision.Serie.CodigoSerie = dr.GetData<int>("CodigoSerieGuiaRemision");
+                                    item.GuiaRemision.Serie.Serial = dr.GetData<string>("SerialSerieGuiaRemision");
+                                    item.GuiaRemision.NroComprobante = dr.GetData<int>("NroComprobanteGuiaRemision");
+                                    item.GuiaRemision.FechaHoraEmision = dr.GetData<DateTime>("FechaHoraEmisionGuiaRemision");
+                                }
+                                item.CodigoCotizacion = dr.GetData<int?>("CodigoCotizacion");
+                                if (item.CodigoCotizacion.HasValue)
+                                {
+                                    item.Cotizacion = new CotizacionBe();
+                                    item.Cotizacion.NroComprobante = dr.GetData<int>("NroComprobanteCotizacion");
+                                    item.Cotizacion.NroPedido = dr.GetData<string>("NroPedidoCotizacion");
+                                    item.Cotizacion.FechaHoraEmision = dr.GetData<DateTime>("FechaHoraEmisionCotizacion");
+                                }
                                 item.FlagEmitido = dr.GetData<bool>("FlagEmitido");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
 
@@ -179,6 +202,8 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@totalImporte", registro.TotalImporte.GetNullable());
                     cmd.Parameters.AddWithValue("@totalPercepcion", registro.TotalPercepcion.GetNullable());
                     cmd.Parameters.AddWithValue("@totalPagar", registro.TotalPagar.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoGuiaRemision", registro.CodigoGuiaRemision.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoCotizacion", registro.CodigoCotizacion.GetNullable());
                     cmd.Parameters.AddWithValue("@flagEmitido", registro.FlagEmitido.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
                     int filasAfectadas = cmd.ExecuteNonQuery();

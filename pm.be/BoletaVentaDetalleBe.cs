@@ -32,6 +32,14 @@ namespace pm.be
         public decimal OtrosTributos { get; set; }
         public decimal BaseImponible { get; set; }
         public decimal Importe { get; set; }
+        public int CodigoGuiaRemision { get; set; }
+        public GuiaRemisionBe GuiaRemision { get; set; }
+        public int CodigoGuiaRemisionDetalle { get; set; }
+        public GuiaRemisionDetalleBe GuiaRemisionDetalle { get; set; }
+        public int? CodigoCotizacion { get; set; }
+        public CotizacionBe Cotizacion { get; set; }
+        public int? CodigoCotizacionDetalle { get; set; }
+        public CotizacionDetalleBe CotizacionDetalle { get; set; }
         public bool FlagEliminado { get; set; }
     }
 }

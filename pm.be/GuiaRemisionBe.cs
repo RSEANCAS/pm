@@ -6,29 +6,12 @@ using System.Threading.Tasks;
 
 namespace pm.be
 {
-    public class GuiaRemisionBe : BaseAuditoria
+    public class GuiaRemisionBe : BaseComprobante//BaseAuditoria
     {
         public int CodigoGuiaRemision { get; set; }
         public int CodigoTipoComprobante { get; set; }
         public TipoComprobanteBe TipoComprobante { get; set; }
-        public int CodigoSerie { get; set; }
-        public SerieBe Serie { get; set; }
-        public int NroComprobante { get; set; }
-        public DateTime FechaHoraEmision { get; set; }
         public DateTime FechaHoraTraslado { get; set; }
-        public int CodigoCliente { get; set; }
-        public ClienteBe Cliente { get; set; }
-        // NO MAPEADO EN BD
-        public string NroDocumentoIdentidadCliente { get; set; }
-        // NO MAPEADO EN BD
-        public string DescripcionTipoDocumentoIdentidadCliente { get; set; }
-        public string DireccionCliente { get; set; }
-        public string NombrePaisCliente { get; set; }
-        public string NombreDepartamentoCliente { get; set; }
-        public string NombreProvinciaCliente { get; set; }
-        public int CodigoDistritoCliente { get; set; }
-        public  DistritoBe DistritoCliente { get; set; }
-        public string NombreDistritoCliente { get; set; }
         public int CodigoMotivoTraslado { get; set; }
         public MotivoTrasladoBe MotivoTraslado { get; set; }
         public int CodigoTransportista { get; set; }
@@ -47,6 +30,8 @@ namespace pm.be
         public string MarcaVehiculoTransportista { get; set; }
         public string PlacaVehiculoTransportista { get; set; }
         public string LicenciaConducirTransportista { get; set; }
+        public int? CodigoCotizacion { get; set; }
+        public CotizacionBe Cotizacion { get; set; }
         public bool FlagEmitido { get; set; }
         public bool FlagActivo { get; set; }
 

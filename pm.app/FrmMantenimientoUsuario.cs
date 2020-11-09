@@ -24,6 +24,7 @@ namespace pm.app
         UsuarioBl usuarioBl = new UsuarioBl();
         PerfilBl perfilBl = new PerfilBl();
         PersonalBl personalBl = new PersonalBl();
+        ControlBusquedaBl controlBusquedaBl = new ControlBusquedaBl();
 
         public FrmMantenimientoUsuario(int? codigoUsuario = null)
         {
@@ -93,24 +94,11 @@ namespace pm.app
         private void btnBuscarPersonal_Click(object sender, EventArgs e)
         {
             if (nroDocumentoIdentidad == txtNroDocIdentidadPersonal.Text.Trim()) return;
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoPersonal", NombreColumna = "CodigoPersonal", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "NroDocumentoIdentidad", NombreColumna = "N° Doc. Identidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombres", NombreColumna = "Nombres", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Correo", NombreColumna = "Correo", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Personal";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Personal", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(PersonalBe), txtNroDocIdentidadPersonal.Text.Trim());
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocIdentidadPersonal.Text.Trim());
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();

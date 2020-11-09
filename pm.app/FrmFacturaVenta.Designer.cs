@@ -32,22 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
-            this.dgvResultados_CodigoFacturaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_TotalImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FlagEmitido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbFiltroCodigoSerie = new System.Windows.Forms.ComboBox();
@@ -64,6 +52,25 @@
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
+            this.dgvResultados_CodigoFacturaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoCotizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TotalImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_SerialSerieGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroComprobanteGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaHoraEmisionGuiaRemision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FlagEmitido = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
@@ -100,6 +107,8 @@
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvResultados_CodigoFacturaVenta,
+            this.dgvResultados_CodigoGuiaRemision,
+            this.dgvResultados_CodigoCotizacion,
             this.dgvResultados_Nro,
             this.dgvResultados_Serie,
             this.dgvResultados_Numero,
@@ -110,6 +119,10 @@
             this.dgvResultados_NombresCliente,
             this.dgvResultados_StrMoneda,
             this.dgvResultados_TotalImporte,
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision,
+            this.dgvResultados_SerialSerieGuiaRemision,
+            this.dgvResultados_NroComprobanteGuiaRemision,
+            this.dgvResultados_FechaHoraEmisionGuiaRemision,
             this.dgvResultados_FlagEmitido,
             this.dgvResultados_FlagActivo});
             this.dgvResultados.Location = new System.Drawing.Point(12, 111);
@@ -121,116 +134,6 @@
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
             this.dgvResultados.TabIndex = 21;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
-            // 
-            // dgvResultados_CodigoFacturaVenta
-            // 
-            this.dgvResultados_CodigoFacturaVenta.DataPropertyName = "CodigoFacturaVenta";
-            this.dgvResultados_CodigoFacturaVenta.HeaderText = "CodigoFacturaVenta";
-            this.dgvResultados_CodigoFacturaVenta.Name = "dgvResultados_CodigoFacturaVenta";
-            this.dgvResultados_CodigoFacturaVenta.ReadOnly = true;
-            this.dgvResultados_CodigoFacturaVenta.Visible = false;
-            // 
-            // dgvResultados_Nro
-            // 
-            this.dgvResultados_Nro.DataPropertyName = "Fila";
-            this.dgvResultados_Nro.HeaderText = "N°";
-            this.dgvResultados_Nro.Name = "dgvResultados_Nro";
-            this.dgvResultados_Nro.ReadOnly = true;
-            this.dgvResultados_Nro.Width = 44;
-            // 
-            // dgvResultados_Serie
-            // 
-            this.dgvResultados_Serie.DataPropertyName = "Serie";
-            this.dgvResultados_Serie.HeaderText = "Serie";
-            this.dgvResultados_Serie.Name = "dgvResultados_Serie";
-            this.dgvResultados_Serie.ReadOnly = true;
-            this.dgvResultados_Serie.Width = 50;
-            // 
-            // dgvResultados_Numero
-            // 
-            this.dgvResultados_Numero.DataPropertyName = "NroComprobante";
-            dataGridViewCellStyle1.Format = "00000000";
-            this.dgvResultados_Numero.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvResultados_Numero.HeaderText = "Número";
-            this.dgvResultados_Numero.Name = "dgvResultados_Numero";
-            this.dgvResultados_Numero.ReadOnly = true;
-            this.dgvResultados_Numero.Width = 80;
-            // 
-            // dgvResultados_FechaEmision
-            // 
-            this.dgvResultados_FechaEmision.DataPropertyName = "FechaHoraEmision";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy hh:mm:ss";
-            this.dgvResultados_FechaEmision.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvResultados_FechaEmision.HeaderText = "Fecha Emisión";
-            this.dgvResultados_FechaEmision.Name = "dgvResultados_FechaEmision";
-            this.dgvResultados_FechaEmision.ReadOnly = true;
-            this.dgvResultados_FechaEmision.Width = 120;
-            // 
-            // dgvResultados_FechaVencimiento
-            // 
-            this.dgvResultados_FechaVencimiento.DataPropertyName = "FechaHoraVencimiento";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
-            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvResultados_FechaVencimiento.HeaderText = "Fecha Vencimiento";
-            this.dgvResultados_FechaVencimiento.Name = "dgvResultados_FechaVencimiento";
-            this.dgvResultados_FechaVencimiento.ReadOnly = true;
-            this.dgvResultados_FechaVencimiento.Width = 126;
-            // 
-            // dgvResultados_TipoDocumentoIdentidadCliente
-            // 
-            this.dgvResultados_TipoDocumentoIdentidadCliente.DataPropertyName = "DescripcionTipoDocumentoIdentidadCliente";
-            this.dgvResultados_TipoDocumentoIdentidadCliente.HeaderText = "Tipo Doc. Identidad";
-            this.dgvResultados_TipoDocumentoIdentidadCliente.Name = "dgvResultados_TipoDocumentoIdentidadCliente";
-            this.dgvResultados_TipoDocumentoIdentidadCliente.ReadOnly = true;
-            this.dgvResultados_TipoDocumentoIdentidadCliente.Width = 130;
-            // 
-            // dgvResultados_NroDocIdentidadCliente
-            // 
-            this.dgvResultados_NroDocIdentidadCliente.DataPropertyName = "NroDocumentoIdentidadCliente";
-            this.dgvResultados_NroDocIdentidadCliente.HeaderText = "N° Doc. Identidad";
-            this.dgvResultados_NroDocIdentidadCliente.Name = "dgvResultados_NroDocIdentidadCliente";
-            this.dgvResultados_NroDocIdentidadCliente.ReadOnly = true;
-            this.dgvResultados_NroDocIdentidadCliente.Width = 120;
-            // 
-            // dgvResultados_NombresCliente
-            // 
-            this.dgvResultados_NombresCliente.DataPropertyName = "Cliente";
-            this.dgvResultados_NombresCliente.HeaderText = "Nombres Completos";
-            this.dgvResultados_NombresCliente.Name = "dgvResultados_NombresCliente";
-            this.dgvResultados_NombresCliente.ReadOnly = true;
-            this.dgvResultados_NombresCliente.Width = 180;
-            // 
-            // dgvResultados_StrMoneda
-            // 
-            this.dgvResultados_StrMoneda.DataPropertyName = "StrMoneda";
-            this.dgvResultados_StrMoneda.HeaderText = "Moneda";
-            this.dgvResultados_StrMoneda.Name = "dgvResultados_StrMoneda";
-            this.dgvResultados_StrMoneda.ReadOnly = true;
-            // 
-            // dgvResultados_TotalImporte
-            // 
-            this.dgvResultados_TotalImporte.DataPropertyName = "TotalImporte";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "#,##0.00";
-            this.dgvResultados_TotalImporte.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvResultados_TotalImporte.HeaderText = "Importe Total";
-            this.dgvResultados_TotalImporte.Name = "dgvResultados_TotalImporte";
-            this.dgvResultados_TotalImporte.ReadOnly = true;
-            // 
-            // dgvResultados_FlagEmitido
-            // 
-            this.dgvResultados_FlagEmitido.DataPropertyName = "FlagEmitido";
-            this.dgvResultados_FlagEmitido.HeaderText = "Emitido";
-            this.dgvResultados_FlagEmitido.Name = "dgvResultados_FlagEmitido";
-            this.dgvResultados_FlagEmitido.ReadOnly = true;
-            // 
-            // dgvResultados_FlagActivo
-            // 
-            this.dgvResultados_FlagActivo.DataPropertyName = "FlagActivo";
-            this.dgvResultados_FlagActivo.HeaderText = "Activo";
-            this.dgvResultados_FlagActivo.Name = "dgvResultados_FlagActivo";
-            this.dgvResultados_FlagActivo.ReadOnly = true;
-            this.dgvResultados_FlagActivo.Width = 80;
             // 
             // btnBuscar
             // 
@@ -397,6 +300,166 @@
             this.radRibbonBar1.TabIndex = 24;
             this.radRibbonBar1.Text = "Facturas de venta";
             // 
+            // dgvResultados_CodigoFacturaVenta
+            // 
+            this.dgvResultados_CodigoFacturaVenta.DataPropertyName = "CodigoFacturaVenta";
+            this.dgvResultados_CodigoFacturaVenta.HeaderText = "CodigoFacturaVenta";
+            this.dgvResultados_CodigoFacturaVenta.Name = "dgvResultados_CodigoFacturaVenta";
+            this.dgvResultados_CodigoFacturaVenta.ReadOnly = true;
+            this.dgvResultados_CodigoFacturaVenta.Visible = false;
+            // 
+            // dgvResultados_CodigoGuiaRemision
+            // 
+            this.dgvResultados_CodigoGuiaRemision.DataPropertyName = "CodigoGuiaRemision";
+            this.dgvResultados_CodigoGuiaRemision.HeaderText = "CodigoGuiaRemision";
+            this.dgvResultados_CodigoGuiaRemision.Name = "dgvResultados_CodigoGuiaRemision";
+            this.dgvResultados_CodigoGuiaRemision.ReadOnly = true;
+            this.dgvResultados_CodigoGuiaRemision.Visible = false;
+            // 
+            // dgvResultados_CodigoCotizacion
+            // 
+            this.dgvResultados_CodigoCotizacion.DataPropertyName = "CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.HeaderText = "CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.Name = "dgvResultados_CodigoCotizacion";
+            this.dgvResultados_CodigoCotizacion.ReadOnly = true;
+            this.dgvResultados_CodigoCotizacion.Visible = false;
+            // 
+            // dgvResultados_Nro
+            // 
+            this.dgvResultados_Nro.DataPropertyName = "Fila";
+            this.dgvResultados_Nro.HeaderText = "N°";
+            this.dgvResultados_Nro.Name = "dgvResultados_Nro";
+            this.dgvResultados_Nro.ReadOnly = true;
+            this.dgvResultados_Nro.Width = 44;
+            // 
+            // dgvResultados_Serie
+            // 
+            this.dgvResultados_Serie.DataPropertyName = "Serie";
+            this.dgvResultados_Serie.HeaderText = "Serie";
+            this.dgvResultados_Serie.Name = "dgvResultados_Serie";
+            this.dgvResultados_Serie.ReadOnly = true;
+            this.dgvResultados_Serie.Width = 50;
+            // 
+            // dgvResultados_Numero
+            // 
+            this.dgvResultados_Numero.DataPropertyName = "NroComprobante";
+            dataGridViewCellStyle1.Format = "00000000";
+            this.dgvResultados_Numero.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvResultados_Numero.HeaderText = "Número";
+            this.dgvResultados_Numero.Name = "dgvResultados_Numero";
+            this.dgvResultados_Numero.ReadOnly = true;
+            this.dgvResultados_Numero.Width = 80;
+            // 
+            // dgvResultados_FechaEmision
+            // 
+            this.dgvResultados_FechaEmision.DataPropertyName = "FechaHoraEmision";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy hh:mm:ss";
+            this.dgvResultados_FechaEmision.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvResultados_FechaEmision.HeaderText = "Fecha Emisión";
+            this.dgvResultados_FechaEmision.Name = "dgvResultados_FechaEmision";
+            this.dgvResultados_FechaEmision.ReadOnly = true;
+            this.dgvResultados_FechaEmision.Width = 120;
+            // 
+            // dgvResultados_FechaVencimiento
+            // 
+            this.dgvResultados_FechaVencimiento.DataPropertyName = "FechaHoraVencimiento";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvResultados_FechaVencimiento.HeaderText = "Fecha Vencimiento";
+            this.dgvResultados_FechaVencimiento.Name = "dgvResultados_FechaVencimiento";
+            this.dgvResultados_FechaVencimiento.ReadOnly = true;
+            this.dgvResultados_FechaVencimiento.Width = 126;
+            // 
+            // dgvResultados_TipoDocumentoIdentidadCliente
+            // 
+            this.dgvResultados_TipoDocumentoIdentidadCliente.DataPropertyName = "DescripcionTipoDocumentoIdentidadCliente";
+            this.dgvResultados_TipoDocumentoIdentidadCliente.HeaderText = "Tipo Doc. Identidad";
+            this.dgvResultados_TipoDocumentoIdentidadCliente.Name = "dgvResultados_TipoDocumentoIdentidadCliente";
+            this.dgvResultados_TipoDocumentoIdentidadCliente.ReadOnly = true;
+            this.dgvResultados_TipoDocumentoIdentidadCliente.Width = 130;
+            // 
+            // dgvResultados_NroDocIdentidadCliente
+            // 
+            this.dgvResultados_NroDocIdentidadCliente.DataPropertyName = "NroDocumentoIdentidadCliente";
+            this.dgvResultados_NroDocIdentidadCliente.HeaderText = "N° Doc. Identidad";
+            this.dgvResultados_NroDocIdentidadCliente.Name = "dgvResultados_NroDocIdentidadCliente";
+            this.dgvResultados_NroDocIdentidadCliente.ReadOnly = true;
+            this.dgvResultados_NroDocIdentidadCliente.Width = 120;
+            // 
+            // dgvResultados_NombresCliente
+            // 
+            this.dgvResultados_NombresCliente.DataPropertyName = "Cliente";
+            this.dgvResultados_NombresCliente.HeaderText = "Nombres Completos";
+            this.dgvResultados_NombresCliente.Name = "dgvResultados_NombresCliente";
+            this.dgvResultados_NombresCliente.ReadOnly = true;
+            this.dgvResultados_NombresCliente.Width = 180;
+            // 
+            // dgvResultados_StrMoneda
+            // 
+            this.dgvResultados_StrMoneda.DataPropertyName = "StrMoneda";
+            this.dgvResultados_StrMoneda.HeaderText = "Moneda";
+            this.dgvResultados_StrMoneda.Name = "dgvResultados_StrMoneda";
+            this.dgvResultados_StrMoneda.ReadOnly = true;
+            // 
+            // dgvResultados_TotalImporte
+            // 
+            this.dgvResultados_TotalImporte.DataPropertyName = "TotalImporte";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "#,##0.00";
+            this.dgvResultados_TotalImporte.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvResultados_TotalImporte.HeaderText = "Importe Total";
+            this.dgvResultados_TotalImporte.Name = "dgvResultados_TotalImporte";
+            this.dgvResultados_TotalImporte.ReadOnly = true;
+            // 
+            // dgvResultados_NombreTipoComprobanteGuiaRemision
+            // 
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision.DataPropertyName = "NombreTipoComprobanteGuiaRemision";
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision.HeaderText = "Tipo Guía Remisión";
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision.Name = "dgvResultados_NombreTipoComprobanteGuiaRemision";
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision.ReadOnly = true;
+            this.dgvResultados_NombreTipoComprobanteGuiaRemision.Width = 140;
+            // 
+            // dgvResultados_SerialSerieGuiaRemision
+            // 
+            this.dgvResultados_SerialSerieGuiaRemision.DataPropertyName = "SerialSerieGuiaRemision";
+            this.dgvResultados_SerialSerieGuiaRemision.HeaderText = "Serie Guía Remisión";
+            this.dgvResultados_SerialSerieGuiaRemision.Name = "dgvResultados_SerialSerieGuiaRemision";
+            this.dgvResultados_SerialSerieGuiaRemision.ReadOnly = true;
+            this.dgvResultados_SerialSerieGuiaRemision.Width = 140;
+            // 
+            // dgvResultados_NroComprobanteGuiaRemision
+            // 
+            this.dgvResultados_NroComprobanteGuiaRemision.DataPropertyName = "NroComprobanteGuiaRemision";
+            dataGridViewCellStyle5.Format = "00000000";
+            this.dgvResultados_NroComprobanteGuiaRemision.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvResultados_NroComprobanteGuiaRemision.HeaderText = "N° Guia Remisión";
+            this.dgvResultados_NroComprobanteGuiaRemision.Name = "dgvResultados_NroComprobanteGuiaRemision";
+            this.dgvResultados_NroComprobanteGuiaRemision.ReadOnly = true;
+            this.dgvResultados_NroComprobanteGuiaRemision.Width = 140;
+            // 
+            // dgvResultados_FechaHoraEmisionGuiaRemision
+            // 
+            this.dgvResultados_FechaHoraEmisionGuiaRemision.DataPropertyName = "FechaHoraEmisionGuiaRemision";
+            this.dgvResultados_FechaHoraEmisionGuiaRemision.HeaderText = "Fecha Emisión Guía Remisión";
+            this.dgvResultados_FechaHoraEmisionGuiaRemision.Name = "dgvResultados_FechaHoraEmisionGuiaRemision";
+            this.dgvResultados_FechaHoraEmisionGuiaRemision.ReadOnly = true;
+            this.dgvResultados_FechaHoraEmisionGuiaRemision.Width = 180;
+            // 
+            // dgvResultados_FlagEmitido
+            // 
+            this.dgvResultados_FlagEmitido.DataPropertyName = "FlagEmitido";
+            this.dgvResultados_FlagEmitido.HeaderText = "Emitido";
+            this.dgvResultados_FlagEmitido.Name = "dgvResultados_FlagEmitido";
+            this.dgvResultados_FlagEmitido.ReadOnly = true;
+            // 
+            // dgvResultados_FlagActivo
+            // 
+            this.dgvResultados_FlagActivo.DataPropertyName = "FlagActivo";
+            this.dgvResultados_FlagActivo.HeaderText = "Activo";
+            this.dgvResultados_FlagActivo.Name = "dgvResultados_FlagActivo";
+            this.dgvResultados_FlagActivo.ReadOnly = true;
+            this.dgvResultados_FlagActivo.Width = 80;
+            // 
             // FrmFacturaVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,7 +470,6 @@
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
-            //this.Controls.Add(this.radRibbonBar1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmFacturaVenta";
             // 
@@ -419,6 +481,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -445,7 +508,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Label label2;
+        private Telerik.WinControls.UI.RadRibbonBar radRibbonBar1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoFacturaVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoGuiaRemision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoCotizacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Nro;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Serie;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Numero;
@@ -456,8 +522,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombresCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_StrMoneda;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TotalImporte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombreTipoComprobanteGuiaRemision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_SerialSerieGuiaRemision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroComprobanteGuiaRemision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_FechaHoraEmisionGuiaRemision;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagEmitido;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagActivo;
-        private Telerik.WinControls.UI.RadRibbonBar radRibbonBar1;
     }
 }

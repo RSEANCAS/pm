@@ -81,6 +81,14 @@ namespace pm.da
                                 item.Transportista.NroDocumentoIdentidad = dr.GetData<string>("NroDocumentoIdentidadTransportista");
                                 item.Transportista.Nombres = dr.GetData<string>("NombresTransportista");
                                 item.Transportista.FlagActivo = dr.GetData<bool>("FlagActivoTransportista");
+                                item.CodigoCotizacion = dr.GetData<int?>("CodigoCotizacion");
+                                if (item.CodigoCotizacion.HasValue)
+                                {
+                                    item.Cotizacion = new CotizacionBe();
+                                    item.Cotizacion.NroComprobante = dr.GetData<int>("NroComprobanteCotizacion");
+                                    item.Cotizacion.NroPedido = dr.GetData<string>("NroPedidoCotizacion");
+                                    item.Cotizacion.FechaHoraEmision = dr.GetData<DateTime>("FechaHoraEmisionCotizacion");
+                                }
                                 item.FlagEmitido = dr.GetData<bool>("FlagEmitido");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
 
@@ -138,6 +146,7 @@ namespace pm.da
                                 item.MarcaVehiculoTransportista = dr.GetData<string>("MarcaVehiculoTransportista");
                                 item.PlacaVehiculoTransportista = dr.GetData<string>("PlacaVehiculoTransportista");
                                 item.LicenciaConducirTransportista = dr.GetData<string>("LicenciaConducirTransportista");
+                                item.CodigoCotizacion = dr.GetData<int?>("CodigoCotizacion");
                                 item.FlagEmitido = dr.GetData<bool>("FlagEmitido");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
                             }
@@ -185,6 +194,7 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@marcaVehiculoTransportista", registro.MarcaVehiculoTransportista.GetNullable());
                     cmd.Parameters.AddWithValue("@placaVehiculoTransportista", registro.PlacaVehiculoTransportista.GetNullable());
                     cmd.Parameters.AddWithValue("@licenciaConducirTransportista", registro.LicenciaConducirTransportista.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoCotizacion", registro.CodigoCotizacion.GetNullable());
                     cmd.Parameters.AddWithValue("@flagEmitido", registro.FlagEmitido.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
                     int filasAfectadas = cmd.ExecuteNonQuery();

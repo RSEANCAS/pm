@@ -29,6 +29,7 @@ namespace pm.app
         UnidadMedidaBl unidadMedidaBl = new UnidadMedidaBl();
         ProductoBl productoBl = new ProductoBl();
         ProductoIndividualBl productoIndividualBl = new ProductoIndividualBl();
+        ControlBusquedaBl controlBusquedaBl = new ControlBusquedaBl();
 
         public FrmMantenimientoFacturaVentaDetalle(FacturaVentaDetalleBe item = null)
         {
@@ -103,6 +104,9 @@ namespace pm.app
                 txtNombreProductoIndividual.Text = productoIndividual.Nombre;
                 cbbCodigoUnidadMedida.SelectedValue = productoIndividual.CodigoUnidadMedida;
                 txtCantidad.Text = productoIndividual.Metraje.ToString("0.00");
+                rdbTipoCalculoPrecioUnitario.Checked = true;
+                txtPrecioUnitario.Text = (productoIndividual.PrecioVenta / productoIndividual.Metraje).ToString("0.00");
+                Calculo();
             }
             else
             {
@@ -132,24 +136,11 @@ namespace pm.app
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoProducto", NombreColumna = "CodigoProducto", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "Nombre", NombreColumna = "Nombre", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Cantidad", NombreColumna = "Cantidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Color", NombreColumna = "Color", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.Producto";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Producto", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ProductoBe));
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -165,25 +156,11 @@ namespace pm.app
         {
             if ((codigoBarraProductoIndividual ?? "") == txtCodigoBarraProductoIndividual.Text.Trim() && codigoBarraProductoIndividual != null) return;
             if (txtCodigoBarraProductoIndividual.Text.Trim() == "") CargarProductoIndividual(null);
-            List<dynamic> listaColumnas = new List<dynamic>();
-            listaColumnas.Add(new { Campo = "CodigoProductoIndividual", NombreColumna = "CodigoProductoIndividual", EsVisible = false, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = false });
-            listaColumnas.Add(new { Campo = "CodigoBarra", NombreColumna = "Código Barra", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Nombre", NombreColumna = "Nombre", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            //listaColumnas.Add(new { Campo = "Cantidad", NombreColumna = "Cantidad", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-            listaColumnas.Add(new { Campo = "Color", NombreColumna = "Color", EsVisible = true, TipoColumna = new DataGridViewTextBoxColumn(), EsFiltro = true });
-
-            string table = "dbo.ProductoIndividual";
-            DataGridViewColumn[] columns = listaColumnas.Select(x => {
-                DataGridViewColumn column = x.TipoColumna;
-                column.Name = $"dgvResultados_{x.Campo}";
-                column.DataPropertyName = x.Campo;
-                column.HeaderText = x.NombreColumna;
-                column.Visible = x.EsVisible;
-                return column;
-            }).ToArray();
-            string[] columnsFilter = listaColumnas.Where(x => x.EsFiltro).Select(x => (string)x.Campo).ToArray();
-
-            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro("Buscar Producto Individual", table, columns.Cast<DataGridViewColumn>().ToArray(), columnsFilter, typeof(ProductoIndividualBe));
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
@@ -349,7 +326,7 @@ namespace pm.app
 
             _Detalle = _Detalle ?? new FacturaVentaDetalleBe();
 
-            _Detalle.CodigoFacturaVentaDetalle = 0;
+            //_Detalle.CodigoFacturaVentaDetalle = 0;
             _Detalle.Detalle = codigoProductoIndividual.HasValue ? txtNombreProductoIndividual.Text.Trim() : txtNombreProducto.Text.Trim();
             _Detalle.CodigoProducto = codigoProducto.Value;
             _Detalle.Producto = new ProductoBe { Nombre = txtNombreProducto.Text.Trim() };

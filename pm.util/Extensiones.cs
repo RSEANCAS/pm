@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace pm.util
 {
-    public static class Extensiones
+    public static class Extensiones 
     {
         public static T GetData<T>(this IDataReader dr, string field)
         {

@@ -22,6 +22,10 @@ namespace pm.be
         public int CodigoUnidadMedidaPeso { get; set; }
         public UnidadMedidaBe UnidadMedidaPeso { get; set; }
         public decimal Peso { get; set; }
+        public int? CodigoCotizacion { get; set; }
+        public  CotizacionBe Cotizacion { get; set; }
+        public int? CodigoCotizacionDetalle { get; set; }
+        public  CotizacionDetalleBe CotizacionDetalle { get; set; }
         public bool FlagEliminado { get; set; }
     }
 }

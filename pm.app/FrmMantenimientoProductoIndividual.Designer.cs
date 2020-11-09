@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblErrorPrecioVenta = new System.Windows.Forms.Label();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblErrorPrecioCompra = new System.Windows.Forms.Label();
+            this.txtPrecioCompra = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.btnBuscarProductoInicial = new System.Windows.Forms.Button();
             this.txtNombreProductoIndividualInicial = new System.Windows.Forms.TextBox();
             this.lblErrorCodigoBarraProveedor = new System.Windows.Forms.Label();
@@ -81,12 +87,16 @@
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tltProductoIndividual = new System.Windows.Forms.ToolTip(this.components);
+            this.lblErrorCodigoUnidadMedidaPeso = new System.Windows.Forms.Label();
+            this.cbbCodigoUnidadMedidaPeso = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(297, 512);
+            this.btnGuardar.Location = new System.Drawing.Point(297, 617);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 19;
@@ -98,6 +108,15 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lblErrorCodigoUnidadMedidaPeso);
+            this.groupBox1.Controls.Add(this.cbbCodigoUnidadMedidaPeso);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.lblErrorPrecioVenta);
+            this.groupBox1.Controls.Add(this.txtPrecioVenta);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.lblErrorPrecioCompra);
+            this.groupBox1.Controls.Add(this.txtPrecioCompra);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnBuscarProductoInicial);
             this.groupBox1.Controls.Add(this.txtNombreProductoIndividualInicial);
             this.groupBox1.Controls.Add(this.lblErrorCodigoBarraProveedor);
@@ -149,10 +168,62 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 496);
+            this.groupBox1.Size = new System.Drawing.Size(360, 600);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // lblErrorPrecioVenta
+            // 
+            this.lblErrorPrecioVenta.AutoSize = true;
+            this.lblErrorPrecioVenta.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPrecioVenta.Location = new System.Drawing.Point(180, 428);
+            this.lblErrorPrecioVenta.Name = "lblErrorPrecioVenta";
+            this.lblErrorPrecioVenta.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorPrecioVenta.TabIndex = 67;
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.Location = new System.Drawing.Point(183, 404);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(168, 20);
+            this.txtPrecioVenta.TabIndex = 64;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(180, 388);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(71, 13);
+            this.label16.TabIndex = 66;
+            this.label16.Text = "Precio Venta";
+            // 
+            // lblErrorPrecioCompra
+            // 
+            this.lblErrorPrecioCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorPrecioCompra.AutoSize = true;
+            this.lblErrorPrecioCompra.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPrecioCompra.Location = new System.Drawing.Point(6, 428);
+            this.lblErrorPrecioCompra.Name = "lblErrorPrecioCompra";
+            this.lblErrorPrecioCompra.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorPrecioCompra.TabIndex = 68;
+            // 
+            // txtPrecioCompra
+            // 
+            this.txtPrecioCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecioCompra.Location = new System.Drawing.Point(9, 404);
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.Size = new System.Drawing.Size(168, 20);
+            this.txtPrecioCompra.TabIndex = 63;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 388);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 13);
+            this.label18.TabIndex = 65;
+            this.label18.Text = "Precio Compra";
             // 
             // btnBuscarProductoInicial
             // 
@@ -171,7 +242,7 @@
             this.txtNombreProductoIndividualInicial.Location = new System.Drawing.Point(70, 139);
             this.txtNombreProductoIndividualInicial.Name = "txtNombreProductoIndividualInicial";
             this.txtNombreProductoIndividualInicial.ReadOnly = true;
-            this.txtNombreProductoIndividualInicial.Size = new System.Drawing.Size(217, 21);
+            this.txtNombreProductoIndividualInicial.Size = new System.Drawing.Size(217, 20);
             this.txtNombreProductoIndividualInicial.TabIndex = 61;
             // 
             // lblErrorCodigoBarraProveedor
@@ -179,7 +250,7 @@
             this.lblErrorCodigoBarraProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblErrorCodigoBarraProveedor.AutoSize = true;
             this.lblErrorCodigoBarraProveedor.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoBarraProveedor.Location = new System.Drawing.Point(180, 216);
+            this.lblErrorCodigoBarraProveedor.Location = new System.Drawing.Point(6, 481);
             this.lblErrorCodigoBarraProveedor.Name = "lblErrorCodigoBarraProveedor";
             this.lblErrorCodigoBarraProveedor.Size = new System.Drawing.Size(0, 13);
             this.lblErrorCodigoBarraProveedor.TabIndex = 60;
@@ -187,25 +258,25 @@
             // txtCodigoBarraProveedor
             // 
             this.txtCodigoBarraProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodigoBarraProveedor.Location = new System.Drawing.Point(183, 192);
+            this.txtCodigoBarraProveedor.Location = new System.Drawing.Point(9, 457);
             this.txtCodigoBarraProveedor.Name = "txtCodigoBarraProveedor";
-            this.txtCodigoBarraProveedor.Size = new System.Drawing.Size(168, 21);
+            this.txtCodigoBarraProveedor.Size = new System.Drawing.Size(168, 20);
             this.txtCodigoBarraProveedor.TabIndex = 12;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(180, 176);
+            this.label15.Location = new System.Drawing.Point(6, 441);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(124, 13);
             this.label15.TabIndex = 59;
-            this.label15.Text = "Codigo Barra Proveedor";
+            this.label15.Text = "Código Barra Proveedor";
             // 
             // lblErrorMetraje
             // 
             this.lblErrorMetraje.AutoSize = true;
             this.lblErrorMetraje.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorMetraje.Location = new System.Drawing.Point(6, 269);
+            this.lblErrorMetraje.Location = new System.Drawing.Point(180, 216);
             this.lblErrorMetraje.Name = "lblErrorMetraje";
             this.lblErrorMetraje.Size = new System.Drawing.Size(0, 13);
             this.lblErrorMetraje.TabIndex = 57;
@@ -213,15 +284,15 @@
             // txtMetraje
             // 
             this.txtMetraje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMetraje.Location = new System.Drawing.Point(9, 245);
+            this.txtMetraje.Location = new System.Drawing.Point(183, 192);
             this.txtMetraje.Name = "txtMetraje";
-            this.txtMetraje.Size = new System.Drawing.Size(168, 21);
+            this.txtMetraje.Size = new System.Drawing.Size(168, 20);
             this.txtMetraje.TabIndex = 6;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 229);
+            this.label13.Location = new System.Drawing.Point(180, 176);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 13);
             this.label13.TabIndex = 56;
@@ -233,14 +304,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblErrorPersonalInspeccion.AutoSize = true;
             this.lblErrorPersonalInspeccion.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorPersonalInspeccion.Location = new System.Drawing.Point(6, 481);
+            this.lblErrorPersonalInspeccion.Location = new System.Drawing.Point(6, 587);
             this.lblErrorPersonalInspeccion.Name = "lblErrorPersonalInspeccion";
             this.lblErrorPersonalInspeccion.Size = new System.Drawing.Size(0, 13);
             this.lblErrorPersonalInspeccion.TabIndex = 54;
             // 
             // btnBuscarPersonalInspeccion
             // 
-            this.btnBuscarPersonalInspeccion.Location = new System.Drawing.Point(293, 455);
+            this.btnBuscarPersonalInspeccion.Location = new System.Drawing.Point(293, 561);
             this.btnBuscarPersonalInspeccion.Name = "btnBuscarPersonalInspeccion";
             this.btnBuscarPersonalInspeccion.Size = new System.Drawing.Size(58, 23);
             this.btnBuscarPersonalInspeccion.TabIndex = 18;
@@ -252,25 +323,25 @@
             // 
             this.txtNombresPersonalInspeccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombresPersonalInspeccion.Location = new System.Drawing.Point(70, 457);
+            this.txtNombresPersonalInspeccion.Location = new System.Drawing.Point(70, 563);
             this.txtNombresPersonalInspeccion.Name = "txtNombresPersonalInspeccion";
             this.txtNombresPersonalInspeccion.ReadOnly = true;
-            this.txtNombresPersonalInspeccion.Size = new System.Drawing.Size(217, 21);
+            this.txtNombresPersonalInspeccion.Size = new System.Drawing.Size(217, 20);
             this.txtNombresPersonalInspeccion.TabIndex = 17;
             // 
             // txtNroDocIdentidadPersonalInspeccion
             // 
             this.txtNroDocIdentidadPersonalInspeccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNroDocIdentidadPersonalInspeccion.Location = new System.Drawing.Point(9, 457);
+            this.txtNroDocIdentidadPersonalInspeccion.Location = new System.Drawing.Point(9, 563);
             this.txtNroDocIdentidadPersonalInspeccion.Name = "txtNroDocIdentidadPersonalInspeccion";
-            this.txtNroDocIdentidadPersonalInspeccion.Size = new System.Drawing.Size(55, 21);
+            this.txtNroDocIdentidadPersonalInspeccion.Size = new System.Drawing.Size(55, 20);
             this.txtNroDocIdentidadPersonalInspeccion.TabIndex = 16;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 441);
+            this.label14.Location = new System.Drawing.Point(6, 547);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(108, 13);
             this.label14.TabIndex = 53;
@@ -282,14 +353,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblErrorProveedor.AutoSize = true;
             this.lblErrorProveedor.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorProveedor.Location = new System.Drawing.Point(6, 428);
+            this.lblErrorProveedor.Location = new System.Drawing.Point(6, 534);
             this.lblErrorProveedor.Name = "lblErrorProveedor";
             this.lblErrorProveedor.Size = new System.Drawing.Size(0, 13);
             this.lblErrorProveedor.TabIndex = 50;
             // 
             // btnBuscarProveedor
             // 
-            this.btnBuscarProveedor.Location = new System.Drawing.Point(293, 402);
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(293, 508);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(58, 23);
             this.btnBuscarProveedor.TabIndex = 15;
@@ -301,25 +372,25 @@
             // 
             this.txtNombresProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombresProveedor.Location = new System.Drawing.Point(70, 404);
+            this.txtNombresProveedor.Location = new System.Drawing.Point(70, 510);
             this.txtNombresProveedor.Name = "txtNombresProveedor";
             this.txtNombresProveedor.ReadOnly = true;
-            this.txtNombresProveedor.Size = new System.Drawing.Size(217, 21);
+            this.txtNombresProveedor.Size = new System.Drawing.Size(217, 20);
             this.txtNombresProveedor.TabIndex = 14;
             // 
             // txtNroDocIdentidadProveedor
             // 
             this.txtNroDocIdentidadProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNroDocIdentidadProveedor.Location = new System.Drawing.Point(9, 404);
+            this.txtNroDocIdentidadProveedor.Location = new System.Drawing.Point(9, 510);
             this.txtNroDocIdentidadProveedor.Name = "txtNroDocIdentidadProveedor";
-            this.txtNroDocIdentidadProveedor.Size = new System.Drawing.Size(55, 21);
+            this.txtNroDocIdentidadProveedor.Size = new System.Drawing.Size(55, 20);
             this.txtNroDocIdentidadProveedor.TabIndex = 13;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 388);
+            this.label11.Location = new System.Drawing.Point(6, 494);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 13);
             this.label11.TabIndex = 49;
@@ -339,7 +410,7 @@
             this.dtpFechaEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaEntrada.Location = new System.Drawing.Point(183, 351);
             this.dtpFechaEntrada.Name = "dtpFechaEntrada";
-            this.dtpFechaEntrada.Size = new System.Drawing.Size(168, 21);
+            this.dtpFechaEntrada.Size = new System.Drawing.Size(168, 20);
             this.dtpFechaEntrada.TabIndex = 11;
             // 
             // label12
@@ -366,7 +437,7 @@
             this.txtColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtColor.Location = new System.Drawing.Point(9, 351);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(168, 21);
+            this.txtColor.Size = new System.Drawing.Size(168, 20);
             this.txtColor.TabIndex = 10;
             // 
             // label7
@@ -391,7 +462,7 @@
             // 
             this.txtBulto.Location = new System.Drawing.Point(183, 298);
             this.txtBulto.Name = "txtBulto";
-            this.txtBulto.Size = new System.Drawing.Size(168, 21);
+            this.txtBulto.Size = new System.Drawing.Size(168, 20);
             this.txtBulto.TabIndex = 9;
             // 
             // label8
@@ -418,7 +489,7 @@
             this.txtRollo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRollo.Location = new System.Drawing.Point(9, 298);
             this.txtRollo.Name = "txtRollo";
-            this.txtRollo.Size = new System.Drawing.Size(168, 21);
+            this.txtRollo.Size = new System.Drawing.Size(168, 20);
             this.txtRollo.TabIndex = 8;
             // 
             // label6
@@ -444,7 +515,7 @@
             this.txtPeso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPeso.Location = new System.Drawing.Point(183, 245);
             this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(168, 21);
+            this.txtPeso.Size = new System.Drawing.Size(168, 20);
             this.txtPeso.TabIndex = 7;
             // 
             // label5
@@ -473,7 +544,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoBarraProductoIndividualInicial.Location = new System.Drawing.Point(9, 139);
             this.txtCodigoBarraProductoIndividualInicial.Name = "txtCodigoBarraProductoIndividualInicial";
-            this.txtCodigoBarraProductoIndividualInicial.Size = new System.Drawing.Size(55, 21);
+            this.txtCodigoBarraProductoIndividualInicial.Size = new System.Drawing.Size(55, 20);
             this.txtCodigoBarraProductoIndividualInicial.TabIndex = 5;
             // 
             // label4
@@ -483,7 +554,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(217, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Codigo Barra de Producto Individual Inicial";
+            this.label4.Text = "Código Barra de Producto Individual Inicial";
             // 
             // lblErrorCodigoUnidadMedida
             // 
@@ -544,7 +615,7 @@
             this.txtNombreProducto.Location = new System.Drawing.Point(9, 86);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.ReadOnly = true;
-            this.txtNombreProducto.Size = new System.Drawing.Size(278, 21);
+            this.txtNombreProducto.Size = new System.Drawing.Size(278, 20);
             this.txtNombreProducto.TabIndex = 2;
             // 
             // label1
@@ -573,7 +644,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(183, 33);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(168, 21);
+            this.txtNombre.Size = new System.Drawing.Size(168, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // label3
@@ -602,7 +673,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoBarra.Location = new System.Drawing.Point(9, 33);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
-            this.txtCodigoBarra.Size = new System.Drawing.Size(168, 21);
+            this.txtCodigoBarra.Size = new System.Drawing.Size(168, 20);
             this.txtCodigoBarra.TabIndex = 0;
             // 
             // label10
@@ -614,20 +685,57 @@
             this.label10.TabIndex = 45;
             this.label10.Text = "Código Barra";
             // 
+            // lblErrorCodigoUnidadMedidaPeso
+            // 
+            this.lblErrorCodigoUnidadMedidaPeso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoUnidadMedidaPeso.AutoSize = true;
+            this.lblErrorCodigoUnidadMedidaPeso.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoUnidadMedidaPeso.Location = new System.Drawing.Point(6, 269);
+            this.lblErrorCodigoUnidadMedidaPeso.Name = "lblErrorCodigoUnidadMedidaPeso";
+            this.lblErrorCodigoUnidadMedidaPeso.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoUnidadMedidaPeso.TabIndex = 71;
+            // 
+            // cbbCodigoUnidadMedidaPeso
+            // 
+            this.cbbCodigoUnidadMedidaPeso.DisplayMember = "Descripcion";
+            this.cbbCodigoUnidadMedidaPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoUnidadMedidaPeso.FormattingEnabled = true;
+            this.cbbCodigoUnidadMedidaPeso.Location = new System.Drawing.Point(9, 245);
+            this.cbbCodigoUnidadMedidaPeso.Name = "cbbCodigoUnidadMedidaPeso";
+            this.cbbCodigoUnidadMedidaPeso.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoUnidadMedidaPeso.TabIndex = 69;
+            this.cbbCodigoUnidadMedidaPeso.ValueMember = "CodigoUnidadMedida";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 229);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(109, 13);
+            this.label17.TabIndex = 70;
+            this.label17.Text = "Unidad Medida Peso";
+            // 
             // FrmMantenimientoProductoIndividual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 547);
+            this.ClientSize = new System.Drawing.Size(384, 653);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoProductoIndividual";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoProductoIndividual";
             this.Load += new System.EventHandler(this.FrmMantenimientoProductoIndividual_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -686,5 +794,14 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnBuscarProductoInicial;
         private System.Windows.Forms.TextBox txtNombreProductoIndividualInicial;
+        private System.Windows.Forms.Label lblErrorPrecioVenta;
+        private System.Windows.Forms.TextBox txtPrecioVenta;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblErrorPrecioCompra;
+        private System.Windows.Forms.TextBox txtPrecioCompra;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblErrorCodigoUnidadMedidaPeso;
+        private System.Windows.Forms.ComboBox cbbCodigoUnidadMedidaPeso;
+        private System.Windows.Forms.Label label17;
     }
 }
