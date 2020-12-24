@@ -1,4 +1,5 @@
-﻿using pm.be;
+﻿using Microsoft.Reporting.WinForms;
+using pm.be;
 using pm.bl;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace pm.app
     {
         FacturaVentaBl facturaVentaBl = new FacturaVentaBl();
         SerieBl serieBl = new SerieBl();
+        FormatoBl formatoBl = new FormatoBl();
 
         public FrmFacturaVenta()
         {
@@ -115,7 +117,9 @@ namespace pm.app
                     mitGenerarNota.MenuItems.Add(mitGenerarNotaDebito);
                     m.MenuItems.Add(mitGenerarNota);
                 }
-                //m.MenuItems.Add(mitToggleActivar);
+                MenuItem mitVerFormato = new MenuItem("Ver Formato", mitVerFormato_Click);
+                mitVerFormato.Tag = codigoFacturaVenta;
+                m.MenuItems.Add(mitVerFormato);
 
                 m.Show(dgvResultados, new Point(e.X, e.Y));
             }
@@ -162,6 +166,25 @@ namespace pm.app
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
             if (dr == DialogResult.OK) BuscarFacturasVenta();
+        }
+
+        private void mitVerFormato_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
+
+            int codigoFacturaVenta = (int)mitControl.Tag;
+
+            FormatoBe.Factura dsCabecera = formatoBl.ObtenerFormatoFacturaVenta(codigoFacturaVenta);
+            List<ReportDataSource> rpd = new List<ReportDataSource>();
+            rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.Factura>() { dsCabecera}));
+            rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
+
+            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoFactura");
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            frm.ShowDialog();
+            //DialogResult dr = frm.ShowDialog();
+            //if (dr == DialogResult.OK) BuscarLetras();
         }
     }
 }

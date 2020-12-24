@@ -40,6 +40,7 @@ namespace pm.be
         public decimal TotalPagar { get; set; }
         public int? CodigoCotizacion { get; set; }
         public CotizacionBe Cotizacion { get; set; }
+        public bool FlagCancelado { get; set; }
         public bool FlagEmitido { get; set; }
         public bool FlagActivo { get; set; }
 

@@ -30,15 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.lblResultados = new System.Windows.Forms.Label();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpFiltroFechaEmisionHasta = new System.Windows.Forms.DateTimePicker();
-            this.dtpFiltroFechaEmisionDesde = new System.Windows.Forms.DateTimePicker();
+            this.cbbFiltroCodigoSerie = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpFiltroFechaPagoHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpFiltroFechaPagoDesde = new System.Windows.Forms.DateTimePicker();
             this.txtFiltroNombresCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtFiltroNroDocIdentidadCliente = new System.Windows.Forms.TextBox();
@@ -46,17 +46,13 @@
             this.txtFiltroNroComprobante = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.chkAnulado = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.dgvResultados_CodigoLetra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_CodigoComprobantePago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NombreTipoComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NumeroComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaHoraPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_SerialSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,13 +63,24 @@
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNuevo.Location = new System.Drawing.Point(557, 77);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 38;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
             // lblResultados
             // 
             this.lblResultados.AutoSize = true;
-            this.lblResultados.Location = new System.Drawing.Point(11, 82);
+            this.lblResultados.Location = new System.Drawing.Point(15, 87);
             this.lblResultados.Name = "lblResultados";
             this.lblResultados.Size = new System.Drawing.Size(0, 13);
-            this.lblResultados.TabIndex = 32;
+            this.lblResultados.TabIndex = 37;
             // 
             // dgvResultados
             // 
@@ -85,36 +92,33 @@
             this.dgvResultados.BackgroundColor = System.Drawing.Color.White;
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvResultados_CodigoLetra,
+            this.dgvResultados_CodigoComprobantePago,
             this.dgvResultados_Nro,
-            this.dgvResultados_FechaPago,
-            this.dgvResultados_Numero,
-            this.dgvResultados_NombreTipoComprobante,
-            this.dgvResultados_NumeroComprobante,
-            this.dgvResultados_FechaEmision,
-            this.dgvResultados_FechaVencimiento,
+            this.dgvResultados_FechaHoraPago,
+            this.dgvResultados_SerialSerie,
+            this.dgvResultados_NroComprobante,
             this.dgvResultados_TipoDocumentoIdentidadCliente,
             this.dgvResultados_NroDocIdentidadCliente,
             this.dgvResultados_NombresCliente,
             this.dgvResultados_StrMoneda,
             this.dgvResultados_Monto});
-            this.dgvResultados.Location = new System.Drawing.Point(8, 101);
+            this.dgvResultados.Location = new System.Drawing.Point(12, 106);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.RowHeadersVisible = false;
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 172);
-            this.dgvResultados.TabIndex = 31;
+            this.dgvResultados.TabIndex = 36;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(634, 72);
+            this.btnBuscar.Location = new System.Drawing.Point(638, 77);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 30;
+            this.btnBuscar.TabIndex = 35;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -123,8 +127,10 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaEmisionHasta);
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaEmisionDesde);
+            this.groupBox1.Controls.Add(this.cbbFiltroCodigoSerie);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaPagoHasta);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaPagoDesde);
             this.groupBox1.Controls.Add(this.txtFiltroNombresCliente);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidadCliente);
@@ -132,34 +138,54 @@
             this.groupBox1.Controls.Add(this.txtFiltroNroComprobante);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.chkActivo);
+            this.groupBox1.Controls.Add(this.chkAnulado);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(8, 7);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(701, 59);
-            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
-            // dtpFiltroFechaEmisionHasta
+            // cbbFiltroCodigoSerie
             // 
-            this.dtpFiltroFechaEmisionHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaEmisionHasta.Location = new System.Drawing.Point(112, 33);
-            this.dtpFiltroFechaEmisionHasta.Name = "dtpFiltroFechaEmisionHasta";
-            this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaEmisionHasta.TabIndex = 24;
+            this.cbbFiltroCodigoSerie.DisplayMember = "Serial";
+            this.cbbFiltroCodigoSerie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFiltroCodigoSerie.FormattingEnabled = true;
+            this.cbbFiltroCodigoSerie.Location = new System.Drawing.Point(218, 32);
+            this.cbbFiltroCodigoSerie.Name = "cbbFiltroCodigoSerie";
+            this.cbbFiltroCodigoSerie.Size = new System.Drawing.Size(100, 21);
+            this.cbbFiltroCodigoSerie.TabIndex = 27;
+            this.cbbFiltroCodigoSerie.ValueMember = "CodigoSerie";
             // 
-            // dtpFiltroFechaEmisionDesde
+            // label3
             // 
-            this.dtpFiltroFechaEmisionDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaEmisionDesde.Location = new System.Drawing.Point(6, 33);
-            this.dtpFiltroFechaEmisionDesde.Name = "dtpFiltroFechaEmisionDesde";
-            this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaEmisionDesde.TabIndex = 23;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(218, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Serie";
+            // 
+            // dtpFiltroFechaPagoHasta
+            // 
+            this.dtpFiltroFechaPagoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaPagoHasta.Location = new System.Drawing.Point(112, 33);
+            this.dtpFiltroFechaPagoHasta.Name = "dtpFiltroFechaPagoHasta";
+            this.dtpFiltroFechaPagoHasta.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaPagoHasta.TabIndex = 24;
+            // 
+            // dtpFiltroFechaPagoDesde
+            // 
+            this.dtpFiltroFechaPagoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaPagoDesde.Location = new System.Drawing.Point(6, 33);
+            this.dtpFiltroFechaPagoDesde.Name = "dtpFiltroFechaPagoDesde";
+            this.dtpFiltroFechaPagoDesde.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaPagoDesde.TabIndex = 23;
             // 
             // txtFiltroNombresCliente
             // 
-            this.txtFiltroNombresCliente.Location = new System.Drawing.Point(430, 33);
+            this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
             this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
             this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNombresCliente.TabIndex = 22;
@@ -167,7 +193,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(430, 17);
+            this.label6.Location = new System.Drawing.Point(536, 17);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 21;
@@ -175,7 +201,7 @@
             // 
             // txtFiltroNroDocIdentidadCliente
             // 
-            this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(324, 33);
+            this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
             this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
@@ -183,7 +209,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(324, 17);
+            this.label5.Location = new System.Drawing.Point(430, 17);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 13);
             this.label5.TabIndex = 19;
@@ -191,7 +217,7 @@
             // 
             // txtFiltroNroComprobante
             // 
-            this.txtFiltroNroComprobante.Location = new System.Drawing.Point(218, 33);
+            this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
             this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
             this.txtFiltroNroComprobante.TabIndex = 18;
@@ -199,7 +225,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(218, 17);
+            this.label4.Location = new System.Drawing.Point(324, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 17;
@@ -214,17 +240,15 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Fec. Pago Hasta";
             // 
-            // chkActivo
+            // chkAnulado
             // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Location = new System.Drawing.Point(536, 37);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
+            this.chkAnulado.AutoSize = true;
+            this.chkAnulado.Location = new System.Drawing.Point(638, 37);
+            this.chkAnulado.Name = "chkAnulado";
+            this.chkAnulado.Size = new System.Drawing.Size(70, 17);
+            this.chkAnulado.TabIndex = 12;
+            this.chkAnulado.Text = "Anulado";
+            this.chkAnulado.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -235,24 +259,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Fec. Pago Desde";
             // 
-            // btnNuevo
+            // dgvResultados_CodigoComprobantePago
             // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNuevo.Location = new System.Drawing.Point(553, 72);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 33;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // dgvResultados_CodigoLetra
-            // 
-            this.dgvResultados_CodigoLetra.DataPropertyName = "CodigoLetra";
-            this.dgvResultados_CodigoLetra.HeaderText = "CodigoLetra";
-            this.dgvResultados_CodigoLetra.Name = "dgvResultados_CodigoLetra";
-            this.dgvResultados_CodigoLetra.ReadOnly = true;
-            this.dgvResultados_CodigoLetra.Visible = false;
+            this.dgvResultados_CodigoComprobantePago.DataPropertyName = "CodigoComprobantePago";
+            this.dgvResultados_CodigoComprobantePago.HeaderText = "CodigoComprobantePago";
+            this.dgvResultados_CodigoComprobantePago.Name = "dgvResultados_CodigoComprobantePago";
+            this.dgvResultados_CodigoComprobantePago.ReadOnly = true;
+            this.dgvResultados_CodigoComprobantePago.Visible = false;
             // 
             // dgvResultados_Nro
             // 
@@ -262,60 +275,29 @@
             this.dgvResultados_Nro.ReadOnly = true;
             this.dgvResultados_Nro.Width = 44;
             // 
-            // dgvResultados_FechaPago
+            // dgvResultados_FechaHoraPago
             // 
-            this.dgvResultados_FechaPago.DataPropertyName = "FechaPago";
+            this.dgvResultados_FechaHoraPago.DataPropertyName = "FechaHoraPago";
             dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.dgvResultados_FechaPago.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvResultados_FechaPago.HeaderText = "Fecha Pago";
-            this.dgvResultados_FechaPago.Name = "dgvResultados_FechaPago";
-            this.dgvResultados_FechaPago.ReadOnly = true;
+            this.dgvResultados_FechaHoraPago.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvResultados_FechaHoraPago.HeaderText = "Fecha Pago";
+            this.dgvResultados_FechaHoraPago.Name = "dgvResultados_FechaHoraPago";
+            this.dgvResultados_FechaHoraPago.ReadOnly = true;
             // 
-            // dgvResultados_Numero
+            // dgvResultados_SerialSerie
             // 
-            this.dgvResultados_Numero.DataPropertyName = "Numero";
-            dataGridViewCellStyle2.Format = "00000000";
-            this.dgvResultados_Numero.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvResultados_Numero.HeaderText = "Número";
-            this.dgvResultados_Numero.Name = "dgvResultados_Numero";
-            this.dgvResultados_Numero.ReadOnly = true;
-            this.dgvResultados_Numero.Width = 80;
+            this.dgvResultados_SerialSerie.DataPropertyName = "SerialSerie";
+            this.dgvResultados_SerialSerie.HeaderText = "Serie";
+            this.dgvResultados_SerialSerie.Name = "dgvResultados_SerialSerie";
+            this.dgvResultados_SerialSerie.ReadOnly = true;
             // 
-            // dgvResultados_NombreTipoComprobante
+            // dgvResultados_NroComprobante
             // 
-            this.dgvResultados_NombreTipoComprobante.DataPropertyName = "NombreTipoComprobanteRef";
-            this.dgvResultados_NombreTipoComprobante.HeaderText = "Tipo Comprobante";
-            this.dgvResultados_NombreTipoComprobante.Name = "dgvResultados_NombreTipoComprobante";
-            this.dgvResultados_NombreTipoComprobante.ReadOnly = true;
-            this.dgvResultados_NombreTipoComprobante.Width = 150;
-            // 
-            // dgvResultados_NumeroComprobante
-            // 
-            this.dgvResultados_NumeroComprobante.DataPropertyName = "NroComprobante";
-            this.dgvResultados_NumeroComprobante.HeaderText = "N° Comprobante";
-            this.dgvResultados_NumeroComprobante.Name = "dgvResultados_NumeroComprobante";
-            this.dgvResultados_NumeroComprobante.ReadOnly = true;
-            this.dgvResultados_NumeroComprobante.Width = 120;
-            // 
-            // dgvResultados_FechaEmision
-            // 
-            this.dgvResultados_FechaEmision.DataPropertyName = "FechaHoraEmision";
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy hh:mm:ss";
-            this.dgvResultados_FechaEmision.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvResultados_FechaEmision.HeaderText = "Fecha Emisión";
-            this.dgvResultados_FechaEmision.Name = "dgvResultados_FechaEmision";
-            this.dgvResultados_FechaEmision.ReadOnly = true;
-            this.dgvResultados_FechaEmision.Width = 120;
-            // 
-            // dgvResultados_FechaVencimiento
-            // 
-            this.dgvResultados_FechaVencimiento.DataPropertyName = "FechaVencimiento";
-            dataGridViewCellStyle4.Format = "dd/MM/yyyy";
-            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvResultados_FechaVencimiento.HeaderText = "Fecha Vencimiento";
-            this.dgvResultados_FechaVencimiento.Name = "dgvResultados_FechaVencimiento";
-            this.dgvResultados_FechaVencimiento.ReadOnly = true;
-            this.dgvResultados_FechaVencimiento.Width = 140;
+            this.dgvResultados_NroComprobante.DataPropertyName = "NroComprobante";
+            this.dgvResultados_NroComprobante.HeaderText = "N° Comprobante";
+            this.dgvResultados_NroComprobante.Name = "dgvResultados_NroComprobante";
+            this.dgvResultados_NroComprobante.ReadOnly = true;
+            this.dgvResultados_NroComprobante.Width = 120;
             // 
             // dgvResultados_TipoDocumentoIdentidadCliente
             // 
@@ -351,9 +333,9 @@
             // dgvResultados_Monto
             // 
             this.dgvResultados_Monto.DataPropertyName = "Monto";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "#,##0.00";
-            this.dgvResultados_Monto.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,##0.00";
+            this.dgvResultados_Monto.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResultados_Monto.HeaderText = "Monto";
             this.dgvResultados_Monto.Name = "dgvResultados_Monto";
             this.dgvResultados_Monto.ReadOnly = true;
@@ -362,7 +344,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 281);
+            this.ClientSize = new System.Drawing.Size(725, 290);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.lblResultados);
             this.Controls.Add(this.dgvResultados);
@@ -386,12 +368,15 @@
 
         #endregion
 
+        private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblResultados;
         private System.Windows.Forms.DataGridView dgvResultados;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dtpFiltroFechaEmisionHasta;
-        private System.Windows.Forms.DateTimePicker dtpFiltroFechaEmisionDesde;
+        private System.Windows.Forms.ComboBox cbbFiltroCodigoSerie;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpFiltroFechaPagoHasta;
+        private System.Windows.Forms.DateTimePicker dtpFiltroFechaPagoDesde;
         private System.Windows.Forms.TextBox txtFiltroNombresCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtFiltroNroDocIdentidadCliente;
@@ -399,17 +384,13 @@
         private System.Windows.Forms.TextBox txtFiltroNroComprobante;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkActivo;
+        private System.Windows.Forms.CheckBox chkAnulado;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoLetra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_CodigoComprobantePago;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Nro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_FechaPago;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombreTipoComprobante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NumeroComprobante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_FechaEmision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_FechaVencimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_FechaHoraPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_SerialSerie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroComprobante;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TipoDocumentoIdentidadCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroDocIdentidadCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombresCliente;

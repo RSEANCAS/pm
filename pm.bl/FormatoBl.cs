@@ -29,5 +29,37 @@ namespace pm.bl
 
             return resultados;
         }
+
+        public FormatoBe.Factura ObtenerFormatoFacturaVenta(int codigoFacturaVenta)
+        {
+            FormatoBe.Factura item = null;
+
+            try
+            {
+                cn.Open();
+                item = formatoDa.ObtenerFormatoFacturaVenta(codigoFacturaVenta, cn);
+                if (item != null) item.ListaDetalle = formatoDa.ListarFormatoFacturaVentaDetalle(codigoFacturaVenta, cn);
+            }
+            catch (Exception ex) { log.Error(ex); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return item;
+        }
+
+        public FormatoBe.Boleta ObtenerFormatoBoletaVenta(int codigoBoletaVenta)
+        {
+            FormatoBe.Boleta item = null;
+
+            try
+            {
+                cn.Open();
+                item = formatoDa.ObtenerFormatoBoletaVenta(codigoBoletaVenta, cn);
+                if (item != null) item.ListaDetalle = formatoDa.ListarFormatoBoletaVentaDetalle(codigoBoletaVenta, cn);
+            }
+            catch (Exception ex) { log.Error(ex); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return item;
+        }
     }
 }

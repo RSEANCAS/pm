@@ -90,7 +90,7 @@ namespace pm.bl
                     {
                         int codigoTipoComprobanteRef = (int)Enums.TipoComprobante.Factura;
 
-                        if (registro.CodigoFacturaVenta != 0) seGuardo = letraDa.EliminarLetraPorRef(codigoTipoComprobanteRef, registro.CodigoSerie, nroComprobante, registro.UsuarioModi, cn);
+                        if (registro.CodigoFacturaVenta != 0) seGuardo = letraDa.EliminarLetraPorRef(codigoTipoComprobanteRef, codigoFacturaVenta, registro.UsuarioModi, cn);
 
                         foreach (LetraBe item in registro.ListaLetra)
                         {

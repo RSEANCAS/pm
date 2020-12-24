@@ -141,7 +141,7 @@ namespace pm.app
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            decimal sumaMonto = _Lista.Sum(x => x.Monto);
+            decimal sumaMonto = _Lista.Sum(x => Math.Round(x.Monto, 2));
 
             if(sumaMonto != totalImporte)
             {

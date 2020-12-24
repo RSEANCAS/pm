@@ -386,7 +386,7 @@ namespace pm.app
 
         void HabilitarBotonesGrilla()
         {
-            bool habilitarBoton = dgvDetalle.CurrentRow == null ? false : dgvDetalle.CurrentRow.Index != 1;
+            bool habilitarBoton = dgvDetalle.CurrentRow == null ? false : dgvDetalle.CurrentRow.Index != -1;
 
             btnModificarDetalle.Enabled = habilitarBoton;
             btnEliminarDetalle.Enabled = habilitarBoton;

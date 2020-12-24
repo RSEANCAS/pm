@@ -53,6 +53,7 @@
     <Compile Include="ClienteBl.cs" />
     <Compile Include="CommonBl.cs" />
     <Compile Include="ComprobanteCompraBl.cs" />
+    <Compile Include="ComprobantePagoBl.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="ConfiguracionValorBl.cs" />
     <Compile Include="ControlBusquedaBl.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="ProveedorBl.cs" />
     <Compile Include="ProvinciaBl.cs" />
     <Compile Include="SerieBl.cs" />
+    <Compile Include="TipoCambioBl.cs" />
     <Compile Include="TipoComprobanteBl.cs" />
     <Compile Include="TipoDocumentoIdentidadBl.cs" />
     <Compile Include="UnidadMedidaBl.cs" />

@@ -53,6 +53,8 @@
     <Compile Include="CommonDa.cs" />
     <Compile Include="ComprobanteCompraDa.cs" />
     <Compile Include="ComprobanteCompraDetalleDa.cs" />
+    <Compile Include="ComprobantePagoDa.cs" />
+    <Compile Include="ComprobantePagoDetalleDa.cs" />
     <Compile Include="ConfiguracionValorDa.cs" />
     <Compile Include="ControlBusquedaColumnaDa.cs" />
     <Compile Include="ControlBusquedaDa.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="ProveedorDa.cs" />
     <Compile Include="ProvinciaDa.cs" />
     <Compile Include="SerieDa.cs" />
+    <Compile Include="TipoCambioDa.cs" />
     <Compile Include="TipoComprobanteDa.cs" />
     <Compile Include="TipoDocumentoIdentidadDa.cs" />
     <Compile Include="UnidadMedidaDa.cs" />

@@ -1,4 +1,5 @@
-﻿using pm.be;
+﻿using Microsoft.Reporting.WinForms;
+using pm.be;
 using pm.bl;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace pm.app
     {
         BoletaVentaBl boletaVentaBl = new BoletaVentaBl();
         SerieBl serieBl = new SerieBl();
+        FormatoBl formatoBl = new FormatoBl();
 
         public FrmBoletaVenta()
         {
@@ -101,6 +103,9 @@ namespace pm.app
 
                 if (flagActivo && !flagEmitido) m.MenuItems.Add(mitEditar);
                 //m.MenuItems.Add(mitToggleActivar);
+                MenuItem mitVerFormato = new MenuItem("Ver Formato", mitVerFormato_Click);
+                mitVerFormato.Tag = codigoBoletaVenta;
+                m.MenuItems.Add(mitVerFormato);
 
                 m.Show(dgvResultados, new Point(e.X, e.Y));
             }
@@ -119,26 +124,23 @@ namespace pm.app
             if (dr == DialogResult.OK) BuscarBoletasVenta();
         }
 
-        //private void mitToggleActivar_Click(object sender, EventArgs e)
-        //{
-        //    MenuItem mitControl = (MenuItem)sender;
-        //    dynamic data = (object)mitControl.Tag;
+        private void mitVerFormato_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
 
-        //    DialogResult dr = MessageBox.Show($"¿Estás seguro que deseas {(data.FlagActivo ? "Inactivar" : "Activar")} el registro?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            int codigoBoletaVenta = (int)mitControl.Tag;
 
-        //    if (dr == DialogResult.Yes)
-        //    {
-        //        ClienteBe registro = new ClienteBe();
-        //        registro.CodigoCliente = data.CodigoCliente;
-        //        registro.FlagActivo = !data.FlagActivo;
-        //        bool seGuardo = boletaVentaBl.CambiarFlagActivoCliente(registro);
-        //        if (seGuardo)
-        //        {
-        //            MessageBox.Show($"Se cambió el estado del registro a {(registro.FlagActivo ? "Activo" : "Inactivo")}", "¡Bien hecho!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            BuscarClientes();
-        //        }
-        //        else MessageBox.Show("¡Ocurrió un error! Contáctese con el administrador del sistema", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+            FormatoBe.Boleta dsCabecera = formatoBl.ObtenerFormatoBoletaVenta(codigoBoletaVenta);
+            List<ReportDataSource> rpd = new List<ReportDataSource>();
+            rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.Boleta>() { dsCabecera }));
+            rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
+
+            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoBoleta");
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            frm.ShowDialog();
+            //DialogResult dr = frm.ShowDialog();
+            //if (dr == DialogResult.OK) BuscarLetras();
+        }
     }
 }

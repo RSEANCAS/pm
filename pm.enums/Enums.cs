@@ -63,13 +63,33 @@ namespace pm.enums
             [Description("Guía Remisión Remitente")]
             GuiaRemisionRemitente = 5,
             [Description("Guía Remisión Transportista")]
-            GuiaRemisionTransportista = 6
+            GuiaRemisionTransportista = 6,
+            [Description("Comprobante de Pago")]
+            ComprobantePago = 7
         }
 
         public enum TipoDocumento
         {
             [Description("Letra")]
             Letra = 1
+        }
+
+        public enum TipoDocumentoIdentidad
+        {
+            [Description("DNI")]
+            DNI = 1,
+            [Description("RUC")]
+            RUC = 2,
+            [Description("CARNET EXTRANJERIA")]
+            CE = 3,
+            [Description("PASAPORTE")]
+            PASAPORTE = 4,
+            [Description("PARTIDA NACIMIENTO")]
+            PARTIDANAC = 5,
+            [Description("OTROS")]
+            OTROS = 6,
+            [Description("SIN DOCUMENTO")]
+            SINDOCUMENTO = 7
         }
 
         public enum TipoCalculo
@@ -96,6 +116,16 @@ namespace pm.enums
             Contado = 1,
             [Description("Crédito")]
             Credito = 2
+        }
+
+        public enum TipoDocumentoPago
+        {
+            [Description("Factura")]
+            Factura = 1,
+            [Description("Letra")]
+            Letra = 2,
+            [Description("Boleta")]
+            Boleta = 3
         }
     }
 }

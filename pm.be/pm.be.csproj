@@ -52,6 +52,8 @@
     <Compile Include="ClienteBe.cs" />
     <Compile Include="ComprobanteCompraBe.cs" />
     <Compile Include="ComprobanteCompraDetalleBe.cs" />
+    <Compile Include="ComprobantePagoBe.cs" />
+    <Compile Include="ComprobantePagoDetalleBe.cs" />
     <Compile Include="ConfiguracionValorBe.cs" />
     <Compile Include="ControlBusquedaBe.cs" />
     <Compile Include="ControlBusquedaColumnaBe.cs" />
@@ -82,7 +84,9 @@
     <Compile Include="ProveedorBe.cs" />
     <Compile Include="ProvinciaBe.cs" />
     <Compile Include="SerieBe.cs" />
+    <Compile Include="TipoCambioBe.cs" />
     <Compile Include="TipoComprobanteBe.cs" />
+    <Compile Include="TipoDocumentoPagoBe.cs" />
     <Compile Include="TipoDocumentoIdentidadBe.cs" />
     <Compile Include="UnidadMedidaBe.cs" />
     <Compile Include="UsuarioBe.cs" />

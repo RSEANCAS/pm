@@ -34,10 +34,16 @@ namespace pm.be
         public int CodigoMoneda { get; set; }
         public string StrMoneda { get { return Enum<Moneda>.GetCollection().Count(x => x.Value == CodigoMoneda.ToString()) == 0 ? "" : ((Moneda)CodigoMoneda).GetAttributeOfType<DescriptionAttribute>().Description; } }
         public decimal Monto { get; set; }
+        public decimal Mora { get; set; }
+        public decimal Protesto { get; set; }
+        public decimal Total { get { return Monto + Mora + Protesto; } }
         public int? Estado { get; set; }
         public string StrEstado { get { return Estado == null ? "" : Enum<EstadoLetra>.GetCollection().FirstOrDefault(x => x.Value == Estado.Value.ToString()).Text; } }
+        public string Observacion { get; set; }
         public int? CodigoLetraPadre { get; set; }
         public LetraBe LetraPadre { get; set; }
+        public int? CodigoLetraInicial { get; set; }
+        public LetraBe LetraInicial { get; set; }
         public bool FlagAval { get; set; }
         public int? CodigoAval { get; set; }
         public ClienteBe Aval { get; set; }

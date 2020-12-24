@@ -195,6 +195,7 @@ namespace pm.app
         {
             List<TipoDocumentoIdentidadBe> listaCombo = tipoDocumentoIdentidadBl.ListarComboTipoDocumentoIdentidad();
             listaCombo = listaCombo ?? new List<TipoDocumentoIdentidadBe>();
+            listaCombo = listaCombo.Where(x => x.CodigoTipoDocumentoIdentidad != (int)TipoDocumentoIdentidad.RUC).ToList();
             listaCombo.Insert(0, new TipoDocumentoIdentidadBe { CodigoTipoDocumentoIdentidad = -1, Descripcion = "[Seleccione...]" });
 
             cbbCodigoTipoDocumentoIdentidadCliente.DataSource = null;

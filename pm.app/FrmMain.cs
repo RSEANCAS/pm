@@ -22,6 +22,7 @@ namespace pm.app
         PersonalBl personalBl = new PersonalBl();
         PerfilBl perfilBl = new PerfilBl();
         MenuBl menuBl = new MenuBl();
+        TipoCambioBl tipoCambioBl = new TipoCambioBl();
 
         public FrmMain(UsuarioBe usuario)
         {
@@ -159,16 +160,35 @@ namespace pm.app
         {
             string hostName = Dns.GetHostName(); // Retrive the Name of HOST  
             string ip = Dns.GetHostByName(hostName).AddressList[0].ToString();
+            DateTime fechaActual = DateTime.Now;
+            var tipoCambioActual = tipoCambioBl.ObtenerTipoCambioPorFechaCambio(fechaActual);
 
             lblUsuarioNombre.Text = usuarioSession.Nombre;
             lblPersonalNombres.Text = usuarioSession.Personal.Nombres;
             lblIP.Text = ip;
             lblPC.Text = hostName;
+            lblTC.Text = tipoCambioActual.ValorVenta.ToString("0.00");
             CargarComboPerfiles();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            DateTime fechaActual = DateTime.Now;
+            var tipoCambioActual = tipoCambioBl.ObtenerTipoCambioPorFechaCambio(fechaActual);
+            
+            if(tipoCambioActual == null)
+            {
+                DialogResult dr = DialogResult.Cancel;
+                do
+                {
+                    FrmMantenimientoTipoCambio frm = new FrmMantenimientoTipoCambio();
+                    frm.ShowInTaskbar = false;
+                    frm.BringToFront();
+                    dr = frm.ShowDialog();
+                    tipoCambioActual = tipoCambioBl.ObtenerTipoCambioPorFechaCambio(fechaActual);
+                }
+                while (tipoCambioActual == null);
+            }
             CargarInformacionUsuario();
         }
 

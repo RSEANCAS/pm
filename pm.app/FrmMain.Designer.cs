@@ -41,6 +41,8 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.cbbPerfil = new System.Windows.Forms.ToolStripDropDownButton();
             this.mnsMenu = new System.Windows.Forms.MenuStrip();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTC = new System.Windows.Forms.ToolStripStatusLabel();
             this.stsInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,9 @@
             this.toolStripStatusLabel7,
             this.lblPC,
             this.toolStripStatusLabel2,
-            this.cbbPerfil});
+            this.cbbPerfil,
+            this.toolStripStatusLabel4,
+            this.lblTC});
             this.stsInfo.Location = new System.Drawing.Point(0, 428);
             this.stsInfo.Name = "stsInfo";
             this.stsInfo.Size = new System.Drawing.Size(907, 22);
@@ -142,6 +146,19 @@
             this.mnsMenu.TabIndex = 1;
             this.mnsMenu.Text = "menuStrip1";
             // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(25, 17);
+            this.toolStripStatusLabel4.Text = "TC:";
+            // 
+            // lblTC
+            // 
+            this.lblTC.Name = "lblTC";
+            this.lblTC.Size = new System.Drawing.Size(35, 17);
+            this.lblTC.Text = "lblTC";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +201,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblPC;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripDropDownButton cbbPerfil;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel lblTC;
     }
 }

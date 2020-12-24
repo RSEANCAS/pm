@@ -62,5 +62,177 @@ namespace pm.da
 
             return resultados;
         }
+
+        public FormatoBe.Factura ObtenerFormatoFacturaVenta(int codigoFacturaVenta, SqlConnection cn)
+        {
+            FormatoBe.Factura item = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_facturaventa", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoFacturaVenta", codigoFacturaVenta.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            item = new FormatoBe.Factura();
+
+                            if (dr.Read())
+                            {
+                                item.Serie = dr.GetData<string>("Serie");
+                                item.Correlativo = dr.GetData<int>("Correlativo");
+                                item.NombresCompletoCliente = dr.GetData<string>("NombresCompletoCliente");
+                                item.NroDocumentoIdentidadCliente = dr.GetData<string>("NroDocumentoIdentidadCliente");
+                                item.DireccionCliente = dr.GetData<string>("DireccionCliente");
+                                item.CondicionPago = dr.GetData<string>("CondicionPago");
+                                item.TelefonoCliente = dr.GetData<string>("TelefonoCliente");
+                                item.AgenciaTransporte = dr.GetData<string>("AgenciaTransporte");
+                                item.FechaEmision = dr.GetData<DateTime>("FechaEmision");
+                                item.FechaVencimiento = dr.GetData<DateTime>("FechaVencimiento");
+                                item.TipoCambio = dr.GetData<decimal>("TipoCambio");
+                                item.NroPedido = dr.GetData<string>("NroPedido");
+                                item.NroGuia = dr.GetData<string>("NroGuia");
+                                item.OrdenCompra = dr.GetData<string>("OrdenCompra");
+                                item.TotalGravada = dr.GetData<decimal>("TotalGravada");
+                                item.TotalIGV = dr.GetData<decimal>("TotalIGV");
+                                item.TotalImporte = dr.GetData<decimal>("TotalImporte");
+                                item.TotalPagar = dr.GetData<decimal>("TotalPagar");
+                                item.TotalEnLetras = dr.GetData<string>("TotalEnLetras");
+                                item.Hash = dr.GetData<string>("Hash");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return item;
+        }
+
+        public List<FormatoBe.FacturaDetalle> ListarFormatoFacturaVentaDetalle(int codigoFacturaVenta, SqlConnection cn)
+        {
+            List<FormatoBe.FacturaDetalle> resultados = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_facturaventadetalle", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoFacturaVenta", codigoFacturaVenta.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            resultados = new List<FormatoBe.FacturaDetalle>();
+
+                            while (dr.Read())
+                            {
+                                FormatoBe.FacturaDetalle item = new FormatoBe.FacturaDetalle();
+                                item.Codigo = dr.GetData<string>("Codigo");
+                                item.Articulo = dr.GetData<string>("Articulo");
+                                item.Cantidad = dr.GetData<decimal>("Cantidad");
+                                item.Precio = dr.GetData<decimal>("Precio");
+                                item.Importe = dr.GetData<decimal>("Importe");
+
+                                resultados.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return resultados;
+        }
+
+        public FormatoBe.Boleta ObtenerFormatoBoletaVenta(int codigoBoletaVenta, SqlConnection cn)
+        {
+            FormatoBe.Boleta item = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_boletaventa", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoBoletaVenta", codigoBoletaVenta.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            item = new FormatoBe.Boleta();
+
+                            if (dr.Read())
+                            {
+                                item.Serie = dr.GetData<string>("Serie");
+                                item.Correlativo = dr.GetData<int>("Correlativo");
+                                item.NombresCompletoCliente = dr.GetData<string>("NombresCompletoCliente");
+                                item.NroDocumentoIdentidadCliente = dr.GetData<string>("NroDocumentoIdentidadCliente");
+                                item.DireccionCliente = dr.GetData<string>("DireccionCliente");
+                                item.CondicionPago = dr.GetData<string>("CondicionPago");
+                                item.TelefonoCliente = dr.GetData<string>("TelefonoCliente");
+                                item.AgenciaTransporte = dr.GetData<string>("AgenciaTransporte");
+                                item.FechaEmision = dr.GetData<DateTime>("FechaEmision");
+                                item.FechaVencimiento = dr.GetData<DateTime>("FechaVencimiento");
+                                item.TipoCambio = dr.GetData<decimal>("TipoCambio");
+                                item.NroPedido = dr.GetData<string>("NroPedido");
+                                item.NroGuia = dr.GetData<string>("NroGuia");
+                                item.OrdenCompra = dr.GetData<string>("OrdenCompra");
+                                item.TotalGravada = dr.GetData<decimal>("TotalGravada");
+                                item.TotalIGV = dr.GetData<decimal>("TotalIGV");
+                                item.TotalImporte = dr.GetData<decimal>("TotalImporte");
+                                item.TotalPagar = dr.GetData<decimal>("TotalPagar");
+                                item.TotalEnLetras = dr.GetData<string>("TotalEnLetras");
+                                item.Hash = dr.GetData<string>("Hash");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return item;
+        }
+
+        public List<FormatoBe.BoletaDetalle> ListarFormatoBoletaVentaDetalle(int codigoBoletaVenta, SqlConnection cn)
+        {
+            List<FormatoBe.BoletaDetalle> resultados = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_boletaventadetalle", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoBoletaVenta", codigoBoletaVenta.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            resultados = new List<FormatoBe.BoletaDetalle>();
+
+                            while (dr.Read())
+                            {
+                                FormatoBe.BoletaDetalle item = new FormatoBe.BoletaDetalle();
+                                item.Codigo = dr.GetData<string>("Codigo");
+                                item.Articulo = dr.GetData<string>("Articulo");
+                                item.Cantidad = dr.GetData<decimal>("Cantidad");
+                                item.Precio = dr.GetData<decimal>("Precio");
+                                item.Importe = dr.GetData<decimal>("Importe");
+
+                                resultados.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return resultados;
+        }
     }
 }

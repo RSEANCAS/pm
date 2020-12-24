@@ -162,6 +162,29 @@ namespace pm.da
             return item;
         }
 
+        public bool CambiarFlagCanceladoFacturaVenta(FacturaVentaBe registro, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_facturaventa_cambiar_flagcancelado", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoFacturaVenta", registro.CodigoFacturaVenta.GetNullable());
+                    cmd.Parameters.AddWithValue("@flagCancelado", registro.FlagCancelado.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
+
         public bool GuardarFacturaVenta(FacturaVentaBe registro, SqlConnection cn, out int codigoFacturaVenta, out int nroComprobante)
         {
             codigoFacturaVenta = 0;

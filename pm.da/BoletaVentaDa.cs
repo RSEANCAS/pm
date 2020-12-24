@@ -160,6 +160,29 @@ namespace pm.da
             return item;
         }
 
+        public bool CambiarFlagCanceladoBoletaVenta(BoletaVentaBe registro, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_boletaventa_cambiar_flagcancelado", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoBoletaVenta", registro.CodigoBoletaVenta.GetNullable());
+                    cmd.Parameters.AddWithValue("@flagCancelado", registro.FlagCancelado.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas > 0;
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
+
         public bool GuardarBoletaVenta(BoletaVentaBe registro, SqlConnection cn, out int codigoBoletaVenta, out int nroComprobante)
         {
             codigoBoletaVenta = 0;
