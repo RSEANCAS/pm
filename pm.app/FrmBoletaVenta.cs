@@ -101,7 +101,21 @@ namespace pm.app
                 //MenuItem mitToggleActivar = new MenuItem(flagActivo ? "Inactivar" : "Activar", mitToggleActivar_Click);
                 //mitToggleActivar.Tag = new { CodigoCliente = codigoCliente, FlagActivo = flagActivo };
 
-                if (flagActivo && !flagEmitido) m.MenuItems.Add(mitEditar);
+                if (flagActivo && !flagEmitido)
+                {
+                    m.MenuItems.Add(mitEditar);
+                    MenuItem mitGenerarNota = new MenuItem("Generar Nota");
+
+                    MenuItem mitGenerarNotaCredito = new MenuItem("Nota de Crédito", mitGenerarNotaCredito_Click);
+                    mitGenerarNotaCredito.Tag = codigoBoletaVenta;
+
+                    MenuItem mitGenerarNotaDebito = new MenuItem("Nota de Débito", mitGenerarNotaDebito_Click);
+                    mitGenerarNotaDebito.Tag = codigoBoletaVenta;
+
+                    mitGenerarNota.MenuItems.Add(mitGenerarNotaCredito);
+                    mitGenerarNota.MenuItems.Add(mitGenerarNotaDebito);
+                    m.MenuItems.Add(mitGenerarNota);
+                }
                 //m.MenuItems.Add(mitToggleActivar);
                 MenuItem mitVerFormato = new MenuItem("Ver Formato", mitVerFormato_Click);
                 mitVerFormato.Tag = codigoBoletaVenta;
@@ -118,6 +132,36 @@ namespace pm.app
             int codigoBoletaVenta = (int)mitControl.Tag;
 
             FrmMantenimientoBoletaVenta frm = new FrmMantenimientoBoletaVenta(codigoBoletaVenta);
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            DialogResult dr = frm.ShowDialog();
+            if (dr == DialogResult.OK) BuscarBoletasVenta();
+        }
+
+        private void mitGenerarNotaCredito_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
+
+            int codigoGuiaRemision = (int)mitControl.Tag;
+
+            BoletaVentaBe boletaVenta = boletaVentaBl.ObtenerBoletaVenta(codigoGuiaRemision, true, withSerie: true);
+
+            FrmMantenimientoNotaCredito frm = new FrmMantenimientoNotaCredito(null, boletaVenta, TipoComprobante.Boleta);
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            DialogResult dr = frm.ShowDialog();
+            if (dr == DialogResult.OK) BuscarBoletasVenta();
+        }
+
+        private void mitGenerarNotaDebito_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
+
+            int codigoGuiaRemision = (int)mitControl.Tag;
+
+            BoletaVentaBe boletaVenta = boletaVentaBl.ObtenerBoletaVenta(codigoGuiaRemision, true, withSerie: true);
+
+            FrmMantenimientoNotaDebito frm = new FrmMantenimientoNotaDebito(null, boletaVenta, TipoComprobante.Boleta);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();

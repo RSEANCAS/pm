@@ -16,6 +16,7 @@ namespace pm.bl
 
         BoletaVentaDa boletaVentaDa = new BoletaVentaDa();
         BoletaVentaDetalleDa boletaVentaDetalleDa = new BoletaVentaDetalleDa();
+        SerieDa serieDa = new SerieDa();
         ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
 
         public List<BoletaVentaBe> BuscarBoletaVenta(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
@@ -33,7 +34,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public BoletaVentaBe ObtenerBoletaVenta(int codigoBoletaVenta, bool withDetalle = false)
+        public BoletaVentaBe ObtenerBoletaVenta(int codigoBoletaVenta, bool withDetalle = false, bool withSerie = false)
         {
             BoletaVentaBe item = null;
 
@@ -41,10 +42,8 @@ namespace pm.bl
             {
                 cn.Open();
                 item = boletaVentaDa.ObtenerBoletaVenta(codigoBoletaVenta, cn);
-                if (withDetalle)
-                {
-                    item.ListaBoletaVentaDetalle = boletaVentaDetalleDa.ListarBoletaVentaDetalle(codigoBoletaVenta, cn);
-                }
+                if (withSerie) item.Serie = serieDa.ObtenerSerie(item.CodigoSerie, cn);
+                if (withDetalle) item.ListaBoletaVentaDetalle = boletaVentaDetalleDa.ListarBoletaVentaDetalle(codigoBoletaVenta, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
