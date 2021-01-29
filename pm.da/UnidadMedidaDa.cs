@@ -72,6 +72,7 @@ namespace pm.da
                             {
                                 item.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedida");
                                 item.Descripcion = dr.GetData<string>("Descripcion");
+                                item.CodigoSunat = dr.GetData<string>("CodigoSunat");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
                             }
                         }
@@ -170,6 +171,7 @@ namespace pm.da
                                 UnidadMedidaBe item = new UnidadMedidaBe();
                                 item.CodigoUnidadMedida = dr.GetData<int>("CodigoUnidadMedida");
                                 item.Descripcion = dr.GetData<string>("Descripcion");
+                                item.CodigoSunat = dr.GetData<string>("CodigoSunat");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
 
                                 lista.Add(item);

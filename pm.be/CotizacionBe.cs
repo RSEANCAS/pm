@@ -27,6 +27,12 @@ namespace pm.be
         public string NroDocumentoIdentidadVendedor { get; set; }
         // NO MAPEADO EN BD
         public string DescripcionTipoDocumentoIdentidadVendedor { get; set; }
+        public int? CodigoSupervisor { get; set; }
+        public PersonalBe Supervisor { get; set; }
+        // NO MAPEADO EN BD
+        public string NroDocumentoIdentidadSupervisor { get; set; }
+        // NO MAPEADO EN BD
+        public string DescripcionTipoDocumentoIdentidadSupervisor { get; set; }
         public int CodigoMoneda { get; set; }
         public string StrMoneda { get { return Enum<Moneda>.GetCollection().Count(x => x.Value == CodigoMoneda.ToString()) == 0 ? "" : ((Moneda)CodigoMoneda).GetAttributeOfType<DescriptionAttribute>().Description; } }
         public decimal TotalImporte { get; set; }

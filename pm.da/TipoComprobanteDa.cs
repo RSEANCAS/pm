@@ -35,6 +35,7 @@ namespace pm.da
                                 TipoComprobanteBe item = new TipoComprobanteBe();
                                 item.CodigoTipoComprobante = dr.GetData<int>("CodigoTipoComprobante");
                                 item.Nombre = dr.GetData<string>("Nombre");
+                                item.CodigoSunat = dr.GetData<string>("CodigoSunat");
 
                                 lista.Add(item);
                             }

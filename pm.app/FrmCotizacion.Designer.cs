@@ -58,11 +58,15 @@
             this.dgvResultados_TipoDocumentoIdentidadVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_NroDocIdentidadVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_NombresVendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroDocIdentidadSupervisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NombresSupervisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_TotalImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_FlagActivo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -105,6 +109,9 @@
             this.dgvResultados_TipoDocumentoIdentidadVendedor,
             this.dgvResultados_NroDocIdentidadVendedor,
             this.dgvResultados_NombresVendedor,
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor,
+            this.dgvResultados_NroDocIdentidadSupervisor,
+            this.dgvResultados_NombresSupervisor,
             this.dgvResultados_StrMoneda,
             this.dgvResultados_TotalImporte,
             this.dgvResultados_FlagActivo});
@@ -179,7 +186,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(430, 17);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Nombres";
             // 
@@ -195,7 +202,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(324, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.Size = new System.Drawing.Size(98, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "N° Doc. Identidad";
             // 
@@ -211,7 +218,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(218, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Número";
             // 
@@ -220,7 +227,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(112, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.Size = new System.Drawing.Size(102, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Fec. Emisión Hasta";
             // 
@@ -231,7 +238,7 @@
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Location = new System.Drawing.Point(536, 37);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
+            this.chkActivo.Size = new System.Drawing.Size(57, 17);
             this.chkActivo.TabIndex = 12;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
@@ -241,7 +248,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fec. Emisión Desde";
             // 
@@ -318,15 +325,15 @@
             this.dgvResultados_TipoDocumentoIdentidadVendedor.HeaderText = "Tipo Doc. Identidad Vendedor";
             this.dgvResultados_TipoDocumentoIdentidadVendedor.Name = "dgvResultados_TipoDocumentoIdentidadVendedor";
             this.dgvResultados_TipoDocumentoIdentidadVendedor.ReadOnly = true;
-            this.dgvResultados_TipoDocumentoIdentidadVendedor.Width = 180;
+            this.dgvResultados_TipoDocumentoIdentidadVendedor.Width = 190;
             // 
             // dgvResultados_NroDocIdentidadVendedor
             // 
-            this.dgvResultados_NroDocIdentidadVendedor.DataPropertyName = "NroDocumentoIdentidadCliente";
+            this.dgvResultados_NroDocIdentidadVendedor.DataPropertyName = "NroDocumentoIdentidadVendedor";
             this.dgvResultados_NroDocIdentidadVendedor.HeaderText = "N° Doc. Identidad Vendedor";
             this.dgvResultados_NroDocIdentidadVendedor.Name = "dgvResultados_NroDocIdentidadVendedor";
             this.dgvResultados_NroDocIdentidadVendedor.ReadOnly = true;
-            this.dgvResultados_NroDocIdentidadVendedor.Width = 170;
+            this.dgvResultados_NroDocIdentidadVendedor.Width = 180;
             // 
             // dgvResultados_NombresVendedor
             // 
@@ -335,6 +342,30 @@
             this.dgvResultados_NombresVendedor.Name = "dgvResultados_NombresVendedor";
             this.dgvResultados_NombresVendedor.ReadOnly = true;
             this.dgvResultados_NombresVendedor.Width = 230;
+            // 
+            // dgvResultados_TipoDocumentoIdentidadSupervisor
+            // 
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor.DataPropertyName = "DescripcionTipoDocumentoIdentidadSupervisor";
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor.HeaderText = "Tipo Doc. Identidad Supervisor";
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor.Name = "dgvResultados_TipoDocumentoIdentidadSupervisor";
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor.ReadOnly = true;
+            this.dgvResultados_TipoDocumentoIdentidadSupervisor.Width = 190;
+            // 
+            // dgvResultados_NroDocIdentidadSupervisor
+            // 
+            this.dgvResultados_NroDocIdentidadSupervisor.DataPropertyName = "NroDocumentoIdentidadSupervisor";
+            this.dgvResultados_NroDocIdentidadSupervisor.HeaderText = "N° Doc. Identidad Supervisor";
+            this.dgvResultados_NroDocIdentidadSupervisor.Name = "dgvResultados_NroDocIdentidadSupervisor";
+            this.dgvResultados_NroDocIdentidadSupervisor.ReadOnly = true;
+            this.dgvResultados_NroDocIdentidadSupervisor.Width = 180;
+            // 
+            // dgvResultados_NombresSupervisor
+            // 
+            this.dgvResultados_NombresSupervisor.DataPropertyName = "Supervisor";
+            this.dgvResultados_NombresSupervisor.HeaderText = "Nombres Completos Supervisor";
+            this.dgvResultados_NombresSupervisor.Name = "dgvResultados_NombresSupervisor";
+            this.dgvResultados_NombresSupervisor.ReadOnly = true;
+            this.dgvResultados_NombresSupervisor.Width = 230;
             // 
             // dgvResultados_StrMoneda
             // 
@@ -372,11 +403,16 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmCotizacion";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Cotizaciones";
             this.Load += new System.EventHandler(this.FrmCotizacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,6 +447,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TipoDocumentoIdentidadVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroDocIdentidadVendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombresVendedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TipoDocumentoIdentidadSupervisor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NroDocIdentidadSupervisor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_NombresSupervisor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_StrMoneda;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvResultados_TotalImporte;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvResultados_FlagActivo;

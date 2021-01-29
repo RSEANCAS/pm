@@ -35,6 +35,9 @@
     <ApplicationIcon>icon-pm.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -61,6 +64,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,6 +80,11 @@
     <Reference Include="TelerikCommon, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\SWFacturaElectronica\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="FrmActividad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -471,6 +481,12 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteComisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteComisiones.Designer.cs">
+      <DependentUpon>FrmReporteComisiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSerie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -498,12 +514,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="App_Data\rdlc\rptReporteComision.rdlc" />
+    <EmbeddedResource Include="App_Data\rdlc\rptResultadoLetra.rdlc" />
     <EmbeddedResource Include="App_Data\rdlc\rptFormatoBoleta.rdlc" />
-    <EmbeddedResource Include="App_Data\rdlc\rptFormatoNotaDebito.rdlc" />
     <EmbeddedResource Include="App_Data\rdlc\rptFormatoNotaCredito.rdlc" />
     <EmbeddedResource Include="App_Data\rdlc\rptFormatoFactura.rdlc" />
     <EmbeddedResource Include="App_Data\rdlc\rptFormatoGuiaRemision.rdlc" />
     <EmbeddedResource Include="App_Data\rdlc\rptFormatoLetra.rdlc" />
+    <EmbeddedResource Include="App_Data\rdlc\rptFormatoNotaDebito.rdlc" />
+    <EmbeddedResource Include="App_Data\rdlc\rptReporteLetra.rdlc" />
     <EmbeddedResource Include="FrmActividad.resx">
       <DependentUpon>FrmActividad.cs</DependentUpon>
     </EmbeddedResource>
@@ -702,6 +721,9 @@
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteComisiones.resx">
+      <DependentUpon>FrmReporteComisiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSerie.resx">
       <DependentUpon>FrmSerie.cs</DependentUpon>
     </EmbeddedResource>
@@ -725,6 +747,27 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\SWFacturaElectronica\billService.wsdl" />
+    <None Include="Connected Services\SWFacturaElectronica\billService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SWFacturaElectronica\billService1.wsdl" />
+    <None Include="Connected Services\SWFacturaElectronica\billService2.wsdl" />
+    <None Include="Connected Services\SWFacturaElectronica\pm.app.SWFacturaElectronica.getStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SWFacturaElectronica\pm.app.SWFacturaElectronica.sendBillResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SWFacturaElectronica\pm.app.SWFacturaElectronica.sendPackResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SWFacturaElectronica\pm.app.SWFacturaElectronica.sendSummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SWFacturaElectronica\pm.app.SWFacturaElectronica.statusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Log4Net.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\pm.be.FormatoBe+Boleta.datasource" />
@@ -734,6 +777,12 @@
     <None Include="Properties\DataSources\pm.be.FormatoBe+GuiaRemision.datasource" />
     <None Include="Properties\DataSources\pm.be.FormatoBe+GuiaRemisionDetalle.datasource" />
     <None Include="Properties\DataSources\pm.be.FormatoBe+Letra.datasource" />
+    <None Include="Properties\DataSources\pm.be.FormatoBe+NotaCredito.datasource" />
+    <None Include="Properties\DataSources\pm.be.FormatoBe+NotaCreditoDetalle.datasource" />
+    <None Include="Properties\DataSources\pm.be.FormatoBe+NotaDebito.datasource" />
+    <None Include="Properties\DataSources\pm.be.FormatoBe+NotaDebitoDetalle.datasource" />
+    <None Include="Properties\DataSources\pm.be.ReporteBe+Comision.datasource" />
+    <None Include="Properties\DataSources\pm.be.ResultadoBe+Letra.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -763,12 +812,22 @@
       <Project>{3B52A220-EDF9-4DE9-85C2-17FD9DD90EB2}</Project>
       <Name>pm.enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\pm.sunat\pm.sunat.csproj">
+      <Project>{7354db0b-c504-47d3-9a05-ca41b6e66c90}</Project>
+      <Name>pm.sunat</Name>
+    </ProjectReference>
     <ProjectReference Include="..\pm.util\pm.util.csproj">
       <Project>{52A204CE-AB91-41BF-BE67-F6BC05D6F7AD}</Project>
       <Name>pm.util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\SWFacturaElectronica\configuration91.svcinfo" />
+    <None Include="Connected Services\SWFacturaElectronica\configuration.svcinfo" />
+    <None Include="Connected Services\SWFacturaElectronica\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="icon-pm.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -783,6 +842,12 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\SWFacturaElectronica\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

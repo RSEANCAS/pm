@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,13 +91,27 @@ namespace pm.app
             var item = configuracionValorBl.ObtenerConfiguracionValor();
             cbbCodigoTipoComprobanteGuiaRemision.SelectedValue = item.CodigoTipoComprobanteGuiaRemision;
             CargarTransportistaGuiaRemision(item.CodigoTransportistaGuiaRemision);
+            txtRutaFacturacionElectronicaSunat.Text = item.RutaFacturacionElectronica;
+            txtRutaCertificadoSunat.Text = item.RutaCertificado;
+            txtContraseñaCertificadoSunat.Text = item.ContraseñaCertificado;
+            txtUsuarioSOLSunat.Text = item.UsuarioSOL;
+            txtContraseñaSOLSunat.Text = item.ContraseñaSOL;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            bool estaValidado = ValidarFormulario();
+
+            if (!estaValidado) return;
+
             ConfiguracionValorBe registro = new ConfiguracionValorBe();
             registro.CodigoTipoComprobanteGuiaRemision = (int)cbbCodigoTipoComprobanteGuiaRemision.SelectedValue;
             registro.CodigoTransportistaGuiaRemision = codigoTransportistaGuiaRemision;
+            registro.RutaFacturacionElectronica = txtRutaFacturacionElectronicaSunat.Text.Trim();
+            registro.RutaCertificado = txtRutaCertificadoSunat.Text.Trim();
+            registro.ContraseñaCertificado = txtContraseñaCertificadoSunat.Text.Trim();
+            registro.UsuarioSOL = txtUsuarioSOLSunat.Text.Trim();
+            registro.ContraseñaSOL = txtContraseñaSOLSunat.Text.Trim();
 
             bool seGuardoRegistro = configuracionValorBl.GuardarConfiguracionValor(registro);
 
@@ -106,6 +121,82 @@ namespace pm.app
                 //Close();
             }
             else MessageBox.Show("¡Ocurrió un error! Contáctese con el administrador del sistema", "¡Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        void LimpiarErrores()
+        {
+            lblErrorRutaFacturacionElectronicaSunat.Text = "";
+            lblErrorRutaCertificadoSunat.Text = "";
+            lblErrorContraseñaCertificadoSunat.Text = "";
+            lblErrorUsuarioSOLSunat.Text = "";
+            lblErrorContraseñaSOLSunat.Text = "";
+        }
+
+        bool ValidarFormulario()
+        {
+            bool estaValidado = true;
+
+            LimpiarErrores();
+
+            if (string.IsNullOrEmpty(txtRutaFacturacionElectronicaSunat.Text.Trim()))
+            {
+                estaValidado = false;
+                lblErrorRutaFacturacionElectronicaSunat.Text = "Debe ingresar la ruta del directorio facturación electrónica";
+                SetToolTipError(lblErrorRutaFacturacionElectronicaSunat);
+            }
+            else
+            {
+                if (!Directory.Exists(txtRutaFacturacionElectronicaSunat.Text.Trim()))
+                {
+                    estaValidado = false;
+                    lblErrorRutaFacturacionElectronicaSunat.Text = "La ruta del directorio ingresada no existe";
+                    SetToolTipError(lblErrorRutaFacturacionElectronicaSunat);
+                }
+            }
+
+            if (string.IsNullOrEmpty(txtRutaCertificadoSunat.Text.Trim()))
+            {
+                estaValidado = false;
+                lblErrorRutaCertificadoSunat.Text = "Debe ingresar la ruta del archivo certificado";
+                SetToolTipError(lblErrorRutaCertificadoSunat);
+            }
+            else
+            {
+                if (!File.Exists(txtRutaCertificadoSunat.Text.Trim()))
+                {
+                    estaValidado = false;
+                    lblErrorRutaCertificadoSunat.Text = "La ruta del archivo ingresada no existe";
+                    SetToolTipError(lblErrorRutaCertificadoSunat);
+                }
+            }
+
+            if (string.IsNullOrEmpty(txtContraseñaCertificadoSunat.Text.Trim()))
+            {
+                estaValidado = false;
+                lblErrorContraseñaCertificadoSunat.Text = "Debe ingresar la contraseña del certificado";
+                SetToolTipError(lblErrorContraseñaCertificadoSunat);
+            }
+
+            if (string.IsNullOrEmpty(txtUsuarioSOLSunat.Text.Trim()))
+            {
+                estaValidado = false;
+                lblErrorUsuarioSOLSunat.Text = "Debe ingresar el usuario SOL";
+                SetToolTipError(lblErrorUsuarioSOLSunat);
+            }
+
+            if (string.IsNullOrEmpty(txtContraseñaSOLSunat.Text.Trim()))
+            {
+                estaValidado = false;
+                lblErrorContraseñaSOLSunat.Text = "Debe ingresar la contraseña SOL";
+                SetToolTipError(lblErrorContraseñaSOLSunat);
+            }
+
+            return estaValidado;
+        }
+
+        void SetToolTipError(Label label)
+        {
+            tltConfiguracionValor.SetToolTip(label, label.Text);
         }
     }
 }

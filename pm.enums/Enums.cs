@@ -44,24 +44,32 @@ namespace pm.enums
         {
             [Description("Soles")]
             [DefaultValue("S/")]
+            [Category("PEN")]
             Soles = 1,
             [Description("Dólares")]
             [DefaultValue("$")]
+            [Category("USD")]
             Dolares = 2
         }
 
         public enum TipoComprobante
         {
+            [Category("03")]
             [Description("Boleta")]
             Boleta = 1,
+            [Category("01")]
             [Description("Factura")]
             Factura = 2,
+            [Category("07")]
             [Description("Nota de crédito")]
             NotaCredito = 3,
+            [Category("08")]
             [Description("Nota de débito")]
             NotaDebito = 4,
+            [Category("09")]
             [Description("Guía Remisión Remitente")]
             GuiaRemisionRemitente = 5,
+            [Category("11")]
             [Description("Guía Remisión Transportista")]
             GuiaRemisionTransportista = 6,
             [Description("Comprobante de Pago")]
@@ -77,8 +85,10 @@ namespace pm.enums
         public enum TipoDocumentoIdentidad
         {
             [Description("DNI")]
+            [Category("1")]
             DNI = 1,
             [Description("RUC")]
+            [Category("6")]
             RUC = 2,
             [Description("CARNET EXTRANJERIA")]
             CE = 3,

@@ -37,6 +37,7 @@ namespace pm.da
                                 item.CodigoMotivoNota = dr.GetData<int>("CodigoMotivoNota");
                                 item.Descripcion = dr.GetData<string>("Descripcion");
                                 item.CodigoTipoComprobante = dr.GetData<int>("CodigoTipoComprobante");
+                                item.CodigoSunat = dr.GetData<string>("CodigoSunat");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
 
                                 lista.Add(item);

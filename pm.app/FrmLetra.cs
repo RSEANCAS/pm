@@ -1,4 +1,5 @@
-﻿using pm.be;
+﻿using Microsoft.Reporting.WinForms;
+using pm.be;
 using pm.bl;
 using pm.enums;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -54,6 +56,8 @@ namespace pm.app
             bool flagActivo = chkActivo.Checked;
 
             List<LetraBe> resultados = letraBl.BuscarLetra(fechaEmisionDesde, fechaEmisionHasta, nroComprobante, nroDocIdentidadCliente, nombresCliente, estado, flagCancelado, flagActivo);
+
+            btnExportar.Enabled = resultados != null;
 
             List<dynamic> resultadosDynamic = resultados == null ? null : resultados.Select(x => {
                 dynamic row = new { x.Fila, x.CodigoLetraInicial, NumeroLetraInicial = x.LetraInicial != null ? (int?)x.LetraInicial.Numero : null, TotalLetraInicial = x.LetraInicial != null ? (decimal?)x.LetraInicial.Total : null, x.CodigoLetraPadre, TotalLetraPadre = x.LetraPadre != null ? (decimal?)x.LetraPadre.Total : null, x.CodigoLetra, x.Numero, x.CodigoUnicoBanco, x.CodigoBanco, NombreBanco = x.Banco == null ? "" : x.Banco.Nombre, NombreTipoComprobanteRef = x.TipoComprobanteRef.Nombre, x.SerialSerieComprobanteRef, x.NroComprobanteComprobanteRef, x.SerialSerieGuiaRemision, x.NroComprobanteGuiaRemision, x.FechaHoraEmision, FechaEmision = x.FechaHoraEmision.ToString("dd/MM/yyyy"), FechaVencimiento = x.FechaVencimiento.ToString("dd/MM/yyyy"), x.Dias, DiasPorVencer = x.FechaVencimiento < DateTime.Now ? 0 : (x.FechaVencimiento - DateTime.Now).Days, DiasDeVencido = x.FechaVencimiento > DateTime.Now ? 0 : (DateTime.Now - x.FechaVencimiento).Days > 9 ? 9 : (DateTime.Now - x.FechaVencimiento).Days, x.CodigoMoneda, x.CodigoCliente, DescripcionTipoDocumentoIdentidadCliente = x.Cliente.TipoDocumentoIdentidad.Descripcion, NroDocumentoIdentidadCliente = x.Cliente.NroDocumentoIdentidad, NombresCliente = x.Cliente.Nombres, x.StrMoneda, x.Monto, x.Mora, x.Protesto, x.Total, x.Estado, x.StrEstado, x.FlagActivo, x.FlagCancelado };
@@ -304,6 +308,71 @@ namespace pm.app
             frm.ShowDialog();
             //DialogResult dr = frm.ShowDialog();
             //if (dr == DialogResult.OK) BuscarLetras();
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            var dataSource = dgvResultados.DataSource == null ? null : (List<dynamic>)dgvResultados.DataSource;
+            if (dataSource == null)
+            {
+                MessageBox.Show("No información para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var data = dataSource.Select(x => new ResultadoBe.Letra
+            {
+                NroFila = x.Fila,
+                NroLetra = x.Numero,
+                NroLetraInicial = x.NumeroLetraInicial,
+                Banco = x.NombreBanco,
+                CodigoUnico = x.CodigoUnicoBanco,
+                TipoComprobante = x.NombreTipoComprobanteRef,
+                SerieRef = x.SerialSerieComprobanteRef,
+                NroRef = x.NroComprobanteComprobanteRef,
+                FechaEmision = x.FechaHoraEmision,
+                FechaVencimiento = x.FechaVencimiento,
+                Dias = x.Dias,
+                DiasPorVencer = x.DiasPorVencer,
+                DiasDeVencido = x.DiasDeVencido,
+                TipoDocumentoIdentidadCliente = x.DescripcionTipoDocumentoIdentidadCliente,
+                NroDocumentoIdentidadCliente = x.NroDocumentoIdentidadCliente,
+                NombreCompletosCliente = x.NombresCliente,
+                Moneda = x.StrMoneda,
+                Monto = x.Monto,
+                Mora = x.Mora,
+                Protesto = x.Protesto,
+                Total = x.Total,
+                TotalAnterior = x.TotalLetraPadre,
+                TotalInicial = x.TotalLetraInicial,
+                Estado = x.StrEstado,
+                Cancelado = x.FlagCancelado
+            }).ToList();
+
+            ReportViewer rpv = new ReportViewer();
+            rpv.LocalReport.ReportEmbeddedResource = $"pm.app.App_Data.rdlc.rptResultadoLetra.rdlc";
+            rpv.LocalReport.DataSources.Clear();
+            rpv.LocalReport.DataSources.Add(new ReportDataSource("dsReporteData", data));
+
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string extension;
+
+            byte[] archivoExcel = rpv.LocalReport.Render("Excel", null, out mimeType, out encoding, out extension, out streamids, out warnings);
+            if (archivoExcel == null)
+            {
+                MessageBox.Show("Ocurrió un error al exportar los resultados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.DefaultExt = extension;
+            sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            sfd.FileName = $"BusquedaLetras_{DateTime.Now:dd-MM-yyyy}";
+            DialogResult dr = sfd.ShowDialog();
+            if (dr != DialogResult.OK) return;
+            File.WriteAllBytes(sfd.FileName, archivoExcel);
+            MessageBox.Show("Se exportó correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

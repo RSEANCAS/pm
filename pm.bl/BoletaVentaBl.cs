@@ -18,6 +18,7 @@ namespace pm.bl
         BoletaVentaDetalleDa boletaVentaDetalleDa = new BoletaVentaDetalleDa();
         SerieDa serieDa = new SerieDa();
         ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
+        UnidadMedidaDa unidadMedidaDa = new UnidadMedidaDa();
 
         public List<BoletaVentaBe> BuscarBoletaVenta(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -34,7 +35,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public BoletaVentaBe ObtenerBoletaVenta(int codigoBoletaVenta, bool withDetalle = false, bool withSerie = false)
+        public BoletaVentaBe ObtenerBoletaVenta(int codigoBoletaVenta, bool withDetalle = false, bool withSerie = false, bool withUnidadMedida = false)
         {
             BoletaVentaBe item = null;
 
@@ -44,6 +45,16 @@ namespace pm.bl
                 item = boletaVentaDa.ObtenerBoletaVenta(codigoBoletaVenta, cn);
                 if (withSerie) item.Serie = serieDa.ObtenerSerie(item.CodigoSerie, cn);
                 if (withDetalle) item.ListaBoletaVentaDetalle = boletaVentaDetalleDa.ListarBoletaVentaDetalle(codigoBoletaVenta, cn);
+                if (withUnidadMedida)
+                {
+                    if (item.ListaBoletaVentaDetalle != null)
+                    {
+                        foreach (var detalle in item.ListaBoletaVentaDetalle)
+                        {
+                            if (withUnidadMedida) detalle.UnidadMedida = unidadMedidaDa.ObtenerUnidadMedida(detalle.CodigoUnidadMedida, cn);
+                        }
+                    }
+                }
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
@@ -51,8 +62,10 @@ namespace pm.bl
             return item;
         }
 
-        public bool GuardarBoletaVenta(BoletaVentaBe registro)
+        public bool GuardarBoletaVenta(BoletaVentaBe registro, out int nroComprobante, out string totalEnLetras)
         {
+            nroComprobante = 0;
+            totalEnLetras = null;
             bool seGuardo = false;
 
             try
@@ -60,8 +73,8 @@ namespace pm.bl
                 using (TransactionScope scope = new TransactionScope())
                 {
                     cn.Open();
-                    int codigoBoletaVenta = 0, nroComprobante = 0;
-                    seGuardo = boletaVentaDa.GuardarBoletaVenta(registro, cn, out codigoBoletaVenta, out nroComprobante);
+                    int codigoBoletaVenta = 0;
+                    seGuardo = boletaVentaDa.GuardarBoletaVenta(registro, cn, out codigoBoletaVenta, out nroComprobante, out totalEnLetras);
                     if (registro.ListaBoletaVentaDetalle != null && seGuardo)
                     {
                         foreach (BoletaVentaDetalleBe item in registro.ListaBoletaVentaDetalle)
@@ -84,6 +97,21 @@ namespace pm.bl
 
                     if (seGuardo) scope.Complete();
                 }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return seGuardo;
+        }
+
+        public bool GuardarEmisionBoletaVenta(BoletaVentaBe registro)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                cn.Open();
+                seGuardo = boletaVentaDa.GuardarEmisionBoletaVenta(registro, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

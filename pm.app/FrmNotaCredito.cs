@@ -1,10 +1,17 @@
-﻿using pm.be;
+﻿using Gma.QrCodeNet.Encoding;
+using Gma.QrCodeNet.Encoding.Windows.Render;
+using Microsoft.Reporting.WinForms;
+using pm.be;
 using pm.bl;
+using pm.enums;
+using pm.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +25,7 @@ namespace pm.app
     {
         NotaCreditoBl notaCreditoBl = new NotaCreditoBl();
         SerieBl serieBl = new SerieBl();
+        FormatoBl formatoBl = new FormatoBl();
 
         public FrmNotaCredito()
         {
@@ -96,11 +104,13 @@ namespace pm.app
                 MenuItem mitEditar = new MenuItem("Editar", mitEditar_Click);
                 mitEditar.Tag = codigoNotaCredito;
 
-                //MenuItem mitToggleActivar = new MenuItem(flagActivo ? "Inactivar" : "Activar", mitToggleActivar_Click);
-                //mitToggleActivar.Tag = new { CodigoCliente = codigoCliente, FlagActivo = flagActivo };
-
                 if (flagActivo && !flagEmitido) m.MenuItems.Add(mitEditar);
-                //m.MenuItems.Add(mitToggleActivar);
+                else if(flagActivo && flagEmitido)
+                {
+                    MenuItem mitVerFormato = new MenuItem("Ver Formato", mitVerFormato_Click);
+                    mitVerFormato.Tag = codigoNotaCredito;
+                    m.MenuItems.Add(mitVerFormato);
+                }
 
                 m.Show(dgvResultados, new Point(e.X, e.Y));
             }
@@ -117,6 +127,50 @@ namespace pm.app
             frm.BringToFront();
             DialogResult dr = frm.ShowDialog();
             if (dr == DialogResult.OK) BuscarNotasCreditoVenta();
+        }
+
+        private void mitVerFormato_Click(object sender, EventArgs e)
+        {
+            MenuItem mitControl = (MenuItem)sender;
+
+            int codigoNotaCredito = (int)mitControl.Tag;
+
+            FormatoBe.NotaCredito dsCabecera = formatoBl.ObtenerFormatoNotaCredito(codigoNotaCredito);
+            dsCabecera.QR = ObtenerQR(dsCabecera);
+            List<ReportDataSource> rpd = new List<ReportDataSource>();
+            rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.NotaCredito>() { dsCabecera }));
+            rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
+
+            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoNotaCredito");
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            frm.ShowDialog();
+            //DialogResult dr = frm.ShowDialog();
+            //if (dr == DialogResult.OK) BuscarLetras();
+        }
+
+        byte[] ObtenerQR(FormatoBe.NotaCredito item)
+        {
+            byte[] imagen = null;
+
+            QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qrCode = new QrCode();
+
+            string rucEmpresa = AppSettings.Get<string>("empresa.ruc");
+            string codigoSunatTipoComprobante = TipoComprobante.Factura.GetAttributeOfType<CategoryAttribute>().Category;
+            string codigoSunatTipoDocumentoIdentidad = ((TipoDocumentoIdentidad)item.CodigoTipoDocumentoIdentidadCliente).GetAttributeOfType<CategoryAttribute>().Category;
+
+            qrEncoder.TryEncode($"{rucEmpresa}|{codigoSunatTipoComprobante}|{item.Serie}-{item.Correlativo.ToString("00000000")}|{item.TotalIGV}|{item.TotalImporte}|{item.FechaEmision.ToString("dd/MM/yyyy")}|{codigoSunatTipoDocumentoIdentidad}|{item.NroDocumentoIdentidadCliente}|{item.Hash}", out qrCode);
+
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedCodeSize(400, QuietZoneModules.Zero), Brushes.Black, Brushes.White);
+
+            MemoryStream ms = new MemoryStream();
+
+            renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
+
+            imagen = ms.ToArray();
+
+            return imagen;
         }
     }
 }

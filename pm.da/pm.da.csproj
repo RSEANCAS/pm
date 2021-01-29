@@ -83,6 +83,7 @@
     <Compile Include="ProductoIndividualDa.cs" />
     <Compile Include="ProveedorDa.cs" />
     <Compile Include="ProvinciaDa.cs" />
+    <Compile Include="ReporteDa.cs" />
     <Compile Include="SerieDa.cs" />
     <Compile Include="TipoCambioDa.cs" />
     <Compile Include="TipoComprobanteDa.cs" />

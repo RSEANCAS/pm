@@ -23,6 +23,8 @@ namespace pm.app
         string nroDocumentoIdentidadCliente;
         int? codigoVendedor;
         string nroDocumentoIdentidadVendedor;
+        int? codigoSupervisor;
+        string nroDocumentoIdentidadSupervisor;
         List<CotizacionDetalleBe> listaDetalleInicial = new List<CotizacionDetalleBe>();
         List<CotizacionDetalleBe> listaDetalle = new List<CotizacionDetalleBe>();
 
@@ -65,6 +67,10 @@ namespace pm.app
             codigoVendedor = item.CodigoVendedor;
             CargarVendedor(codigoVendedor);
 
+            chkTieneSupervisor.Checked = item.CodigoSupervisor != null;
+            codigoSupervisor = item.CodigoSupervisor;
+            CargarSupervisor(codigoSupervisor);
+
             listaDetalleInicial = item.ListaCotizacionDetalle;
             listaDetalle = item.ListaCotizacionDetalle;
             ListarCotizacionDetalle();
@@ -97,6 +103,9 @@ namespace pm.app
 
             cbbCodigoTipoDocumentoIdentidadVendedor.DataSource = null;
             cbbCodigoTipoDocumentoIdentidadVendedor.DataSource = listaCombo.Select(x => x).ToList();
+
+            cbbCodigoTipoDocumentoIdentidadSupervisor.DataSource = null;
+            cbbCodigoTipoDocumentoIdentidadSupervisor.DataSource = listaCombo.Select(x => x).ToList();
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -186,8 +195,53 @@ namespace pm.app
             {
                 this.codigoVendedor = null;
                 this.nroDocumentoIdentidadVendedor = null;
+                cbbCodigoTipoDocumentoIdentidadVendedor.SelectedIndex = 0;
                 txtNroDocumentoIdentidadVendedor.Text = "";
                 txtNombresVendedor.Text = "";
+                txtCorreoVendedor.Text = "";
+            }
+        }
+
+        private void btnBuscarSupervisor_Click(object sender, EventArgs e)
+        {
+            if (nroDocumentoIdentidadSupervisor == txtNroDocumentoIdentidadSupervisor.Text.Trim()) return;
+            if (txtNroDocumentoIdentidadSupervisor.Text.Trim() == "") CargarSupervisor(null);
+            string formulario = this.GetType().FullName;
+            string control = ((Control)sender).Name;
+            ControlBusquedaBe item = controlBusquedaBl.ObtenerControlBusqueda(formulario, control, true);
+            if (item == null) return;
+            FrmBusquedaSeleccionarRegistro frm = new FrmBusquedaSeleccionarRegistro(item, txtNroDocumentoIdentidadSupervisor.Text.Trim());
+            frm.ShowInTaskbar = false;
+            frm.BringToFront();
+            DialogResult dr = frm.ShowDialog();
+            CargarSupervisor(null);
+            if (dr == DialogResult.OK)
+            {
+                dynamic resultado = frm.Resultado;
+                CargarSupervisor(resultado.CodigoPersonal);
+            }
+        }
+
+        void CargarSupervisor(int? codigoSupervisor)
+        {
+            PersonalBe vendedor = codigoSupervisor == null ? null : personalBl.ObtenerPersonal(codigoSupervisor.Value);
+            if (vendedor != null)
+            {
+                this.codigoSupervisor = vendedor.CodigoPersonal;
+                this.nroDocumentoIdentidadSupervisor = vendedor.NroDocumentoIdentidad;
+                cbbCodigoTipoDocumentoIdentidadSupervisor.SelectedValue = vendedor.CodigoTipoDocumentoIdentidad;
+                txtNroDocumentoIdentidadSupervisor.Text = vendedor.NroDocumentoIdentidad;
+                txtNombresSupervisor.Text = vendedor.Nombres;
+                txtCorreoSupervisor.Text = vendedor.Correo;
+            }
+            else
+            {
+                this.codigoSupervisor = null;
+                this.nroDocumentoIdentidadSupervisor = null;
+                cbbCodigoTipoDocumentoIdentidadSupervisor.SelectedIndex = 0;
+                txtNroDocumentoIdentidadSupervisor.Text = "";
+                txtNombresSupervisor.Text = "";
+                txtCorreoSupervisor.Text = "";
             }
         }
 
@@ -273,6 +327,7 @@ namespace pm.app
             registro.CodigoMoneda = int.Parse(cbbCodigoMoneda.SelectedValue.ToString());
             registro.CodigoCliente = codigoCliente.Value;
             registro.CodigoVendedor = codigoVendedor.Value;
+            registro.CodigoSupervisor = codigoSupervisor;
             registro.ListaCotizacionDetalle = listaDetalle;
             registro.ListaCotizacionDetalleEliminar = listaDetalleInicial == null ? null : listaDetalleInicial.Where(x => listaDetalle.Count(y => y.CodigoCotizacionDetalle == x.CodigoCotizacionDetalle) == 0).Select(x => x.CodigoCotizacionDetalle).ToArray();
             registro.TotalImporte = listaDetalle.Sum(x => x.Importe);
@@ -337,6 +392,16 @@ namespace pm.app
             }
 
             return estaValidado;
+        }
+
+        private void chkTieneSupervisor_CheckedChanged(object sender, EventArgs e)
+        {
+            gpbSupervisor.Enabled = chkTieneSupervisor.Checked;
+
+            if (!gpbSupervisor.Enabled)
+            {
+                CargarSupervisor(null);
+            }
         }
 
         void SetToolTipError(Label label)

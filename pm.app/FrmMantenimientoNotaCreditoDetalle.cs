@@ -334,7 +334,7 @@ namespace pm.app
             _Detalle.CodigoProductoIndividual = codigoProductoIndividual.Value;
             _Detalle.ProductoIndividual = new ProductoIndividualBe { Nombre = txtNombreProductoIndividual.Text.Trim() };
             _Detalle.CodigoUnidadMedida = (int)cbbCodigoUnidadMedida.SelectedValue;
-            _Detalle.UnidadMedida = new UnidadMedidaBe { Descripcion = cbbCodigoUnidadMedida.SelectedText };
+            _Detalle.UnidadMedida = (UnidadMedidaBe)cbbCodigoUnidadMedida.SelectedItem;
             _Detalle.Cantidad = decimal.Parse(txtCantidad.Text.Trim());
             _Detalle.TipoCalculo = (int)tipoCalculo;
             _Detalle.ValorUnitario = decimal.Parse(txtValorUnitario.Text.Trim());

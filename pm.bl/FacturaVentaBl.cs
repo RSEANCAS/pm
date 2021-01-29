@@ -21,6 +21,7 @@ namespace pm.bl
         SerieDa serieDa = new SerieDa();
         LetraDa letraDa = new LetraDa();
         ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
+        UnidadMedidaDa unidadMedidaDa = new UnidadMedidaDa();
 
         public List<FacturaVentaBe> BuscarFacturaVenta(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -37,7 +38,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public FacturaVentaBe ObtenerFacturaVenta(int codigoFacturaVenta, bool withDetalle = false, bool withLetra = false, bool withSerie = false)
+        public FacturaVentaBe ObtenerFacturaVenta(int codigoFacturaVenta, bool withDetalle = false, bool withLetra = false, bool withSerie = false, bool withUnidadMedida = false)
         {
             FacturaVentaBe item = null;
 
@@ -48,6 +49,16 @@ namespace pm.bl
                 if (withSerie) item.Serie = serieDa.ObtenerSerie(item.CodigoSerie, cn);
                 if (withDetalle) item.ListaFacturaVentaDetalle = facturaVentaDetalleDa.ListarFacturaVentaDetalle(codigoFacturaVenta, cn);
                 if (withLetra) item.ListaLetra = letraDa.ListarLetraPorRef((int)TipoComprobante.Factura, item.CodigoSerie, item.NroComprobante, cn);
+                if (withUnidadMedida)
+                {
+                    if (item.ListaFacturaVentaDetalle != null)
+                    {
+                        foreach(var detalle in item.ListaFacturaVentaDetalle)
+                        {
+                            if (withUnidadMedida) detalle.UnidadMedida = unidadMedidaDa.ObtenerUnidadMedida(detalle.CodigoUnidadMedida, cn);
+                        }
+                    }
+                }
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
@@ -55,8 +66,10 @@ namespace pm.bl
             return item;
         }
 
-        public bool GuardarFacturaVenta(FacturaVentaBe registro)
+        public bool GuardarFacturaVenta(FacturaVentaBe registro, out int nroComprobante, out string totalEnLetras)
         {
+            nroComprobante = 0;
+            totalEnLetras = null;
             bool seGuardo = false;
 
             try
@@ -64,8 +77,8 @@ namespace pm.bl
                 using (TransactionScope scope = new TransactionScope())
                 {
                     cn.Open();
-                    int codigoFacturaVenta = 0, nroComprobante = 0;
-                    seGuardo = facturaVentaDa.GuardarFacturaVenta(registro, cn, out codigoFacturaVenta, out nroComprobante);
+                    int codigoFacturaVenta = 0;
+                    seGuardo = facturaVentaDa.GuardarFacturaVenta(registro, cn, out codigoFacturaVenta, out nroComprobante, out totalEnLetras);
                     if (registro.ListaFacturaVentaDetalle != null && seGuardo)
                     {
                         foreach (FacturaVentaDetalleBe item in registro.ListaFacturaVentaDetalle)
@@ -110,6 +123,21 @@ namespace pm.bl
 
                     if (seGuardo) scope.Complete();
                 }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return seGuardo;
+        }
+
+        public bool GuardarEmisionFacturaVenta(FacturaVentaBe registro)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                    cn.Open();
+                    seGuardo = facturaVentaDa.GuardarEmisionFacturaVenta(registro, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

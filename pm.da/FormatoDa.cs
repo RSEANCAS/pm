@@ -84,6 +84,7 @@ namespace pm.da
                             {
                                 item.Serie = dr.GetData<string>("Serie");
                                 item.Correlativo = dr.GetData<int>("Correlativo");
+                                item.CodigoTipoDocumentoIdentidadCliente = dr.GetData<int>("CodigoTipoDocumentoIdentidadCliente");
                                 item.NombresCompletoCliente = dr.GetData<string>("NombresCompletoCliente");
                                 item.NroDocumentoIdentidadCliente = dr.GetData<string>("NroDocumentoIdentidadCliente");
                                 item.DireccionCliente = dr.GetData<string>("DireccionCliente");
@@ -170,6 +171,7 @@ namespace pm.da
                             {
                                 item.Serie = dr.GetData<string>("Serie");
                                 item.Correlativo = dr.GetData<int>("Correlativo");
+                                item.CodigoTipoDocumentoIdentidadCliente = dr.GetData<int>("CodigoTipoDocumentoIdentidadCliente");
                                 item.NombresCompletoCliente = dr.GetData<string>("NombresCompletoCliente");
                                 item.NroDocumentoIdentidadCliente = dr.GetData<string>("NroDocumentoIdentidadCliente");
                                 item.DireccionCliente = dr.GetData<string>("DireccionCliente");
@@ -218,6 +220,178 @@ namespace pm.da
                             while (dr.Read())
                             {
                                 FormatoBe.BoletaDetalle item = new FormatoBe.BoletaDetalle();
+                                item.Codigo = dr.GetData<string>("Codigo");
+                                item.Articulo = dr.GetData<string>("Articulo");
+                                item.Cantidad = dr.GetData<decimal>("Cantidad");
+                                item.Precio = dr.GetData<decimal>("Precio");
+                                item.Importe = dr.GetData<decimal>("Importe");
+
+                                resultados.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return resultados;
+        }
+
+        public FormatoBe.NotaCredito ObtenerFormatoNotaCredito(int codigoNotaCredito, SqlConnection cn)
+        {
+            FormatoBe.NotaCredito item = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_notacredito", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoNotaCredito", codigoNotaCredito.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            item = new FormatoBe.NotaCredito();
+
+                            if (dr.Read())
+                            {
+                                item.Serie = dr.GetData<string>("Serie");
+                                item.Correlativo = dr.GetData<int>("Correlativo");
+                                item.FechaEmision = dr.GetData<DateTime>("FechaEmision");
+                                item.CodigoTipoDocumentoIdentidadCliente = dr.GetData<int>("CodigoTipoDocumentoIdentidadCliente");
+                                item.NombresCompletoCliente = dr.GetData<string>("NombresCompletoCliente");
+                                item.NroDocumentoIdentidadCliente = dr.GetData<string>("NroDocumentoIdentidadCliente");
+                                item.DireccionCliente = dr.GetData<string>("DireccionCliente");
+                                item.TipoComprobanteRef = dr.GetData<string>("TipoComprobanteRef");
+                                item.SerieRef = dr.GetData<string>("SerieRef");
+                                item.CorrelativoRef = dr.GetData<int>("CorrelativoRef");
+                                item.FechaEmisionRef = dr.GetData<DateTime>("FechaEmisionRef");
+                                item.NombreMoneda = dr.GetData<string>("NombreMoneda");
+                                item.SimboloMoneda = dr.GetData<string>("SimboloMoneda");
+                                item.Motivo = dr.GetData<string>("Motivo");
+                                item.TotalGravada = dr.GetData<decimal>("TotalGravada");
+                                item.TotalIGV = dr.GetData<decimal>("TotalIGV");
+                                item.TotalImporte = dr.GetData<decimal>("TotalImporte");
+                                item.TotalPagar = dr.GetData<decimal>("TotalPagar");
+                                item.TotalEnLetras = dr.GetData<string>("TotalEnLetras");
+                                item.Hash = dr.GetData<string>("Hash");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return item;
+        }
+
+        public List<FormatoBe.NotaCreditoDetalle> ListarFormatoNotaCreditoDetalle(int codigoNotaCredito, SqlConnection cn)
+        {
+            List<FormatoBe.NotaCreditoDetalle> resultados = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_notacreditodetalle", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoNotaCredito", codigoNotaCredito.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            resultados = new List<FormatoBe.NotaCreditoDetalle>();
+
+                            while (dr.Read())
+                            {
+                                FormatoBe.NotaCreditoDetalle item = new FormatoBe.NotaCreditoDetalle();
+                                item.Codigo = dr.GetData<string>("Codigo");
+                                item.Articulo = dr.GetData<string>("Articulo");
+                                item.Cantidad = dr.GetData<decimal>("Cantidad");
+                                item.Precio = dr.GetData<decimal>("Precio");
+                                item.Importe = dr.GetData<decimal>("Importe");
+
+                                resultados.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return resultados;
+        }
+
+        public FormatoBe.NotaDebito ObtenerFormatoNotaDebito(int codigoNotaDebito, SqlConnection cn)
+        {
+            FormatoBe.NotaDebito item = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_notadebito", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoNotaDebito", codigoNotaDebito.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            item = new FormatoBe.NotaDebito();
+
+                            if (dr.Read())
+                            {
+                                item.Serie = dr.GetData<string>("Serie");
+                                item.Correlativo = dr.GetData<int>("Correlativo");
+                                item.FechaEmision = dr.GetData<DateTime>("FechaEmision");
+                                item.CodigoTipoDocumentoIdentidadCliente = dr.GetData<int>("CodigoTipoDocumentoIdentidadCliente");
+                                item.NombresCompletoCliente = dr.GetData<string>("NombresCompletoCliente");
+                                item.NroDocumentoIdentidadCliente = dr.GetData<string>("NroDocumentoIdentidadCliente");
+                                item.DireccionCliente = dr.GetData<string>("DireccionCliente");
+                                item.TipoComprobanteRef = dr.GetData<string>("TipoComprobanteRef");
+                                item.SerieRef = dr.GetData<string>("SerieRef");
+                                item.CorrelativoRef = dr.GetData<int>("CorrelativoRef");
+                                item.FechaEmisionRef = dr.GetData<DateTime>("FechaEmisionRef");
+                                item.NombreMoneda = dr.GetData<string>("NombreMoneda");
+                                item.SimboloMoneda = dr.GetData<string>("SimboloMoneda");
+                                item.Motivo = dr.GetData<string>("Motivo");
+                                item.TotalGravada = dr.GetData<decimal>("TotalGravada");
+                                item.TotalIGV = dr.GetData<decimal>("TotalIGV");
+                                item.TotalImporte = dr.GetData<decimal>("TotalImporte");
+                                item.TotalPagar = dr.GetData<decimal>("TotalPagar");
+                                item.TotalEnLetras = dr.GetData<string>("TotalEnLetras");
+                                item.Hash = dr.GetData<string>("Hash");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return item;
+        }
+
+        public List<FormatoBe.NotaDebitoDetalle> ListarFormatoNotaDebitoDetalle(int codigoNotaDebito, SqlConnection cn)
+        {
+            List<FormatoBe.NotaDebitoDetalle> resultados = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_formato_notadebitodetalle", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoNotaDebito", codigoNotaDebito.GetNullable());
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            resultados = new List<FormatoBe.NotaDebitoDetalle>();
+
+                            while (dr.Read())
+                            {
+                                FormatoBe.NotaDebitoDetalle item = new FormatoBe.NotaDebitoDetalle();
                                 item.Codigo = dr.GetData<string>("Codigo");
                                 item.Articulo = dr.GetData<string>("Articulo");
                                 item.Cantidad = dr.GetData<decimal>("Cantidad");

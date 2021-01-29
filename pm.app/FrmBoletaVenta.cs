@@ -1,11 +1,17 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using Gma.QrCodeNet.Encoding;
+using Gma.QrCodeNet.Encoding.Windows.Render;
+using Microsoft.Reporting.WinForms;
 using pm.be;
 using pm.bl;
+using pm.enums;
+using pm.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -104,6 +110,9 @@ namespace pm.app
                 if (flagActivo && !flagEmitido)
                 {
                     m.MenuItems.Add(mitEditar);
+                }
+                else if (flagActivo && flagEmitido)
+                {
                     MenuItem mitGenerarNota = new MenuItem("Generar Nota");
 
                     MenuItem mitGenerarNotaCredito = new MenuItem("Nota de Crédito", mitGenerarNotaCredito_Click);
@@ -115,11 +124,11 @@ namespace pm.app
                     mitGenerarNota.MenuItems.Add(mitGenerarNotaCredito);
                     mitGenerarNota.MenuItems.Add(mitGenerarNotaDebito);
                     m.MenuItems.Add(mitGenerarNota);
+
+                    MenuItem mitVerFormato = new MenuItem("Ver Formato", mitVerFormato_Click);
+                    mitVerFormato.Tag = codigoBoletaVenta;
+                    m.MenuItems.Add(mitVerFormato);
                 }
-                //m.MenuItems.Add(mitToggleActivar);
-                MenuItem mitVerFormato = new MenuItem("Ver Formato", mitVerFormato_Click);
-                mitVerFormato.Tag = codigoBoletaVenta;
-                m.MenuItems.Add(mitVerFormato);
 
                 m.Show(dgvResultados, new Point(e.X, e.Y));
             }
@@ -175,6 +184,7 @@ namespace pm.app
             int codigoBoletaVenta = (int)mitControl.Tag;
 
             FormatoBe.Boleta dsCabecera = formatoBl.ObtenerFormatoBoletaVenta(codigoBoletaVenta);
+            dsCabecera.QR = ObtenerQR(dsCabecera);
             List<ReportDataSource> rpd = new List<ReportDataSource>();
             rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.Boleta>() { dsCabecera }));
             rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
@@ -185,6 +195,30 @@ namespace pm.app
             frm.ShowDialog();
             //DialogResult dr = frm.ShowDialog();
             //if (dr == DialogResult.OK) BuscarLetras();
+        }
+
+        byte[] ObtenerQR(FormatoBe.Boleta item)
+        {
+            byte[] imagen = null;
+
+            QrEncoder qrEncoder = new QrEncoder(ErrorCorrectionLevel.H);
+            QrCode qrCode = new QrCode();
+
+            string rucEmpresa = AppSettings.Get<string>("empresa.ruc");
+            string codigoSunatTipoComprobante = TipoComprobante.Boleta.GetAttributeOfType<CategoryAttribute>().Category;
+            string codigoSunatTipoDocumentoIdentidad = ((TipoDocumentoIdentidad)item.CodigoTipoDocumentoIdentidadCliente).GetAttributeOfType<CategoryAttribute>().Category;
+
+            qrEncoder.TryEncode($"{rucEmpresa}|{codigoSunatTipoComprobante}|{item.Serie}-{item.Correlativo.ToString("00000000")}|{item.TotalIGV}|{item.TotalImporte}|{item.FechaEmision.ToString("dd/MM/yyyy")}|{codigoSunatTipoDocumentoIdentidad}|{item.NroDocumentoIdentidadCliente}|{item.Hash}", out qrCode);
+
+            GraphicsRenderer renderer = new GraphicsRenderer(new FixedCodeSize(400, QuietZoneModules.Zero), Brushes.Black, Brushes.White);
+
+            MemoryStream ms = new MemoryStream();
+
+            renderer.WriteToStream(qrCode.Matrix, ImageFormat.Png, ms);
+
+            imagen = ms.ToArray();
+
+            return imagen;
         }
     }
 }

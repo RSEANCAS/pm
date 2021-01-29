@@ -156,10 +156,11 @@ namespace pm.da
             return item;
         }
 
-        public bool GuardarNotaDebito(NotaDebitoBe registro, SqlConnection cn, out int codigoNotaDebito, out int nroComprobante)
+        public bool GuardarNotaDebito(NotaDebitoBe registro, SqlConnection cn, out int codigoNotaDebito, out int nroComprobante, out string totalEnLetras)
         {
             codigoNotaDebito = 0;
             nroComprobante = 0;
+            totalEnLetras = null;
             bool seGuardo = false;
 
             try
@@ -200,6 +201,7 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@totalImporte", registro.TotalImporte.GetNullable());
                     cmd.Parameters.AddWithValue("@totalPercepcion", registro.TotalPercepcion.GetNullable());
                     cmd.Parameters.AddWithValue("@totalPagar", registro.TotalPagar.GetNullable());
+                    cmd.Parameters.Add(new SqlParameter { ParameterName = "@totalEnLetras", SqlDbType = SqlDbType.NVarChar, Size = -1, Direction = ParameterDirection.Output });
                     cmd.Parameters.AddWithValue("@flagEmitido", registro.FlagEmitido.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
                     int filasAfectadas = cmd.ExecuteNonQuery();
@@ -210,7 +212,33 @@ namespace pm.da
                     {
                         codigoNotaDebito = (int)cmd.Parameters["@codigoNotaDebito"].Value;
                         nroComprobante = (int)cmd.Parameters["@nroComprobante"].Value;
+                        totalEnLetras = (string)cmd.Parameters["@totalEnLetras"].Value;
                     }
+                }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+
+            return seGuardo;
+        }
+
+        public bool GuardarEmisionNotaDebito(NotaDebitoBe registro, SqlConnection cn)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.usp_notadebito_guardar_emision", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@codigoNotaDebito", registro.CodigoNotaDebito.GetNullable());
+                    cmd.Parameters.AddWithValue("@hash", registro.Hash.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoRptaSunat", registro.CodigoRptaSunat.GetNullable());
+                    cmd.Parameters.AddWithValue("@descripcionRptaSunat", registro.DescripcionRptaSunat.GetNullable());
+                    cmd.Parameters.AddWithValue("@flagEmitido", registro.FlagEmitido.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    seGuardo = filasAfectadas > 0;
                 }
             }
             catch (Exception ex) { log.Error(ex.Message); }

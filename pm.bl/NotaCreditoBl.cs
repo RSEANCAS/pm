@@ -17,6 +17,7 @@ namespace pm.bl
         NotaCreditoDa notaCreditoDa = new NotaCreditoDa();
         NotaCreditoDetalleDa notaCreditoDetalleDa = new NotaCreditoDetalleDa();
         ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
+        UnidadMedidaDa unidadMedidaDa = new UnidadMedidaDa();
 
         public List<NotaCreditoBe> BuscarNotaCredito(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -33,7 +34,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public NotaCreditoBe ObtenerNotaCredito(int codigoNotaCredito, bool withDetalle = false)
+        public NotaCreditoBe ObtenerNotaCredito(int codigoNotaCredito, bool withDetalle = false, bool withUnidadMedida = false)
         {
             NotaCreditoBe item = null;
 
@@ -45,6 +46,18 @@ namespace pm.bl
                 {
                     item.ListaNotaCreditoDetalle = notaCreditoDetalleDa.ListarNotaCreditoDetalle(codigoNotaCredito, cn);
                 }
+
+                if (withUnidadMedida)
+                {
+                    if (item.ListaNotaCreditoDetalle != null)
+                    {
+                        foreach (var detalle in item.ListaNotaCreditoDetalle)
+                        {
+                            if (withUnidadMedida) detalle.UnidadMedida = unidadMedidaDa.ObtenerUnidadMedida(detalle.CodigoUnidadMedida, cn);
+
+                        }
+                    }
+                }
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
@@ -52,8 +65,10 @@ namespace pm.bl
             return item;
         }
 
-        public bool GuardarNotaCredito(NotaCreditoBe registro)
+        public bool GuardarNotaCredito(NotaCreditoBe registro, out int nroComprobante, out string totalEnLetras)
         {
+            nroComprobante = 0;
+            totalEnLetras = null;
             bool seGuardo = false;
 
             try
@@ -61,8 +76,8 @@ namespace pm.bl
                 using (TransactionScope scope = new TransactionScope())
                 {
                     cn.Open();
-                    int codigoNotaCredito = 0, nroComprobante = 0;
-                    seGuardo = notaCreditoDa.GuardarNotaCredito(registro, cn, out codigoNotaCredito, out nroComprobante);
+                    int codigoNotaCredito = 0;
+                    seGuardo = notaCreditoDa.GuardarNotaCredito(registro, cn, out codigoNotaCredito, out nroComprobante, out totalEnLetras);
                     if (registro.ListaNotaCreditoDetalle != null && seGuardo)
                     {
                         foreach (NotaCreditoDetalleBe item in registro.ListaNotaCreditoDetalle)
@@ -85,6 +100,21 @@ namespace pm.bl
 
                     if (seGuardo) scope.Complete();
                 }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return seGuardo;
+        }
+
+        public bool GuardarEmisionNotaCredito(NotaCreditoBe registro)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                cn.Open();
+                seGuardo = notaCreditoDa.GuardarEmisionNotaCredito(registro, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }

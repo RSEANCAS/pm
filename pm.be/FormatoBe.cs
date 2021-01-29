@@ -79,6 +79,7 @@ namespace pm.be
             public int Correlativo { get; set; }
             public DateTime FechaEmision { get; set; }
             public DateTime FechaVencimiento { get; set; }
+            public int CodigoTipoDocumentoIdentidadCliente { get; set; }
             public string NroDocumentoIdentidadCliente { get; set; }
             public string NombresCompletoCliente { get; set; }
             public string DireccionCliente { get; set; }
@@ -120,6 +121,7 @@ namespace pm.be
             public int Correlativo { get; set; }
             public DateTime FechaEmision { get; set; }
             public DateTime FechaVencimiento { get; set; }
+            public int CodigoTipoDocumentoIdentidadCliente { get; set; }
             public string NroDocumentoIdentidadCliente { get; set; }
             public string NombresCompletoCliente { get; set; }
             public string DireccionCliente { get; set; }
@@ -147,6 +149,86 @@ namespace pm.be
         }
 
         public class BoletaDetalle
+        {
+            public string Codigo { get; set; }
+            public string Articulo { get; set; }
+            public decimal Cantidad { get; set; }
+            public decimal Precio { get; set; }
+            public decimal Importe { get; set; }
+        }
+
+        public class NotaCredito
+        {
+            public string Serie { get; set; }
+            public int Correlativo { get; set; }
+            public DateTime FechaEmision { get; set; }
+            public int CodigoTipoDocumentoIdentidadCliente { get; set; }
+            public string NroDocumentoIdentidadCliente { get; set; }
+            public string NombresCompletoCliente { get; set; }
+            public string DireccionCliente { get; set; }
+            public string TipoComprobanteRef { get; set; }
+            public string SerieRef { get; set; }
+            public int CorrelativoRef { get; set; }
+            public DateTime FechaEmisionRef { get; set; }
+            public string NombreMoneda { get; set; }
+            public string SimboloMoneda { get; set; }
+            public string Motivo { get; set; }
+            public decimal TotalGravada { get; set; }
+            public decimal TotalInafecta { get; set; }
+            public decimal TotalExonerada { get; set; }
+            public decimal TotalExportacion { get; set; }
+            public decimal TotalIGV { get; set; }
+            public decimal TotalImporte { get; set; }
+            public decimal TotalPercepcion { get; set; }
+            public decimal TotalPagar { get; set; }
+            public string TotalEnLetras { get; set; }
+            public byte[] QR { get; set; }
+            public string Hash { get; set; }
+
+            public List<NotaCreditoDetalle> ListaDetalle { get; set; }
+        }
+
+        public class NotaCreditoDetalle
+        {
+            public string Codigo { get; set; }
+            public string Articulo { get; set; }
+            public decimal Cantidad { get; set; }
+            public decimal Precio { get; set; }
+            public decimal Importe { get; set; }
+        }
+
+        public class NotaDebito
+        {
+            public string Serie { get; set; }
+            public int Correlativo { get; set; }
+            public DateTime FechaEmision { get; set; }
+            public int CodigoTipoDocumentoIdentidadCliente { get; set; }
+            public string NroDocumentoIdentidadCliente { get; set; }
+            public string NombresCompletoCliente { get; set; }
+            public string DireccionCliente { get; set; }
+            public string TipoComprobanteRef { get; set; }
+            public string SerieRef { get; set; }
+            public int CorrelativoRef { get; set; }
+            public DateTime FechaEmisionRef { get; set; }
+            public string NombreMoneda { get; set; }
+            public string SimboloMoneda { get; set; }
+            public string Motivo { get; set; }
+            public decimal TotalGravada { get; set; }
+            public decimal TotalInafecta { get; set; }
+            public decimal TotalExonerada { get; set; }
+            public decimal TotalExportacion { get; set; }
+            public decimal TotalIGV { get; set; }
+            public decimal TotalImporte { get; set; }
+            public decimal TotalPercepcion { get; set; }
+            public decimal TotalPagar { get; set; }
+            public string TotalEnLetras { get; set; }
+            public byte[] QR { get; set; }
+            public string Hash { get; set; }
+
+            public List<NotaDebitoDetalle> ListaDetalle { get; set; }
+        }
+
+        public class NotaDebitoDetalle
         {
             public string Codigo { get; set; }
             public string Articulo { get; set; }

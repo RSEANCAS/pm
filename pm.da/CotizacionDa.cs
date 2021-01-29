@@ -68,6 +68,21 @@ namespace pm.da
                                 item.Vendedor.FlagActivo = dr.GetData<bool>("FlagActivoVendedor");
                                 item.NroDocumentoIdentidadVendedor = dr.GetData<string>("NroDocumentoIdentidadVendedor");
                                 item.DescripcionTipoDocumentoIdentidadVendedor = dr.GetData<string>("DescripcionTipoDocumentoIdentidadVendedor");
+                                item.CodigoSupervisor = dr.GetData<int?>("CodigoSupervisor");
+                                if (item.CodigoSupervisor.HasValue)
+                                {
+                                    item.Supervisor = new PersonalBe();
+                                    item.Supervisor.CodigoPersonal = dr.GetData<int>("CodigoSupervisor");
+                                    item.Supervisor.CodigoTipoDocumentoIdentidad = dr.GetData<int>("CodigoTipoDocumentoIdentidadSupervisor");
+                                    item.Supervisor.TipoDocumentoIdentidad = new TipoDocumentoIdentidadBe();
+                                    item.Supervisor.TipoDocumentoIdentidad.CodigoTipoDocumentoIdentidad = dr.GetData<int>("CodigoTipoDocumentoIdentidadSupervisor");
+                                    item.Supervisor.TipoDocumentoIdentidad.Descripcion = dr.GetData<string>("DescripcionTipoDocumentoIdentidadSupervisor");
+                                    item.Supervisor.NroDocumentoIdentidad = dr.GetData<string>("NroDocumentoIdentidadSupervisor");
+                                    item.Supervisor.Nombres = dr.GetData<string>("NombresSupervisor");
+                                    item.Supervisor.FlagActivo = dr.GetData<bool>("FlagActivoSupervisor");
+                                }
+                                item.NroDocumentoIdentidadSupervisor = dr.GetData<string>("NroDocumentoIdentidadSupervisor");
+                                item.DescripcionTipoDocumentoIdentidadSupervisor = dr.GetData<string>("DescripcionTipoDocumentoIdentidadSupervisor");
                                 item.CodigoMoneda = dr.GetData<int>("CodigoMoneda");
                                 item.TotalImporte = dr.GetData<decimal>("TotalImporte");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
@@ -108,6 +123,7 @@ namespace pm.da
                                 item.NroPedido = dr.GetData<string>("NroPedido");
                                 item.CodigoCliente = dr.GetData<int>("CodigoCliente");
                                 item.CodigoVendedor = dr.GetData<int>("CodigoVendedor");
+                                item.CodigoSupervisor = dr.GetData<int>("CodigoSupervisor");
                                 item.CodigoMoneda = dr.GetData<int>("CodigoMoneda");
                                 item.TotalImporte = dr.GetData<decimal>("TotalImporte");
                                 item.FlagActivo = dr.GetData<bool>("FlagActivo");
@@ -138,6 +154,7 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@nroPedido", registro.NroPedido.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoCliente", registro.CodigoCliente.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoVendedor", registro.CodigoVendedor.GetNullable());
+                    cmd.Parameters.AddWithValue("@codigoSupervisor", registro.CodigoSupervisor.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoMoneda", registro.CodigoMoneda.GetNullable());
                     cmd.Parameters.AddWithValue("@totalImporte", registro.TotalImporte.GetNullable());
                     cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());

@@ -1,0 +1,8 @@
+D:\FREELANCE\ProntoModa\pm\pm.sunat\bin\Debug\pm.sunat.dll
+D:\FREELANCE\ProntoModa\pm\pm.sunat\bin\Debug\pm.sunat.pdb
+D:\FREELANCE\ProntoModa\pm\pm.sunat\bin\Debug\Ionic.Zip.dll
+D:\FREELANCE\ProntoModa\pm\pm.sunat\obj\Debug\pm.sunat.csprojAssemblyReference.cache
+D:\FREELANCE\ProntoModa\pm\pm.sunat\obj\Debug\pm.sunat.csproj.CoreCompileInputs.cache
+D:\FREELANCE\ProntoModa\pm\pm.sunat\obj\Debug\pm.sunat.csproj.CopyComplete
+D:\FREELANCE\ProntoModa\pm\pm.sunat\obj\Debug\pm.sunat.dll
+D:\FREELANCE\ProntoModa\pm\pm.sunat\obj\Debug\pm.sunat.pdb

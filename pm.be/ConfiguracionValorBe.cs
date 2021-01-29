@@ -14,5 +14,10 @@ namespace pm.be
         public ProveedorBe TransportistaGuiaRemision { get; set; }
         public int? CodigoTipoComprobanteGuiaRemision { get; set; }
         public TipoComprobanteBe TipoComprobanteGuiaRemision { get; set; }
+        public string RutaFacturacionElectronica { get; set; }
+        public string RutaCertificado { get; set; }
+        public string ContraseñaCertificado { get; set; }
+        public string UsuarioSOL { get; set; }
+        public string ContraseñaSOL { get; set; }
     }
 }

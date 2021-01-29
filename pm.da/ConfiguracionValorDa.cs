@@ -35,6 +35,11 @@ namespace pm.da
                                 item.CodigoUsuario = dr.GetData<int?>("CodigoUsuario");
                                 item.CodigoTipoComprobanteGuiaRemision = dr.GetData<int?>("CodigoTipoComprobanteGuiaRemision");
                                 item.CodigoTransportistaGuiaRemision = dr.GetData<int?>("CodigoTransportistaGuiaRemision");
+                                item.RutaFacturacionElectronica = dr.GetData<string>("RutaFacturacionElectronica");
+                                item.RutaCertificado = dr.GetData<string>("RutaCertificado");
+                                item.ContraseñaCertificado = dr.GetData<string>("ContraseñaCertificado");
+                                item.UsuarioSOL = dr.GetData<string>("UsuarioSOL");
+                                item.ContraseñaSOL = dr.GetData<string>("ContraseñaSOL");
                             }
                         }
                     }
@@ -57,6 +62,11 @@ namespace pm.da
                     cmd.Parameters.AddWithValue("@codigoUsuario", registro.CodigoUsuario.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoTipoComprobanteGuiaRemision", registro.CodigoTipoComprobanteGuiaRemision.GetNullable());
                     cmd.Parameters.AddWithValue("@codigoTransportistaGuiaRemision", registro.CodigoTransportistaGuiaRemision.GetNullable());
+                    cmd.Parameters.AddWithValue("@rutaFacturacionElectronica", registro.RutaFacturacionElectronica.GetNullable());
+                    cmd.Parameters.AddWithValue("@rutaCertificado", registro.RutaCertificado.GetNullable());
+                    cmd.Parameters.AddWithValue("@contraseñaCertificado", registro.ContraseñaCertificado.GetNullable());
+                    cmd.Parameters.AddWithValue("@usuarioSOL", registro.UsuarioSOL.GetNullable());
+                    cmd.Parameters.AddWithValue("@contraseñaSOL", registro.ContraseñaSOL.GetNullable());
                     //cmd.Parameters.AddWithValue("@usuarioModi", registro.UsuarioModi.GetNullable());
 
                     int filasAfectadas = cmd.ExecuteNonQuery();

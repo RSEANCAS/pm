@@ -61,5 +61,37 @@ namespace pm.bl
 
             return item;
         }
+
+        public FormatoBe.NotaCredito ObtenerFormatoNotaCredito(int codigoNotaCredito)
+        {
+            FormatoBe.NotaCredito item = null;
+
+            try
+            {
+                cn.Open();
+                item = formatoDa.ObtenerFormatoNotaCredito(codigoNotaCredito, cn);
+                if (item != null) item.ListaDetalle = formatoDa.ListarFormatoNotaCreditoDetalle(codigoNotaCredito, cn);
+            }
+            catch (Exception ex) { log.Error(ex); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return item;
+        }
+
+        public FormatoBe.NotaDebito ObtenerFormatoNotaDebito(int codigoNotaDebito)
+        {
+            FormatoBe.NotaDebito item = null;
+
+            try
+            {
+                cn.Open();
+                item = formatoDa.ObtenerFormatoNotaDebito(codigoNotaDebito, cn);
+                if (item != null) item.ListaDetalle = formatoDa.ListarFormatoNotaDebitoDetalle(codigoNotaDebito, cn);
+            }
+            catch (Exception ex) { log.Error(ex); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return item;
+        }
     }
 }

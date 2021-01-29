@@ -12,6 +12,7 @@ namespace pm.be
         public string Descripcion { get; set; }
         public int CodigoTipoComprobante { get; set; }
         public TipoComprobanteBe TipoComprobante { get; set; }
+        public string CodigoSunat { get; set; }
         public bool FlagActivo { get; set; }
         public override string ToString() => Descripcion;
     }

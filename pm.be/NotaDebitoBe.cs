@@ -39,6 +39,10 @@ namespace pm.be
         public decimal TotalImporte { get; set; }
         public decimal TotalPercepcion { get; set; }
         public decimal TotalPagar { get; set; }
+        public string TotalEnLetras { get; set; }
+        public string Hash { get; set; }
+        public string CodigoRptaSunat { get; set; }
+        public string DescripcionRptaSunat { get; set; }
         public bool FlagEmitido { get; set; }
         public bool FlagActivo { get; set; }
 

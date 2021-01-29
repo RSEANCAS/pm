@@ -17,6 +17,7 @@ namespace pm.bl
         NotaDebitoDa notaDebitoDa = new NotaDebitoDa();
         NotaDebitoDetalleDa notaDebitoDetalleDa = new NotaDebitoDetalleDa();
         ProductoIndividualDa productoIndividualDa = new ProductoIndividualDa();
+        UnidadMedidaDa unidadMedidaDa = new UnidadMedidaDa();
 
         public List<NotaDebitoBe> BuscarNotaDebito(DateTime? fechaEmisionDesde, DateTime? fechaEmisionHasta, int? codigoSerie, string numero, string nroDocIdentidadCliente, string nombresCliente, bool flagActivo)
         {
@@ -33,7 +34,7 @@ namespace pm.bl
             return resultados;
         }
 
-        public NotaDebitoBe ObtenerNotaDebito(int codigoNotaDebito, bool withDetalle = false)
+        public NotaDebitoBe ObtenerNotaDebito(int codigoNotaDebito, bool withDetalle = false, bool withUnidadMedida = false)
         {
             NotaDebitoBe item = null;
 
@@ -45,6 +46,17 @@ namespace pm.bl
                 {
                     item.ListaNotaDebitoDetalle = notaDebitoDetalleDa.ListarNotaDebitoDetalle(codigoNotaDebito, cn);
                 }
+                if (withUnidadMedida)
+                {
+                    if (item.ListaNotaDebitoDetalle != null)
+                    {
+                        foreach (var detalle in item.ListaNotaDebitoDetalle)
+                        {
+                            if (withUnidadMedida) detalle.UnidadMedida = unidadMedidaDa.ObtenerUnidadMedida(detalle.CodigoUnidadMedida, cn);
+
+                        }
+                    }
+                }
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
@@ -52,8 +64,10 @@ namespace pm.bl
             return item;
         }
 
-        public bool GuardarNotaDebito(NotaDebitoBe registro)
+        public bool GuardarNotaDebito(NotaDebitoBe registro, out int nroComprobante, out string totalEnLetras)
         {
+            nroComprobante = 0;
+            totalEnLetras = null;
             bool seGuardo = false;
 
             try
@@ -61,8 +75,8 @@ namespace pm.bl
                 using (TransactionScope scope = new TransactionScope())
                 {
                     cn.Open();
-                    int codigoNotaDebito = 0, nroComprobante = 0;
-                    seGuardo = notaDebitoDa.GuardarNotaDebito(registro, cn, out codigoNotaDebito, out nroComprobante);
+                    int codigoNotaDebito = 0;
+                    seGuardo = notaDebitoDa.GuardarNotaDebito(registro, cn, out codigoNotaDebito, out nroComprobante, out totalEnLetras);
                     if (registro.ListaNotaDebitoDetalle != null && seGuardo)
                     {
                         foreach (NotaDebitoDetalleBe item in registro.ListaNotaDebitoDetalle)
@@ -85,6 +99,21 @@ namespace pm.bl
 
                     if (seGuardo) scope.Complete();
                 }
+            }
+            catch (Exception ex) { log.Error(ex.Message); }
+            finally { if (cn.State == ConnectionState.Open) cn.Close(); }
+
+            return seGuardo;
+        }
+
+        public bool GuardarEmisionNotaDebito(NotaDebitoBe registro)
+        {
+            bool seGuardo = false;
+
+            try
+            {
+                cn.Open();
+                seGuardo = notaDebitoDa.GuardarEmisionNotaDebito(registro, cn);
             }
             catch (Exception ex) { log.Error(ex.Message); }
             finally { if (cn.State == ConnectionState.Open) cn.Close(); }
