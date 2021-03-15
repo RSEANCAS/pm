@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -67,7 +68,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(557, 82);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 22;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -96,7 +97,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
-            this.dgvResultados.TabIndex = 21;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // dgvResultados_CodigoUsuario
@@ -163,7 +164,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(638, 82);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -184,7 +185,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -192,8 +193,8 @@
             // 
             this.txtFiltroCorreo.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroCorreo.Name = "txtFiltroCorreo";
-            this.txtFiltroCorreo.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroCorreo.TabIndex = 18;
+            this.txtFiltroCorreo.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroCorreo.TabIndex = 3;
             // 
             // label4
             // 
@@ -208,8 +209,8 @@
             // 
             this.txtFiltroNombresPersonal.Location = new System.Drawing.Point(218, 33);
             this.txtFiltroNombresPersonal.Name = "txtFiltroNombresPersonal";
-            this.txtFiltroNombresPersonal.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNombresPersonal.TabIndex = 16;
+            this.txtFiltroNombresPersonal.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNombresPersonal.TabIndex = 2;
             // 
             // label3
             // 
@@ -224,8 +225,8 @@
             // 
             this.txtFiltroNroDocIdentidad.Location = new System.Drawing.Point(112, 33);
             this.txtFiltroNroDocIdentidad.Name = "txtFiltroNroDocIdentidad";
-            this.txtFiltroNroDocIdentidad.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNroDocIdentidad.TabIndex = 14;
+            this.txtFiltroNroDocIdentidad.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNroDocIdentidad.TabIndex = 1;
             // 
             // label1
             // 
@@ -244,7 +245,7 @@
             this.chkActivo.Location = new System.Drawing.Point(430, 37);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
+            this.chkActivo.TabIndex = 4;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -252,8 +253,8 @@
             // 
             this.txtFiltroNombre.Location = new System.Drawing.Point(6, 33);
             this.txtFiltroNombre.Name = "txtFiltroNombre";
-            this.txtFiltroNombre.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNombre.TabIndex = 3;
+            this.txtFiltroNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -276,11 +277,16 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmUsuario";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FrmUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

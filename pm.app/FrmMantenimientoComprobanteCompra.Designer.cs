@@ -119,7 +119,7 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(876, 127);
-            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Comprobante";
             // 
@@ -128,14 +128,14 @@
             this.txtSerieGuia.Location = new System.Drawing.Point(6, 86);
             this.txtSerieGuia.Name = "txtSerieGuia";
             this.txtSerieGuia.Size = new System.Drawing.Size(168, 20);
-            this.txtSerieGuia.TabIndex = 22;
+            this.txtSerieGuia.TabIndex = 5;
             // 
             // txtSerie
             // 
             this.txtSerie.Location = new System.Drawing.Point(354, 33);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(168, 20);
-            this.txtSerie.TabIndex = 21;
+            this.txtSerie.TabIndex = 2;
             // 
             // lblErrorNumeroGuia
             // 
@@ -178,7 +178,7 @@
             this.txtNumeroGuia.Location = new System.Drawing.Point(180, 86);
             this.txtNumeroGuia.Name = "txtNumeroGuia";
             this.txtNumeroGuia.Size = new System.Drawing.Size(168, 20);
-            this.txtNumeroGuia.TabIndex = 16;
+            this.txtNumeroGuia.TabIndex = 6;
             // 
             // lblErrorCodigoTipoComprobante
             // 
@@ -206,7 +206,7 @@
             this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(180, 33);
             this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
             this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoComprobante.TabIndex = 12;
+            this.cbbCodigoTipoComprobante.TabIndex = 1;
             this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
             // 
             // lblErrorFechaCompra
@@ -288,14 +288,14 @@
             this.dtpFechaCompra.Location = new System.Drawing.Point(702, 33);
             this.dtpFechaCompra.Name = "dtpFechaCompra";
             this.dtpFechaCompra.Size = new System.Drawing.Size(168, 20);
-            this.dtpFechaCompra.TabIndex = 3;
+            this.dtpFechaCompra.TabIndex = 4;
             // 
             // txtNumero
             // 
             this.txtNumero.Location = new System.Drawing.Point(528, 33);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(168, 20);
-            this.txtNumero.TabIndex = 2;
+            this.txtNumero.TabIndex = 3;
             // 
             // dtpFechaHoraRegistro
             // 
@@ -327,7 +327,7 @@
             this.groupBox2.Location = new System.Drawing.Point(8, 145);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(876, 113);
-            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Proveedor";
             // 
@@ -336,7 +336,7 @@
             this.btnBuscarProveedor.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarProveedor.TabIndex = 35;
+            this.btnBuscarProveedor.TabIndex = 2;
             this.btnBuscarProveedor.Text = "Buscar";
             this.btnBuscarProveedor.UseVisualStyleBackColor = true;
             this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
@@ -365,7 +365,7 @@
             this.txtUbicacionProveedor.Name = "txtUbicacionProveedor";
             this.txtUbicacionProveedor.ReadOnly = true;
             this.txtUbicacionProveedor.Size = new System.Drawing.Size(342, 20);
-            this.txtUbicacionProveedor.TabIndex = 32;
+            this.txtUbicacionProveedor.TabIndex = 6;
             // 
             // label14
             // 
@@ -382,7 +382,7 @@
             this.txtDireccionProveedor.Name = "txtDireccionProveedor";
             this.txtDireccionProveedor.ReadOnly = true;
             this.txtDireccionProveedor.Size = new System.Drawing.Size(516, 20);
-            this.txtDireccionProveedor.TabIndex = 20;
+            this.txtDireccionProveedor.TabIndex = 5;
             // 
             // label12
             // 
@@ -399,7 +399,7 @@
             this.txtCorreoProveedor.Name = "txtCorreoProveedor";
             this.txtCorreoProveedor.ReadOnly = true;
             this.txtCorreoProveedor.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoProveedor.TabIndex = 17;
+            this.txtCorreoProveedor.TabIndex = 4;
             // 
             // label11
             // 
@@ -416,14 +416,14 @@
             this.txtNombresProveedor.Name = "txtNombresProveedor";
             this.txtNombresProveedor.ReadOnly = true;
             this.txtNombresProveedor.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresProveedor.TabIndex = 15;
+            this.txtNombresProveedor.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadProveedor
             // 
             this.txtNroDocumentoIdentidadProveedor.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadProveedor.Name = "txtNroDocumentoIdentidadProveedor";
             this.txtNroDocumentoIdentidadProveedor.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadProveedor.TabIndex = 14;
+            this.txtNroDocumentoIdentidadProveedor.TabIndex = 1;
             // 
             // label10
             // 
@@ -443,7 +443,7 @@
             this.cbbCodigoTipoDocumentoIdentidadProveedor.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadProveedor.Name = "cbbCodigoTipoDocumentoIdentidadProveedor";
             this.cbbCodigoTipoDocumentoIdentidadProveedor.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadProveedor.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadProveedor.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadProveedor.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label9
@@ -468,7 +468,7 @@
             this.groupBox3.Location = new System.Drawing.Point(8, 264);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(876, 247);
-            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle del Comprobante";
             // 
@@ -477,7 +477,7 @@
             this.btnUnidades.Location = new System.Drawing.Point(795, 107);
             this.btnUnidades.Name = "btnUnidades";
             this.btnUnidades.Size = new System.Drawing.Size(75, 23);
-            this.btnUnidades.TabIndex = 38;
+            this.btnUnidades.TabIndex = 4;
             this.btnUnidades.Text = "Unidades";
             this.btnUnidades.UseVisualStyleBackColor = true;
             this.btnUnidades.Click += new System.EventHandler(this.btnUnidades_Click);
@@ -497,7 +497,7 @@
             this.txtTotalImporte.Name = "txtTotalImporte";
             this.txtTotalImporte.ReadOnly = true;
             this.txtTotalImporte.Size = new System.Drawing.Size(168, 20);
-            this.txtTotalImporte.TabIndex = 36;
+            this.txtTotalImporte.TabIndex = 5;
             // 
             // lblErrorDetalle
             // 
@@ -628,7 +628,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(809, 517);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

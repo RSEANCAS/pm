@@ -54,7 +54,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(293, 195);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -77,7 +77,7 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 177);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Detalle";
             // 
@@ -97,7 +97,7 @@
             this.txtImporteTotal.Location = new System.Drawing.Point(9, 139);
             this.txtImporteTotal.Name = "txtImporteTotal";
             this.txtImporteTotal.Size = new System.Drawing.Size(168, 20);
-            this.txtImporteTotal.TabIndex = 115;
+            this.txtImporteTotal.TabIndex = 4;
             // 
             // label7
             // 
@@ -123,7 +123,7 @@
             this.txtPrecioUnitario.Location = new System.Drawing.Point(183, 86);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
             this.txtPrecioUnitario.Size = new System.Drawing.Size(168, 20);
-            this.txtPrecioUnitario.TabIndex = 101;
+            this.txtPrecioUnitario.TabIndex = 3;
             this.txtPrecioUnitario.TextChanged += new System.EventHandler(this.txtPrecioUnitario_TextChanged);
             // 
             // label9
@@ -150,7 +150,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(9, 86);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(168, 20);
-            this.txtCantidad.TabIndex = 59;
+            this.txtCantidad.TabIndex = 2;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             // 
             // label5
@@ -178,7 +178,7 @@
             this.btnBuscarProducto.Location = new System.Drawing.Point(295, 31);
             this.btnBuscarProducto.Name = "btnBuscarProducto";
             this.btnBuscarProducto.Size = new System.Drawing.Size(58, 23);
-            this.btnBuscarProducto.TabIndex = 44;
+            this.btnBuscarProducto.TabIndex = 1;
             this.btnBuscarProducto.Text = "Buscar";
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
             this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
@@ -191,7 +191,7 @@
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.ReadOnly = true;
             this.txtNombreProducto.Size = new System.Drawing.Size(282, 20);
-            this.txtNombreProducto.TabIndex = 43;
+            this.txtNombreProducto.TabIndex = 0;
             // 
             // label1
             // 

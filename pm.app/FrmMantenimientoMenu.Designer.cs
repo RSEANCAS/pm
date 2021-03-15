@@ -49,7 +49,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 208);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -69,7 +69,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 191);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -81,7 +81,7 @@
             this.cbbCodigoMenuPadre.Location = new System.Drawing.Point(9, 138);
             this.cbbCodigoMenuPadre.Name = "cbbCodigoMenuPadre";
             this.cbbCodigoMenuPadre.Size = new System.Drawing.Size(342, 21);
-            this.cbbCodigoMenuPadre.TabIndex = 27;
+            this.cbbCodigoMenuPadre.TabIndex = 2;
             this.cbbCodigoMenuPadre.ValueMember = "CodigoMenu";
             // 
             // label5
@@ -111,7 +111,7 @@
             this.txtFormulario.Location = new System.Drawing.Point(9, 85);
             this.txtFormulario.Name = "txtFormulario";
             this.txtFormulario.Size = new System.Drawing.Size(342, 20);
-            this.txtFormulario.TabIndex = 22;
+            this.txtFormulario.TabIndex = 1;
             // 
             // label2
             // 
@@ -140,7 +140,7 @@
             this.txtNombre.Location = new System.Drawing.Point(9, 32);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(342, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 0;
             // 
             // label3
             // 

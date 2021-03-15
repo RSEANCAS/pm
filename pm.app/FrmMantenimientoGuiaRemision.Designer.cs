@@ -127,7 +127,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(876, 72);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Comprobante";
             // 
@@ -157,7 +157,7 @@
             this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(180, 33);
             this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
             this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoComprobante.TabIndex = 12;
+            this.cbbCodigoTipoComprobante.TabIndex = 1;
             this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
             this.cbbCodigoTipoComprobante.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoTipoComprobante_SelectedIndexChanged);
             // 
@@ -240,7 +240,7 @@
             this.dtpFechaHoraTraslado.Location = new System.Drawing.Point(702, 33);
             this.dtpFechaHoraTraslado.Name = "dtpFechaHoraTraslado";
             this.dtpFechaHoraTraslado.Size = new System.Drawing.Size(168, 20);
-            this.dtpFechaHoraTraslado.TabIndex = 3;
+            this.dtpFechaHoraTraslado.TabIndex = 4;
             // 
             // txtNroComprobante
             // 
@@ -248,7 +248,7 @@
             this.txtNroComprobante.Name = "txtNroComprobante";
             this.txtNroComprobante.ReadOnly = true;
             this.txtNroComprobante.Size = new System.Drawing.Size(168, 20);
-            this.txtNroComprobante.TabIndex = 2;
+            this.txtNroComprobante.TabIndex = 3;
             // 
             // cbbCodigoSerie
             // 
@@ -258,7 +258,7 @@
             this.cbbCodigoSerie.Location = new System.Drawing.Point(354, 33);
             this.cbbCodigoSerie.Name = "cbbCodigoSerie";
             this.cbbCodigoSerie.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoSerie.TabIndex = 1;
+            this.cbbCodigoSerie.TabIndex = 2;
             this.cbbCodigoSerie.ValueMember = "CodigoSerie";
             // 
             // dtpFechaHoraEmision
@@ -291,7 +291,7 @@
             this.groupBox2.Location = new System.Drawing.Point(12, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(876, 113);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Cliente";
             // 
@@ -300,7 +300,7 @@
             this.btnBuscarCliente.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarCliente.TabIndex = 35;
+            this.btnBuscarCliente.TabIndex = 2;
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
@@ -329,7 +329,7 @@
             this.txtUbicacionCliente.Name = "txtUbicacionCliente";
             this.txtUbicacionCliente.ReadOnly = true;
             this.txtUbicacionCliente.Size = new System.Drawing.Size(342, 20);
-            this.txtUbicacionCliente.TabIndex = 32;
+            this.txtUbicacionCliente.TabIndex = 6;
             // 
             // label14
             // 
@@ -346,7 +346,7 @@
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.ReadOnly = true;
             this.txtDireccionCliente.Size = new System.Drawing.Size(516, 20);
-            this.txtDireccionCliente.TabIndex = 20;
+            this.txtDireccionCliente.TabIndex = 5;
             // 
             // label12
             // 
@@ -363,7 +363,7 @@
             this.txtCorreoCliente.Name = "txtCorreoCliente";
             this.txtCorreoCliente.ReadOnly = true;
             this.txtCorreoCliente.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoCliente.TabIndex = 17;
+            this.txtCorreoCliente.TabIndex = 4;
             // 
             // label11
             // 
@@ -380,14 +380,14 @@
             this.txtNombresCliente.Name = "txtNombresCliente";
             this.txtNombresCliente.ReadOnly = true;
             this.txtNombresCliente.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresCliente.TabIndex = 15;
+            this.txtNombresCliente.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadCliente
             // 
             this.txtNroDocumentoIdentidadCliente.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadCliente.Name = "txtNroDocumentoIdentidadCliente";
             this.txtNroDocumentoIdentidadCliente.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadCliente.TabIndex = 14;
+            this.txtNroDocumentoIdentidadCliente.TabIndex = 1;
             // 
             // label10
             // 
@@ -407,7 +407,7 @@
             this.cbbCodigoTipoDocumentoIdentidadCliente.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadCliente.Name = "cbbCodigoTipoDocumentoIdentidadCliente";
             this.cbbCodigoTipoDocumentoIdentidadCliente.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadCliente.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadCliente.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadCliente.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label9
@@ -446,7 +446,7 @@
             this.groupBox3.Location = new System.Drawing.Point(12, 209);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(876, 150);
-            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del Transportista";
             // 
@@ -458,7 +458,7 @@
             this.cbbCodigoMotivoTraslado.Location = new System.Drawing.Point(528, 112);
             this.cbbCodigoMotivoTraslado.Name = "cbbCodigoMotivoTraslado";
             this.cbbCodigoMotivoTraslado.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoMotivoTraslado.TabIndex = 44;
+            this.cbbCodigoMotivoTraslado.TabIndex = 10;
             this.cbbCodigoMotivoTraslado.ValueMember = "CodigoMotivoTraslado";
             // 
             // label22
@@ -484,7 +484,7 @@
             this.txtLicenciaConducirTransportista.Location = new System.Drawing.Point(354, 112);
             this.txtLicenciaConducirTransportista.Name = "txtLicenciaConducirTransportista";
             this.txtLicenciaConducirTransportista.Size = new System.Drawing.Size(168, 20);
-            this.txtLicenciaConducirTransportista.TabIndex = 40;
+            this.txtLicenciaConducirTransportista.TabIndex = 9;
             // 
             // label20
             // 
@@ -500,7 +500,7 @@
             this.txtPlacaVehiculoTransportista.Location = new System.Drawing.Point(180, 112);
             this.txtPlacaVehiculoTransportista.Name = "txtPlacaVehiculoTransportista";
             this.txtPlacaVehiculoTransportista.Size = new System.Drawing.Size(168, 20);
-            this.txtPlacaVehiculoTransportista.TabIndex = 38;
+            this.txtPlacaVehiculoTransportista.TabIndex = 8;
             // 
             // label19
             // 
@@ -516,14 +516,14 @@
             this.txtMarcaVehiculoTransportista.Location = new System.Drawing.Point(6, 112);
             this.txtMarcaVehiculoTransportista.Name = "txtMarcaVehiculoTransportista";
             this.txtMarcaVehiculoTransportista.Size = new System.Drawing.Size(168, 20);
-            this.txtMarcaVehiculoTransportista.TabIndex = 36;
+            this.txtMarcaVehiculoTransportista.TabIndex = 7;
             // 
             // btnBuscarTransportista
             // 
             this.btnBuscarTransportista.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarTransportista.Name = "btnBuscarTransportista";
             this.btnBuscarTransportista.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarTransportista.TabIndex = 35;
+            this.btnBuscarTransportista.TabIndex = 2;
             this.btnBuscarTransportista.Text = "Buscar";
             this.btnBuscarTransportista.UseVisualStyleBackColor = true;
             this.btnBuscarTransportista.Click += new System.EventHandler(this.btnBuscarTransportista_Click);
@@ -552,7 +552,7 @@
             this.txtUbicacionTransportista.Name = "txtUbicacionTransportista";
             this.txtUbicacionTransportista.ReadOnly = true;
             this.txtUbicacionTransportista.Size = new System.Drawing.Size(342, 20);
-            this.txtUbicacionTransportista.TabIndex = 32;
+            this.txtUbicacionTransportista.TabIndex = 6;
             // 
             // label8
             // 
@@ -569,7 +569,7 @@
             this.txtDireccionTransportista.Name = "txtDireccionTransportista";
             this.txtDireccionTransportista.ReadOnly = true;
             this.txtDireccionTransportista.Size = new System.Drawing.Size(516, 20);
-            this.txtDireccionTransportista.TabIndex = 20;
+            this.txtDireccionTransportista.TabIndex = 5;
             // 
             // label13
             // 
@@ -586,7 +586,7 @@
             this.txtCorreoTransportista.Name = "txtCorreoTransportista";
             this.txtCorreoTransportista.ReadOnly = true;
             this.txtCorreoTransportista.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoTransportista.TabIndex = 17;
+            this.txtCorreoTransportista.TabIndex = 4;
             // 
             // label15
             // 
@@ -603,14 +603,14 @@
             this.txtNombresTransportista.Name = "txtNombresTransportista";
             this.txtNombresTransportista.ReadOnly = true;
             this.txtNombresTransportista.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresTransportista.TabIndex = 15;
+            this.txtNombresTransportista.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadTransportista
             // 
             this.txtNroDocumentoIdentidadTransportista.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadTransportista.Name = "txtNroDocumentoIdentidadTransportista";
             this.txtNroDocumentoIdentidadTransportista.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadTransportista.TabIndex = 14;
+            this.txtNroDocumentoIdentidadTransportista.TabIndex = 1;
             // 
             // label16
             // 
@@ -630,7 +630,7 @@
             this.cbbCodigoTipoDocumentoIdentidadTransportista.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadTransportista.Name = "cbbCodigoTipoDocumentoIdentidadTransportista";
             this.cbbCodigoTipoDocumentoIdentidadTransportista.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadTransportista.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadTransportista.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadTransportista.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label18
@@ -652,7 +652,7 @@
             this.groupBox4.Location = new System.Drawing.Point(12, 365);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(876, 192);
-            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle del Comprobante";
             // 
@@ -777,7 +777,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(813, 563);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);

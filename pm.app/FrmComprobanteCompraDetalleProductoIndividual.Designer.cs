@@ -66,6 +66,7 @@
             this.dgvResultados_PersonalInspeccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblResultados
@@ -82,7 +83,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(553, 77);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 23;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -119,7 +120,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 172);
-            this.dgvResultados.TabIndex = 22;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // btnBuscar
@@ -128,7 +129,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(634, 77);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -150,7 +151,7 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -159,14 +160,14 @@
             this.txtFiltroColor.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroColor.Name = "txtFiltroColor";
             this.txtFiltroColor.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroColor.TabIndex = 11;
+            this.txtFiltroColor.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(430, 17);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Color";
             // 
@@ -175,14 +176,14 @@
             this.txtFiltroNombre.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNombre.Name = "txtFiltroNombre";
             this.txtFiltroNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombre.TabIndex = 7;
+            this.txtFiltroNombre.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(324, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Nombre";
             // 
@@ -191,14 +192,14 @@
             this.txtFiltroCodigoProducto.Location = new System.Drawing.Point(218, 33);
             this.txtFiltroCodigoProducto.Name = "txtFiltroCodigoProducto";
             this.txtFiltroCodigoProducto.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroCodigoProducto.TabIndex = 5;
+            this.txtFiltroCodigoProducto.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(218, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Código Producto";
             // 
@@ -207,14 +208,14 @@
             this.txtFiltroCodigoBarra.Location = new System.Drawing.Point(112, 33);
             this.txtFiltroCodigoBarra.Name = "txtFiltroCodigoBarra";
             this.txtFiltroCodigoBarra.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroCodigoBarra.TabIndex = 3;
+            this.txtFiltroCodigoBarra.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(112, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Código Barra";
             // 
@@ -223,14 +224,14 @@
             this.txtFiltroCodigoProductoIndividual.Location = new System.Drawing.Point(6, 33);
             this.txtFiltroCodigoProductoIndividual.Name = "txtFiltroCodigoProductoIndividual";
             this.txtFiltroCodigoProductoIndividual.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroCodigoProductoIndividual.TabIndex = 1;
+            this.txtFiltroCodigoProductoIndividual.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
@@ -240,7 +241,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(630, 284);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 25;
+            this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -293,6 +294,7 @@
             this.dgvResultados_PrecioCompra.HeaderText = "Precio Compra";
             this.dgvResultados_PrecioCompra.Name = "dgvResultados_PrecioCompra";
             this.dgvResultados_PrecioCompra.ReadOnly = true;
+            this.dgvResultados_PrecioCompra.Width = 110;
             // 
             // dgvResultados_PrecioVenta
             // 
@@ -309,7 +311,7 @@
             this.dgvResultados_UnidadMedida.HeaderText = "Unidad Medida";
             this.dgvResultados_UnidadMedida.Name = "dgvResultados_UnidadMedida";
             this.dgvResultados_UnidadMedida.ReadOnly = true;
-            this.dgvResultados_UnidadMedida.Width = 120;
+            this.dgvResultados_UnidadMedida.Width = 130;
             // 
             // dgvResultados_Metraje
             // 
@@ -368,7 +370,7 @@
             this.dgvResultados_PersonalInspeccion.HeaderText = "Personal Inspección";
             this.dgvResultados_PersonalInspeccion.Name = "dgvResultados_PersonalInspeccion";
             this.dgvResultados_PersonalInspeccion.ReadOnly = true;
-            this.dgvResultados_PersonalInspeccion.Width = 150;
+            this.dgvResultados_PersonalInspeccion.Width = 160;
             // 
             // FrmComprobanteCompraDetalleProductoIndividual
             // 
@@ -384,12 +386,17 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmComprobanteCompraDetalleProductoIndividual";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registro de Unidades";
             this.Load += new System.EventHandler(this.FrmComprobanteCompraDetalleProductoIndividual_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

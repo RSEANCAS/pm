@@ -141,7 +141,9 @@ namespace pm.app
             rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.NotaCredito>() { dsCabecera }));
             rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
 
-            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoNotaCredito");
+            string nombreArchivo = dsCabecera.Serie + " - " + dsCabecera.Correlativo.ToString("00000000");
+
+            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoNotaCredito", nombreArchivo);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             frm.ShowDialog();

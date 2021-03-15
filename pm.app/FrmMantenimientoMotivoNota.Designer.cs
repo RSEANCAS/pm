@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblErrorDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.cbbCodigoTipoComprobante = new System.Windows.Forms.ComboBox();
             this.lblErrorCodigoTipoComprobante = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblErrorDescripcion = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tltMotivoNota = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -46,7 +47,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(293, 94);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -64,9 +65,40 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 81);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // cbbCodigoTipoComprobante
+            // 
+            this.cbbCodigoTipoComprobante.DisplayMember = "Nombre";
+            this.cbbCodigoTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoTipoComprobante.FormattingEnabled = true;
+            this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(183, 32);
+            this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
+            this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoTipoComprobante.TabIndex = 1;
+            this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
+            // 
+            // lblErrorCodigoTipoComprobante
+            // 
+            this.lblErrorCodigoTipoComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoTipoComprobante.AutoSize = true;
+            this.lblErrorCodigoTipoComprobante.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoTipoComprobante.Location = new System.Drawing.Point(180, 56);
+            this.lblErrorCodigoTipoComprobante.Name = "lblErrorCodigoTipoComprobante";
+            this.lblErrorCodigoTipoComprobante.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoTipoComprobante.TabIndex = 37;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(180, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Tipo Comprobante";
             // 
             // lblErrorDescripcion
             // 
@@ -86,47 +118,16 @@
             this.txtDescripcion.Location = new System.Drawing.Point(9, 32);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(168, 20);
-            this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Descripción";
-            // 
-            // cbbCodigoTipoComprobante
-            // 
-            this.cbbCodigoTipoComprobante.DisplayMember = "Nombre";
-            this.cbbCodigoTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigoTipoComprobante.FormattingEnabled = true;
-            this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(183, 32);
-            this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
-            this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoComprobante.TabIndex = 38;
-            this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
-            // 
-            // lblErrorCodigoTipoComprobante
-            // 
-            this.lblErrorCodigoTipoComprobante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorCodigoTipoComprobante.AutoSize = true;
-            this.lblErrorCodigoTipoComprobante.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoTipoComprobante.Location = new System.Drawing.Point(180, 56);
-            this.lblErrorCodigoTipoComprobante.Name = "lblErrorCodigoTipoComprobante";
-            this.lblErrorCodigoTipoComprobante.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCodigoTipoComprobante.TabIndex = 37;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(180, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Tipo Comprobante";
             // 
             // FrmMantenimientoMotivoNota
             // 
@@ -136,10 +137,16 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmMantenimientoMotivoNota";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoMotivoNota";
             this.Load += new System.EventHandler(this.FrmMantenimientoMotivoNota_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

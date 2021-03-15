@@ -33,6 +33,16 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblResultados = new System.Windows.Forms.Label();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.dgvResultados_CodigoComprobantePago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaHoraPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_SerialSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbbFiltroCodigoSerie = new System.Windows.Forms.ComboBox();
@@ -48,16 +58,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chkAnulado = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvResultados_CodigoComprobantePago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaHoraPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_SerialSerie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NroComprobante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_TipoDocumentoIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NroDocIdentidadCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_NombresCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_StrMoneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -69,7 +69,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(557, 77);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 38;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -109,155 +109,8 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 172);
-            this.dgvResultados.TabIndex = 36;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(638, 77);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 35;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cbbFiltroCodigoSerie);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaPagoHasta);
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaPagoDesde);
-            this.groupBox1.Controls.Add(this.txtFiltroNombresCliente);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidadCliente);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtFiltroNroComprobante);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.chkAnulado);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 59);
-            this.groupBox1.TabIndex = 34;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // cbbFiltroCodigoSerie
-            // 
-            this.cbbFiltroCodigoSerie.DisplayMember = "Serial";
-            this.cbbFiltroCodigoSerie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbFiltroCodigoSerie.FormattingEnabled = true;
-            this.cbbFiltroCodigoSerie.Location = new System.Drawing.Point(218, 32);
-            this.cbbFiltroCodigoSerie.Name = "cbbFiltroCodigoSerie";
-            this.cbbFiltroCodigoSerie.Size = new System.Drawing.Size(100, 21);
-            this.cbbFiltroCodigoSerie.TabIndex = 27;
-            this.cbbFiltroCodigoSerie.ValueMember = "CodigoSerie";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(218, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Serie";
-            // 
-            // dtpFiltroFechaPagoHasta
-            // 
-            this.dtpFiltroFechaPagoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaPagoHasta.Location = new System.Drawing.Point(112, 33);
-            this.dtpFiltroFechaPagoHasta.Name = "dtpFiltroFechaPagoHasta";
-            this.dtpFiltroFechaPagoHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaPagoHasta.TabIndex = 24;
-            // 
-            // dtpFiltroFechaPagoDesde
-            // 
-            this.dtpFiltroFechaPagoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaPagoDesde.Location = new System.Drawing.Point(6, 33);
-            this.dtpFiltroFechaPagoDesde.Name = "dtpFiltroFechaPagoDesde";
-            this.dtpFiltroFechaPagoDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaPagoDesde.TabIndex = 23;
-            // 
-            // txtFiltroNombresCliente
-            // 
-            this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
-            this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
-            this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombresCliente.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(536, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Nombres";
-            // 
-            // txtFiltroNroDocIdentidadCliente
-            // 
-            this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
-            this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
-            this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(430, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "N° Doc. Identidad";
-            // 
-            // txtFiltroNroComprobante
-            // 
-            this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
-            this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
-            this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroComprobante.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(324, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Número";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Fec. Pago Hasta";
-            // 
-            // chkAnulado
-            // 
-            this.chkAnulado.AutoSize = true;
-            this.chkAnulado.Location = new System.Drawing.Point(638, 37);
-            this.chkAnulado.Name = "chkAnulado";
-            this.chkAnulado.Size = new System.Drawing.Size(70, 17);
-            this.chkAnulado.TabIndex = 12;
-            this.chkAnulado.Text = "Anulado";
-            this.chkAnulado.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fec. Pago Desde";
             // 
             // dgvResultados_CodigoComprobantePago
             // 
@@ -339,6 +192,153 @@
             this.dgvResultados_Monto.HeaderText = "Monto";
             this.dgvResultados_Monto.Name = "dgvResultados_Monto";
             this.dgvResultados_Monto.ReadOnly = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(638, 77);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cbbFiltroCodigoSerie);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaPagoHasta);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaPagoDesde);
+            this.groupBox1.Controls.Add(this.txtFiltroNombresCliente);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtFiltroNroDocIdentidadCliente);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtFiltroNroComprobante);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.chkAnulado);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(701, 59);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // cbbFiltroCodigoSerie
+            // 
+            this.cbbFiltroCodigoSerie.DisplayMember = "Serial";
+            this.cbbFiltroCodigoSerie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbFiltroCodigoSerie.FormattingEnabled = true;
+            this.cbbFiltroCodigoSerie.Location = new System.Drawing.Point(218, 32);
+            this.cbbFiltroCodigoSerie.Name = "cbbFiltroCodigoSerie";
+            this.cbbFiltroCodigoSerie.Size = new System.Drawing.Size(100, 21);
+            this.cbbFiltroCodigoSerie.TabIndex = 2;
+            this.cbbFiltroCodigoSerie.ValueMember = "CodigoSerie";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(218, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Serie";
+            // 
+            // dtpFiltroFechaPagoHasta
+            // 
+            this.dtpFiltroFechaPagoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaPagoHasta.Location = new System.Drawing.Point(112, 33);
+            this.dtpFiltroFechaPagoHasta.Name = "dtpFiltroFechaPagoHasta";
+            this.dtpFiltroFechaPagoHasta.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaPagoHasta.TabIndex = 1;
+            // 
+            // dtpFiltroFechaPagoDesde
+            // 
+            this.dtpFiltroFechaPagoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaPagoDesde.Location = new System.Drawing.Point(6, 33);
+            this.dtpFiltroFechaPagoDesde.Name = "dtpFiltroFechaPagoDesde";
+            this.dtpFiltroFechaPagoDesde.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaPagoDesde.TabIndex = 0;
+            // 
+            // txtFiltroNombresCliente
+            // 
+            this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
+            this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
+            this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNombresCliente.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(536, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Nombres";
+            // 
+            // txtFiltroNroDocIdentidadCliente
+            // 
+            this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
+            this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
+            this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNroDocIdentidadCliente.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(430, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "N° Doc. Identidad";
+            // 
+            // txtFiltroNroComprobante
+            // 
+            this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
+            this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
+            this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNroComprobante.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(324, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Número";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Fec. Pago Hasta";
+            // 
+            // chkAnulado
+            // 
+            this.chkAnulado.AutoSize = true;
+            this.chkAnulado.Location = new System.Drawing.Point(638, 37);
+            this.chkAnulado.Name = "chkAnulado";
+            this.chkAnulado.Size = new System.Drawing.Size(70, 17);
+            this.chkAnulado.TabIndex = 6;
+            this.chkAnulado.Text = "Anulado";
+            this.chkAnulado.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Fec. Pago Desde";
             // 
             // FrmComprobantePago
             // 

@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tltUnidadMedida = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -43,7 +44,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 98);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -58,7 +59,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 81);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -79,8 +80,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Location = new System.Drawing.Point(9, 32);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(342, 21);
-            this.txtDescripcion.TabIndex = 5;
+            this.txtDescripcion.Size = new System.Drawing.Size(342, 20);
+            this.txtDescripcion.TabIndex = 0;
             // 
             // label3
             // 
@@ -101,11 +102,16 @@
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoUnidadMedida";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoUnidadMedida";
             this.Load += new System.EventHandler(this.FrmMantenimientoUnidadMedida_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

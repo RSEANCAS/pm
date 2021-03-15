@@ -44,7 +44,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 98);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -59,7 +59,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 81);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -81,7 +81,7 @@
             this.txtNombre.Location = new System.Drawing.Point(9, 32);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(342, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 0;
             // 
             // label3
             // 

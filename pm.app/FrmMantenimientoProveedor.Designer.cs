@@ -74,7 +74,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 407);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -119,7 +119,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 391);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -133,7 +133,7 @@
             this.cbbCodigoProvincia.Location = new System.Drawing.Point(9, 245);
             this.cbbCodigoProvincia.Name = "cbbCodigoProvincia";
             this.cbbCodigoProvincia.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoProvincia.TabIndex = 51;
+            this.cbbCodigoProvincia.TabIndex = 6;
             this.cbbCodigoProvincia.ValueMember = "CodigoProvincia";
             this.cbbCodigoProvincia.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoProvincia_SelectedIndexChanged);
             // 
@@ -147,7 +147,7 @@
             this.cbbCodigoDistrito.Location = new System.Drawing.Point(183, 245);
             this.cbbCodigoDistrito.Name = "cbbCodigoDistrito";
             this.cbbCodigoDistrito.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoDistrito.TabIndex = 50;
+            this.cbbCodigoDistrito.TabIndex = 7;
             this.cbbCodigoDistrito.ValueMember = "CodigoDistrito";
             // 
             // lblErrorCodigoDistrito
@@ -197,7 +197,7 @@
             this.cbbCodigoDepartamento.Location = new System.Drawing.Point(183, 192);
             this.cbbCodigoDepartamento.Name = "cbbCodigoDepartamento";
             this.cbbCodigoDepartamento.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoDepartamento.TabIndex = 45;
+            this.cbbCodigoDepartamento.TabIndex = 5;
             this.cbbCodigoDepartamento.ValueMember = "CodigoDepartamento";
             this.cbbCodigoDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoDepartamento_SelectedIndexChanged);
             // 
@@ -228,7 +228,7 @@
             this.cbbCodigoPais.Location = new System.Drawing.Point(9, 192);
             this.cbbCodigoPais.Name = "cbbCodigoPais";
             this.cbbCodigoPais.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoPais.TabIndex = 27;
+            this.cbbCodigoPais.TabIndex = 4;
             this.cbbCodigoPais.ValueMember = "CodigoPais";
             this.cbbCodigoPais.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoPais_SelectedIndexChanged);
             // 
@@ -317,7 +317,7 @@
             this.txtContacto.Location = new System.Drawing.Point(9, 351);
             this.txtContacto.Name = "txtContacto";
             this.txtContacto.Size = new System.Drawing.Size(168, 20);
-            this.txtContacto.TabIndex = 15;
+            this.txtContacto.TabIndex = 10;
             // 
             // label7
             // 
@@ -333,7 +333,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(183, 298);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(168, 20);
-            this.txtTelefono.TabIndex = 13;
+            this.txtTelefono.TabIndex = 9;
             // 
             // label8
             // 
@@ -350,7 +350,7 @@
             this.txtCorreoElectronico.Location = new System.Drawing.Point(9, 298);
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoElectronico.TabIndex = 11;
+            this.txtCorreoElectronico.TabIndex = 8;
             // 
             // label6
             // 
@@ -377,7 +377,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(9, 139);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(342, 20);
-            this.txtDireccion.TabIndex = 7;
+            this.txtDireccion.TabIndex = 3;
             // 
             // label4
             // 
@@ -395,7 +395,7 @@
             this.txtNombresCompletos.Location = new System.Drawing.Point(9, 86);
             this.txtNombresCompletos.Name = "txtNombresCompletos";
             this.txtNombresCompletos.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresCompletos.TabIndex = 5;
+            this.txtNombresCompletos.TabIndex = 2;
             // 
             // label3
             // 
@@ -421,7 +421,7 @@
             this.txtNroDocumentoIdentidad.Location = new System.Drawing.Point(183, 33);
             this.txtNroDocumentoIdentidad.Name = "txtNroDocumentoIdentidad";
             this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 20);
-            this.txtNroDocumentoIdentidad.TabIndex = 3;
+            this.txtNroDocumentoIdentidad.TabIndex = 1;
             // 
             // cbbCodigoTipoDocumentoIdentidad
             // 
@@ -431,7 +431,7 @@
             this.cbbCodigoTipoDocumentoIdentidad.Location = new System.Drawing.Point(9, 33);
             this.cbbCodigoTipoDocumentoIdentidad.Name = "cbbCodigoTipoDocumentoIdentidad";
             this.cbbCodigoTipoDocumentoIdentidad.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidad.TabIndex = 1;
+            this.cbbCodigoTipoDocumentoIdentidad.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidad.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label2

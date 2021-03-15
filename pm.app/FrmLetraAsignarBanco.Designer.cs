@@ -37,6 +37,7 @@
             this.lblErrorCodigoUnico = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tltLetra = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // cbbCodigoBanco
@@ -71,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Código Único Pago";
             // 
@@ -98,7 +99,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(130, 117);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -116,8 +117,13 @@
             this.Controls.Add(this.txtCodigoUnico);
             this.Controls.Add(this.cbbCodigoBanco);
             this.Name = "FrmLetraAsignarBanco";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Asignar Banco";
             this.Load += new System.EventHandler(this.FrmLetraAsignarBanco_Load);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

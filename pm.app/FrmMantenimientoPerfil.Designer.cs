@@ -31,14 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tvwMenu = new System.Windows.Forms.TreeView();
+            this.lblErrorListaMenu = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblErrorNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tltPerfil = new System.Windows.Forms.ToolTip(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblErrorListaMenu = new System.Windows.Forms.Label();
-            this.tvwMenu = new System.Windows.Forms.TreeView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -46,7 +47,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 337);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -64,9 +65,37 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 320);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // tvwMenu
+            // 
+            this.tvwMenu.CheckBoxes = true;
+            this.tvwMenu.Location = new System.Drawing.Point(9, 85);
+            this.tvwMenu.Name = "tvwMenu";
+            this.tvwMenu.Size = new System.Drawing.Size(342, 216);
+            this.tvwMenu.TabIndex = 2;
+            // 
+            // lblErrorListaMenu
+            // 
+            this.lblErrorListaMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorListaMenu.AutoSize = true;
+            this.lblErrorListaMenu.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorListaMenu.Location = new System.Drawing.Point(6, 304);
+            this.lblErrorListaMenu.Name = "lblErrorListaMenu";
+            this.lblErrorListaMenu.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorListaMenu.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Acceso al Menú";
             // 
             // lblErrorNombre
             // 
@@ -85,8 +114,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(9, 32);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(342, 21);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.Size = new System.Drawing.Size(342, 20);
+            this.txtNombre.TabIndex = 0;
             // 
             // label3
             // 
@@ -96,34 +125,6 @@
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Nombre";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Acceso al Menú";
-            // 
-            // lblErrorListaMenu
-            // 
-            this.lblErrorListaMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorListaMenu.AutoSize = true;
-            this.lblErrorListaMenu.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorListaMenu.Location = new System.Drawing.Point(6, 304);
-            this.lblErrorListaMenu.Name = "lblErrorListaMenu";
-            this.lblErrorListaMenu.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorListaMenu.TabIndex = 23;
-            // 
-            // tvwMenu
-            // 
-            this.tvwMenu.CheckBoxes = true;
-            this.tvwMenu.Location = new System.Drawing.Point(9, 85);
-            this.tvwMenu.Name = "tvwMenu";
-            this.tvwMenu.Size = new System.Drawing.Size(342, 216);
-            this.tvwMenu.TabIndex = 24;
             // 
             // FrmMantenimientoPerfil
             // 
@@ -135,11 +136,16 @@
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoPerfil";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoPerfil";
             this.Load += new System.EventHandler(this.FrmMantenimientoPerfil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -597,6 +597,13 @@ namespace pm.app
                 SetToolTipError(lblErrorCodigoMoneda);
             }
 
+            if (cbbCodigoMotivoNota.SelectedIndex == 0)
+            {
+                estaValidado = false;
+                lblErrorCodigoMotivoNota.Text = "Debe seleccionar un motivo";
+                SetToolTipError(lblErrorCodigoMotivoNota);
+            }
+
             if (codigoCliente == null)
             {
                 estaValidado = false;

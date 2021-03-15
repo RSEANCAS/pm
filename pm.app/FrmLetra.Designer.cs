@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblResultados = new System.Windows.Forms.Label();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
             this.dgvResultados_CodigoLetra = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -144,7 +144,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 130);
-            this.dgvResultados.TabIndex = 26;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // dgvResultados_CodigoLetra
@@ -166,8 +166,8 @@
             // dgvResultados_Numero
             // 
             this.dgvResultados_Numero.DataPropertyName = "Numero";
-            dataGridViewCellStyle12.Format = "00000000";
-            this.dgvResultados_Numero.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Format = "00000000";
+            this.dgvResultados_Numero.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResultados_Numero.HeaderText = "N° Letra";
             this.dgvResultados_Numero.Name = "dgvResultados_Numero";
             this.dgvResultados_Numero.ReadOnly = true;
@@ -175,8 +175,8 @@
             // dgvResultados_NumeroLetraInicial
             // 
             this.dgvResultados_NumeroLetraInicial.DataPropertyName = "NumeroLetraInicial";
-            dataGridViewCellStyle13.Format = "00000000";
-            this.dgvResultados_NumeroLetraInicial.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Format = "00000000";
+            this.dgvResultados_NumeroLetraInicial.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResultados_NumeroLetraInicial.HeaderText = "N° Letra Inicial";
             this.dgvResultados_NumeroLetraInicial.Name = "dgvResultados_NumeroLetraInicial";
             this.dgvResultados_NumeroLetraInicial.ReadOnly = true;
@@ -216,8 +216,8 @@
             // dgvResultados_NroComprobanteComprobanteRef
             // 
             this.dgvResultados_NroComprobanteComprobanteRef.DataPropertyName = "NroComprobanteComprobanteRef";
-            dataGridViewCellStyle14.Format = "00000000";
-            this.dgvResultados_NroComprobanteComprobanteRef.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Format = "00000000";
+            this.dgvResultados_NroComprobanteComprobanteRef.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvResultados_NroComprobanteComprobanteRef.HeaderText = "Número";
             this.dgvResultados_NroComprobanteComprobanteRef.Name = "dgvResultados_NroComprobanteComprobanteRef";
             this.dgvResultados_NroComprobanteComprobanteRef.ReadOnly = true;
@@ -226,8 +226,8 @@
             // dgvResultados_FechaEmision
             // 
             this.dgvResultados_FechaEmision.DataPropertyName = "FechaHoraEmision";
-            dataGridViewCellStyle15.Format = "dd/MM/yyyy hh:mm:ss";
-            this.dgvResultados_FechaEmision.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy hh:mm:ss";
+            this.dgvResultados_FechaEmision.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvResultados_FechaEmision.HeaderText = "Fecha Emisión";
             this.dgvResultados_FechaEmision.Name = "dgvResultados_FechaEmision";
             this.dgvResultados_FechaEmision.ReadOnly = true;
@@ -236,8 +236,8 @@
             // dgvResultados_FechaVencimiento
             // 
             this.dgvResultados_FechaVencimiento.DataPropertyName = "FechaVencimiento";
-            dataGridViewCellStyle16.Format = "dd/MM/yyyy";
-            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvResultados_FechaVencimiento.HeaderText = "Fecha Vencimiento";
             this.dgvResultados_FechaVencimiento.Name = "dgvResultados_FechaVencimiento";
             this.dgvResultados_FechaVencimiento.ReadOnly = true;
@@ -301,9 +301,9 @@
             // dgvResultados_Monto
             // 
             this.dgvResultados_Monto.DataPropertyName = "Monto";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "#,##0.00";
-            this.dgvResultados_Monto.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "#,##0.00";
+            this.dgvResultados_Monto.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvResultados_Monto.HeaderText = "Monto";
             this.dgvResultados_Monto.Name = "dgvResultados_Monto";
             this.dgvResultados_Monto.ReadOnly = true;
@@ -311,8 +311,8 @@
             // dgvResultados_Mora
             // 
             this.dgvResultados_Mora.DataPropertyName = "Mora";
-            dataGridViewCellStyle18.Format = "#,##0.00";
-            this.dgvResultados_Mora.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.Format = "#,##0.00";
+            this.dgvResultados_Mora.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvResultados_Mora.HeaderText = "Mora";
             this.dgvResultados_Mora.Name = "dgvResultados_Mora";
             this.dgvResultados_Mora.ReadOnly = true;
@@ -320,8 +320,8 @@
             // dgvResultados_Protesto
             // 
             this.dgvResultados_Protesto.DataPropertyName = "Protesto";
-            dataGridViewCellStyle19.Format = "#,##0.00";
-            this.dgvResultados_Protesto.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.Format = "#,##0.00";
+            this.dgvResultados_Protesto.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvResultados_Protesto.HeaderText = "Protesto";
             this.dgvResultados_Protesto.Name = "dgvResultados_Protesto";
             this.dgvResultados_Protesto.ReadOnly = true;
@@ -329,8 +329,8 @@
             // dgvResultados_Total
             // 
             this.dgvResultados_Total.DataPropertyName = "Total";
-            dataGridViewCellStyle20.Format = "#,##0.00";
-            this.dgvResultados_Total.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle9.Format = "#,##0.00";
+            this.dgvResultados_Total.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvResultados_Total.HeaderText = "Total";
             this.dgvResultados_Total.Name = "dgvResultados_Total";
             this.dgvResultados_Total.ReadOnly = true;
@@ -338,9 +338,9 @@
             // dgvResultados_TotalLetraPadre
             // 
             this.dgvResultados_TotalLetraPadre.DataPropertyName = "TotalLetraPadre";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "#,##0.00";
-            this.dgvResultados_TotalLetraPadre.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "#,##0.00";
+            this.dgvResultados_TotalLetraPadre.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvResultados_TotalLetraPadre.HeaderText = "Total Anterior";
             this.dgvResultados_TotalLetraPadre.Name = "dgvResultados_TotalLetraPadre";
             this.dgvResultados_TotalLetraPadre.ReadOnly = true;
@@ -348,9 +348,9 @@
             // dgvResultados_TotalLetraInicial
             // 
             this.dgvResultados_TotalLetraInicial.DataPropertyName = "TotalLetraInicial";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "#,##0.00";
-            this.dgvResultados_TotalLetraInicial.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "#,##0.00";
+            this.dgvResultados_TotalLetraInicial.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvResultados_TotalLetraInicial.HeaderText = "Total Inicial";
             this.dgvResultados_TotalLetraInicial.Name = "dgvResultados_TotalLetraInicial";
             this.dgvResultados_TotalLetraInicial.ReadOnly = true;
@@ -391,7 +391,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(557, 119);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 25;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -417,7 +417,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(701, 101);
-            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -427,7 +427,7 @@
             this.chkCancelado.Location = new System.Drawing.Point(536, 37);
             this.chkCancelado.Name = "chkCancelado";
             this.chkCancelado.Size = new System.Drawing.Size(80, 17);
-            this.chkCancelado.TabIndex = 27;
+            this.chkCancelado.TabIndex = 5;
             this.chkCancelado.Text = "Cancelado";
             this.chkCancelado.UseVisualStyleBackColor = true;
             // 
@@ -439,7 +439,7 @@
             this.cbbEstado.Location = new System.Drawing.Point(6, 71);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(100, 21);
-            this.cbbEstado.TabIndex = 26;
+            this.cbbEstado.TabIndex = 7;
             this.cbbEstado.ValueMember = "Value";
             // 
             // label3
@@ -457,7 +457,7 @@
             this.dtpFiltroFechaEmisionHasta.Location = new System.Drawing.Point(112, 33);
             this.dtpFiltroFechaEmisionHasta.Name = "dtpFiltroFechaEmisionHasta";
             this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaEmisionHasta.TabIndex = 24;
+            this.dtpFiltroFechaEmisionHasta.TabIndex = 1;
             // 
             // dtpFiltroFechaEmisionDesde
             // 
@@ -465,14 +465,14 @@
             this.dtpFiltroFechaEmisionDesde.Location = new System.Drawing.Point(6, 33);
             this.dtpFiltroFechaEmisionDesde.Name = "dtpFiltroFechaEmisionDesde";
             this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaEmisionDesde.TabIndex = 23;
+            this.dtpFiltroFechaEmisionDesde.TabIndex = 0;
             // 
             // txtFiltroNombresCliente
             // 
             this.txtFiltroNombresCliente.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
             this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombresCliente.TabIndex = 22;
+            this.txtFiltroNombresCliente.TabIndex = 4;
             // 
             // label6
             // 
@@ -488,7 +488,7 @@
             this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
             this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
+            this.txtFiltroNroDocIdentidadCliente.TabIndex = 3;
             // 
             // label5
             // 
@@ -504,7 +504,7 @@
             this.txtFiltroNroComprobante.Location = new System.Drawing.Point(218, 33);
             this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
             this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroComprobante.TabIndex = 18;
+            this.txtFiltroNroComprobante.TabIndex = 2;
             // 
             // label4
             // 
@@ -532,7 +532,7 @@
             this.chkActivo.Location = new System.Drawing.Point(622, 37);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
+            this.chkActivo.TabIndex = 6;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -551,7 +551,7 @@
             this.btnExportar.Location = new System.Drawing.Point(638, 119);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(75, 23);
-            this.btnExportar.TabIndex = 29;
+            this.btnExportar.TabIndex = 2;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);

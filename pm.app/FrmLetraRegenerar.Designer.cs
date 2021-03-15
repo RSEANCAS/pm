@@ -57,6 +57,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tltLetra = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -88,7 +89,7 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 283);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Detalle";
             // 
@@ -101,7 +102,7 @@
             this.cbbCodigoMoneda.Location = new System.Drawing.Point(9, 244);
             this.cbbCodigoMoneda.Name = "cbbCodigoMoneda";
             this.cbbCodigoMoneda.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoMoneda.TabIndex = 145;
+            this.cbbCodigoMoneda.TabIndex = 6;
             this.cbbCodigoMoneda.ValueMember = "Value";
             // 
             // lblErrorAval
@@ -119,8 +120,8 @@
             this.txtAval.Location = new System.Drawing.Point(9, 191);
             this.txtAval.Name = "txtAval";
             this.txtAval.ReadOnly = true;
-            this.txtAval.Size = new System.Drawing.Size(342, 21);
-            this.txtAval.TabIndex = 141;
+            this.txtAval.Size = new System.Drawing.Size(342, 20);
+            this.txtAval.TabIndex = 5;
             // 
             // label10
             // 
@@ -137,8 +138,8 @@
             this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaVencimiento.Location = new System.Drawing.Point(183, 32);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            this.dtpFechaVencimiento.Size = new System.Drawing.Size(168, 21);
-            this.dtpFechaVencimiento.TabIndex = 140;
+            this.dtpFechaVencimiento.Size = new System.Drawing.Size(168, 20);
+            this.dtpFechaVencimiento.TabIndex = 1;
             // 
             // dtpFechaHoraEmision
             // 
@@ -147,8 +148,8 @@
             this.dtpFechaHoraEmision.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaHoraEmision.Location = new System.Drawing.Point(9, 32);
             this.dtpFechaHoraEmision.Name = "dtpFechaHoraEmision";
-            this.dtpFechaHoraEmision.Size = new System.Drawing.Size(168, 21);
-            this.dtpFechaHoraEmision.TabIndex = 139;
+            this.dtpFechaHoraEmision.Size = new System.Drawing.Size(168, 20);
+            this.dtpFechaHoraEmision.TabIndex = 0;
             // 
             // lblErrorComprobanteRef
             // 
@@ -166,8 +167,8 @@
             this.txtComprobanteRef.Location = new System.Drawing.Point(183, 85);
             this.txtComprobanteRef.Name = "txtComprobanteRef";
             this.txtComprobanteRef.ReadOnly = true;
-            this.txtComprobanteRef.Size = new System.Drawing.Size(168, 21);
-            this.txtComprobanteRef.TabIndex = 130;
+            this.txtComprobanteRef.Size = new System.Drawing.Size(168, 20);
+            this.txtComprobanteRef.TabIndex = 3;
             // 
             // label8
             // 
@@ -193,8 +194,8 @@
             this.txtMonto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMonto.Location = new System.Drawing.Point(183, 244);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(168, 21);
-            this.txtMonto.TabIndex = 127;
+            this.txtMonto.Size = new System.Drawing.Size(168, 20);
+            this.txtMonto.TabIndex = 7;
             // 
             // label6
             // 
@@ -214,7 +215,7 @@
             this.cbbCodigoTipoComprobanteRef.Location = new System.Drawing.Point(9, 85);
             this.cbbCodigoTipoComprobanteRef.Name = "cbbCodigoTipoComprobanteRef";
             this.cbbCodigoTipoComprobanteRef.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoComprobanteRef.TabIndex = 126;
+            this.cbbCodigoTipoComprobanteRef.TabIndex = 2;
             this.cbbCodigoTipoComprobanteRef.ValueMember = "Value";
             // 
             // lblErrorFechaHoraEmision
@@ -271,8 +272,8 @@
             this.txtCliente.Location = new System.Drawing.Point(9, 138);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
-            this.txtCliente.Size = new System.Drawing.Size(342, 21);
-            this.txtCliente.TabIndex = 101;
+            this.txtCliente.Size = new System.Drawing.Size(342, 20);
+            this.txtCliente.TabIndex = 4;
             // 
             // label9
             // 
@@ -326,7 +327,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(293, 301);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -340,10 +341,15 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmLetraRegenerar";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "FrmLetraRegenerar";
             this.Load += new System.EventHandler(this.FrmLetraRegenerar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

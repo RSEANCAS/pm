@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
             this.dgvResultados_Fila = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvResultados_Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,7 +81,7 @@
             this.dgvResultados.RowHeadersVisible = false;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(360, 160);
-            this.dgvResultados.TabIndex = 0;
+            this.dgvResultados.TabIndex = 2;
             this.dgvResultados.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultados_CellValueChanged);
             // 
             // dgvResultados_Fila
@@ -101,8 +101,8 @@
             // dgvResultados_FechaVencimiento
             // 
             this.dgvResultados_FechaVencimiento.DataPropertyName = "FechaVencimiento";
-            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
-            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.dgvResultados_FechaVencimiento.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResultados_FechaVencimiento.HeaderText = "Fecha Vencimiento";
             this.dgvResultados_FechaVencimiento.Name = "dgvResultados_FechaVencimiento";
             this.dgvResultados_FechaVencimiento.ReadOnly = true;
@@ -111,8 +111,8 @@
             // dgvResultados_Monto
             // 
             this.dgvResultados_Monto.DataPropertyName = "Monto";
-            dataGridViewCellStyle6.Format = "#,##0.00";
-            this.dgvResultados_Monto.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "#,##0.00";
+            this.dgvResultados_Monto.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvResultados_Monto.HeaderText = "Monto";
             this.dgvResultados_Monto.Name = "dgvResultados_Monto";
             // 
@@ -121,7 +121,7 @@
             this.btnConfirmar.Location = new System.Drawing.Point(155, 435);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirmar.TabIndex = 4;
+            this.btnConfirmar.TabIndex = 5;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
@@ -141,7 +141,7 @@
             this.txtImporteFactura.Name = "txtImporteFactura";
             this.txtImporteFactura.ReadOnly = true;
             this.txtImporteFactura.Size = new System.Drawing.Size(150, 20);
-            this.txtImporteFactura.TabIndex = 6;
+            this.txtImporteFactura.TabIndex = 3;
             // 
             // txtImporteTotalLetras
             // 
@@ -149,7 +149,7 @@
             this.txtImporteTotalLetras.Name = "txtImporteTotalLetras";
             this.txtImporteTotalLetras.ReadOnly = true;
             this.txtImporteTotalLetras.Size = new System.Drawing.Size(150, 20);
-            this.txtImporteTotalLetras.TabIndex = 8;
+            this.txtImporteTotalLetras.TabIndex = 4;
             // 
             // label2
             // 
@@ -180,7 +180,7 @@
             this.gpbAval.Location = new System.Drawing.Point(12, 35);
             this.gpbAval.Name = "gpbAval";
             this.gpbAval.Size = new System.Drawing.Size(360, 189);
-            this.gpbAval.TabIndex = 9;
+            this.gpbAval.TabIndex = 1;
             this.gpbAval.TabStop = false;
             this.gpbAval.Text = "Datos del Aval";
             // 
@@ -189,7 +189,7 @@
             this.btnBuscarAval.Location = new System.Drawing.Point(297, 32);
             this.btnBuscarAval.Name = "btnBuscarAval";
             this.btnBuscarAval.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarAval.TabIndex = 35;
+            this.btnBuscarAval.TabIndex = 2;
             this.btnBuscarAval.Text = "Buscar";
             this.btnBuscarAval.UseVisualStyleBackColor = true;
             this.btnBuscarAval.Click += new System.EventHandler(this.btnBuscarAval_Click);
@@ -218,7 +218,7 @@
             this.txtUbicacionAval.Name = "txtUbicacionAval";
             this.txtUbicacionAval.ReadOnly = true;
             this.txtUbicacionAval.Size = new System.Drawing.Size(348, 20);
-            this.txtUbicacionAval.TabIndex = 32;
+            this.txtUbicacionAval.TabIndex = 6;
             // 
             // label14
             // 
@@ -235,7 +235,7 @@
             this.txtDireccionAval.Name = "txtDireccionAval";
             this.txtDireccionAval.ReadOnly = true;
             this.txtDireccionAval.Size = new System.Drawing.Size(348, 20);
-            this.txtDireccionAval.TabIndex = 20;
+            this.txtDireccionAval.TabIndex = 5;
             // 
             // label12
             // 
@@ -252,7 +252,7 @@
             this.txtCorreoAval.Name = "txtCorreoAval";
             this.txtCorreoAval.ReadOnly = true;
             this.txtCorreoAval.Size = new System.Drawing.Size(170, 20);
-            this.txtCorreoAval.TabIndex = 17;
+            this.txtCorreoAval.TabIndex = 4;
             // 
             // label11
             // 
@@ -269,14 +269,14 @@
             this.txtNombresAval.Name = "txtNombresAval";
             this.txtNombresAval.ReadOnly = true;
             this.txtNombresAval.Size = new System.Drawing.Size(170, 20);
-            this.txtNombresAval.TabIndex = 15;
+            this.txtNombresAval.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadAval
             // 
             this.txtNroDocumentoIdentidadAval.Location = new System.Drawing.Point(184, 33);
             this.txtNroDocumentoIdentidadAval.Name = "txtNroDocumentoIdentidadAval";
             this.txtNroDocumentoIdentidadAval.Size = new System.Drawing.Size(110, 20);
-            this.txtNroDocumentoIdentidadAval.TabIndex = 14;
+            this.txtNroDocumentoIdentidadAval.TabIndex = 1;
             // 
             // label10
             // 
@@ -296,7 +296,7 @@
             this.cbbCodigoTipoDocumentoIdentidadAval.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadAval.Name = "cbbCodigoTipoDocumentoIdentidadAval";
             this.cbbCodigoTipoDocumentoIdentidadAval.Size = new System.Drawing.Size(170, 21);
-            this.cbbCodigoTipoDocumentoIdentidadAval.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadAval.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadAval.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label9
@@ -314,7 +314,7 @@
             this.chkTieneAval.Location = new System.Drawing.Point(12, 12);
             this.chkTieneAval.Name = "chkTieneAval";
             this.chkTieneAval.Size = new System.Drawing.Size(78, 17);
-            this.chkTieneAval.TabIndex = 37;
+            this.chkTieneAval.TabIndex = 0;
             this.chkTieneAval.Text = "Tiene Aval";
             this.chkTieneAval.UseVisualStyleBackColor = true;
             this.chkTieneAval.CheckedChanged += new System.EventHandler(this.chkTieneAval_CheckedChanged);

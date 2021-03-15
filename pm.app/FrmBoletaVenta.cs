@@ -189,7 +189,9 @@ namespace pm.app
             rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.Boleta>() { dsCabecera }));
             rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
 
-            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoBoleta");
+            string nombreArchivo = dsCabecera.Serie + " - " + dsCabecera.Correlativo.ToString("00000000");
+
+            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoBoleta", nombreArchivo);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             frm.ShowDialog();

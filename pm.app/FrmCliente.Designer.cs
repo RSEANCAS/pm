@@ -60,6 +60,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -94,7 +95,7 @@
             this.chkActivo.Location = new System.Drawing.Point(642, 37);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
+            this.chkActivo.TabIndex = 6;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -102,8 +103,8 @@
             // 
             this.txtFiltroAreaContacto.Location = new System.Drawing.Point(536, 33);
             this.txtFiltroAreaContacto.Name = "txtFiltroAreaContacto";
-            this.txtFiltroAreaContacto.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroAreaContacto.TabIndex = 11;
+            this.txtFiltroAreaContacto.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroAreaContacto.TabIndex = 5;
             // 
             // label6
             // 
@@ -118,8 +119,8 @@
             // 
             this.txtFiltroContacto.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroContacto.Name = "txtFiltroContacto";
-            this.txtFiltroContacto.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroContacto.TabIndex = 9;
+            this.txtFiltroContacto.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroContacto.TabIndex = 4;
             // 
             // label5
             // 
@@ -134,8 +135,8 @@
             // 
             this.txtFiltroCorreo.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroCorreo.Name = "txtFiltroCorreo";
-            this.txtFiltroCorreo.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroCorreo.TabIndex = 7;
+            this.txtFiltroCorreo.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroCorreo.TabIndex = 3;
             // 
             // label4
             // 
@@ -150,8 +151,8 @@
             // 
             this.txtFiltroDireccion.Location = new System.Drawing.Point(218, 33);
             this.txtFiltroDireccion.Name = "txtFiltroDireccion";
-            this.txtFiltroDireccion.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroDireccion.TabIndex = 5;
+            this.txtFiltroDireccion.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroDireccion.TabIndex = 2;
             // 
             // label3
             // 
@@ -166,8 +167,8 @@
             // 
             this.txtFiltroNombres.Location = new System.Drawing.Point(112, 33);
             this.txtFiltroNombres.Name = "txtFiltroNombres";
-            this.txtFiltroNombres.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNombres.TabIndex = 3;
+            this.txtFiltroNombres.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNombres.TabIndex = 1;
             // 
             // label2
             // 
@@ -182,8 +183,8 @@
             // 
             this.txtFiltroNroDocIdentidad.Location = new System.Drawing.Point(6, 33);
             this.txtFiltroNroDocIdentidad.Name = "txtFiltroNroDocIdentidad";
-            this.txtFiltroNroDocIdentidad.Size = new System.Drawing.Size(100, 21);
-            this.txtFiltroNroDocIdentidad.TabIndex = 1;
+            this.txtFiltroNroDocIdentidad.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltroNroDocIdentidad.TabIndex = 0;
             // 
             // label1
             // 
@@ -200,7 +201,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(638, 82);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -234,7 +235,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
-            this.dgvResultados.TabIndex = 2;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // dgvResultados_CodigoCliente
@@ -347,7 +348,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(557, 82);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 4;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -365,11 +366,16 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmCliente";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.FrmCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

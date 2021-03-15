@@ -88,7 +88,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(703, 82);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 32;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -129,7 +129,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(847, 261);
-            this.dgvResultados.TabIndex = 31;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // dgvResultados_CodigoNotaDebito
@@ -295,7 +295,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(784, 82);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 30;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -320,7 +320,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(847, 64);
-            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -332,7 +332,7 @@
             this.cbbFiltroCodigoSerie.Location = new System.Drawing.Point(218, 33);
             this.cbbFiltroCodigoSerie.Name = "cbbFiltroCodigoSerie";
             this.cbbFiltroCodigoSerie.Size = new System.Drawing.Size(100, 21);
-            this.cbbFiltroCodigoSerie.TabIndex = 25;
+            this.cbbFiltroCodigoSerie.TabIndex = 2;
             this.cbbFiltroCodigoSerie.ValueMember = "CodigoSerie";
             // 
             // dtpFiltroFechaEmisionHasta
@@ -341,7 +341,7 @@
             this.dtpFiltroFechaEmisionHasta.Location = new System.Drawing.Point(112, 33);
             this.dtpFiltroFechaEmisionHasta.Name = "dtpFiltroFechaEmisionHasta";
             this.dtpFiltroFechaEmisionHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaEmisionHasta.TabIndex = 24;
+            this.dtpFiltroFechaEmisionHasta.TabIndex = 1;
             // 
             // dtpFiltroFechaEmisionDesde
             // 
@@ -349,14 +349,14 @@
             this.dtpFiltroFechaEmisionDesde.Location = new System.Drawing.Point(6, 33);
             this.dtpFiltroFechaEmisionDesde.Name = "dtpFiltroFechaEmisionDesde";
             this.dtpFiltroFechaEmisionDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaEmisionDesde.TabIndex = 23;
+            this.dtpFiltroFechaEmisionDesde.TabIndex = 0;
             // 
             // txtFiltroNombresCliente
             // 
             this.txtFiltroNombresCliente.Location = new System.Drawing.Point(536, 33);
             this.txtFiltroNombresCliente.Name = "txtFiltroNombresCliente";
             this.txtFiltroNombresCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombresCliente.TabIndex = 22;
+            this.txtFiltroNombresCliente.TabIndex = 5;
             // 
             // label6
             // 
@@ -372,7 +372,7 @@
             this.txtFiltroNroDocIdentidadCliente.Location = new System.Drawing.Point(430, 33);
             this.txtFiltroNroDocIdentidadCliente.Name = "txtFiltroNroDocIdentidadCliente";
             this.txtFiltroNroDocIdentidadCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroDocIdentidadCliente.TabIndex = 20;
+            this.txtFiltroNroDocIdentidadCliente.TabIndex = 4;
             // 
             // label5
             // 
@@ -388,7 +388,7 @@
             this.txtFiltroNroComprobante.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNroComprobante.Name = "txtFiltroNroComprobante";
             this.txtFiltroNroComprobante.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroComprobante.TabIndex = 18;
+            this.txtFiltroNroComprobante.TabIndex = 3;
             // 
             // label4
             // 
@@ -425,7 +425,7 @@
             this.chkActivo.Location = new System.Drawing.Point(642, 37);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
+            this.chkActivo.TabIndex = 6;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 

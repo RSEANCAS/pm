@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblErrorObservacion = new System.Windows.Forms.Label();
             this.tltLetra = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // chkRegenerar
@@ -44,7 +45,7 @@
             this.chkRegenerar.AutoSize = true;
             this.chkRegenerar.Location = new System.Drawing.Point(12, 12);
             this.chkRegenerar.Name = "chkRegenerar";
-            this.chkRegenerar.Size = new System.Drawing.Size(76, 17);
+            this.chkRegenerar.Size = new System.Drawing.Size(79, 17);
             this.chkRegenerar.TabIndex = 0;
             this.chkRegenerar.Text = "Regenerar";
             this.chkRegenerar.UseVisualStyleBackColor = true;
@@ -65,7 +66,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.Size = new System.Drawing.Size(119, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Fecha de Vencimiento";
             // 
@@ -85,14 +86,14 @@
             this.txtObservacion.Multiline = true;
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(193, 89);
-            this.txtObservacion.TabIndex = 4;
+            this.txtObservacion.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(9, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Observación";
             // 
@@ -118,8 +119,13 @@
             this.Controls.Add(this.dtpFechaVencimiento);
             this.Controls.Add(this.chkRegenerar);
             this.Name = "FrmLetraRetirar";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Retirar Letra";
             this.Load += new System.EventHandler(this.FrmLetraRetirar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

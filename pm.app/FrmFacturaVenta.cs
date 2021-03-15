@@ -189,7 +189,9 @@ namespace pm.app
             rpd.Add(new ReportDataSource("dsCabecera", new List<FormatoBe.Factura>() { dsCabecera}));
             rpd.Add(new ReportDataSource("dsDetalle", dsCabecera.ListaDetalle));
 
-            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoFactura");
+            string nombreArchivo = dsCabecera.Serie + " - " + dsCabecera.Correlativo.ToString("00000000");
+
+            FrmFormatoCompartido frm = new FrmFormatoCompartido(rpd.ToArray(), "rptFormatoFactura", nombreArchivo);
             frm.ShowInTaskbar = false;
             frm.BringToFront();
             frm.ShowDialog();

@@ -149,7 +149,7 @@
             this.cbbCodigoMoneda.Location = new System.Drawing.Point(702, 33);
             this.cbbCodigoMoneda.Name = "cbbCodigoMoneda";
             this.cbbCodigoMoneda.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoMoneda.TabIndex = 12;
+            this.cbbCodigoMoneda.TabIndex = 4;
             this.cbbCodigoMoneda.ValueMember = "Value";
             // 
             // lblErrorFechaHoraVencimiento
@@ -291,7 +291,7 @@
             this.btnBuscarCliente.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarCliente.TabIndex = 35;
+            this.btnBuscarCliente.TabIndex = 2;
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
@@ -320,7 +320,7 @@
             this.txtUbicacionCliente.Name = "txtUbicacionCliente";
             this.txtUbicacionCliente.ReadOnly = true;
             this.txtUbicacionCliente.Size = new System.Drawing.Size(342, 20);
-            this.txtUbicacionCliente.TabIndex = 32;
+            this.txtUbicacionCliente.TabIndex = 6;
             // 
             // label14
             // 
@@ -337,7 +337,7 @@
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.ReadOnly = true;
             this.txtDireccionCliente.Size = new System.Drawing.Size(516, 20);
-            this.txtDireccionCliente.TabIndex = 20;
+            this.txtDireccionCliente.TabIndex = 5;
             // 
             // label12
             // 
@@ -354,7 +354,7 @@
             this.txtCorreoCliente.Name = "txtCorreoCliente";
             this.txtCorreoCliente.ReadOnly = true;
             this.txtCorreoCliente.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoCliente.TabIndex = 17;
+            this.txtCorreoCliente.TabIndex = 4;
             // 
             // label11
             // 
@@ -371,14 +371,14 @@
             this.txtNombresCliente.Name = "txtNombresCliente";
             this.txtNombresCliente.ReadOnly = true;
             this.txtNombresCliente.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresCliente.TabIndex = 15;
+            this.txtNombresCliente.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadCliente
             // 
             this.txtNroDocumentoIdentidadCliente.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadCliente.Name = "txtNroDocumentoIdentidadCliente";
             this.txtNroDocumentoIdentidadCliente.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadCliente.TabIndex = 14;
+            this.txtNroDocumentoIdentidadCliente.TabIndex = 1;
             // 
             // label10
             // 
@@ -398,7 +398,7 @@
             this.cbbCodigoTipoDocumentoIdentidadCliente.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadCliente.Name = "cbbCodigoTipoDocumentoIdentidadCliente";
             this.cbbCodigoTipoDocumentoIdentidadCliente.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadCliente.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadCliente.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadCliente.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label9
@@ -445,7 +445,7 @@
             this.txtTotalBaseImponible.Name = "txtTotalBaseImponible";
             this.txtTotalBaseImponible.ReadOnly = true;
             this.txtTotalBaseImponible.Size = new System.Drawing.Size(168, 20);
-            this.txtTotalBaseImponible.TabIndex = 40;
+            this.txtTotalBaseImponible.TabIndex = 4;
             // 
             // label6
             // 
@@ -462,7 +462,7 @@
             this.txtTotalIgv.Name = "txtTotalIgv";
             this.txtTotalIgv.ReadOnly = true;
             this.txtTotalIgv.Size = new System.Drawing.Size(168, 20);
-            this.txtTotalIgv.TabIndex = 38;
+            this.txtTotalIgv.TabIndex = 5;
             // 
             // label5
             // 
@@ -479,7 +479,7 @@
             this.txtTotalImporte.Name = "txtTotalImporte";
             this.txtTotalImporte.ReadOnly = true;
             this.txtTotalImporte.Size = new System.Drawing.Size(168, 20);
-            this.txtTotalImporte.TabIndex = 36;
+            this.txtTotalImporte.TabIndex = 6;
             // 
             // lblErrorDetalle
             // 

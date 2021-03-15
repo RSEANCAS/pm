@@ -523,6 +523,7 @@ namespace pm.app
             {
                 idDoc = "1";
             };
+            #region GENERACION
 
             InvoiceType Fact_XML = new InvoiceType();
             Fact_XML.Xmlns = EspacioNombres.xmlnsInvoice;
@@ -1121,6 +1122,7 @@ namespace pm.app
             }
 
             Fact_XML.InvoiceLine = items;
+            #endregion
             archivoXML = GenerarComprobanteFactura(ref Fact_XML, rucEmpresa, codigoSunatTipoComprobante, item.Serie.Serial, item.NroComprobante.ToString("00000000"));
         }
 

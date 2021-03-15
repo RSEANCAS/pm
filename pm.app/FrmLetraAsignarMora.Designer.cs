@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMora = new System.Windows.Forms.TextBox();
             this.tltLetra = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -41,7 +42,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(130, 64);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 25;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -60,7 +61,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 23;
             this.label2.Text = "Mora";
             // 
@@ -69,7 +70,7 @@
             this.txtMora.Location = new System.Drawing.Point(12, 25);
             this.txtMora.Name = "txtMora";
             this.txtMora.Size = new System.Drawing.Size(193, 20);
-            this.txtMora.TabIndex = 22;
+            this.txtMora.TabIndex = 0;
             // 
             // FrmLetraAsignarMora
             // 
@@ -81,8 +82,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMora);
             this.Name = "FrmLetraAsignarMora";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "Asignar Mora";
             this.Load += new System.EventHandler(this.FrmLetraAsignarMora_Load);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

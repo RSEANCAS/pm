@@ -55,7 +55,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 357);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -81,7 +81,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 339);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -104,7 +104,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(168, 20);
-            this.txtContraseña.TabIndex = 31;
+            this.txtContraseña.TabIndex = 1;
             // 
             // label5
             // 
@@ -120,7 +120,7 @@
             this.btnBuscarPersonal.Location = new System.Drawing.Point(293, 83);
             this.btnBuscarPersonal.Name = "btnBuscarPersonal";
             this.btnBuscarPersonal.Size = new System.Drawing.Size(58, 23);
-            this.btnBuscarPersonal.TabIndex = 29;
+            this.btnBuscarPersonal.TabIndex = 4;
             this.btnBuscarPersonal.Text = "Buscar";
             this.btnBuscarPersonal.UseVisualStyleBackColor = true;
             this.btnBuscarPersonal.Click += new System.EventHandler(this.btnBuscarPersonal_Click);
@@ -133,7 +133,7 @@
             this.txtNombresPersonal.Name = "txtNombresPersonal";
             this.txtNombresPersonal.ReadOnly = true;
             this.txtNombresPersonal.Size = new System.Drawing.Size(217, 20);
-            this.txtNombresPersonal.TabIndex = 28;
+            this.txtNombresPersonal.TabIndex = 3;
             // 
             // lblErrorPersonal
             // 
@@ -153,7 +153,7 @@
             this.txtNroDocIdentidadPersonal.Location = new System.Drawing.Point(9, 85);
             this.txtNroDocIdentidadPersonal.Name = "txtNroDocIdentidadPersonal";
             this.txtNroDocIdentidadPersonal.Size = new System.Drawing.Size(55, 20);
-            this.txtNroDocIdentidadPersonal.TabIndex = 26;
+            this.txtNroDocIdentidadPersonal.TabIndex = 2;
             // 
             // label4
             // 
@@ -170,7 +170,7 @@
             this.tvwPerfil.Location = new System.Drawing.Point(9, 138);
             this.tvwPerfil.Name = "tvwPerfil";
             this.tvwPerfil.Size = new System.Drawing.Size(342, 182);
-            this.tvwPerfil.TabIndex = 24;
+            this.tvwPerfil.TabIndex = 5;
             // 
             // lblErrorListaPerfil
             // 
@@ -210,7 +210,7 @@
             this.txtNombre.Location = new System.Drawing.Point(9, 32);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(168, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 0;
             // 
             // label3
             // 

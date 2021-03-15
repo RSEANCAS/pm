@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.rpvReporte = new Microsoft.Reporting.WinForms.ReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // rpvReporte
@@ -39,7 +40,7 @@
             this.rpvReporte.Name = "rpvReporte";
             this.rpvReporte.ServerReport.BearerToken = null;
             this.rpvReporte.Size = new System.Drawing.Size(717, 280);
-            this.rpvReporte.TabIndex = 1;
+            this.rpvReporte.TabIndex = 0;
             // 
             // FrmFormatoCompartido
             // 
@@ -48,8 +49,13 @@
             this.ClientSize = new System.Drawing.Size(717, 280);
             this.Controls.Add(this.rpvReporte);
             this.Name = "FrmFormatoCompartido";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.Text = "FrmFormatoCompartido";
             this.Load += new System.EventHandler(this.FrmFormatoCompartido_Load);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -59,7 +59,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(557, 82);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -85,7 +85,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
-            this.dgvResultados.TabIndex = 16;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
             // 
             // dgvResultados_CodigoBanco
@@ -126,7 +126,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(638, 82);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 15;
+            this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -141,7 +141,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -153,7 +153,7 @@
             this.chkActivo.Location = new System.Drawing.Point(112, 37);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(57, 17);
-            this.chkActivo.TabIndex = 12;
+            this.chkActivo.TabIndex = 1;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -162,7 +162,7 @@
             this.txtFiltroNombre.Location = new System.Drawing.Point(6, 33);
             this.txtFiltroNombre.Name = "txtFiltroNombre";
             this.txtFiltroNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombre.TabIndex = 3;
+            this.txtFiltroNombre.TabIndex = 0;
             // 
             // label2
             // 

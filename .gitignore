@@ -9,5 +9,7 @@ pm.bl/bin
 pm.bl/obj
 pm.enums/bin
 pm.enums/obj
+pm.sunat/bin
+pm.sunat/obj
 pm.util/bin
 pm.util/obj

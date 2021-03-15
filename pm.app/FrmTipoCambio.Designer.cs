@@ -34,16 +34,16 @@
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.dgvResultados_CodigoTipoCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_FechaCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_ValorCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvResultados_ValorVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpFiltroFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFiltroFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvResultados_CodigoTipoCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_FechaCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_ValorCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvResultados_ValorVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -63,7 +63,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(557, 82);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 37;
+            this.btnNuevo.TabIndex = 1;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -89,68 +89,8 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(701, 167);
-            this.dgvResultados.TabIndex = 36;
+            this.dgvResultados.TabIndex = 3;
             this.dgvResultados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvResultados_MouseClick);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 35;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaHasta);
-            this.groupBox1.Controls.Add(this.dtpFiltroFechaDesde);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 64);
-            this.groupBox1.TabIndex = 34;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros de búsqueda";
-            // 
-            // dtpFiltroFechaHasta
-            // 
-            this.dtpFiltroFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaHasta.Location = new System.Drawing.Point(112, 33);
-            this.dtpFiltroFechaHasta.Name = "dtpFiltroFechaHasta";
-            this.dtpFiltroFechaHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaHasta.TabIndex = 24;
-            // 
-            // dtpFiltroFechaDesde
-            // 
-            this.dtpFiltroFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFiltroFechaDesde.Location = new System.Drawing.Point(6, 33);
-            this.dtpFiltroFechaDesde.Name = "dtpFiltroFechaDesde";
-            this.dtpFiltroFechaDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaDesde.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Fecha Hasta";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha Desde";
             // 
             // dgvResultados_CodigoTipoCambio
             // 
@@ -188,6 +128,66 @@
             this.dgvResultados_ValorVenta.HeaderText = "Valor Venta";
             this.dgvResultados_ValorVenta.Name = "dgvResultados_ValorVenta";
             this.dgvResultados_ValorVenta.ReadOnly = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Location = new System.Drawing.Point(638, 82);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaHasta);
+            this.groupBox1.Controls.Add(this.dtpFiltroFechaDesde);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(701, 64);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // dtpFiltroFechaHasta
+            // 
+            this.dtpFiltroFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaHasta.Location = new System.Drawing.Point(112, 33);
+            this.dtpFiltroFechaHasta.Name = "dtpFiltroFechaHasta";
+            this.dtpFiltroFechaHasta.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaHasta.TabIndex = 2;
+            // 
+            // dtpFiltroFechaDesde
+            // 
+            this.dtpFiltroFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFiltroFechaDesde.Location = new System.Drawing.Point(6, 33);
+            this.dtpFiltroFechaDesde.Name = "dtpFiltroFechaDesde";
+            this.dtpFiltroFechaDesde.Size = new System.Drawing.Size(100, 20);
+            this.dtpFiltroFechaDesde.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Fecha Hasta";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Fecha Desde";
             // 
             // FrmTipoCambio
             // 

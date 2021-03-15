@@ -58,7 +58,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(701, 62);
-            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -68,7 +68,7 @@
             this.dtpFiltroFechaHasta.Location = new System.Drawing.Point(112, 33);
             this.dtpFiltroFechaHasta.Name = "dtpFiltroFechaHasta";
             this.dtpFiltroFechaHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaHasta.TabIndex = 24;
+            this.dtpFiltroFechaHasta.TabIndex = 1;
             // 
             // dtpFiltroFechaDesde
             // 
@@ -76,14 +76,14 @@
             this.dtpFiltroFechaDesde.Location = new System.Drawing.Point(6, 33);
             this.dtpFiltroFechaDesde.Name = "dtpFiltroFechaDesde";
             this.dtpFiltroFechaDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFiltroFechaDesde.TabIndex = 23;
+            this.dtpFiltroFechaDesde.TabIndex = 0;
             // 
             // txtFiltroNombresPersonal
             // 
             this.txtFiltroNombresPersonal.Location = new System.Drawing.Point(324, 33);
             this.txtFiltroNombresPersonal.Name = "txtFiltroNombresPersonal";
             this.txtFiltroNombresPersonal.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNombresPersonal.TabIndex = 22;
+            this.txtFiltroNombresPersonal.TabIndex = 3;
             // 
             // label6
             // 
@@ -99,7 +99,7 @@
             this.txtFiltroNroDocIdentidadPersonal.Location = new System.Drawing.Point(218, 33);
             this.txtFiltroNroDocIdentidadPersonal.Name = "txtFiltroNroDocIdentidadPersonal";
             this.txtFiltroNroDocIdentidadPersonal.Size = new System.Drawing.Size(100, 20);
-            this.txtFiltroNroDocIdentidadPersonal.TabIndex = 20;
+            this.txtFiltroNroDocIdentidadPersonal.TabIndex = 2;
             // 
             // label5
             // 
@@ -134,7 +134,7 @@
             this.btnVerReporte.Location = new System.Drawing.Point(625, 80);
             this.btnVerReporte.Name = "btnVerReporte";
             this.btnVerReporte.Size = new System.Drawing.Size(88, 23);
-            this.btnVerReporte.TabIndex = 26;
+            this.btnVerReporte.TabIndex = 1;
             this.btnVerReporte.Text = "Ver Reporte";
             this.btnVerReporte.UseVisualStyleBackColor = true;
             this.btnVerReporte.Click += new System.EventHandler(this.btnVerReporte_Click);
@@ -149,7 +149,7 @@
             this.rpvReporte.Name = "rpvReporte";
             this.rpvReporte.ServerReport.BearerToken = null;
             this.rpvReporte.Size = new System.Drawing.Size(701, 169);
-            this.rpvReporte.TabIndex = 27;
+            this.rpvReporte.TabIndex = 2;
             // 
             // FrmReporteComisiones
             // 

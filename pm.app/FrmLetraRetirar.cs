@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telerik.WinControls.UI;
 
 namespace pm.app
 {
-    public partial class FrmLetraRetirar : Form
+    public partial class FrmLetraRetirar : RadForm
     {
         LetraBe letra;
 

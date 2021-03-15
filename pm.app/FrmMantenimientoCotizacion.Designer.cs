@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -114,7 +114,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(805, 560);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -131,7 +131,7 @@
             this.groupBox3.Location = new System.Drawing.Point(8, 361);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(876, 193);
-            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalle del Comprobante";
             // 
@@ -150,7 +150,7 @@
             this.txtTotalImporte.Name = "txtTotalImporte";
             this.txtTotalImporte.ReadOnly = true;
             this.txtTotalImporte.Size = new System.Drawing.Size(168, 20);
-            this.txtTotalImporte.TabIndex = 36;
+            this.txtTotalImporte.TabIndex = 4;
             // 
             // lblErrorDetalle
             // 
@@ -250,9 +250,9 @@
             // dgvDetalle_Cantidad
             // 
             this.dgvDetalle_Cantidad.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "#,##0.00";
-            this.dgvDetalle_Cantidad.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "#,##0.00";
+            this.dgvDetalle_Cantidad.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalle_Cantidad.HeaderText = "Cantidad";
             this.dgvDetalle_Cantidad.Name = "dgvDetalle_Cantidad";
             this.dgvDetalle_Cantidad.ReadOnly = true;
@@ -261,9 +261,9 @@
             // dgvDetalle_PrecioUnitario
             // 
             this.dgvDetalle_PrecioUnitario.DataPropertyName = "PrecioUnitario";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "#,##0.00";
-            this.dgvDetalle_PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,##0.00";
+            this.dgvDetalle_PrecioUnitario.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalle_PrecioUnitario.HeaderText = "P. Unit.";
             this.dgvDetalle_PrecioUnitario.Name = "dgvDetalle_PrecioUnitario";
             this.dgvDetalle_PrecioUnitario.ReadOnly = true;
@@ -272,9 +272,9 @@
             // dgvDetalle_TotalImporte
             // 
             this.dgvDetalle_TotalImporte.DataPropertyName = "Importe";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "#,##0.00";
-            this.dgvDetalle_TotalImporte.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "#,##0.00";
+            this.dgvDetalle_TotalImporte.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalle_TotalImporte.HeaderText = "Importe Total";
             this.dgvDetalle_TotalImporte.Name = "dgvDetalle_TotalImporte";
             this.dgvDetalle_TotalImporte.ReadOnly = true;
@@ -298,7 +298,7 @@
             this.groupBox2.Location = new System.Drawing.Point(8, 86);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(876, 113);
-            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Cliente";
             // 
@@ -307,7 +307,7 @@
             this.btnBuscarCliente.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarCliente.TabIndex = 35;
+            this.btnBuscarCliente.TabIndex = 2;
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
@@ -336,7 +336,7 @@
             this.txtUbicacionCliente.Name = "txtUbicacionCliente";
             this.txtUbicacionCliente.ReadOnly = true;
             this.txtUbicacionCliente.Size = new System.Drawing.Size(342, 20);
-            this.txtUbicacionCliente.TabIndex = 32;
+            this.txtUbicacionCliente.TabIndex = 6;
             // 
             // label14
             // 
@@ -353,7 +353,7 @@
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.ReadOnly = true;
             this.txtDireccionCliente.Size = new System.Drawing.Size(516, 20);
-            this.txtDireccionCliente.TabIndex = 20;
+            this.txtDireccionCliente.TabIndex = 5;
             // 
             // label12
             // 
@@ -370,7 +370,7 @@
             this.txtCorreoCliente.Name = "txtCorreoCliente";
             this.txtCorreoCliente.ReadOnly = true;
             this.txtCorreoCliente.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoCliente.TabIndex = 17;
+            this.txtCorreoCliente.TabIndex = 4;
             // 
             // label11
             // 
@@ -387,14 +387,14 @@
             this.txtNombresCliente.Name = "txtNombresCliente";
             this.txtNombresCliente.ReadOnly = true;
             this.txtNombresCliente.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresCliente.TabIndex = 15;
+            this.txtNombresCliente.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadCliente
             // 
             this.txtNroDocumentoIdentidadCliente.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadCliente.Name = "txtNroDocumentoIdentidadCliente";
             this.txtNroDocumentoIdentidadCliente.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadCliente.TabIndex = 14;
+            this.txtNroDocumentoIdentidadCliente.TabIndex = 1;
             // 
             // label10
             // 
@@ -414,7 +414,7 @@
             this.cbbCodigoTipoDocumentoIdentidadCliente.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadCliente.Name = "cbbCodigoTipoDocumentoIdentidadCliente";
             this.cbbCodigoTipoDocumentoIdentidadCliente.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadCliente.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadCliente.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadCliente.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label9
@@ -443,7 +443,7 @@
             this.groupBox1.Location = new System.Drawing.Point(8, 7);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(876, 73);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Comprobante";
             // 
@@ -470,7 +470,7 @@
             this.txtNroPedido.Location = new System.Drawing.Point(354, 33);
             this.txtNroPedido.Name = "txtNroPedido";
             this.txtNroPedido.Size = new System.Drawing.Size(168, 20);
-            this.txtNroPedido.TabIndex = 15;
+            this.txtNroPedido.TabIndex = 2;
             // 
             // lblErrorCodigoMoneda
             // 
@@ -498,7 +498,7 @@
             this.cbbCodigoMoneda.Location = new System.Drawing.Point(528, 33);
             this.cbbCodigoMoneda.Name = "cbbCodigoMoneda";
             this.cbbCodigoMoneda.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoMoneda.TabIndex = 12;
+            this.cbbCodigoMoneda.TabIndex = 3;
             this.cbbCodigoMoneda.ValueMember = "Value";
             // 
             // lblErrorNroComprobante
@@ -543,7 +543,7 @@
             this.txtNroComprobante.Name = "txtNroComprobante";
             this.txtNroComprobante.ReadOnly = true;
             this.txtNroComprobante.Size = new System.Drawing.Size(168, 20);
-            this.txtNroComprobante.TabIndex = 2;
+            this.txtNroComprobante.TabIndex = 1;
             // 
             // dtpFechaHoraEmision
             // 
@@ -570,7 +570,7 @@
             this.groupBox4.Location = new System.Drawing.Point(8, 205);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(876, 72);
-            this.groupBox4.TabIndex = 36;
+            this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos del Vendedor";
             // 
@@ -579,7 +579,7 @@
             this.btnBuscarVendedor.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarVendedor.Name = "btnBuscarVendedor";
             this.btnBuscarVendedor.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarVendedor.TabIndex = 35;
+            this.btnBuscarVendedor.TabIndex = 2;
             this.btnBuscarVendedor.Text = "Buscar";
             this.btnBuscarVendedor.UseVisualStyleBackColor = true;
             this.btnBuscarVendedor.Click += new System.EventHandler(this.btnBuscarVendedor_Click);
@@ -608,7 +608,7 @@
             this.txtCorreoVendedor.Name = "txtCorreoVendedor";
             this.txtCorreoVendedor.ReadOnly = true;
             this.txtCorreoVendedor.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoVendedor.TabIndex = 17;
+            this.txtCorreoVendedor.TabIndex = 4;
             // 
             // label16
             // 
@@ -625,14 +625,14 @@
             this.txtNombresVendedor.Name = "txtNombresVendedor";
             this.txtNombresVendedor.ReadOnly = true;
             this.txtNombresVendedor.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresVendedor.TabIndex = 15;
+            this.txtNombresVendedor.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadVendedor
             // 
             this.txtNroDocumentoIdentidadVendedor.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadVendedor.Name = "txtNroDocumentoIdentidadVendedor";
             this.txtNroDocumentoIdentidadVendedor.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadVendedor.TabIndex = 14;
+            this.txtNroDocumentoIdentidadVendedor.TabIndex = 1;
             // 
             // label18
             // 
@@ -652,7 +652,7 @@
             this.cbbCodigoTipoDocumentoIdentidadVendedor.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadVendedor.Name = "cbbCodigoTipoDocumentoIdentidadVendedor";
             this.cbbCodigoTipoDocumentoIdentidadVendedor.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadVendedor.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadVendedor.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadVendedor.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label19
@@ -680,7 +680,7 @@
             this.gpbSupervisor.Location = new System.Drawing.Point(8, 283);
             this.gpbSupervisor.Name = "gpbSupervisor";
             this.gpbSupervisor.Size = new System.Drawing.Size(876, 72);
-            this.gpbSupervisor.TabIndex = 37;
+            this.gpbSupervisor.TabIndex = 4;
             this.gpbSupervisor.TabStop = false;
             this.gpbSupervisor.Text = "Datos del Supervisor";
             // 
@@ -689,7 +689,7 @@
             this.btnBuscarSupervisor.Location = new System.Drawing.Point(291, 32);
             this.btnBuscarSupervisor.Name = "btnBuscarSupervisor";
             this.btnBuscarSupervisor.Size = new System.Drawing.Size(57, 23);
-            this.btnBuscarSupervisor.TabIndex = 35;
+            this.btnBuscarSupervisor.TabIndex = 2;
             this.btnBuscarSupervisor.Text = "Buscar";
             this.btnBuscarSupervisor.UseVisualStyleBackColor = true;
             this.btnBuscarSupervisor.Click += new System.EventHandler(this.btnBuscarSupervisor_Click);
@@ -718,7 +718,7 @@
             this.txtCorreoSupervisor.Name = "txtCorreoSupervisor";
             this.txtCorreoSupervisor.ReadOnly = true;
             this.txtCorreoSupervisor.Size = new System.Drawing.Size(168, 20);
-            this.txtCorreoSupervisor.TabIndex = 17;
+            this.txtCorreoSupervisor.TabIndex = 4;
             // 
             // label7
             // 
@@ -735,14 +735,14 @@
             this.txtNombresSupervisor.Name = "txtNombresSupervisor";
             this.txtNombresSupervisor.ReadOnly = true;
             this.txtNombresSupervisor.Size = new System.Drawing.Size(342, 20);
-            this.txtNombresSupervisor.TabIndex = 15;
+            this.txtNombresSupervisor.TabIndex = 3;
             // 
             // txtNroDocumentoIdentidadSupervisor
             // 
             this.txtNroDocumentoIdentidadSupervisor.Location = new System.Drawing.Point(180, 33);
             this.txtNroDocumentoIdentidadSupervisor.Name = "txtNroDocumentoIdentidadSupervisor";
             this.txtNroDocumentoIdentidadSupervisor.Size = new System.Drawing.Size(105, 20);
-            this.txtNroDocumentoIdentidadSupervisor.TabIndex = 14;
+            this.txtNroDocumentoIdentidadSupervisor.TabIndex = 1;
             // 
             // label8
             // 
@@ -762,7 +762,7 @@
             this.cbbCodigoTipoDocumentoIdentidadSupervisor.Location = new System.Drawing.Point(6, 33);
             this.cbbCodigoTipoDocumentoIdentidadSupervisor.Name = "cbbCodigoTipoDocumentoIdentidadSupervisor";
             this.cbbCodigoTipoDocumentoIdentidadSupervisor.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidadSupervisor.TabIndex = 12;
+            this.cbbCodigoTipoDocumentoIdentidadSupervisor.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidadSupervisor.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label20
@@ -780,7 +780,7 @@
             this.chkTieneSupervisor.Location = new System.Drawing.Point(128, 284);
             this.chkTieneSupervisor.Name = "chkTieneSupervisor";
             this.chkTieneSupervisor.Size = new System.Drawing.Size(15, 14);
-            this.chkTieneSupervisor.TabIndex = 36;
+            this.chkTieneSupervisor.TabIndex = 3;
             this.chkTieneSupervisor.UseVisualStyleBackColor = true;
             this.chkTieneSupervisor.CheckedChanged += new System.EventHandler(this.chkTieneSupervisor_CheckedChanged);
             // 
@@ -801,6 +801,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cotizaciones";
             this.Load += new System.EventHandler(this.FrmMantenimientoCotizacion_Load);
             this.groupBox3.ResumeLayout(false);

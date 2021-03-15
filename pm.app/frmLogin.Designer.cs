@@ -39,6 +39,7 @@
             this.lblErrorUsuario = new System.Windows.Forms.Label();
             this.lblErrorContraseña = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -46,7 +47,7 @@
             this.pictureBox1.Image = global::pm.app.Properties.Resources.logo_pm;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(179, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(182, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -65,16 +66,16 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(15, 97);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(176, 21);
-            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Size = new System.Drawing.Size(176, 20);
+            this.txtUsuario.TabIndex = 0;
             // 
             // txtContraseña
             // 
             this.txtContraseña.Location = new System.Drawing.Point(15, 154);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(176, 21);
-            this.txtContraseña.TabIndex = 4;
+            this.txtContraseña.Size = new System.Drawing.Size(176, 20);
+            this.txtContraseña.TabIndex = 1;
             // 
             // label2
             // 
@@ -92,7 +93,7 @@
             this.lnkRecuperarContraseña.Location = new System.Drawing.Point(55, 198);
             this.lnkRecuperarContraseña.Name = "lnkRecuperarContraseña";
             this.lnkRecuperarContraseña.Size = new System.Drawing.Size(136, 13);
-            this.lnkRecuperarContraseña.TabIndex = 5;
+            this.lnkRecuperarContraseña.TabIndex = 2;
             this.lnkRecuperarContraseña.TabStop = true;
             this.lnkRecuperarContraseña.Text = "¿Olvidaste tu contraseña?";
             // 
@@ -101,7 +102,7 @@
             this.btnIniciarSesion.Location = new System.Drawing.Point(56, 226);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(90, 23);
-            this.btnIniciarSesion.TabIndex = 7;
+            this.btnIniciarSesion.TabIndex = 3;
             this.btnIniciarSesion.Text = "Iniciar Sesión";
             this.btnIniciarSesion.UseVisualStyleBackColor = true;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 261);
+            this.ClientSize = new System.Drawing.Size(206, 270);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.lnkRecuperarContraseña);
             this.Controls.Add(this.lblErrorContraseña);
@@ -143,12 +144,18 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(219, 300);
-            this.MinimumSize = new System.Drawing.Size(219, 300);
+            this.MinimumSize = new System.Drawing.Size(214, 300);
             this.Name = "FrmLogin";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.RootElement.MaxSize = new System.Drawing.Size(219, 300);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -68,7 +68,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 306);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -107,7 +107,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 289);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -119,7 +119,7 @@
             this.cbbEstado.Location = new System.Drawing.Point(183, 245);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(168, 21);
-            this.cbbEstado.TabIndex = 39;
+            this.cbbEstado.TabIndex = 8;
             this.cbbEstado.ValueMember = "Value";
             // 
             // lblErrorEstado
@@ -155,7 +155,7 @@
             this.txtMetrajeTotal.Location = new System.Drawing.Point(9, 245);
             this.txtMetrajeTotal.Name = "txtMetrajeTotal";
             this.txtMetrajeTotal.Size = new System.Drawing.Size(168, 20);
-            this.txtMetrajeTotal.TabIndex = 34;
+            this.txtMetrajeTotal.TabIndex = 7;
             // 
             // label12
             // 
@@ -171,7 +171,7 @@
             this.txtValorCompra.Location = new System.Drawing.Point(9, 139);
             this.txtValorCompra.Name = "txtValorCompra";
             this.txtValorCompra.Size = new System.Drawing.Size(168, 20);
-            this.txtValorCompra.TabIndex = 32;
+            this.txtValorCompra.TabIndex = 3;
             // 
             // cbbCodigoUnidadMedida
             // 
@@ -181,7 +181,7 @@
             this.cbbCodigoUnidadMedida.Location = new System.Drawing.Point(9, 86);
             this.cbbCodigoUnidadMedida.Name = "cbbCodigoUnidadMedida";
             this.cbbCodigoUnidadMedida.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoUnidadMedida.TabIndex = 31;
+            this.cbbCodigoUnidadMedida.TabIndex = 1;
             this.cbbCodigoUnidadMedida.ValueMember = "CodigoUnidadMedida";
             // 
             // lblErrorCodigoUnidadMedida
@@ -270,7 +270,7 @@
             this.txtColor.Location = new System.Drawing.Point(183, 192);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(168, 20);
-            this.txtColor.TabIndex = 15;
+            this.txtColor.TabIndex = 6;
             // 
             // label7
             // 
@@ -286,7 +286,7 @@
             this.txtDescuentoMaximo.Location = new System.Drawing.Point(9, 192);
             this.txtDescuentoMaximo.Name = "txtDescuentoMaximo";
             this.txtDescuentoMaximo.Size = new System.Drawing.Size(168, 20);
-            this.txtDescuentoMaximo.TabIndex = 13;
+            this.txtDescuentoMaximo.TabIndex = 5;
             // 
             // label8
             // 
@@ -303,7 +303,7 @@
             this.txtValorVenta.Location = new System.Drawing.Point(183, 139);
             this.txtValorVenta.Name = "txtValorVenta";
             this.txtValorVenta.Size = new System.Drawing.Size(168, 20);
-            this.txtValorVenta.TabIndex = 11;
+            this.txtValorVenta.TabIndex = 4;
             // 
             // label6
             // 
@@ -330,7 +330,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(183, 86);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(168, 20);
-            this.txtCantidad.TabIndex = 7;
+            this.txtCantidad.TabIndex = 2;
             // 
             // label4
             // 
@@ -348,7 +348,7 @@
             this.txtNombre.Location = new System.Drawing.Point(9, 33);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(342, 20);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 0;
             // 
             // label3
             // 

@@ -56,7 +56,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 199);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 9;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -83,7 +83,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 181);
-            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -101,7 +101,7 @@
             this.txtValorActual.Location = new System.Drawing.Point(9, 138);
             this.txtValorActual.Name = "txtValorActual";
             this.txtValorActual.Size = new System.Drawing.Size(168, 20);
-            this.txtValorActual.TabIndex = 37;
+            this.txtValorActual.TabIndex = 4;
             // 
             // label4
             // 
@@ -120,7 +120,7 @@
             this.cbbCodigoTipoComprobante.Location = new System.Drawing.Point(9, 32);
             this.cbbCodigoTipoComprobante.Name = "cbbCodigoTipoComprobante";
             this.cbbCodigoTipoComprobante.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoComprobante.TabIndex = 35;
+            this.cbbCodigoTipoComprobante.TabIndex = 0;
             this.cbbCodigoTipoComprobante.ValueMember = "CodigoTipoComprobante";
             // 
             // lblErrorCodigoTipoComprobante
@@ -168,7 +168,7 @@
             this.txtValorFinal.Location = new System.Drawing.Point(183, 85);
             this.txtValorFinal.Name = "txtValorFinal";
             this.txtValorFinal.Size = new System.Drawing.Size(168, 20);
-            this.txtValorFinal.TabIndex = 29;
+            this.txtValorFinal.TabIndex = 3;
             // 
             // label6
             // 
@@ -184,7 +184,7 @@
             this.txtValorInicial.Location = new System.Drawing.Point(9, 85);
             this.txtValorInicial.Name = "txtValorInicial";
             this.txtValorInicial.Size = new System.Drawing.Size(168, 20);
-            this.txtValorInicial.TabIndex = 27;
+            this.txtValorInicial.TabIndex = 2;
             // 
             // label5
             // 
@@ -213,7 +213,7 @@
             this.txtSerial.Location = new System.Drawing.Point(183, 32);
             this.txtSerial.Name = "txtSerial";
             this.txtSerial.Size = new System.Drawing.Size(168, 20);
-            this.txtSerial.TabIndex = 5;
+            this.txtSerial.TabIndex = 1;
             // 
             // label3
             // 

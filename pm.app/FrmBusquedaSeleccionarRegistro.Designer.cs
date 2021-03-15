@@ -33,6 +33,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,15 +49,15 @@
             // 
             this.txtFiltroBusqueda.Location = new System.Drawing.Point(73, 14);
             this.txtFiltroBusqueda.Name = "txtFiltroBusqueda";
-            this.txtFiltroBusqueda.Size = new System.Drawing.Size(186, 21);
-            this.txtFiltroBusqueda.TabIndex = 1;
+            this.txtFiltroBusqueda.Size = new System.Drawing.Size(186, 20);
+            this.txtFiltroBusqueda.TabIndex = 0;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(265, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -75,7 +76,7 @@
             this.dgvResultados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(328, 283);
-            this.dgvResultados.TabIndex = 3;
+            this.dgvResultados.TabIndex = 2;
             this.dgvResultados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultados_CellDoubleClick);
             // 
             // FrmBusquedaSeleccionarRegistro
@@ -89,10 +90,15 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.Name = "FrmBusquedaSeleccionarRegistro";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmBusquedaSeleccionarRegistro";
             this.Load += new System.EventHandler(this.FrmBusquedaSeleccionarRegistro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

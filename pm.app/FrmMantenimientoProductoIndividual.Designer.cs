@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblErrorCodigoUnidadMedidaPeso = new System.Windows.Forms.Label();
+            this.cbbCodigoUnidadMedidaPeso = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.lblErrorPrecioVenta = new System.Windows.Forms.Label();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -87,9 +90,6 @@
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tltProductoIndividual = new System.Windows.Forms.ToolTip(this.components);
-            this.lblErrorCodigoUnidadMedidaPeso = new System.Windows.Forms.Label();
-            this.cbbCodigoUnidadMedidaPeso = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 617);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 19;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -169,9 +169,40 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 600);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
+            // 
+            // lblErrorCodigoUnidadMedidaPeso
+            // 
+            this.lblErrorCodigoUnidadMedidaPeso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrorCodigoUnidadMedidaPeso.AutoSize = true;
+            this.lblErrorCodigoUnidadMedidaPeso.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCodigoUnidadMedidaPeso.Location = new System.Drawing.Point(6, 269);
+            this.lblErrorCodigoUnidadMedidaPeso.Name = "lblErrorCodigoUnidadMedidaPeso";
+            this.lblErrorCodigoUnidadMedidaPeso.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorCodigoUnidadMedidaPeso.TabIndex = 71;
+            // 
+            // cbbCodigoUnidadMedidaPeso
+            // 
+            this.cbbCodigoUnidadMedidaPeso.DisplayMember = "Descripcion";
+            this.cbbCodigoUnidadMedidaPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoUnidadMedidaPeso.FormattingEnabled = true;
+            this.cbbCodigoUnidadMedidaPeso.Location = new System.Drawing.Point(9, 245);
+            this.cbbCodigoUnidadMedidaPeso.Name = "cbbCodigoUnidadMedidaPeso";
+            this.cbbCodigoUnidadMedidaPeso.Size = new System.Drawing.Size(168, 21);
+            this.cbbCodigoUnidadMedidaPeso.TabIndex = 9;
+            this.cbbCodigoUnidadMedidaPeso.ValueMember = "CodigoUnidadMedida";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 229);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(109, 13);
+            this.label17.TabIndex = 70;
+            this.label17.Text = "Unidad Medida Peso";
             // 
             // lblErrorPrecioVenta
             // 
@@ -187,7 +218,7 @@
             this.txtPrecioVenta.Location = new System.Drawing.Point(183, 404);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(168, 20);
-            this.txtPrecioVenta.TabIndex = 64;
+            this.txtPrecioVenta.TabIndex = 16;
             // 
             // label16
             // 
@@ -214,7 +245,7 @@
             this.txtPrecioCompra.Location = new System.Drawing.Point(9, 404);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(168, 20);
-            this.txtPrecioCompra.TabIndex = 63;
+            this.txtPrecioCompra.TabIndex = 15;
             // 
             // label18
             // 
@@ -230,7 +261,7 @@
             this.btnBuscarProductoInicial.Location = new System.Drawing.Point(293, 137);
             this.btnBuscarProductoInicial.Name = "btnBuscarProductoInicial";
             this.btnBuscarProductoInicial.Size = new System.Drawing.Size(58, 23);
-            this.btnBuscarProductoInicial.TabIndex = 62;
+            this.btnBuscarProductoInicial.TabIndex = 6;
             this.btnBuscarProductoInicial.Text = "Buscar";
             this.btnBuscarProductoInicial.UseVisualStyleBackColor = true;
             this.btnBuscarProductoInicial.Click += new System.EventHandler(this.btnBuscarProductoInicial_Click);
@@ -243,7 +274,7 @@
             this.txtNombreProductoIndividualInicial.Name = "txtNombreProductoIndividualInicial";
             this.txtNombreProductoIndividualInicial.ReadOnly = true;
             this.txtNombreProductoIndividualInicial.Size = new System.Drawing.Size(217, 20);
-            this.txtNombreProductoIndividualInicial.TabIndex = 61;
+            this.txtNombreProductoIndividualInicial.TabIndex = 5;
             // 
             // lblErrorCodigoBarraProveedor
             // 
@@ -261,7 +292,7 @@
             this.txtCodigoBarraProveedor.Location = new System.Drawing.Point(9, 457);
             this.txtCodigoBarraProveedor.Name = "txtCodigoBarraProveedor";
             this.txtCodigoBarraProveedor.Size = new System.Drawing.Size(168, 20);
-            this.txtCodigoBarraProveedor.TabIndex = 12;
+            this.txtCodigoBarraProveedor.TabIndex = 17;
             // 
             // label15
             // 
@@ -287,7 +318,7 @@
             this.txtMetraje.Location = new System.Drawing.Point(183, 192);
             this.txtMetraje.Name = "txtMetraje";
             this.txtMetraje.Size = new System.Drawing.Size(168, 20);
-            this.txtMetraje.TabIndex = 6;
+            this.txtMetraje.TabIndex = 8;
             // 
             // label13
             // 
@@ -314,7 +345,7 @@
             this.btnBuscarPersonalInspeccion.Location = new System.Drawing.Point(293, 561);
             this.btnBuscarPersonalInspeccion.Name = "btnBuscarPersonalInspeccion";
             this.btnBuscarPersonalInspeccion.Size = new System.Drawing.Size(58, 23);
-            this.btnBuscarPersonalInspeccion.TabIndex = 18;
+            this.btnBuscarPersonalInspeccion.TabIndex = 23;
             this.btnBuscarPersonalInspeccion.Text = "Buscar";
             this.btnBuscarPersonalInspeccion.UseVisualStyleBackColor = true;
             this.btnBuscarPersonalInspeccion.Click += new System.EventHandler(this.btnBuscarPersonalInspeccion_Click);
@@ -327,7 +358,7 @@
             this.txtNombresPersonalInspeccion.Name = "txtNombresPersonalInspeccion";
             this.txtNombresPersonalInspeccion.ReadOnly = true;
             this.txtNombresPersonalInspeccion.Size = new System.Drawing.Size(217, 20);
-            this.txtNombresPersonalInspeccion.TabIndex = 17;
+            this.txtNombresPersonalInspeccion.TabIndex = 22;
             // 
             // txtNroDocIdentidadPersonalInspeccion
             // 
@@ -336,7 +367,7 @@
             this.txtNroDocIdentidadPersonalInspeccion.Location = new System.Drawing.Point(9, 563);
             this.txtNroDocIdentidadPersonalInspeccion.Name = "txtNroDocIdentidadPersonalInspeccion";
             this.txtNroDocIdentidadPersonalInspeccion.Size = new System.Drawing.Size(55, 20);
-            this.txtNroDocIdentidadPersonalInspeccion.TabIndex = 16;
+            this.txtNroDocIdentidadPersonalInspeccion.TabIndex = 21;
             // 
             // label14
             // 
@@ -363,7 +394,7 @@
             this.btnBuscarProveedor.Location = new System.Drawing.Point(293, 508);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(58, 23);
-            this.btnBuscarProveedor.TabIndex = 15;
+            this.btnBuscarProveedor.TabIndex = 20;
             this.btnBuscarProveedor.Text = "Buscar";
             this.btnBuscarProveedor.UseVisualStyleBackColor = true;
             this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
@@ -376,7 +407,7 @@
             this.txtNombresProveedor.Name = "txtNombresProveedor";
             this.txtNombresProveedor.ReadOnly = true;
             this.txtNombresProveedor.Size = new System.Drawing.Size(217, 20);
-            this.txtNombresProveedor.TabIndex = 14;
+            this.txtNombresProveedor.TabIndex = 19;
             // 
             // txtNroDocIdentidadProveedor
             // 
@@ -385,7 +416,7 @@
             this.txtNroDocIdentidadProveedor.Location = new System.Drawing.Point(9, 510);
             this.txtNroDocIdentidadProveedor.Name = "txtNroDocIdentidadProveedor";
             this.txtNroDocIdentidadProveedor.Size = new System.Drawing.Size(55, 20);
-            this.txtNroDocIdentidadProveedor.TabIndex = 13;
+            this.txtNroDocIdentidadProveedor.TabIndex = 18;
             // 
             // label11
             // 
@@ -411,7 +442,7 @@
             this.dtpFechaEntrada.Location = new System.Drawing.Point(183, 351);
             this.dtpFechaEntrada.Name = "dtpFechaEntrada";
             this.dtpFechaEntrada.Size = new System.Drawing.Size(168, 20);
-            this.dtpFechaEntrada.TabIndex = 11;
+            this.dtpFechaEntrada.TabIndex = 14;
             // 
             // label12
             // 
@@ -438,7 +469,7 @@
             this.txtColor.Location = new System.Drawing.Point(9, 351);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(168, 20);
-            this.txtColor.TabIndex = 10;
+            this.txtColor.TabIndex = 13;
             // 
             // label7
             // 
@@ -463,7 +494,7 @@
             this.txtBulto.Location = new System.Drawing.Point(183, 298);
             this.txtBulto.Name = "txtBulto";
             this.txtBulto.Size = new System.Drawing.Size(168, 20);
-            this.txtBulto.TabIndex = 9;
+            this.txtBulto.TabIndex = 12;
             // 
             // label8
             // 
@@ -490,7 +521,7 @@
             this.txtRollo.Location = new System.Drawing.Point(9, 298);
             this.txtRollo.Name = "txtRollo";
             this.txtRollo.Size = new System.Drawing.Size(168, 20);
-            this.txtRollo.TabIndex = 8;
+            this.txtRollo.TabIndex = 11;
             // 
             // label6
             // 
@@ -516,7 +547,7 @@
             this.txtPeso.Location = new System.Drawing.Point(183, 245);
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(168, 20);
-            this.txtPeso.TabIndex = 7;
+            this.txtPeso.TabIndex = 10;
             // 
             // label5
             // 
@@ -545,7 +576,7 @@
             this.txtCodigoBarraProductoIndividualInicial.Location = new System.Drawing.Point(9, 139);
             this.txtCodigoBarraProductoIndividualInicial.Name = "txtCodigoBarraProductoIndividualInicial";
             this.txtCodigoBarraProductoIndividualInicial.Size = new System.Drawing.Size(55, 20);
-            this.txtCodigoBarraProductoIndividualInicial.TabIndex = 5;
+            this.txtCodigoBarraProductoIndividualInicial.TabIndex = 4;
             // 
             // label4
             // 
@@ -575,7 +606,7 @@
             this.cbbCodigoUnidadMedida.Location = new System.Drawing.Point(9, 192);
             this.cbbCodigoUnidadMedida.Name = "cbbCodigoUnidadMedida";
             this.cbbCodigoUnidadMedida.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoUnidadMedida.TabIndex = 4;
+            this.cbbCodigoUnidadMedida.TabIndex = 7;
             this.cbbCodigoUnidadMedida.ValueMember = "CodigoUnidadMedida";
             // 
             // label2
@@ -684,37 +715,6 @@
             this.label10.Size = new System.Drawing.Size(71, 13);
             this.label10.TabIndex = 45;
             this.label10.Text = "Código Barra";
-            // 
-            // lblErrorCodigoUnidadMedidaPeso
-            // 
-            this.lblErrorCodigoUnidadMedidaPeso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrorCodigoUnidadMedidaPeso.AutoSize = true;
-            this.lblErrorCodigoUnidadMedidaPeso.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCodigoUnidadMedidaPeso.Location = new System.Drawing.Point(6, 269);
-            this.lblErrorCodigoUnidadMedidaPeso.Name = "lblErrorCodigoUnidadMedidaPeso";
-            this.lblErrorCodigoUnidadMedidaPeso.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorCodigoUnidadMedidaPeso.TabIndex = 71;
-            // 
-            // cbbCodigoUnidadMedidaPeso
-            // 
-            this.cbbCodigoUnidadMedidaPeso.DisplayMember = "Descripcion";
-            this.cbbCodigoUnidadMedidaPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigoUnidadMedidaPeso.FormattingEnabled = true;
-            this.cbbCodigoUnidadMedidaPeso.Location = new System.Drawing.Point(9, 245);
-            this.cbbCodigoUnidadMedidaPeso.Name = "cbbCodigoUnidadMedidaPeso";
-            this.cbbCodigoUnidadMedidaPeso.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoUnidadMedidaPeso.TabIndex = 69;
-            this.cbbCodigoUnidadMedidaPeso.ValueMember = "CodigoUnidadMedida";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 229);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(109, 13);
-            this.label17.TabIndex = 70;
-            this.label17.Text = "Unidad Medida Peso";
             // 
             // FrmMantenimientoProductoIndividual
             // 

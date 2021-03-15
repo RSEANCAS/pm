@@ -28,14 +28,19 @@ namespace pm.enums
 
         public enum EstadoLetra
         {
+            [AmbientValue("")]
             [Description("Por Asignar Banco")]
             PorAsignarBanco = 1,
+            [AmbientValue("")]
             [Description("Pendiente")]
             Pendiente = 2,
+            [AmbientValue("")]
             [Description("Renovada")]
             Renovada = 3,
+            [AmbientValue("")]
             [Description("Retirada")]
             Retirada = 4,
+            [AmbientValue("")]
             [Description("Protestada")]
             Protestada = 5
         }

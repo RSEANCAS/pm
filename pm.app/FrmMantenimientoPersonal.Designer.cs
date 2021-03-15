@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tltPersonal = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -58,7 +59,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(297, 251);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -88,7 +89,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 234);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Generales";
             // 
@@ -109,7 +110,7 @@
             this.cbbCodigoArea.Location = new System.Drawing.Point(183, 139);
             this.cbbCodigoArea.Name = "cbbCodigoArea";
             this.cbbCodigoArea.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoArea.TabIndex = 27;
+            this.cbbCodigoArea.TabIndex = 4;
             this.cbbCodigoArea.ValueMember = "CodigoArea";
             // 
             // lblErrorCodigoArea
@@ -180,7 +181,7 @@
             this.cbbEstado.Location = new System.Drawing.Point(9, 192);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(168, 21);
-            this.cbbEstado.TabIndex = 17;
+            this.cbbEstado.TabIndex = 5;
             this.cbbEstado.ValueMember = "Value";
             // 
             // label6
@@ -196,8 +197,8 @@
             // 
             this.txtCorreoElectronico.Location = new System.Drawing.Point(9, 139);
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
-            this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 21);
-            this.txtCorreoElectronico.TabIndex = 9;
+            this.txtCorreoElectronico.Size = new System.Drawing.Size(168, 20);
+            this.txtCorreoElectronico.TabIndex = 3;
             // 
             // label5
             // 
@@ -214,8 +215,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombresCompletos.Location = new System.Drawing.Point(9, 86);
             this.txtNombresCompletos.Name = "txtNombresCompletos";
-            this.txtNombresCompletos.Size = new System.Drawing.Size(342, 21);
-            this.txtNombresCompletos.TabIndex = 5;
+            this.txtNombresCompletos.Size = new System.Drawing.Size(342, 20);
+            this.txtNombresCompletos.TabIndex = 2;
             // 
             // label3
             // 
@@ -240,8 +241,8 @@
             this.txtNroDocumentoIdentidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNroDocumentoIdentidad.Location = new System.Drawing.Point(183, 33);
             this.txtNroDocumentoIdentidad.Name = "txtNroDocumentoIdentidad";
-            this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 21);
-            this.txtNroDocumentoIdentidad.TabIndex = 3;
+            this.txtNroDocumentoIdentidad.Size = new System.Drawing.Size(168, 20);
+            this.txtNroDocumentoIdentidad.TabIndex = 1;
             // 
             // cbbCodigoTipoDocumentoIdentidad
             // 
@@ -251,7 +252,7 @@
             this.cbbCodigoTipoDocumentoIdentidad.Location = new System.Drawing.Point(9, 33);
             this.cbbCodigoTipoDocumentoIdentidad.Name = "cbbCodigoTipoDocumentoIdentidad";
             this.cbbCodigoTipoDocumentoIdentidad.Size = new System.Drawing.Size(168, 21);
-            this.cbbCodigoTipoDocumentoIdentidad.TabIndex = 1;
+            this.cbbCodigoTipoDocumentoIdentidad.TabIndex = 0;
             this.cbbCodigoTipoDocumentoIdentidad.ValueMember = "CodigoTipoDocumentoIdentidad";
             // 
             // label2
@@ -273,11 +274,16 @@
             this.Font = new System.Drawing.Font("Roboto", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmMantenimientoPersonal";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmMantenimientoPersonal";
             this.Load += new System.EventHandler(this.FrmMantenimientoPersonal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
